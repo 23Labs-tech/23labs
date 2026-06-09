@@ -46,7 +46,7 @@ const css = `
 .tl-sec{padding:96px 0}
 .tl-sec-head{margin-bottom:54px;max-width:60ch}
 .tl-sec-tag{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:16px}
-.tl-sec-title{font-size:clamp(30px,4vw,46px);letter-spacing:-.025em;font-weight:500;line-height:1.05}
+.tl-sec-title{font-size:clamp(26px,4vw,35px);letter-spacing:-.025em;font-weight:500;line-height:1.05}
 
 .tl-svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
 .tl-svc{background:var(--paper);padding:42px 38px;transition:.25s;position:relative}
@@ -163,7 +163,7 @@ const css = `
 
 /* About page */
 .tl-about-hero{padding:88px 0 36px}
-.tl-about-h{font-size:clamp(34px,5vw,62px);line-height:1.1;letter-spacing:-.03em;font-weight:500;max-width:18ch;margin:16px 0 24px;color:var(--ink)}
+.tl-about-h{font-size:clamp(30px,5vw,40px);line-height:1.1;letter-spacing:-.03em;font-weight:500;max-width:18ch;margin:16px 0 24px;color:var(--ink)}
 .tl-about-h .tl-em{color:var(--accent)}
 .tl-about-lead{font-size:20px;color:var(--ink-soft);max-width:60ch;line-height:1.55}
 .tl-story{display:grid;grid-template-columns:.55fr 1fr;gap:48px;align-items:start}

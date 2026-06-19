@@ -24,23 +24,28 @@ body{padding:10px;box-sizing:border-box}
 
 /* Bold emphasis replaces italic serif */
 .tl-em{font-weight:700;color:var(--accent)}
+.tl-sec-title .tl-em,.tl-contact-left h2 .tl-em,.tl-q .tl-em{font-weight:inherit}
 .tl-em-haylo{font-weight:700;color:#ff7a5c}
 
-.tl-nav{position:sticky;top:10px;z-index:50;background:rgba(250,249,246,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.tl-nav-in{max-width:var(--maxw);margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between}
+.tl-nav{position:sticky;top:0;z-index:50;width:100%;background:rgba(250,249,246,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:transform .35s ease,box-shadow .35s ease}
+.tl-nav.tl-nav-hidden{transform:translateY(-100%)}
+.tl-nav-in{max-width:var(--maxw);margin:0 auto;padding:12px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .tl-logo{font-weight:600;font-size:19px;letter-spacing:-.02em;display:flex;align-items:center;gap:9px}
 .tl-logo .tl-dot{width:9px;height:9px;background:var(--accent);border-radius:50%;display:inline-block}
 .tl-logo-img{height:70px;width:auto;display:block}
+.tl-nav .tl-logo-img{width:58.5px;height:auto;max-width:97.5px}
+@media(min-width:641px){.tl-nav .tl-logo-img{width:75px}}
+@media(min-width:1025px){.tl-nav .tl-logo-img{width:90px}}
 .tl-foot .tl-logo-img{height:51px}
 .tl-nav-right{display:flex;align-items:center;gap:34px}
 .tl-nav-links{display:flex;gap:34px;font-size:15px;color:var(--ink-soft)}
 .tl-nav-links a:hover{color:var(--ink)}
 .tl-root .tl-nav-cta{background:linear-gradient(135deg,#e8482b 0%,#c93f6b 45%,#6a4ad0 75%,#2b5fe8 100%);border:none;color:#fff;padding:10px 19px;border-radius:100px;font-size:14px;font-weight:600}
-@media(max-width:760px){.tl-burger{display:flex}.tl-nav-in{position:relative;flex-wrap:wrap}.tl-nav-right{display:none;position:absolute;top:calc(100% + 12px);left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:10px;box-shadow:0 18px 44px rgba(0,0,0,.12);z-index:60}.tl-nav-right.tl-open{display:flex}.tl-nav-links{flex-direction:column;gap:0}.tl-nav-links a{padding:12px;border-radius:9px;font-size:16px}.tl-nav-links a:hover{background:var(--paper-2)}.tl-root .tl-nav-cta{margin-top:6px;text-align:center;padding:13px;font-size:15px}}
+@media(max-width:860px){.tl-burger{display:flex}.tl-nav-in{position:relative}.tl-nav-right{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 16px 30px -18px rgba(17,17,16,.22);padding:6px 32px 16px;z-index:60}.tl-nav-right.tl-open{display:flex}.tl-nav-links{flex-direction:column;gap:0}.tl-nav-links a{padding:13px 2px;border-bottom:1px solid var(--line);font-size:16px;color:var(--ink)}.tl-root .tl-nav-cta{margin-top:14px;text-align:center;justify-content:center;padding:13px;font-size:15px}}
 
 .tl-hero{padding:96px 0 72px;position:relative;overflow:hidden}
 @keyframes tl-ring{0%{transform:scale(.6);opacity:.7}100%{transform:scale(1.8);opacity:0}}
-.tl-hero-h{font-size:clamp(2.5rem, 1.5rem + 4vw, 5rem);line-height:1.05;letter-spacing:-.03em;font-weight:500;max-width:16ch;color:#fff;text-shadow:0 1px 30px rgba(0,0,0,.35)}
+.tl-hero-h{font-size:clamp(1.6rem, 0.96rem + 2.56vw, 3.2rem);line-height:1.05;letter-spacing:-.03em;font-weight:500;max-width:16ch;color:#fff;text-shadow:0 1px 30px rgba(0,0,0,.35)}
 .tl-hero .tl-em{color:#ff7e4f}
 .tl-hero-sub{font-size:clamp(1.125rem, 1rem + 0.75vw, 1.5rem);color:rgba(255,255,255,.88);max-width:56ch;margin:30px 0 38px;line-height:1.5;text-shadow:0 1px 18px rgba(0,0,0,.3)}
 .tl-hero-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
@@ -52,7 +57,7 @@ body{padding:10px;box-sizing:border-box}
 .tl-sec{padding:96px 0}
 .tl-sec-head{margin-bottom:54px;max-width:60ch}
 .tl-sec-tag{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:16px}
-.tl-sec-title{font-size:clamp(2rem, 1.25rem + 2vw, 3.5rem);letter-spacing:-.025em;font-weight:500;line-height:1.1}
+.tl-sec-title{font-size:clamp(1.28rem, 0.8rem + 1.28vw, 2.24rem);letter-spacing:-.025em;font-weight:500;line-height:1.1}
 
 .tl-svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
 .tl-svc{background:var(--paper);padding:42px 38px;transition:.25s;position:relative}
@@ -83,8 +88,8 @@ body{padding:10px;box-sizing:border-box}
 .tl-stats{display:flex;flex-direction:row;justify-content:center;align-items:flex-start;gap:54px;text-align:center}.tl-stats .tl-stat{flex:1 1 0;min-width:0}
 .tl-stat .tl-n{font-size:64px;letter-spacing:-.03em;font-weight:600;line-height:1}
 .tl-stat .tl-n .tl-plus{color:var(--accent)}
-.tl-stat .tl-l{font-size:15px;color:var(--ink-soft);margin-top:12px;max-width:24ch}
-@media(max-width:760px){.tl-stats{gap:14px}.tl-stats .tl-n{font-size:32px}.tl-stats .tl-l{font-size:11.5px;margin-top:6px}}
+.tl-stat .tl-l{font-size:15px;color:var(--ink-soft);margin:12px auto 0;max-width:24ch}
+@media(max-width:760px){.tl-stats{gap:14px}.tl-stats .tl-n{font-size:32px}.tl-stats .tl-l{font-size:11.5px;margin:6px auto 0}}
 
 .tl-work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
 .tl-work{height:420px;border-radius:18px;background:transparent;perspective:1600px;outline:none}
@@ -128,7 +133,7 @@ body{padding:10px;box-sizing:border-box}
 .tl-contact .tl-em{color:#fff}
 .tl-contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
 @media(max-width:880px){.tl-contact-grid{grid-template-columns:1fr;gap:44px}}
-.tl-contact-left h2{font-size:clamp(2rem, 1.25rem + 2vw, 3.5rem);letter-spacing:-.03em;font-weight:500;line-height:1.1;margin-bottom:20px;max-width:14ch;color:#fff}
+.tl-contact-left h2{font-size:clamp(1.28rem, 0.8rem + 1.28vw, 2.24rem);letter-spacing:-.03em;font-weight:500;line-height:1.1;margin-bottom:20px;max-width:14ch;color:#fff}
 .tl-contact-left .tl-lead{font-size:clamp(1.125rem, 1rem + 0.75vw, 1.5rem);line-height:1.5;margin-bottom:18px;max-width:46ch;color:#fff}
 .tl-contact-left .tl-support{font-size:clamp(1rem, 16px + 0.5vw, 1.125rem);line-height:1.7;max-width:48ch;color:rgba(255,255,255,.88)}
 
@@ -247,6 +252,20 @@ export default function Contact() {
     }
   };
 
+  useEffect(() => {
+    let lastY = window.scrollY;
+    const onScroll = () => {
+      const nav = document.querySelector(".tl-nav");
+      if (!nav) return;
+      const y = window.scrollY;
+      if (y > lastY && y > 80) nav.classList.add("tl-nav-hidden");
+      else nav.classList.remove("tl-nav-hidden");
+      lastY = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <div className="tl-root">
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');${css}`}</style>
@@ -260,7 +279,7 @@ export default function Contact() {
               <a href="/about">About</a>
               <a href="/services">Services</a>
               <a href="/#work">Work</a>
-              <a href="/#haylo">Haylo</a>
+              
             </div>
             <a href="/contact" className="tl-nav-cta">Let's have a chat</a>
           </div>
@@ -341,7 +360,7 @@ export default function Contact() {
               <a href="/" className="tl-logo" style={{ marginBottom: 16, display: "inline-flex" }}><img className="tl-logo-img" src={LOGO_SRC} alt="23Labs" /></a>
               <p style={{ fontSize: 15, color: "var(--ink-soft)" }}>Smarter systems, automation, and software for ambitious businesses.</p>
             </div>
-            <div className="tl-foot-col"><h5>Studio</h5><a href="/services">Services</a><a href="/#work">Work</a><a href="/about">About</a><a href="/contact">Contact</a></div>
+            <div className="tl-foot-col"><h5>Studio</h5><a href="/services">Services</a><a href="/#work">Work</a><a href="/about">About</a><a href="/contact">Contact</a><a href="/resources">Resources</a></div>
             <div className="tl-foot-col"><h5>Products</h5><a href="/#haylo">Haylo AI</a><a href="/contact">Let's have a chat</a></div>
             <div className="tl-foot-col"><h5>Connect</h5><a href="https://au.linkedin.com/company/23labs" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://www.instagram.com/_23labs.co_/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="mailto:hello@23labs.co">hello@23labs.co</a></div>
           </div>

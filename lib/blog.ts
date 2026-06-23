@@ -148,6 +148,8 @@ function readPost(slug: string): BlogPost | null {
   const { frontmatter, content } = parseFrontmatter(file);
   const words = content.split(/\s+/).filter(Boolean).length;
 
+  const featuredImage = frontmatter.featuredImage || frontmatter.image || "/23labs-logo-dark.png";
+
   return {
     slug,
     title: frontmatter.title || slug.replace(/-/g, " "),
@@ -159,7 +161,7 @@ function readPost(slug: string): BlogPost | null {
       .split(",")
       .map((category) => category.trim())
       .filter(Boolean),
-    featuredImage: frontmatter.featuredImage || "/23labs-logo-dark.png",
+    featuredImage,
     imageAlt:
       frontmatter.imageAlt ||
       `Featured image for ${frontmatter.title || slug.replace(/-/g, " ")} by 23Labs`,

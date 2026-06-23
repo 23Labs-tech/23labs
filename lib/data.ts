@@ -1,7 +1,7 @@
 export const navItems = [
+  { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Work", href: "/#work" },
-  { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
 ];
 
@@ -196,4 +196,3 @@ export const faqs = [
       "The first step is a short discovery conversation to understand the workflow, goal, timeline, and best next move.",
   },
 ];
-

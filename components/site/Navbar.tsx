@@ -57,7 +57,7 @@ export function Navbar() {
             })}
           </div>
           <ButtonLink href="/contact" className="nav-cta">
-            Book a discovery call
+            Let&apos;s have a chat
           </ButtonLink>
         </nav>
       </div>

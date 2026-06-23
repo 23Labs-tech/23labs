@@ -26,20 +26,48 @@ export default function Home() {
           priority
           className="hero-brand-mark"
         />
-        <div className="container hero-content">
-          <p className="eyebrow">Automation, software, AI and data systems</p>
-          <h1>
-            Helping businesses scale with <span>confidence</span>
-          </h1>
-          <p className="hero-lead">
-            From everyday operations to customer engagement, we help businesses remove inefficiencies
-            and create systems that support long-term success.
-          </p>
-          <div className="hero-actions">
-            <ButtonLink href="/contact">Book a discovery call</ButtonLink>
-            <ButtonLink href="/services" variant="secondary">
-              Explore services
-            </ButtonLink>
+        <div className="container hero-layout">
+          <div className="hero-content">
+            <p className="eyebrow">Automation, software, AI and data systems</p>
+            <h1>
+              Helping businesses scale with <span>confidence</span>
+            </h1>
+            <p className="hero-lead">
+              From everyday operations to customer engagement, we help businesses remove inefficiencies
+              and create systems that support long-term success.
+            </p>
+            <div className="hero-actions">
+              <ButtonLink href="/contact">Let&apos;s have a chat</ButtonLink>
+              <ButtonLink href="/services" variant="secondary">
+                Explore services
+              </ButtonLink>
+            </div>
+          </div>
+
+          <div className="hero-proof" aria-label="23Labs service outcomes">
+            <Image
+              src="/23labs-logo-dark.png"
+              alt="23Labs"
+              width={220}
+              height={195}
+              className="hero-proof-logo"
+            />
+            <h2>Practical systems for growing teams.</h2>
+            <p>Cleaner operations, faster launches, and automation that fits the way your team already works.</p>
+            <ul className="hero-proof-list">
+              <li>
+                <span>Manual workflow</span>
+                <strong>Automated</strong>
+              </li>
+              <li>
+                <span>Website launch</span>
+                <strong>Shipped</strong>
+              </li>
+              <li>
+                <span>Data visibility</span>
+                <strong>Connected</strong>
+              </li>
+            </ul>
           </div>
         </div>
       </section>

@@ -13,9 +13,7 @@ export function CtaSection({ title, body, href, label }: CtaSectionProps) {
       <div className="container cta-panel">
         <h2>{title}</h2>
         <p>{body}</p>
-        <ButtonLink href={href} variant="light">
-          {label}
-        </ButtonLink>
+        <ButtonLink href={href}>{label}</ButtonLink>
       </div>
     </section>
   );

@@ -1,10 +1,12 @@
-import Image from "next/image";
 import type { Metadata } from "next";
+import { BlogCard } from "@/components/blog/BlogCard";
+import { HomeHero } from "@/components/sections/HomeHero";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { StatsBand } from "@/components/sections/StatsBand";
 import { JsonLd } from "@/components/site/JsonLd";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { getAllPosts } from "@/lib/blog";
 import { caseStudies, faqs, services, testimonials } from "@/lib/data";
 import { createMetadata } from "@/lib/seo";
 
@@ -15,60 +17,29 @@ export const metadata: Metadata = createMetadata({
 });
 
 export default function Home() {
+  const latestPosts = getAllPosts().slice(0, 3);
+
   return (
     <>
-      <section className="hero hero-home">
-        <Image
-          src="/23labs-brand-mark.png"
-          alt=""
-          width={1600}
-          height={1600}
-          priority
-          className="hero-brand-mark"
-        />
-        <div className="container hero-layout">
-          <div className="hero-content">
-            <p className="eyebrow">Automation, software, AI and data systems</p>
-            <h1>
-              Helping businesses scale with <span>confidence</span>
-            </h1>
-            <p className="hero-lead">
-              From everyday operations to customer engagement, we help businesses remove inefficiencies
-              and create systems that support long-term success.
-            </p>
-            <div className="hero-actions">
-              <ButtonLink href="/contact">Let&apos;s have a chat</ButtonLink>
-              <ButtonLink href="/services" variant="secondary">
-                Explore services
-              </ButtonLink>
-            </div>
-          </div>
+      <HomeHero />
 
-          <div className="hero-proof" aria-label="23Labs service outcomes">
-            <Image
-              src="/23labs-logo-dark.png"
-              alt="23Labs"
-              width={220}
-              height={195}
-              className="hero-proof-logo"
-            />
-            <h2>Practical systems for growing teams.</h2>
-            <p>Cleaner operations, faster launches, and automation that fits the way your team already works.</p>
-            <ul className="hero-proof-list">
-              <li>
-                <span>Manual workflow</span>
-                <strong>Automated</strong>
-              </li>
-              <li>
-                <span>Website launch</span>
-                <strong>Shipped</strong>
-              </li>
-              <li>
-                <span>Data visibility</span>
-                <strong>Connected</strong>
-              </li>
-            </ul>
-          </div>
+      <section className="section section-tight intro-strip">
+        <div className="container intro-grid" aria-label="23Labs approach">
+          <article>
+            <span>01</span>
+            <h2>Find the friction</h2>
+            <p>We map the repetitive work, disconnected tools, and slow handoffs holding the business back.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h2>Build the system</h2>
+            <p>We create practical automations, software, websites, and data flows around how the team operates.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h2>Improve the outcome</h2>
+            <p>The result is faster response, cleaner visibility, less admin, and more room for growth.</p>
+          </article>
         </div>
       </section>
 
@@ -81,9 +52,12 @@ export default function Home() {
             body="Focused technology services for businesses that need cleaner systems, stronger operations, and better digital experiences."
           />
           <div className="service-grid">
-            {services.map((service) => (
+            {services.map((service, index) => (
               <article className="service-card" key={service.slug}>
-                <span className="service-eyebrow">{service.eyebrow}</span>
+                <div className="service-card-top">
+                  <span className="service-icon">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="service-eyebrow">{service.eyebrow}</span>
+                </div>
                 <h3>{service.title}</h3>
                 <p>{service.summary}</p>
                 <ButtonLink href={`/services#${service.slug}`} variant="secondary" className="text-link">
@@ -142,6 +116,10 @@ export default function Home() {
             </ButtonLink>
           </div>
           <div className="call-panel" aria-label="Example Haylo call workflow">
+            <div className="call-panel-heading">
+              <span>Haylo workflow</span>
+              <strong>Always on</strong>
+            </div>
             <div>
               <span>Incoming call</span>
               <strong>Answered</strong>
@@ -158,7 +136,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section-alt">
         <div className="container">
           <SectionHeading eyebrow="Client notes" title="What clients value " highlight="most" />
           <div className="testimonial-grid">
@@ -170,6 +148,27 @@ export default function Home() {
                   <span>{testimonial.role}</span>
                 </figcaption>
               </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="section-split-heading">
+            <SectionHeading
+              eyebrow="Blog"
+              title="Latest thinking for "
+              highlight="growing teams"
+              body="Practical SEO-ready articles on automation, lead response, operations, and the systems that help service businesses scale."
+            />
+            <ButtonLink href="/blog" variant="secondary">
+              View all articles
+            </ButtonLink>
+          </div>
+          <div className="blog-grid blog-grid-featured">
+            {latestPosts.map((post) => (
+              <BlogCard post={post} key={post.slug} />
             ))}
           </div>
         </div>

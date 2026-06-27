@@ -1,7 +1,7 @@
 export const navItems = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Work", href: "/#work" },
+  { label: "Work", href: "/work" },
   { label: "Blog", href: "/blog" },
 ];
 
@@ -76,6 +76,7 @@ export const stats = [
 
 export const caseStudies = [
   {
+    slug: "corit-tech",
     name: "CorIT Tech",
     type: "Operations automation",
     tags: ["AI Automation", "Data Integration"],
@@ -85,6 +86,7 @@ export const caseStudies = [
       "Saved 10+ hours every month, reduced manual errors, and created a more scalable onboarding process.",
   },
   {
+    slug: "haylo-ai",
     name: "Haylo AI",
     type: "AI receptionist platform",
     tags: ["Software Development", "AI Platform"],
@@ -94,6 +96,7 @@ export const caseStudies = [
       "Built an AI receptionist workflow that answers, captures, and routes customer conversations without adding admin load.",
   },
   {
+    slug: "lily-olsen-counselling",
     name: "Counselling Practice",
     type: "Brand and website launch",
     tags: ["Web Development", "SEO Foundations"],
@@ -103,6 +106,7 @@ export const caseStudies = [
       "Launched a clear, reassuring website that helped prospective clients understand services and make contact confidently.",
   },
   {
+    slug: "first-national-real-estate",
     name: "First National Real Estate",
     type: "Workflow improvement",
     tags: ["Automation", "Customer Experience"],

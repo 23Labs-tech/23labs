@@ -6,6 +6,7 @@ import { StatsBand } from "@/components/sections/StatsBand";
 import { JsonLd } from "@/components/site/JsonLd";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { WorkCard } from "@/components/work/WorkCard";
 import { getAllPosts } from "@/lib/blog";
 import { caseStudies, faqs, services, testimonials } from "@/lib/data";
 import { createMetadata } from "@/lib/seo";
@@ -23,23 +24,27 @@ export default function Home() {
     <>
       <HomeHero />
 
-      <section className="section section-tight intro-strip">
-        <div className="container intro-grid" aria-label="23Labs approach">
-          <article>
-            <span>01</span>
-            <h2>Find the friction</h2>
-            <p>We map the repetitive work, disconnected tools, and slow handoffs holding the business back.</p>
-          </article>
-          <article>
-            <span>02</span>
-            <h2>Build the system</h2>
-            <p>We create practical automations, software, websites, and data flows around how the team operates.</p>
-          </article>
-          <article>
-            <span>03</span>
-            <h2>Improve the outcome</h2>
-            <p>The result is faster response, cleaner visibility, less admin, and more room for growth.</p>
-          </article>
+      <section className="section intro-section" id="about">
+        <div className="container intro-copy">
+          <p className="eyebrow">About 23Labs</p>
+          <h2>
+            Practical technology, built around <span>your business</span>
+          </h2>
+          <p>
+            We are a studio building automation, software, and AI tools that remove busywork and help
+            businesses scale with confidence.
+          </p>
+          <p>
+            Most businesses do not need more software. They need the right systems working together.
+            We partner with growing teams to find the friction, build practical solutions, and make
+            the day-to-day easier to run.
+          </p>
+          <div className="hero-actions">
+            <ButtonLink href="/about" variant="secondary">
+              Read our full story
+            </ButtonLink>
+            <ButtonLink href="/contact">Contact us</ButtonLink>
+          </div>
         </div>
       </section>
 
@@ -51,7 +56,7 @@ export default function Home() {
             highlight="grow"
             body="Focused technology services for businesses that need cleaner systems, stronger operations, and better digital experiences."
           />
-          <div className="service-grid">
+          <div className="service-grid svc-grid">
             {services.map((service, index) => (
               <article className="service-card" key={service.slug}>
                 <div className="service-card-top">
@@ -79,24 +84,9 @@ export default function Home() {
             highlight="businesses"
             body="The details change from project to project. The pattern stays the same: find the friction, build the right system, and make it easy to use."
           />
-          <div className="case-grid">
+          <div className="work-grid">
             {caseStudies.map((item) => (
-              <article className="case-card" key={item.name}>
-                <div>
-                  <p className="case-type">{item.type}</p>
-                  <h3>{item.name}</h3>
-                </div>
-                <p>{item.problem}</p>
-                <div className="case-result">
-                  <span>Result</span>
-                  <p>{item.result}</p>
-                </div>
-                <div className="tag-list">
-                  {item.tags.map((tag) => (
-                    <span key={tag}>{tag}</span>
-                  ))}
-                </div>
-              </article>
+              <WorkCard {...item} compact key={item.slug} />
             ))}
           </div>
         </div>

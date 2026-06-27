@@ -16,6 +16,7 @@ export function BlogCard({ post }: BlogCardProps) {
   return (
     <article className="blog-card">
       <Link href={`/blog/${post.slug}`} className="blog-image" aria-label={post.title}>
+        <span className="blog-image-label">{post.categories[0] || "Insights"}</span>
         <Image
           src={post.featuredImage}
           alt={post.imageAlt}
@@ -39,6 +40,9 @@ export function BlogCard({ post }: BlogCardProps) {
             <span key={category}>{category}</span>
           ))}
         </div>
+        <Link href={`/blog/${post.slug}`} className="work-link">
+          Read the guide <span aria-hidden="true">-&gt;</span>
+        </Link>
       </div>
     </article>
   );

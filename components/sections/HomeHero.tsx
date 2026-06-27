@@ -1,82 +1,60 @@
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import { stats } from "@/lib/data";
 
 export function HomeHero() {
   return (
     <section className="hero hero-home">
-      <Image
-        src="/23labs-brand-mark.png"
-        alt=""
-        width={1600}
-        height={1600}
-        priority
-        className="hero-brand-mark"
-      />
       <div className="container hero-layout">
         <div className="hero-content">
-          <p className="eyebrow">Automation, software, AI and data systems</p>
+          <p className="eyebrow">Automation and software studio</p>
           <h1>
             Helping businesses scale with <span>confidence</span>
           </h1>
           <p className="hero-lead">
-            From everyday operations to customer engagement, we help businesses remove inefficiencies
-            and create systems that support long-term success.
+            We design and build the automation, custom software, and AI tools that remove busywork
+            quietly in the background, so your team can focus on the work that actually grows the business.
           </p>
           <div className="hero-actions">
-            <ButtonLink href="/contact">Let&apos;s have a chat</ButtonLink>
-            <ButtonLink href="/services" variant="secondary">
-              Explore services
+            <ButtonLink href="/contact">Talk to us</ButtonLink>
+            <ButtonLink href="/work" variant="secondary">
+              See our work
             </ButtonLink>
           </div>
-          <dl className="hero-metrics" aria-label="23Labs delivery highlights">
-            {stats.map((stat) => (
-              <div key={stat.label}>
-                <dt>{stat.value}</dt>
-                <dd>{stat.label}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
 
-        <div className="hero-app-card" aria-label="Example 23Labs operations system">
-          <div className="app-card-header">
-            <Image
-              src="/23labs-logo-dark.png"
-              alt="23Labs"
-              width={220}
-              height={195}
-              className="hero-proof-logo"
-            />
-            <div>
-              <span>Live system</span>
-              <strong>Operations cockpit</strong>
+        <div className="hero-art-wrap">
+          <div className="hero-art" aria-label="23Labs workflow dashboard illustration">
+            <div className="hero-window">
+              <div className="hero-window-bar">
+                <span />
+                <span />
+                <span />
+              </div>
+              <div className="hero-window-grid">
+                <div className="hero-window-panel hero-window-panel-large">
+                  <span>Automation flow</span>
+                  <strong>4 live workflows</strong>
+                </div>
+                <div className="hero-window-panel">
+                  <span>Lead response</span>
+                  <strong>2m</strong>
+                </div>
+                <div className="hero-window-panel">
+                  <span>Admin saved</span>
+                  <strong>12.5h</strong>
+                </div>
+                <div className="hero-window-list">
+                  <span />
+                  <span />
+                  <span />
+                </div>
+              </div>
             </div>
+            <Image src="/23labs-brand-mark.png" alt="" width={180} height={180} className="hero-art-mark" />
           </div>
-
-          <div className="app-status-card">
-            <span>Today&apos;s outcome</span>
-            <strong>12.5 hours recovered</strong>
-            <p>Automations handled enquiries, follow-ups, reminders, and CRM updates before the team started the day.</p>
-          </div>
-
-          <div className="workflow-list" aria-label="Example workflow statuses">
-            <div>
-              <span>New enquiry</span>
-              <strong>Qualified</strong>
-            </div>
-            <div>
-              <span>Manual workflow</span>
-              <strong>Automated</strong>
-            </div>
-            <div>
-              <span>Website launch</span>
-              <strong>Shipped</strong>
-            </div>
-            <div>
-              <span>Data visibility</span>
-              <strong>Connected</strong>
-            </div>
+          <div className="hero-card">
+            <span>Built around your business</span>
+            <p>Practical technology designed to fit how your team already works.</p>
           </div>
         </div>
       </div>

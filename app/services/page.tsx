@@ -2,14 +2,15 @@ import type { Metadata } from "next";
 import { CtaSection } from "@/components/sections/CtaSection";
 import { PageHero } from "@/components/sections/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { processSteps, services } from "@/lib/data";
+import { ServiceIcon } from "@/components/ui/ServiceIcon";
+import { serviceProcessSteps, services } from "@/lib/data";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
   title: "Services",
   path: "/services",
   description:
-    "Explore 23Labs services across AI automation, web development, custom software, and data integration for growing businesses.",
+    "Four ways 23Labs helps businesses remove inefficiencies, work smarter, and scale: AI automation, web development, app and software development, and data integration.",
   keywords: ["AI automation services", "web development", "custom software development", "data integration", "business automation"],
 });
 
@@ -17,49 +18,31 @@ export default function ServicesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Services"
+        eyebrow="Our services"
         title="Systems that do the "
         highlight="heavy lifting"
         body="Four ways we help businesses remove inefficiencies, work smarter, and scale, from quick automations through to full custom platforms."
+        className="services-hero"
       />
 
-      <section className="section">
-        <div className="container service-list">
-          {services.map((service) => (
-            <article className="service-row" id={service.slug} key={service.slug}>
-              <div>
-                <span className="service-eyebrow">{service.eyebrow}</span>
-                <h2>{service.title}</h2>
-              </div>
-              <div>
-                <p>{service.description}</p>
-                <ul className="check-list">
-                  {service.features.map((feature) => (
-                    <li key={feature}>{feature}</li>
-                  ))}
-                </ul>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section section-alt">
-        <div className="container">
-          <SectionHeading eyebrow="Process" title="How we partner " highlight="with you" />
-          <div className="process-list">
-            {processSteps.map((step, index) => (
-              <article className="process-card" key={step.title}>
-                <div>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <h3>{step.title}</h3>
+      <section className="sec no-top">
+        <div className="wrap">
+          <div className="svc-rows reveal">
+            {services.map((service, index) => (
+              <article className="svc-row" id={service.slug} key={service.slug}>
+                <div className="svc-row-head">
+                  <ServiceIcon slug={service.slug} className="svc-row-ico" />
+                  <span className="num">{String(index + 1).padStart(2, "0")}</span>
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
                 </div>
-                <div>
-                  <p className="lead">{step.lead}</p>
-                  <p>{step.body}</p>
-                  <p>
-                    <strong>The result:</strong> {step.result}
-                  </p>
+                <div className="svc-checklist">
+                  {service.features.map((feature) => (
+                    <div className="svc-check" key={feature}>
+                      <CheckIcon />
+                      {feature}
+                    </div>
+                  ))}
                 </div>
               </article>
             ))}
@@ -67,12 +50,37 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      <section className="sec">
+        <div className="wrap">
+          <SectionHeading eyebrow="How we work" title="From first call to " highlight="long-term support" />
+          <div className="panel-card panel-values reveal">
+            <div className="values-grid">
+              {serviceProcessSteps.map((step) => (
+                <article className="value-card" key={step.number}>
+                  <div className="value-k">{step.number}</div>
+                  <h3>{step.title}</h3>
+                  <p>{step.body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <CtaSection
-        title="Not sure where to start?"
-        body="Tell us where the friction is and we will map a practical path forward."
-        href="/contact"
-        label="Book a discovery call"
+        title="Not sure which service you need?"
+        body="Tell us what you're working on and we'll point you in the right direction, no obligation."
+        href="/#contact"
+        label="Talk to us"
       />
     </>
+  );
+}
+
+function CheckIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
   );
 }

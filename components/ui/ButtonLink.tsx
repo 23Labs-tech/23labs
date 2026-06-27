@@ -16,13 +16,21 @@ export function ButtonLink({
   className = "",
   ariaLabel,
 }: ButtonLinkProps) {
-  const classes = `button button-${variant} ${className}`.trim();
+  const variantClass =
+    variant === "primary" ? "btn-primary" : variant === "secondary" ? "btn-ghost" : "btn-light";
+  const classes = `btn ${variantClass} ${className}`.trim();
   const isExternal = href.startsWith("http") || href.startsWith("mailto:");
+  const arrow = variant === "primary" ? (
+    <span className="btn-arrow" aria-hidden="true">
+      {"\u2192"}
+    </span>
+  ) : null;
 
   if (isExternal) {
     return (
       <a className={classes} href={href} aria-label={ariaLabel} rel="noreferrer">
         {children}
+        {arrow}
       </a>
     );
   }
@@ -30,6 +38,7 @@ export function ButtonLink({
   return (
     <Link className={classes} href={href} aria-label={ariaLabel}>
       {children}
+      {arrow}
     </Link>
   );
 }

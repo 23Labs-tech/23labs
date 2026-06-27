@@ -88,14 +88,6 @@ export function ContactForm() {
     }
   };
 
-  if (status === "success") {
-    return (
-      <div className="form-status form-status-success" role="status" aria-live="polite">
-        Thanks for reaching out. We will be in touch within one business day.
-      </div>
-    );
-  }
-
   return (
     <form
       className="contact-form"
@@ -118,23 +110,25 @@ export function ContactForm() {
         />
       </div>
 
-      <div className="form-grid">
+      <div className="form-row">
         <Field label="Full name" id="fullName" error={errors.fullName} required>
           <input
             id="fullName"
             name="fullName"
             type="text"
+            placeholder="Jane Smith"
             value={form.fullName}
             onChange={(event) => updateField("fullName", event.target.value)}
             autoComplete="name"
             required
           />
         </Field>
-        <Field label="Company" id="company" error={errors.company}>
+        <Field label="Company name" id="company" error={errors.company}>
           <input
             id="company"
             name="company"
             type="text"
+            placeholder="Your business"
             value={form.company}
             onChange={(event) => updateField("company", event.target.value)}
             autoComplete="organization"
@@ -142,23 +136,25 @@ export function ContactForm() {
         </Field>
       </div>
 
-      <div className="form-grid">
+      <div className="form-row">
         <Field label="Email address" id="email" error={errors.email} required>
           <input
             id="email"
             name="email"
             type="email"
+            placeholder="jane@business.com"
             value={form.email}
             onChange={(event) => updateField("email", event.target.value)}
             autoComplete="email"
             required
           />
         </Field>
-        <Field label="Phone" id="phone" error={errors.phone}>
+        <Field label="Phone number" id="phone" error={errors.phone}>
           <input
             id="phone"
             name="phone"
             type="tel"
+            placeholder="04xx xxx xxx"
             value={form.phone}
             onChange={(event) => updateField("phone", event.target.value)}
             autoComplete="tel"
@@ -166,13 +162,14 @@ export function ContactForm() {
         </Field>
       </div>
 
-      <Field label="How can we help?" id="message" error={errors.message} required>
+      <Field label="How can we help?" id="message" error={errors.message} className="form-full">
         <textarea
           id="message"
           name="message"
+          placeholder="Tell us a bit about what you're looking to solve."
           value={form.message}
           onChange={(event) => updateField("message", event.target.value)}
-          rows={6}
+          rows={4}
           required
         />
       </Field>
@@ -190,10 +187,20 @@ export function ContactForm() {
         </div>
       ) : null}
 
-      <button className="button button-primary form-submit" type="submit" disabled={status === "loading"}>
-        {status === "loading" ? "Sending..." : "Book a discovery call"}
+      <button className="btn btn-primary form-submit" type="submit" disabled={status === "loading"}>
+        {status === "loading" ? "Sending..." : "Send message"}
+        <span className="btn-arrow" aria-hidden="true">
+          {"\u2192"}
+        </span>
       </button>
-      <p className="form-note">We will only use your details to respond to your enquiry.</p>
+      <div
+        className={`form-success${status === "success" ? " is-visible" : ""}`}
+        role="status"
+        aria-live="polite"
+      >
+        <strong>Message sent.</strong>
+        <span>Thanks, we&apos;ll be in touch within one business day.</span>
+      </div>
     </form>
   );
 }
@@ -203,12 +210,14 @@ function Field({
   id,
   error,
   required = false,
+  className,
   children,
 }: {
   label: string;
   id: keyof FormState;
   error?: string;
   required?: boolean;
+  className?: string;
   children: React.ReactElement<
     React.InputHTMLAttributes<HTMLInputElement> | React.TextareaHTMLAttributes<HTMLTextAreaElement>
   >;
@@ -220,17 +229,17 @@ function Field({
   });
 
   return (
-    <div className="field">
-      <label htmlFor={id}>
+    <label className={className} htmlFor={id}>
+      <span className="label-text">
         {label}
-        {required ? <span aria-hidden="true">*</span> : null}
-      </label>
+        {required ? <span className="req" aria-hidden="true">*</span> : null}
+      </span>
       {child}
       {error ? (
         <p className="field-error" id={`${id}-error`}>
           {error}
         </p>
       ) : null}
-    </div>
+    </label>
   );
 }

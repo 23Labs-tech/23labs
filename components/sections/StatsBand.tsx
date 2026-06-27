@@ -7,16 +7,20 @@ type Stat = {
 
 type StatsBandProps = {
   stats?: Stat[];
+  noTop?: boolean;
 };
 
-export function StatsBand({ stats = defaultStats }: StatsBandProps) {
+export function StatsBand({ stats = defaultStats, noTop = false }: StatsBandProps) {
   return (
-    <section className="section section-tight">
-      <div className="container stats-grid" aria-label="23Labs project statistics">
+    <section className={`sec stats-section${noTop ? " no-top" : ""}`}>
+      <div className="wrap stats-band reveal" aria-label="23Labs project statistics">
         {stats.map((stat) => (
           <div className="stat" key={stat.label}>
-            <strong>{stat.value}</strong>
-            <span>{stat.label}</span>
+            <div className="n">
+              {stat.value.replace("+", "")}
+              <span className="plus">+</span>
+            </div>
+            <div className="l">{stat.label}</div>
           </div>
         ))}
       </div>

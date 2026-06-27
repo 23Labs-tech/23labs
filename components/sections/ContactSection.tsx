@@ -1,5 +1,4 @@
 import { ContactForm } from "@/components/contact/ContactForm";
-import { siteConfig } from "@/lib/site";
 
 type ContactSectionProps = {
   id?: string;
@@ -7,7 +6,7 @@ type ContactSectionProps = {
   eyebrow: string;
   title: string;
   highlight?: string;
-  body: string;
+  body: string | string[];
   showSocials?: boolean;
 };
 
@@ -16,37 +15,24 @@ export function ContactSection({
   variant = "band",
   eyebrow,
   title,
-  highlight,
   body,
-  showSocials = false,
 }: ContactSectionProps) {
-  const Heading = variant === "page" ? "h1" : "h2";
+  const bodyItems = Array.isArray(body) ? body : [body];
+  const sectionClass = variant === "page" ? "sec contact-page-section" : "sec";
 
   return (
-    <section id={id} className={`section contact-${variant}`}>
-      <div className="container contact-grid">
-        <div>
-          <p className="eyebrow">{eyebrow}</p>
-          <Heading>
-            {title}
-            {highlight ? <span>{highlight}</span> : null}
-          </Heading>
-          <p>{body}</p>
-          <div className="contact-links">
-            <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
-            {showSocials ? (
-              <>
-                <a href={siteConfig.socials.linkedin} target="_blank" rel="noreferrer">
-                  LinkedIn
-                </a>
-                <a href={siteConfig.socials.instagram} target="_blank" rel="noreferrer">
-                  Instagram
-                </a>
-              </>
-            ) : null}
+    <section id={id} className={sectionClass}>
+      <div className="wrap">
+        <div className="contact-grid reveal">
+          <div className="contact-copy">
+            <div className="sec-tag">{eyebrow}</div>
+            <h2 className="sec-title">{title}</h2>
+            {bodyItems.map((item) => (
+              <p className="lead" key={item}>
+                {item}
+              </p>
+            ))}
           </div>
-        </div>
-        <div className="form-card">
           <ContactForm />
         </div>
       </div>

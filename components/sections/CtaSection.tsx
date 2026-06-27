@@ -9,11 +9,13 @@ type CtaSectionProps = {
 
 export function CtaSection({ title, body, href, label }: CtaSectionProps) {
   return (
-    <section className="section">
-      <div className="container cta-panel">
+    <section className="sec">
+      <div className="wrap cta-band reveal">
         <h2>{title}</h2>
         <p>{body}</p>
-        <ButtonLink href={href}>{label}</ButtonLink>
+        <div className="hero-actions">
+          <ButtonLink href={href}>{label}</ButtonLink>
+        </div>
       </div>
     </section>
   );

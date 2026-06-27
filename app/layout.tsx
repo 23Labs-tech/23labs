@@ -4,6 +4,7 @@ import "./globals.css";
 import { Footer } from "@/components/site/Footer";
 import { JsonLd } from "@/components/site/JsonLd";
 import { Navbar } from "@/components/site/Navbar";
+import { RevealObserver } from "@/components/site/RevealObserver";
 import { createMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
@@ -41,6 +42,7 @@ export default function RootLayout({
         <Navbar />
         <main id="main">{children}</main>
         <Footer />
+        <RevealObserver />
         <JsonLd
           data={{
             "@context": "https://schema.org",

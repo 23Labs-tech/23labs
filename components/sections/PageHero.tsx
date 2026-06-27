@@ -3,19 +3,22 @@ type PageHeroProps = {
   title: string;
   highlight?: string;
   body: string;
+  className?: string;
 };
 
-export function PageHero({ eyebrow, title, highlight, body }: PageHeroProps) {
+export function PageHero({ eyebrow, title, highlight, body, className }: PageHeroProps) {
+  const heroClassName = className ? `page-hero ${className}` : "page-hero";
+
   return (
-    <section className="page-hero">
-      <div className="container narrow">
-        <p className="eyebrow">{eyebrow}</p>
+    <header className={heroClassName}>
+      <div className="wrap reveal in">
+        <div className="sec-tag">{eyebrow}</div>
         <h1>
           {title}
-          {highlight ? <span>{highlight}</span> : null}
+          {highlight ? <span className="em">{highlight}</span> : null}
         </h1>
-        <p>{body}</p>
+        <p className="lead">{body}</p>
       </div>
-    </section>
+    </header>
   );
 }

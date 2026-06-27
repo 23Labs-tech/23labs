@@ -41,7 +41,7 @@ export function BlogCard({ post }: BlogCardProps) {
           ))}
         </div>
         <Link href={`/blog/${post.slug}`} className="work-link">
-          Read the guide <span aria-hidden="true">-&gt;</span>
+          Read the guide <span aria-hidden="true">{"\u2192"}</span>
         </Link>
       </div>
     </article>

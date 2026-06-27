@@ -35,7 +35,9 @@ export function createMetadata({
   modifiedTime,
   authors,
 }: SeoInput = {}): Metadata {
-  const fullTitle = title ? `${title} | ${siteConfig.name}` : `${siteConfig.name} | Automation, Software and AI Systems`;
+  const fullTitle = title
+    ? `${title} — ${siteConfig.name}`
+    : `${siteConfig.name} — Automation, Software & AI for Ambitious Businesses`;
   const url = absoluteUrl(path);
   const imageUrl = absoluteUrl(image);
 

@@ -13,33 +13,31 @@ const dateFormatter = new Intl.DateTimeFormat("en-AU", {
 });
 
 export function BlogCard({ post }: BlogCardProps) {
+  const primaryCategory = post.categories[0] || "Insights";
+  const formattedDate = dateFormatter.format(new Date(post.date));
+
   return (
-    <article className="blog-card">
-      <Link href={`/blog/${post.slug}`} className="blog-image" aria-label={post.title}>
-        <span className="blog-image-label">{post.categories[0] || "Insights"}</span>
+    <article className="blog-card" data-category={primaryCategory}>
+      <Link href={`/blog/${post.slug}`} className="blog-thumb" aria-label={post.title}>
         <Image
           src={post.featuredImage}
           alt={post.imageAlt}
-          width={900}
-          height={520}
-          sizes="(max-width: 760px) 100vw, 50vw"
+          fill
+          sizes="(max-width: 780px) 100vw, 33vw"
+          className="blog-thumb-img"
         />
       </Link>
-      <div className="blog-card-body">
-        <div className="blog-meta">
-          <time dateTime={post.date}>{dateFormatter.format(new Date(post.date))}</time>
-          <span>{post.readingTime}</span>
-          <span>{post.author}</span>
-        </div>
-        <h2>
+      <div className="blog-body">
+        <span className="blog-meta">
+          <span className="work-tag">{primaryCategory}</span>
+          <time className="blog-date" dateTime={post.date}>
+            {formattedDate}
+          </time>
+        </span>
+        <h3>
           <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-        </h2>
+        </h3>
         <p>{post.description}</p>
-        <div className="tag-list">
-          {post.categories.map((category) => (
-            <span key={category}>{category}</span>
-          ))}
-        </div>
         <Link href={`/blog/${post.slug}`} className="work-link">
           Read the guide <span aria-hidden="true">{"\u2192"}</span>
         </Link>

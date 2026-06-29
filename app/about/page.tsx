@@ -102,7 +102,7 @@ export default function AboutPage() {
       <CtaSection
         title="Ready to remove the busywork?"
         body="Tell us where the friction is and we'll show you a practical path forward, no obligation."
-        href="/#contact"
+        href="/contact"
         label="Talk to us"
       />
     </>

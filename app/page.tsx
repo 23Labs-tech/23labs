@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ReferenceBlogCard } from "@/components/blog/ReferenceBlogCard";
+import { BlogCard } from "@/components/blog/BlogCard";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { HomeHero } from "@/components/sections/HomeHero";
 import { StatsBand } from "@/components/sections/StatsBand";
@@ -10,7 +10,8 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ServiceIcon } from "@/components/ui/ServiceIcon";
 import { WorkCard } from "@/components/work/WorkCard";
-import { caseStudies, faqs, homeProcessSteps, referenceBlogPosts, services, values } from "@/lib/data";
+import { getAllPosts } from "@/lib/blog";
+import { caseStudies, faqs, homeProcessSteps, services, values } from "@/lib/data";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
@@ -20,6 +21,8 @@ export const metadata: Metadata = createMetadata({
 });
 
 export default function Home() {
+  const posts = getAllPosts();
+
   return (
     <>
       <HomeHero />
@@ -137,8 +140,8 @@ export default function Home() {
             </Link>
           </div>
           <div className="blog-grid reveal">
-            {referenceBlogPosts.slice(0, 3).map((post) => (
-              <ReferenceBlogCard post={post} hrefBase="/blog" anchored={false} key={post.slug} />
+            {posts.slice(0, 3).map((post) => (
+              <BlogCard post={post} key={post.slug} />
             ))}
           </div>
         </div>

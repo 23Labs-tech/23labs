@@ -137,6 +137,25 @@ async function sendEmail(payload: ContactPayload) {
   }
 }
 
+async function getRequestBody(request: NextRequest) {
+  const contentType = request.headers.get("content-type") || "";
+
+  if (
+    contentType.includes("application/x-www-form-urlencoded") ||
+    contentType.includes("multipart/form-data")
+  ) {
+    const formData = await request.formData();
+    return Object.fromEntries(
+      Array.from(formData.entries()).map(([key, value]) => [
+        key,
+        typeof value === "string" ? value : "",
+      ])
+    );
+  }
+
+  return request.json();
+}
+
 export async function POST(request: NextRequest) {
   if (request.headers.get("sec-fetch-site") === "cross-site" || !isAllowedOrigin(request)) {
     return NextResponse.json({ error: "Cross-site submissions are not allowed." }, { status: 403 });
@@ -157,7 +176,7 @@ export async function POST(request: NextRequest) {
 
   let body: unknown;
   try {
-    body = await request.json();
+    body = await getRequestBody(request);
   } catch {
     return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
   }

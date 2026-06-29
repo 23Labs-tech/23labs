@@ -1,30 +1,21 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ReferenceBlogCard } from "@/components/blog/ReferenceBlogCard";
-
-type ReferenceBlogPost = {
-  slug: string;
-  category: string;
-  date: string;
-  title: string;
-  description: string;
-  image: {
-    src: string;
-    alt: string;
-  };
-};
+import { BlogCard } from "@/components/blog/BlogCard";
+import type { BlogPost } from "@/lib/blog";
 
 type BlogFilterListProps = {
-  posts: ReferenceBlogPost[];
+  posts: BlogPost[];
 };
-
-const filters = ["All posts", "Automation", "Haylo AI", "Web Development", "App & Software", "Data Integration"];
 
 export function BlogFilterList({ posts }: BlogFilterListProps) {
   const [active, setActive] = useState("All posts");
+  const filters = useMemo(
+    () => ["All posts", ...Array.from(new Set(posts.flatMap((post) => post.categories)))],
+    [posts]
+  );
   const visiblePosts = useMemo(
-    () => (active === "All posts" ? posts : posts.filter((post) => post.category === active)),
+    () => (active === "All posts" ? posts : posts.filter((post) => post.categories.includes(active))),
     [active, posts]
   );
 
@@ -59,7 +50,7 @@ export function BlogFilterList({ posts }: BlogFilterListProps) {
         <div className="wrap">
           <div className="blog-grid-full reveal" id="blogGrid">
             {visiblePosts.map((post) => (
-              <ReferenceBlogCard post={post} key={post.slug} />
+              <BlogCard post={post} key={post.slug} />
             ))}
           </div>
           <div className={`empty-state${visiblePosts.length === 0 ? " show" : ""}`} id="emptyState">

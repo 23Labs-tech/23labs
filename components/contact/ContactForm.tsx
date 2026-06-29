@@ -90,7 +90,9 @@ export function ContactForm() {
 
   return (
     <form
+      action="/api/contact"
       className="contact-form"
+      method="post"
       onSubmit={handleSubmit}
       onFocusCapture={markStarted}
       onPointerDownCapture={markStarted}

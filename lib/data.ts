@@ -4,6 +4,7 @@ export const navItems = [
   { label: "Work", href: "/work" },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const services = [
@@ -85,8 +86,8 @@ export const caseStudies = [
     name: "Haylo AI",
     type: "23Labs Product",
     image: {
-      src: "/site-images/tech-img-10.png",
-      alt: "Glowing processor and circuit board representing Haylo AI systems",
+      src: "/work/haylo-ai.png",
+      alt: "Haylo AI project image with an AI assistant and support agent",
     },
     tags: ["AI Automation", "Voice & Calls", "Booking Integration"],
     problem:
@@ -105,8 +106,8 @@ export const caseStudies = [
     name: "Lily Olsen Counselling",
     type: "Website Rebuild",
     image: {
-      src: "/site-images/tech-img-11.png",
-      alt: "Orange technical system diagram representing a structured website rebuild",
+      src: "/work/lily-olsen-counselling.png",
+      alt: "Lily Olsen Counselling project image with counselling session photography and logo",
     },
     tags: ["Web Development", "Brand-led Design", "Multi-page Build"],
     problem:
@@ -123,8 +124,8 @@ export const caseStudies = [
     name: "CorIT Tech",
     type: "Onboarding Automation",
     image: {
-      src: "/site-images/tech-img-12.png",
-      alt: "Glass interface elements representing connected onboarding automation",
+      src: "/work/corit-tech.png",
+      alt: "CorIT Tech project image with robot technology background and logo",
     },
     tags: ["AI Automation", "Data Integration"],
     problem:
@@ -141,8 +142,8 @@ export const caseStudies = [
     name: "First National Real Estate",
     type: "Workflow Automation",
     image: {
-      src: "/site-images/tech-img-15.png",
-      alt: "Dark metallic workflow arcs representing real estate automation",
+      src: "/work/first-national-real-estate.png",
+      alt: "First National Real Estate project image with interior photography and logo",
     },
     tags: ["Automation", "Customer Experience"],
     problem:
@@ -294,81 +295,6 @@ export const values = [
     title: "Partners, not vendors",
     body:
       "We stay close, explain things clearly, and keep improving long after launch. You should never feel lost in the technical detail.",
-  },
-];
-
-export const referenceBlogPosts = [
-  {
-    slug: "automate-client-onboarding",
-    category: "Automation",
-    date: "May 2026",
-    title: "How to automate client onboarding without losing the personal touch",
-    description:
-      "A practical breakdown of where onboarding tends to fall apart, and the automations that quietly hold it together instead.",
-    image: {
-      src: "/site-images/tech-img-02.png",
-      alt: "Digital document workflow represented with orange system lines",
-    },
-  },
-  {
-    slug: "ai-receptionist-after-hours",
-    category: "Haylo AI",
-    date: "May 2026",
-    title: "What happens when your receptionist answers after hours",
-    description:
-      "Why the calls that come in after 5pm are often the ones worth the most, and how an AI receptionist handles them.",
-    image: {
-      src: "/site-images/tech-img-06.png",
-      alt: "AI interface showing connected data and automation controls",
-    },
-  },
-  {
-    slug: "hidden-cost-disconnected-tools",
-    category: "Data Integration",
-    date: "April 2026",
-    title: "The hidden cost of tools that don't talk to each other",
-    description:
-      "Duplicate entry and dropped leads usually trace back to one thing: systems that were never actually connected.",
-    image: {
-      src: "/site-images/tech-img-13.png",
-      alt: "Connected glass links representing integrated systems",
-    },
-  },
-  {
-    slug: "what-makes-a-website-convert",
-    category: "Web Development",
-    date: "March 2026",
-    title: "What actually makes a website convert",
-    description:
-      "It's rarely the design trend everyone's chasing. A look at the structural things that quietly move the needle.",
-    image: {
-      src: "/site-images/tech-img-04.png",
-      alt: "Analytics dashboards connected around a digital interface",
-    },
-  },
-  {
-    slug: "buy-vs-build-software",
-    category: "App & Software",
-    date: "February 2026",
-    title: "Buy vs build: when custom software actually pays off",
-    description:
-      "Off-the-shelf tools work until they don't. Here's how we think about the tipping point with clients.",
-    image: {
-      src: "/site-images/tech-img-14.png",
-      alt: "Neon blocks representing modular software systems",
-    },
-  },
-  {
-    slug: "why-we-start-with-discovery",
-    category: "Automation",
-    date: "January 2026",
-    title: "Why we start every project with a discovery session",
-    description:
-      "Skipping straight to a build sounds faster. It almost never is. Here's what we're actually listening for.",
-    image: {
-      src: "/site-images/tech-img-17.png",
-      alt: "Orange technical blueprint lines on a dark background",
-    },
   },
 ];
 

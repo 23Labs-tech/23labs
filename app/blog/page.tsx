@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BlogFilterList } from "@/components/blog/BlogFilterList";
 import { CtaSection } from "@/components/sections/CtaSection";
-import { referenceBlogPosts } from "@/lib/data";
+import { getAllPosts } from "@/lib/blog";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
@@ -13,14 +13,16 @@ export const metadata: Metadata = createMetadata({
 });
 
 export default function BlogPage() {
+  const posts = getAllPosts();
+
   return (
     <>
-      <BlogFilterList posts={referenceBlogPosts} />
+      <BlogFilterList posts={posts} />
 
       <CtaSection
         title="Want to talk about your own project?"
         body="Tell us where the friction is and we'll show you a practical path forward, no obligation."
-        href="/#contact"
+        href="/contact"
         label="Talk to us"
       />
     </>

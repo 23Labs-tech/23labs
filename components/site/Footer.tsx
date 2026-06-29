@@ -21,9 +21,6 @@ export function Footer() {
                   <Link href={item.href}>{item.label}</Link>
                 </li>
               ))}
-              <li>
-                <Link href="/contact">Contact</Link>
-              </li>
             </ul>
           </div>
           <div className="foot-col">
@@ -45,7 +42,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <Link href="/#contact">Let&apos;s Chat</Link>
+                <Link href="/contact">Let&apos;s Chat</Link>
               </li>
             </ul>
           </div>

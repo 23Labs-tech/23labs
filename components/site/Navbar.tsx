@@ -11,10 +11,11 @@ import { Logo } from "@/components/site/Logo";
 const industryPathSet = new Set<string>(industryRoutePaths);
 
 export function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [menuState, setMenuState] = useState({ open: false, pathname: "" });
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const isIndustryPath = industryPathSet.has(pathname);
+  const open = menuState.pathname === pathname ? menuState.open : false;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -22,6 +23,15 @@ export function Navbar() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuState({ open: false, pathname });
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open, pathname]);
 
   return (
     <nav className={`nav${scrolled ? " scrolled" : ""}`} id="nav">
@@ -45,7 +55,7 @@ export function Navbar() {
                   key={item.href}
                   className={active ? "active" : undefined}
                   aria-current={active ? "page" : undefined}
-                  onClick={() => setOpen(false)}
+                  onClick={() => setMenuState({ open: false, pathname })}
                 >
                   {item.label}
                 </Link>
@@ -53,16 +63,21 @@ export function Navbar() {
             })}
           </div>
           <div className="nav-right">
-            <ButtonLink href="/#contact" className="nav-cta">
+            <ButtonLink href="/contact" className="nav-cta">
               Talk To Us
             </ButtonLink>
             <button
               className={`nav-toggle${open ? " is-open" : ""}`}
               type="button"
-              aria-label="Toggle menu"
+              aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
               aria-controls="site-nav-links"
-              onClick={() => setOpen((value) => !value)}
+              onClick={() =>
+                setMenuState((current) => ({
+                  open: current.pathname === pathname ? !current.open : true,
+                  pathname,
+                }))
+              }
             >
               <span />
               <span />

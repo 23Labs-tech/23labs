@@ -70,7 +70,7 @@ export default function ServicesPage() {
       <CtaSection
         title="Not sure which service you need?"
         body="Tell us what you're working on and we'll point you in the right direction, no obligation."
-        href="/#contact"
+        href="/contact"
         label="Talk to us"
       />
     </>

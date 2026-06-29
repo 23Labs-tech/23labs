@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { navItems } from "@/lib/data";
+import { industryLinks } from "@/lib/industries";
 import { siteConfig } from "@/lib/site";
 import { Logo } from "@/components/site/Logo";
 
@@ -23,6 +24,16 @@ export function Footer() {
               <li>
                 <Link href="/contact">Contact</Link>
               </li>
+            </ul>
+          </div>
+          <div className="foot-col">
+            <h5>Industries</h5>
+            <ul>
+              {industryLinks.map((industry) => (
+                <li key={industry.href}>
+                  <Link href={industry.href}>{industry.label}</Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="foot-col">

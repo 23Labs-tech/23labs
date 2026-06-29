@@ -4,13 +4,17 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { navItems } from "@/lib/data";
+import { industryRoutePaths } from "@/lib/industries";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Logo } from "@/components/site/Logo";
+
+const industryPathSet = new Set<string>(industryRoutePaths);
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const isIndustryPath = industryPathSet.has(pathname);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -25,14 +29,16 @@ export function Navbar() {
         Skip to content
       </a>
       <div className="nav-in">
-        <Logo href="/#top" priority />
+        <Logo href="/#top" priority tone={isIndustryPath ? "industry" : "dark"} />
         <div className="nav-group">
           <div className={`nav-links${open ? " is-open" : ""}`} id="site-nav-links">
             {navItems.map((item) => {
               const isHashLink = item.href.includes("#");
               const active =
                 !isHashLink &&
-                (pathname === item.href || (item.href !== "/" && pathname.startsWith(`${item.href}/`)));
+                (pathname === item.href ||
+                  (item.href !== "/" && pathname.startsWith(`${item.href}/`)) ||
+                  (item.href === "/industries" && isIndustryPath));
               return (
                 <Link
                   href={item.href}

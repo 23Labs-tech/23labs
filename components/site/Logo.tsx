@@ -3,7 +3,7 @@ import Link from "next/link";
 
 type LogoProps = {
   href?: string;
-  tone?: "dark" | "light";
+  tone?: "dark" | "light" | "industry";
   priority?: boolean;
   className?: string;
 };
@@ -12,9 +12,15 @@ export function Logo({ href = "/", tone = "dark", priority = false, className }:
   const width = tone === "light" ? 104 : 149;
   const height = tone === "light" ? 92 : 132;
   const wrapperClass = className ?? (tone === "light" ? "foot-logo" : "logo");
+  const src =
+    tone === "light"
+      ? "/23labs-logo-light.png"
+      : tone === "industry"
+        ? "/23labs-logo-industry.png"
+        : "/23labs-logo-dark.png";
   const image = (
     <Image
-      src={tone === "light" ? "/23labs-logo-light.png" : "/23labs-logo-dark.png"}
+      src={src}
       alt="23Labs"
       width={width}
       height={height}

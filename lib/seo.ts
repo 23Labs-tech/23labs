@@ -3,6 +3,7 @@ import { getBaseUrl, siteConfig } from "@/lib/site";
 
 type SeoInput = {
   title?: string;
+  absoluteTitle?: string;
   description?: string;
   path?: string;
   image?: string;
@@ -23,6 +24,7 @@ export function absoluteUrl(path = "/") {
 
 export function createMetadata({
   title,
+  absoluteTitle,
   description = siteConfig.description,
   path = "/",
   image = "/og-image.png",
@@ -35,9 +37,11 @@ export function createMetadata({
   modifiedTime,
   authors,
 }: SeoInput = {}): Metadata {
-  const fullTitle = title
-    ? `${title} — ${siteConfig.name}`
-    : `${siteConfig.name} — Automation, Software & AI for Ambitious Businesses`;
+  const fullTitle = absoluteTitle
+    ? absoluteTitle
+    : title
+      ? `${title} — ${siteConfig.name}`
+      : `${siteConfig.name} — Automation, Software & AI for Ambitious Businesses`;
   const url = absoluteUrl(path);
   const imageUrl = absoluteUrl(image);
 

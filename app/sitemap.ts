@@ -1,10 +1,11 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/blog";
+import { industryRoutePaths } from "@/lib/industries";
 import { getBaseUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = getBaseUrl();
-  const staticRoutes = ["", "/about", "/services", "/work", "/contact", "/blog"].map((path) => ({
+  const staticRoutes = ["", "/about", "/services", "/work", "/contact", "/blog", ...industryRoutePaths].map((path) => ({
     url: `${baseUrl}${path}`,
     lastModified: new Date(),
     changeFrequency: path === "" ? "weekly" : "monthly",

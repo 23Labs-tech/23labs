@@ -5,9 +5,9 @@ date: "2026-06-22"
 updated: "2026-06-22"
 author: "23Labs"
 categories: "AI Automation, Workflow Automation, Operations"
-image: "/23labs-brand-mark.png"
-featuredImage: "/23labs-brand-mark.png"
-imageAlt: "23Labs brand mark used as a featured image for a business automation readiness article"
+image: "/site-images/tech-img-03.png"
+featuredImage: "/site-images/tech-img-03.png"
+imageAlt: "Glowing blue circuit ring representing business automation readiness"
 ---
 
 For many business owners, AI automation sounds like something reserved for large corporations with dedicated IT teams and massive budgets.

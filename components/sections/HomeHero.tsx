@@ -1,5 +1,5 @@
+import Image from "next/image";
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import { PlaceholderArt } from "@/components/ui/PlaceholderArt";
 
 export function HomeHero() {
   return (
@@ -22,7 +22,14 @@ export function HomeHero() {
 
         <div className="reveal in hero-visual">
           <div className="hero-art">
-            <PlaceholderArt className="placeholder-art" />
+            <Image
+              src="/home-hero-header.jpeg"
+              alt="Abstract connected glass panels representing modern systems"
+              fill
+              priority
+              sizes="(max-width: 980px) 100vw, 46vw"
+              className="hero-art-img"
+            />
           </div>
           <div className="hero-card">
             <span className="mono">Built around your business</span>

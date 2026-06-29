@@ -5,9 +5,9 @@ date: "2026-06-20"
 updated: "2026-06-20"
 author: "23Labs"
 categories: "AI Automation, Trades, Field Service"
-image: "/23labs-brand-mark.png"
-featuredImage: "/23labs-brand-mark.png"
-imageAlt: "23Labs brand mark used as a featured image for a trades and field service automation article"
+image: "/site-images/tech-img-16.png"
+featuredImage: "/site-images/tech-img-16.png"
+imageAlt: "AI automation dashboard with connected business data"
 ---
 
 Most trades businesses don't lose work because they're bad at what they do.

@@ -5,8 +5,9 @@ date: "2026-05-20"
 updated: "2026-05-20"
 author: "23Labs"
 categories: "Web Development, SEO"
-featuredImage: "/23labs-brand-mark.png"
-imageAlt: "23Labs brand mark used as a featured image for a website launch checklist"
+image: "/site-images/tech-img-08.png"
+featuredImage: "/site-images/tech-img-08.png"
+imageAlt: "Dark analytics dashboard with charts and system status panels"
 ---
 
 A production website is more than a polished design. It needs to be fast, accessible, searchable, and easy to operate after the launch handover.

@@ -5,9 +5,9 @@ date: "2026-06-19"
 updated: "2026-06-19"
 author: "23Labs"
 categories: "Lead Response, AI Automation, Sales"
-image: "/23labs-brand-mark.png"
-featuredImage: "/23labs-brand-mark.png"
-imageAlt: "23Labs brand mark used as a featured image for a lead response automation article"
+image: "/site-images/tech-img-01.png"
+featuredImage: "/site-images/tech-img-01.png"
+imageAlt: "Fast-moving blue and orange data lines representing lead response speed"
 ---
 
 Imagine this.

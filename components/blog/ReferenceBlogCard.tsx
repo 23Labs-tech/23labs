@@ -1,4 +1,4 @@
-import { PlaceholderArt } from "@/components/ui/PlaceholderArt";
+import Image from "next/image";
 
 type ReferenceBlogPost = {
   slug: string;
@@ -6,6 +6,10 @@ type ReferenceBlogPost = {
   date: string;
   title: string;
   description: string;
+  image: {
+    src: string;
+    alt: string;
+  };
 };
 
 type ReferenceBlogCardProps = {
@@ -21,8 +25,14 @@ export function ReferenceBlogCard({ post, hrefBase = "", anchored = true }: Refe
       id={anchored ? post.slug : undefined}
       data-category={anchored ? post.category : undefined}
     >
-      <div className="blog-thumb" aria-hidden="true">
-        <PlaceholderArt />
+      <div className="blog-thumb">
+        <Image
+          src={post.image.src}
+          alt={post.image.alt}
+          fill
+          sizes="(max-width: 780px) 100vw, 33vw"
+          className="blog-thumb-img"
+        />
       </div>
       <div className="blog-body">
         <span className="blog-meta">

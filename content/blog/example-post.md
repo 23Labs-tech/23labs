@@ -5,8 +5,9 @@ date: "2026-06-01"
 updated: "2026-06-01"
 author: "23Labs"
 categories: "Automation, Operations"
-featuredImage: "/23labs-brand-mark.png"
-imageAlt: "23Labs brand mark used as a featured image for an automation article"
+image: "/site-images/tech-img-09.png"
+featuredImage: "/site-images/tech-img-09.png"
+imageAlt: "Colourful data streams flowing into a digital system"
 ---
 
 Most automation projects start too late. A workflow becomes painful, a spreadsheet becomes business-critical, and suddenly the team is relying on workarounds that were only meant to last a week.

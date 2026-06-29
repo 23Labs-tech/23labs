@@ -371,10 +371,14 @@ textarea:focus-visible {
 .hero-art {
   position: relative;
   aspect-ratio: 1 / 1;
+  overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 20px;
   background: var(--card);
-  padding: 18px;
+}
+
+.hero-art-img {
+  object-fit: cover;
 }
 
 .hero-card {
@@ -890,6 +894,10 @@ textarea:focus-visible {
 }
 
 .work-thumb-img {
+  object-fit: cover;
+}
+
+.blog-thumb-img {
   object-fit: cover;
 }
 

@@ -5,9 +5,9 @@ date: "2026-06-23"
 updated: "2026-06-23"
 author: "23Labs"
 categories: "AI Automation, Service Business, Operations"
-image: "/23labs-brand-mark.png"
-featuredImage: "/23labs-brand-mark.png"
-imageAlt: "23Labs brand mark used as a featured image for an AI automation article"
+image: "/site-images/tech-img-07.png"
+featuredImage: "/site-images/tech-img-07.png"
+imageAlt: "Person reviewing automation system diagrams on dual monitors"
 ---
 
 Running a service business means wearing multiple hats. One minute you're quoting a job, the next you're chasing customer information, responding to enquiries, scheduling appointments, or following up on unpaid invoices.

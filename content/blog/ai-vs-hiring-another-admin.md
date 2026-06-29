@@ -5,9 +5,9 @@ date: "2026-06-21"
 updated: "2026-06-21"
 author: "23Labs"
 categories: "AI Automation, Business Growth, Operations"
-image: "/23labs-brand-mark.png"
-featuredImage: "/23labs-brand-mark.png"
-imageAlt: "23Labs brand mark used as a featured image for an article comparing AI automation and hiring"
+image: "/site-images/tech-img-05.png"
+featuredImage: "/site-images/tech-img-05.png"
+imageAlt: "Digital analytics interface turning data into business metrics"
 ---
 
 As businesses grow, so does the workload.

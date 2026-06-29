@@ -84,6 +84,10 @@ export const caseStudies = [
     slug: "haylo-ai",
     name: "Haylo AI",
     type: "23Labs Product",
+    image: {
+      src: "/work/haylo-ai.png",
+      alt: "Haylo AI project image",
+    },
     tags: ["AI Automation", "Voice & Calls", "Booking Integration"],
     problem:
       "Our own AI receptionist product, answering calls, qualifying leads, and booking appointments around the clock for growing businesses.",
@@ -100,6 +104,10 @@ export const caseStudies = [
     slug: "lily-olsen-counselling",
     name: "Lily Olsen Counselling",
     type: "Website Rebuild",
+    image: {
+      src: "/work/lily-olsen-counselling.png",
+      alt: "Lily Olsen Counselling project image",
+    },
     tags: ["Web Development", "Brand-led Design", "Multi-page Build"],
     problem:
       "A full multi-page website rebuild for an Auckland-based therapist, with a calm, considered design and clear pathways to book.",
@@ -114,6 +122,10 @@ export const caseStudies = [
     slug: "corit-tech",
     name: "CorIT Tech",
     type: "Onboarding Automation",
+    image: {
+      src: "/work/corit-tech.png",
+      alt: "CorIT Tech project image",
+    },
     tags: ["AI Automation", "Data Integration"],
     problem:
       "Automated a manual, multi-tool onboarding process for an IT services team as client volume started to outpace it.",
@@ -128,6 +140,10 @@ export const caseStudies = [
     slug: "first-national-real-estate",
     name: "First National Real Estate",
     type: "Workflow Automation",
+    image: {
+      src: "/work/first-national-real-estate.png",
+      alt: "First National Real Estate project image",
+    },
     tags: ["Automation", "Customer Experience"],
     problem:
       "Automated the handoffs between customer enquiries and property records to cut down repetitive admin work.",

@@ -889,6 +889,10 @@ textarea:focus-visible {
   height: 160px;
 }
 
+.work-thumb-img {
+  object-fit: cover;
+}
+
 .blog-thumb {
   height: 140px;
 }
@@ -1366,6 +1370,7 @@ textarea:focus-visible {
 }
 
 .case-thumb {
+  position: relative;
   width: 140px;
   height: 88px;
   flex-shrink: 0;

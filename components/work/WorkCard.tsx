@@ -1,21 +1,25 @@
 import Link from "next/link";
-import { PlaceholderArt } from "@/components/ui/PlaceholderArt";
+import Image from "next/image";
 
 type WorkCardProps = {
   slug: string;
   name: string;
   type: string;
+  image: {
+    src: string;
+    alt: string;
+  };
   problem: string;
   result: string;
   tags: string[];
   compact?: boolean;
 };
 
-export function WorkCard({ slug, name, type, problem }: WorkCardProps) {
+export function WorkCard({ slug, name, type, image, problem }: WorkCardProps) {
   return (
     <article className="work-card">
-      <div className="work-thumb" aria-hidden="true">
-        <PlaceholderArt />
+      <div className="work-thumb">
+        <Image src={image.src} alt={image.alt} fill sizes="(max-width: 780px) 100vw, 50vw" className="work-thumb-img" />
       </div>
       <div className="work-body">
         <span className="work-tag">{type}</span>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { PlaceholderArt } from "@/components/ui/PlaceholderArt";
+import Image from "next/image";
 import { caseStudies } from "@/lib/data";
 
 export function WorkCases() {
@@ -37,8 +37,14 @@ export function WorkCases() {
               aria-expanded={isOpen}
               onClick={() => setOpenCases((current) => ({ ...current, [item.slug]: !current[item.slug] }))}
             >
-              <div className="case-thumb" aria-hidden="true">
-                <PlaceholderArt label={false} />
+              <div className="case-thumb">
+                <Image
+                  src={item.image.src}
+                  alt={item.image.alt}
+                  fill
+                  sizes="(max-width: 780px) 84px, 140px"
+                  className="work-thumb-img"
+                />
               </div>
               <div className="case-heading">
                 <span className="work-tag">{item.type}</span>

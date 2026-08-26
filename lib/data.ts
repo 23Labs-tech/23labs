@@ -12,7 +12,7 @@ export const services = [
     slug: "ai-automation",
     eyebrow: "AI",
     title: "AI Automation",
-    homeTitle: "AI Automation",
+    homeTitle: "Automation",
     summary:
       "We design automations that handle repetitive admin work quietly in the background, so your team spends time on what actually grows the business.",
     description:
@@ -28,7 +28,7 @@ export const services = [
     slug: "web-development",
     eyebrow: "WEB",
     title: "Web Development",
-    homeTitle: "Web Development",
+    homeTitle: "Digital Experiences",
     summary:
       "Fast, modern websites that load quickly, rank well, and turn visitors into leads, built on a foundation your team can keep growing into.",
     description:
@@ -44,7 +44,7 @@ export const services = [
     slug: "software-development",
     eyebrow: "APP",
     title: "App & Software Development",
-    homeTitle: "App & Software",
+    homeTitle: "Custom Software",
     summary:
       "From internal tools to full platforms, we design custom software shaped around how your team actually works, not the other way around.",
     description:
@@ -60,7 +60,7 @@ export const services = [
     slug: "data-integration",
     eyebrow: "DATA",
     title: "Data Integration",
-    homeTitle: "Data Integration",
+    homeTitle: "Systems & Integrations",
     summary:
       "We connect the tools you already use so information moves automatically between them, removing duplicate entry and the gaps where things get missed.",
     description:
@@ -98,6 +98,7 @@ export const caseStudies = [
       "We built Haylo as our own product: a configurable AI receptionist persona that answers calls, handles FAQs, and books appointments directly, with rules tuned per business so it never over-shares pricing or services unprompted.",
     result:
       "A 24/7 front line that qualifies leads and books appointments while the team is busy, asleep, or off the clock, with the groundwork from building it feeding directly into the client software we ship.",
+    flow: ["Call received", "AI qualifies", "Appointment booked", "Team notified"],
     ctaHref: "https://gethaylo.co",
     ctaLabel: "Visit gethaylo.co",
   },
@@ -136,6 +137,7 @@ export const caseStudies = [
       "We mapped the onboarding workflow end to end and built automations that sync data across their CRM and project tools the moment a new client signs on, removing the manual copy-paste step entirely.",
     result:
       "Saved 10+ hours every month, reduced manual errors, and created a more scalable onboarding process.",
+    flow: ["CRM", "Automation", "Accounting", "Provisioning", "Notification"],
   },
   {
     slug: "first-national-real-estate",
@@ -154,6 +156,7 @@ export const caseStudies = [
       "We automated the handoffs between customer enquiries and property records, building clear triggers so the right person is notified at the right step without anyone having to chase it manually.",
     result:
       "Improved operational visibility and reduced the manual follow-up required across common customer touchpoints.",
+    flow: ["Enquiry received", "Categorised", "CRM updated", "Assigned", "Reporting"],
   },
 ];
 
@@ -205,33 +208,21 @@ export const processSteps = [
   },
 ];
 
-export const homeProcessSteps = [
+export const homeProcessBrief = [
   {
     number: "01",
-    title: "Discover",
-    lead: "We start by understanding how your business actually works.",
-    body:
-      "Before recommending any solution, we take the time to map your current workflows, identify bottlenecks, and uncover where time, revenue, and productivity are being lost. Through workshops and discovery sessions, we gain a clear understanding of your team's day-to-day processes, challenges, and goals.",
-    result:
-      "A clear roadmap focused on solving the right problems, not just implementing technology.",
+    title: "Understand the problem",
+    body: "We map your systems, workflows and bottlenecks.",
   },
   {
     number: "02",
-    title: "Design & Build",
-    lead: "We build solutions around your existing workflows, not the other way around.",
-    body:
-      "Using insights gathered during discovery, we design practical systems that fit naturally into the way your team operates. Whether it's custom software, AI automation, integrations, or internal tools, every solution is tailored to improve efficiency while minimizing disruption.",
-    result:
-      "Technology that feels like a natural extension of your business and helps your team work smarter.",
+    title: "Design the solution",
+    body: "We build around how your business actually operates.",
   },
   {
     number: "03",
-    title: "Launch & Support",
-    lead: "We stay involved to ensure long-term success.",
-    body:
-      "Implementation is only the beginning. We work alongside your team during rollout, gather feedback, refine processes, and continuously improve the solution as your business evolves.",
-    result:
-      "Ongoing improvements, stronger adoption, and solutions that keep creating value over time.",
+    title: "Launch and improve",
+    body: "We deploy, measure and continue refining.",
   },
 ];
 

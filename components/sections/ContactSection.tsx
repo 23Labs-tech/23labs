@@ -18,7 +18,8 @@ export function ContactSection({
   body,
 }: ContactSectionProps) {
   const bodyItems = Array.isArray(body) ? body : [body];
-  const sectionClass = variant === "page" ? "sec contact-page-section" : "sec";
+  const sectionClass =
+    variant === "page" ? "sec contact-page-section" : "sec sec-alt";
 
   return (
     <section id={id} className={sectionClass}>

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/site/Footer";
 import { JsonLd } from "@/components/site/JsonLd";
@@ -13,11 +13,6 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-heading",
-  subsets: ["latin"],
-});
-
 const jetBrainsMono = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
@@ -28,7 +23,7 @@ export const metadata: Metadata = createMetadata();
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#faf7f2",
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({
@@ -37,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${jetBrainsMono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${jetBrainsMono.variable}`}>
       <body>
         <Navbar />
         <main id="main">{children}</main>

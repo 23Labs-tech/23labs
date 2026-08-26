@@ -4,110 +4,90 @@ import Link from "next/link";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { HomeHero } from "@/components/sections/HomeHero";
+import { ProcessSteps } from "@/components/sections/ProcessSteps";
 import { StatsBand } from "@/components/sections/StatsBand";
 import { JsonLd } from "@/components/site/JsonLd";
-import { ButtonLink } from "@/components/ui/ButtonLink";
+import {
+  AutomationVisual,
+  DigitalVisual,
+  IntegrationVisual,
+  SoftwareVisual,
+} from "@/components/ui/BuildVisuals";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ServiceIcon } from "@/components/ui/ServiceIcon";
-import { WorkCard } from "@/components/work/WorkCard";
+import { WorkShowcase } from "@/components/work/WorkShowcase";
 import { getAllPosts } from "@/lib/blog";
-import { caseStudies, faqs, homeProcessSteps, services, values } from "@/lib/data";
+import { faqs, services, values } from "@/lib/data";
 import { createMetadata } from "@/lib/seo";
+
+const buildVisuals: Record<string, React.ComponentType> = {
+  "ai-automation": AutomationVisual,
+  "software-development": SoftwareVisual,
+  "data-integration": IntegrationVisual,
+  "web-development": DigitalVisual,
+};
+
+const buildOrder = ["ai-automation", "software-development", "data-integration", "web-development"];
+const buildSize: Record<string, string> = {
+  "ai-automation": "xl",
+  "software-development": "sm",
+  "data-integration": "lg",
+  "web-development": "lg",
+};
 
 export const metadata: Metadata = createMetadata({
   description:
-    "23Labs is a studio building automation, custom software, and AI tools that remove busywork and help businesses scale with confidence.",
+    "23Labs is a studio building automation, custom software, and the systems that remove busywork and help businesses scale with confidence.",
   keywords: ["AI automation", "custom software", "web development", "data integration", "Melbourne technology studio"],
 });
 
 export default function Home() {
   const posts = getAllPosts();
+  const orderedServices = buildOrder
+    .map((slug) => services.find((service) => service.slug === slug))
+    .filter((service): service is (typeof services)[number] => Boolean(service));
 
   return (
     <>
       <HomeHero />
 
-      <section className="sec" id="about">
-        <div className="wrap">
-          <div className="intro-copy reveal">
-            <div className="sec-tag">About 23Labs</div>
-            <h2>
-              Practical technology, built around <span className="em">your business</span>
-            </h2>
-            <p className="lead">
-              We&apos;re a studio building automation, software, and AI tools that remove busywork and help
-              businesses scale with confidence.
-            </p>
-            <p className="lead">
-              23Labs started with a simple belief: most businesses don&apos;t need more software, they need the
-              right systems working together. We partner with growing businesses to find where the friction
-              is and build practical solutions that actually get used, from automating day-to-day operations
-              to designing custom platforms and AI tools.
-            </p>
-            <div className="hero-actions">
-              <ButtonLink href="/about" variant="secondary">
-                Read our full story
-              </ButtonLink>
-              <ButtonLink href="#contact">Contact us</ButtonLink>
-            </div>
-          </div>
-        </div>
-      </section>
+      <StatsBand />
 
-      <section className="sec" id="services">
+      <section className="sec sec-alt" id="services">
         <div className="wrap">
           <div className="sec-head reveal">
             <div className="sec-tag">What we build</div>
             <h2 className="sec-title">
-              Four ways we help businesses <span className="em">work smarter</span>
+              Three disciplines, <span className="em">one system</span>
             </h2>
             <p className="lead">
-              From quick automations through to full custom platforms, every solution is built to remove
-              friction and fit how your team already operates.
+              Automation, custom software, and the systems that connect them. Websites and digital
+              products are part of the same craft.
             </p>
             <Link href="/services" className="work-link full-services-link">
-              See the full services breakdown <span aria-hidden="true">{"\u2192"}</span>
+              See the full services breakdown <span aria-hidden="true">{"→"}</span>
             </Link>
           </div>
-          <div className="svc-grid reveal">
-            {services.map((service) => (
-              <article className="svc" key={service.slug}>
-                <ServiceIcon slug={service.slug} />
-                <h3>{service.homeTitle}</h3>
-                <p>{service.summary}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="sec">
-        <div className="wrap">
-          <SectionHeading eyebrow="How we work" title="How We Partner With " highlight="You" />
-          <div className="panel-card reveal">
-            <div className="process-list">
-              {homeProcessSteps.map((step) => (
-                <article className="process-row" key={step.number}>
-                  <div className="process-k">{step.number}</div>
-                  <div>
-                    <h3>{step.title}</h3>
-                    <p className="lede">{step.lead}</p>
-                    <p>{step.body}</p>
-                    <div className="process-result">
-                      <span className="tag">Result</span>
-                      <p>{step.result}</p>
-                    </div>
+          <div className="build-grid reveal">
+            {orderedServices.map((service) => {
+              const Visual = buildVisuals[service.slug];
+              return (
+                <article className={`build-card ${buildSize[service.slug]}`} key={service.slug}>
+                  <div className="build-visual">
+                    <Visual />
+                  </div>
+                  <div className="build-body">
+                    <span className="build-num">{service.eyebrow}</span>
+                    <h3>{service.homeTitle}</h3>
+                    <p>{service.summary}</p>
                   </div>
                 </article>
-              ))}
-            </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      <StatsBand />
-
-      <section className="sec" id="work">
+      <section className="sec sec-dark" id="work">
         <div className="wrap">
           <div className="sec-head reveal">
             <div className="sec-tag">Selected work</div>
@@ -116,41 +96,24 @@ export default function Home() {
             </h2>
             <p className="lead">A few of the products, platforms, and rebuilds we&apos;ve shipped recently.</p>
             <Link href="/work" className="work-link full-services-link">
-              See all case studies <span aria-hidden="true">{"\u2192"}</span>
+              See all case studies <span aria-hidden="true">{"→"}</span>
             </Link>
           </div>
-          <div className="work-grid reveal">
-            {caseStudies.map((item) => (
-              <WorkCard {...item} key={item.slug} />
-            ))}
-          </div>
+          <WorkShowcase />
         </div>
       </section>
 
-      <section className="sec" id="blog">
+      <section className="sec">
         <div className="wrap">
-          <div className="sec-head reveal">
-            <div className="sec-tag">From the blog</div>
-            <h2 className="sec-title">
-              Notes on automation, software, and <span className="em">getting it right</span>
-            </h2>
-            <p className="lead">Short, practical write-ups from inside our own projects, no fluff.</p>
-            <Link href="/blog" className="work-link full-services-link">
-              See all posts <span aria-hidden="true">{"\u2192"}</span>
-            </Link>
-          </div>
-          <div className="blog-grid reveal">
-            {posts.slice(0, 3).map((post) => (
-              <BlogCard post={post} key={post.slug} />
-            ))}
-          </div>
+          <SectionHeading eyebrow="How we work" title="From first call to " highlight="long-term support" />
+          <ProcessSteps />
         </div>
       </section>
 
       <section className="sec">
         <div className="wrap">
           <div className="sec-head reveal">
-            <div className="sec-tag">Why teams choose us</div>
+            <div className="sec-tag">Why 23Labs</div>
             <h2 className="sec-title">
               Built on a few things we won&apos;t <span className="em">compromise</span>
             </h2>
@@ -167,30 +130,51 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="sec" id="haylo">
+      <section className="sec sec-alt" id="haylo">
         <div className="wrap">
           <div className="haylo-strip reveal">
             <div>
+              <div className="sec-tag">Built inside 23Labs</div>
               <Image src="/haylo-logo.png" alt="Haylo" width={200} height={52} className="haylo-logo" />
               <h3>An AI receptionist that never misses a call.</h3>
               <p>
-                Haylo answers calls, qualifies leads, and books appointments around the clock for growing
-                businesses. We use everything we learn building it to inform the software we build for clients.
+                Haylo answers calls, qualifies leads, and books appointments around the clock. It&apos;s
+                built and operated by the same team that builds client software, so what we learn running
+                it feeds straight back into the systems we ship.
               </p>
+              <div className="hero-actions" style={{ justifyContent: "flex-start", marginTop: 32 }}>
+                <a href="https://gethaylo.co" target="_blank" rel="noreferrer" className="btn btn-primary">
+                  Visit gethaylo.co <span className="btn-arrow" aria-hidden="true">{"→"}</span>
+                </a>
+              </div>
             </div>
-            <a href="https://gethaylo.co" target="_blank" rel="noreferrer" className="btn btn-primary">
-              Visit gethaylo.co <span className="btn-arrow" aria-hidden="true">{"\u2192"}</span>
-            </a>
           </div>
         </div>
       </section>
 
-      <section className="sec" id="cta">
-        <div className="wrap cta-band reveal">
-          <h2>Ready to remove the busywork?</h2>
-          <p>Tell us where the friction is and we&apos;ll show you a practical path forward, no obligation.</p>
-          <div className="hero-actions">
-            <ButtonLink href="#contact">Talk to us</ButtonLink>
+      <section className="sec">
+        <div className="wrap">
+          <div className="sec-head reveal">
+            <div className="sec-tag">Ideas &amp; insights</div>
+            <h2 className="sec-title">Notes from inside our own projects</h2>
+          </div>
+          <div className="insights-row reveal">
+            {posts[0] ? (
+              <div className="insights-featured">
+                <BlogCard post={posts[0]} />
+              </div>
+            ) : null}
+            <div className="insights-compact-list">
+              {posts.slice(1, 3).map((post) => (
+                <Link href={`/blog/${post.slug}`} className="insights-compact" key={post.slug}>
+                  <span className="work-tag">{post.categories[0] || "Insights"}</span>
+                  <h3>{post.title}</h3>
+                </Link>
+              ))}
+              <Link href="/blog" className="work-link full-services-link">
+                View all insights <span aria-hidden="true">{"→"}</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -198,11 +182,8 @@ export default function Home() {
       <ContactSection
         id="contact"
         eyebrow="Get in touch"
-        title="Helping businesses scale with confidence"
-        body={[
-          "Tell us about your business, your goals, and the challenges you're looking to solve. We'll get back to you within one business day.",
-          "Whether you're looking to improve operations, automate manual processes, build custom software, or create a better digital experience for your customers, we're here to help.",
-        ]}
+        title="Have something worth fixing?"
+        body={["Tell us what's slowing the business down, and we'll get back to you within one business day."]}
       />
 
       <JsonLd

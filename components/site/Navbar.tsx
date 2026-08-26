@@ -63,8 +63,8 @@ export function Navbar() {
             })}
           </div>
           <div className="nav-right">
-            <ButtonLink href="/contact" className="nav-cta">
-              Talk To Us
+            <ButtonLink href="/contact" className="nav-cta" arrow={false}>
+              Talk to us
             </ButtonLink>
             <button
               className={`nav-toggle${open ? " is-open" : ""}`}

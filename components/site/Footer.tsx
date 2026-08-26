@@ -42,7 +42,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <Link href="/contact">Let&apos;s Chat</Link>
+                <Link href="/contact">Talk to us</Link>
               </li>
             </ul>
           </div>

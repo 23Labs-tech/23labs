@@ -113,7 +113,7 @@ export function ContactForm() {
       </div>
 
       <div className="form-row">
-        <Field label="Full name" id="fullName" error={errors.fullName} required>
+        <Field label="Name" id="fullName" error={errors.fullName} required>
           <input
             id="fullName"
             name="fullName"
@@ -139,7 +139,7 @@ export function ContactForm() {
       </div>
 
       <div className="form-row">
-        <Field label="Email address" id="email" error={errors.email} required>
+        <Field label="Work email" id="email" error={errors.email} required>
           <input
             id="email"
             name="email"
@@ -164,7 +164,12 @@ export function ContactForm() {
         </Field>
       </div>
 
-      <Field label="How can we help?" id="message" error={errors.message} className="form-full">
+      <Field
+        label="What are you trying to improve?"
+        id="message"
+        error={errors.message}
+        className="form-full"
+      >
         <textarea
           id="message"
           name="message"
@@ -190,7 +195,7 @@ export function ContactForm() {
       ) : null}
 
       <button className="btn btn-primary form-submit" type="submit" disabled={status === "loading"}>
-        {status === "loading" ? "Sending..." : "Send message"}
+        {status === "loading" ? "Sending..." : "Talk to us"}
         <span className="btn-arrow" aria-hidden="true">
           {"\u2192"}
         </span>

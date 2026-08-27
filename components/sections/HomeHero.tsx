@@ -28,7 +28,7 @@ export function HomeHero() {
             alt="Abstract connected glass panels representing modern systems"
             fill
             priority
-            sizes="(max-width: 980px) 100vw, 980px"
+            sizes="(max-width: 900px) 100vw, 55vw"
           />
         </div>
       </div>

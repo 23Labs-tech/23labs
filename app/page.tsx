@@ -7,32 +7,12 @@ import { HomeHero } from "@/components/sections/HomeHero";
 import { ProcessSteps } from "@/components/sections/ProcessSteps";
 import { StatsBand } from "@/components/sections/StatsBand";
 import { JsonLd } from "@/components/site/JsonLd";
-import {
-  AutomationVisual,
-  DigitalVisual,
-  IntegrationVisual,
-  SoftwareVisual,
-} from "@/components/ui/BuildVisuals";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ServiceIcon } from "@/components/ui/ServiceIcon";
 import { WorkShowcase } from "@/components/work/WorkShowcase";
 import { getAllPosts } from "@/lib/blog";
 import { faqs, services, values } from "@/lib/data";
 import { createMetadata } from "@/lib/seo";
-
-const buildVisuals: Record<string, React.ComponentType> = {
-  "ai-automation": AutomationVisual,
-  "software-development": SoftwareVisual,
-  "data-integration": IntegrationVisual,
-  "web-development": DigitalVisual,
-};
-
-const buildOrder = ["ai-automation", "software-development", "data-integration", "web-development"];
-const buildSize: Record<string, string> = {
-  "ai-automation": "xl",
-  "software-development": "sm",
-  "data-integration": "lg",
-  "web-development": "lg",
-};
 
 export const metadata: Metadata = createMetadata({
   description:
@@ -42,9 +22,6 @@ export const metadata: Metadata = createMetadata({
 
 export default function Home() {
   const posts = getAllPosts();
-  const orderedServices = buildOrder
-    .map((slug) => services.find((service) => service.slug === slug))
-    .filter((service): service is (typeof services)[number] => Boolean(service));
 
   return (
     <>
@@ -67,22 +44,14 @@ export default function Home() {
               See the full services breakdown <span aria-hidden="true">{"→"}</span>
             </Link>
           </div>
-          <div className="build-grid reveal">
-            {orderedServices.map((service) => {
-              const Visual = buildVisuals[service.slug];
-              return (
-                <article className={`build-card ${buildSize[service.slug]}`} key={service.slug}>
-                  <div className="build-visual">
-                    <Visual />
-                  </div>
-                  <div className="build-body">
-                    <span className="build-num">{service.eyebrow}</span>
-                    <h3>{service.homeTitle}</h3>
-                    <p>{service.summary}</p>
-                  </div>
-                </article>
-              );
-            })}
+          <div className="svc-grid reveal">
+            {services.map((service) => (
+              <article className="svc" key={service.slug}>
+                <ServiceIcon slug={service.slug} />
+                <h3>{service.homeTitle}</h3>
+                <p>{service.summary}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>

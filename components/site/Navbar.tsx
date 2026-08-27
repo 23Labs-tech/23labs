@@ -35,9 +35,6 @@ export function Navbar() {
 
   return (
     <nav className={`nav${scrolled ? " scrolled" : ""}`} id="nav">
-      <a href="#main" className="skip-link">
-        Skip to content
-      </a>
       <div className="nav-in">
         <Logo href="/#top" priority tone={isIndustryPath ? "industry" : "dark"} />
         <div className="nav-group">

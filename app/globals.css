@@ -21,7 +21,7 @@
   --foot-faint: rgba(245, 245, 247, 0.52);
   --maxw: 1240px;
   --pad: 40px;
-  --sec-pad: 160px;
+  --sec-pad: 128px;
 }
 
 * {
@@ -40,7 +40,9 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--font-sans), Inter, Arial, sans-serif;
+  font-family: var(--font-sans), "Poppins", Arial, sans-serif;
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  font-weight: 400;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -58,9 +60,21 @@ h2,
 h3 {
   margin: 0;
   color: var(--ink);
-  font-family: var(--font-sans), Inter, Arial, sans-serif;
+  font-family: var(--font-sans), "Poppins", Arial, sans-serif;
   font-weight: 600;
   letter-spacing: -0.015em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
 }
 
 p {
@@ -195,7 +209,7 @@ textarea:focus-visible {
 }
 
 .sec-title {
-  font-size: clamp(30px, 3.6vw, 50px);
+  font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 600;
   line-height: 1.12;
   letter-spacing: -0.02em;
@@ -413,14 +427,14 @@ textarea:focus-visible {
 }
 
 .hero-copy {
-  max-width: 780px;
+  max-width: 850px;
 }
 
 .hero h1 {
-  font-size: clamp(44px, 6.6vw, 82px);
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
   font-weight: 600;
-  line-height: 0.98;
-  letter-spacing: -0.03em;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
 }
 
 .hero .lead {
@@ -441,12 +455,13 @@ textarea:focus-visible {
   position: relative;
   width: 100%;
   max-width: 980px;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: 24px;
 }
 
-.systems-visual {
-  display: block;
-  width: 100%;
-  height: auto;
+.hero-visual img {
+  object-fit: cover;
 }
 
 /* ---------- Placeholder art (legacy thumbs) ---------- */
@@ -903,7 +918,7 @@ textarea:focus-visible {
   align-items: baseline;
   justify-content: center;
   color: var(--ink);
-  font-size: clamp(56px, 6.4vw, 100px);
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
   font-weight: 600;
   letter-spacing: -0.03em;
   font-variant-numeric: tabular-nums;
@@ -1177,7 +1192,7 @@ textarea:focus-visible {
 
 .haylo-strip h3 {
   margin-bottom: 14px;
-  font-size: clamp(26px, 3vw, 36px);
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
   letter-spacing: -0.02em;
 }
 
@@ -1837,7 +1852,7 @@ textarea:focus-visible {
 .showcase-copy h3 {
   margin: 16px 0 16px;
   color: var(--dark-ink);
-  font-size: clamp(26px, 3vw, 38px);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
   letter-spacing: -0.02em;
 }
 
@@ -2065,7 +2080,7 @@ textarea:focus-visible {
   }
 
   :root {
-    --sec-pad: 112px;
+    --sec-pad: 88px;
     --pad: 28px;
   }
 }
@@ -2103,7 +2118,7 @@ textarea:focus-visible {
 
 @media (max-width: 680px) {
   :root {
-    --sec-pad: 80px;
+    --sec-pad: 64px;
     --pad: 20px;
   }
 
@@ -2252,6 +2267,10 @@ textarea:focus-visible {
 }
 
 @media (max-width: 430px) {
+  :root {
+    --sec-pad: 56px;
+  }
+
   .btn {
     padding-inline: 18px;
   }

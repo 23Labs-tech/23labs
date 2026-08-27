@@ -680,6 +680,102 @@ textarea:focus-visible {
   background: var(--line);
 }
 
+.svc-grid-primary {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.svc-secondary {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 24px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px 26px;
+  background: var(--paper);
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.svc-secondary:hover {
+  border-color: var(--ink-faint);
+  background: var(--paper-2);
+}
+
+.svc-secondary .svc-ico-sm {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0;
+}
+
+.svc-secondary-body {
+  flex: 1;
+}
+
+.svc-secondary-body h4 {
+  margin: 4px 0 4px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.svc-secondary-body p {
+  color: var(--ink-soft);
+  font-size: 14.5px;
+}
+
+.fit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.fit-col {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 28px 30px;
+}
+
+.fit-col h3 {
+  margin-bottom: 18px;
+  font-size: 17px;
+}
+
+.related-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.related-link {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px 24px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.related-link:hover {
+  border-color: var(--ink-faint);
+  background: var(--paper-2);
+}
+
+.related-link .mono {
+  color: var(--accent-dark);
+}
+
+.related-link h4 {
+  margin: 2px 0 6px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.related-link .btn-arrow {
+  margin-top: auto;
+}
+
 .svc {
   background: var(--paper);
   padding: 40px 30px;
@@ -1951,7 +2047,7 @@ textarea:focus-visible {
 
 .foot-in {
   display: grid;
-  grid-template-columns: 1.4fr 0.8fr 1fr 0.8fr 0.8fr;
+  grid-template-columns: 1.3fr 0.75fr 0.9fr 0.85fr 0.75fr 0.75fr;
   gap: 32px;
 }
 
@@ -2039,7 +2135,8 @@ textarea:focus-visible {
   .blog-grid,
   .blog-grid-full,
   .industry-grid,
-  .build-grid {
+  .build-grid,
+  .related-links {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -2225,7 +2322,9 @@ textarea:focus-visible {
   .blog-grid,
   .blog-grid-full,
   .build-grid,
-  .form-row {
+  .form-row,
+  .fit-grid,
+  .related-links {
     grid-template-columns: 1fr;
   }
 

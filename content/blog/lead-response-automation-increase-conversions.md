@@ -247,4 +247,4 @@ The question is whether every enquiry is receiving the attention it deserves.
 
 23Labs helps service businesses implement AI-powered lead response automation that captures enquiries, qualifies prospects, automates follow-ups, and ensures every opportunity receives immediate attention.
 
-Explore our [AI automation services](/services#ai-automation), learn how we help with [workflow automation](/services), or [book a free lead flow review](/contact) to identify where automation can improve response times, follow-up rates, and conversions.
+Explore our [AI automation services](/services/ai-automation), learn how we help with [workflow automation](/services/business-automation), or [book a free lead flow review](/contact) to identify where automation can improve response times, follow-up rates, and conversions.

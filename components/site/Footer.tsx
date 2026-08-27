@@ -1,8 +1,16 @@
 import Link from "next/link";
 import { navItems } from "@/lib/data";
 import { industryLinks } from "@/lib/industries";
+import { serviceLandingPages } from "@/lib/services";
 import { siteConfig } from "@/lib/site";
 import { Logo } from "@/components/site/Logo";
+
+const footerServiceLinks = [
+  "business-automation",
+  "custom-software-development",
+  "systems-integrations",
+  "web-app-development",
+].map((slug) => serviceLandingPages.find((service) => service.slug === slug)!);
 
 export function Footer() {
   return (
@@ -11,7 +19,7 @@ export function Footer() {
         <div className="foot-in">
           <div>
             <Logo href="/#top" tone="light" />
-            <p>Smarter systems, automation, and software for ambitious businesses.</p>
+            <p>Automation, software and connected systems for growing businesses.</p>
           </div>
           <div className="foot-col">
             <h5>Studio</h5>
@@ -19,6 +27,18 @@ export function Footer() {
               {navItems.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href}>{item.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="foot-col">
+            <h5>Services</h5>
+            <ul>
+              {footerServiceLinks.map((service) => (
+                <li key={service.href}>
+                  <Link href={service.href}>
+                    {service.slug === "web-app-development" ? "Web Applications" : service.hero.eyebrow.split(" / ")[1]}
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -100,6 +100,6 @@ If your team is still relying on spreadsheets, manual follow-ups and disconnecte
 
 ## CTA
 
-23Labs helps construction businesses build custom software, automation and AI systems that reduce admin and improve project visibility.
+23Labs helps construction businesses build [custom software](/services/custom-software-development), [business automation](/services/business-automation) and AI systems that reduce admin and improve project visibility.
 
 Book a consultation to explore where your construction workflows can be improved.

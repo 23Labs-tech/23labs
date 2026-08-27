@@ -1,6 +1,17 @@
 import Link from "next/link";
 import { CheckIcon, IndustryIcon } from "@/components/industries/IndustryIcon";
+import { JsonLd } from "@/components/site/JsonLd";
 import { industryLinks, industryOverview, type IndustryPageData } from "@/lib/industries";
+import { absoluteUrl } from "@/lib/seo";
+
+const buildIconServiceHref: Record<string, string> = {
+  automation: "/services/business-automation",
+  ai: "/services/ai-automation",
+  software: "/services/custom-software-development",
+  dashboard: "/services/custom-software-development",
+  portal: "/services/custom-software-development",
+  integration: "/services/systems-integrations",
+};
 
 type SplitHeadingProps = {
   title: string;
@@ -203,6 +214,17 @@ export function IndustriesOverviewPage() {
       </section>
 
       <ConsultationCta title={industryOverview.cta.title} body={industryOverview.cta.body} />
+
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
+            { "@type": "ListItem", position: 2, name: "Industries", item: absoluteUrl("/industries") },
+          ],
+        }}
+      />
     </>
   );
 }
@@ -245,13 +267,32 @@ export function IndustryDetailPage({ industry }: { industry: IndustryPageData })
         <div className="wrap">
           <SectionHeading eyebrow="What we build" title="What We Can " highlight="Build" />
           <div className="svc-grid reveal">
-            {industry.builds.map((item) => (
-              <div className={`svc${"span2" in item && item.span2 ? " span2" : ""}`} key={item.title}>
-                <IndustryIcon icon={item.icon} className="svc-ico" />
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-              </div>
-            ))}
+            {industry.builds.map((item) => {
+              const href = buildIconServiceHref[item.icon];
+              const className = `svc${"span2" in item && item.span2 ? " span2" : ""}`;
+              const content = (
+                <>
+                  <IndustryIcon icon={item.icon} className="svc-ico" />
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                  {href ? (
+                    <span className="work-link">
+                      Learn more <span aria-hidden="true">{"→"}</span>
+                    </span>
+                  ) : null}
+                </>
+              );
+
+              return href ? (
+                <Link href={href} className={className} key={item.title}>
+                  {content}
+                </Link>
+              ) : (
+                <div className={className} key={item.title}>
+                  {content}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -284,6 +325,23 @@ export function IndustryDetailPage({ industry }: { industry: IndustryPageData })
       </section>
 
       <ConsultationCta title={industry.cta.title} body={industry.cta.body} />
+
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
+            { "@type": "ListItem", position: 2, name: "Industries", item: absoluteUrl("/industries") },
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: industry.hero.eyebrow.split(" / ")[1] || industry.hero.eyebrow,
+              item: absoluteUrl(industry.href),
+            },
+          ],
+        }}
+      />
     </>
   );
 }

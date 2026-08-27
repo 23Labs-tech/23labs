@@ -238,4 +238,4 @@ Could automation solve this problem first?
 
 23Labs helps service businesses identify operational bottlenecks and implement practical AI automation solutions that save time, improve customer experiences, and support growth.
 
-Explore our [AI automation services](/services#ai-automation), learn about [workflow automation solutions](/services), or [book a free workflow review](/contact) to discover where automation could create the biggest impact in your business.
+Explore our [AI automation services](/services/ai-automation), learn about [workflow automation solutions](/services/business-automation), or [book a free workflow review](/contact) to discover where automation could create the biggest impact in your business.

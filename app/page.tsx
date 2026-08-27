@@ -15,13 +15,25 @@ import { faqs, services, values } from "@/lib/data";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
+  absoluteTitle: "Automation & Custom Software Melbourne | 23Labs",
   description:
-    "23Labs is a studio building automation, custom software, and the systems that remove busywork and help businesses scale with confidence.",
-  keywords: ["AI automation", "custom software", "web development", "data integration", "Melbourne technology studio"],
+    "23Labs is a Melbourne automation and software studio building business automation, custom software, AI workflows and system integrations for growing Australian businesses.",
+  ogDescription:
+    "Business automation, custom software and connected systems designed to reduce manual work and help growing businesses operate better.",
+  keywords: [
+    "business automation Melbourne",
+    "custom software development Melbourne",
+    "workflow automation",
+    "systems integration",
+    "API integration",
+    "AI automation",
+  ],
 });
 
 export default function Home() {
   const posts = getAllPosts();
+  const primaryServices = services.filter((service) => service.slug !== "digital-products-web-applications");
+  const secondaryService = services.find((service) => service.slug === "digital-products-web-applications");
 
   return (
     <>
@@ -34,25 +46,41 @@ export default function Home() {
           <div className="sec-head reveal">
             <div className="sec-tag">What we build</div>
             <h2 className="sec-title">
-              Three disciplines, <span className="em">one system</span>
+              Automation, software <span className="em">and connected systems</span>
             </h2>
             <p className="lead">
-              Automation, custom software, and the systems that connect them. Websites and digital
-              products are part of the same craft.
+              Three ways we help growing businesses remove manual work, build the right software and
+              connect the tools they already use.
             </p>
             <Link href="/services" className="work-link full-services-link">
               See the full services breakdown <span aria-hidden="true">{"→"}</span>
             </Link>
           </div>
-          <div className="svc-grid reveal">
-            {services.map((service) => (
-              <article className="svc" key={service.slug}>
+          <div className="svc-grid svc-grid-primary reveal">
+            {primaryServices.map((service) => (
+              <Link href={`/services/${service.slug}`} className="svc" key={service.slug}>
                 <ServiceIcon slug={service.slug} />
                 <h3>{service.homeTitle}</h3>
                 <p>{service.summary}</p>
-              </article>
+                <span className="work-link">
+                  Explore {service.homeTitle} <span aria-hidden="true">{"→"}</span>
+                </span>
+              </Link>
             ))}
           </div>
+          {secondaryService ? (
+            <Link href="/services/web-app-development" className="svc-secondary reveal">
+              <ServiceIcon slug={secondaryService.slug} className="svc-ico svc-ico-sm" />
+              <div className="svc-secondary-body">
+                <span className="mono">Also available</span>
+                <h4>{secondaryService.title}</h4>
+                <p>{secondaryService.summary}</p>
+              </div>
+              <span className="btn-arrow" aria-hidden="true">
+                {"→"}
+              </span>
+            </Link>
+          ) : null}
         </div>
       </section>
 

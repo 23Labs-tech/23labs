@@ -206,4 +206,4 @@ The question is whether every opportunity is being handled as efficiently as pos
 
 23Labs helps trades and field service businesses streamline operations, automate repetitive tasks, and ensure no opportunity slips through the cracks.
 
-Explore our [AI automation services](/services#ai-automation), learn about [service business automation](/services), or [book a free workflow review](/contact) to discover how AI automation can help your business win more jobs while reducing administrative workload.
+Explore our [AI automation services](/services/ai-automation), learn about [service business automation](/services/business-automation), or [book a free workflow review](/contact) to discover how AI automation can help your business win more jobs while reducing administrative workload.

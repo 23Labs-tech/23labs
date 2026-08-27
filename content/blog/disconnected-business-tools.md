@@ -287,6 +287,6 @@ That is when software starts doing what it was meant to do.
 
 ## CTA
 
-23Labs helps businesses connect their tools, automate manual workflows and build smarter systems that reduce admin.
+23Labs helps businesses [connect their tools](/services/systems-integrations), [automate manual workflows](/services/business-automation) and build smarter systems that reduce admin.
 
 If your team is spending too much time copying data, chasing updates or working across disconnected platforms, book a consultation and we'll help you find the highest-impact integration opportunities.

@@ -9,9 +9,8 @@ export function HomeHero() {
           <div className="sec-tag">Automation &amp; Software Studio</div>
           <h1>Modern Systems for Growing Businesses</h1>
           <p className="lead">
-            We design and build the automation, custom software, and systems that remove busywork
-            quietly in the background, so your team can focus on the work that actually grows the
-            business.
+            We build business automation, custom software and connected systems that reduce manual
+            work, improve operations and help growing businesses scale.
           </p>
           <div className="hero-actions">
             <ButtonLink href="#contact" arrow={false}>

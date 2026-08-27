@@ -119,6 +119,6 @@ The businesses that fix their admin bottlenecks early are usually the ones that 
 
 ## CTA
 
-23Labs helps professional services firms automate admin, improve client workflows and build custom software around how they work.
+23Labs helps professional services firms [automate admin](/services/business-automation), improve client workflows and build [custom software](/services/custom-software-development) around how they work.
 
 Book a consultation to find the highest-impact automation opportunities in your business.

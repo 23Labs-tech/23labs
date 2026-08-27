@@ -5,6 +5,8 @@ type SeoInput = {
   title?: string;
   absoluteTitle?: string;
   description?: string;
+  ogTitle?: string;
+  ogDescription?: string;
   path?: string;
   image?: string;
   imageAlt?: string;
@@ -26,6 +28,8 @@ export function createMetadata({
   title,
   absoluteTitle,
   description = siteConfig.description,
+  ogTitle,
+  ogDescription,
   path = "/",
   image = "/og-image.png",
   imageAlt = siteConfig.name,
@@ -41,7 +45,7 @@ export function createMetadata({
     ? absoluteTitle
     : title
       ? `${title} — ${siteConfig.name}`
-      : `${siteConfig.name} — Automation, Software & AI for Ambitious Businesses`;
+      : `${siteConfig.name} — Automation & Software Studio`;
   const url = absoluteUrl(path);
   const imageUrl = absoluteUrl(image);
 
@@ -54,8 +58,8 @@ export function createMetadata({
       canonical: url,
     },
     openGraph: {
-      title: fullTitle,
-      description,
+      title: ogTitle || fullTitle,
+      description: ogDescription || description,
       url,
       siteName: siteConfig.name,
       type,
@@ -73,8 +77,8 @@ export function createMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: fullTitle,
-      description,
+      title: ogTitle || fullTitle,
+      description: ogDescription || description,
       images: [imageUrl],
     },
   };

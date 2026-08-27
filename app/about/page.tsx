@@ -7,11 +7,11 @@ import { values, workflowFramework } from "@/lib/data";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
-  title: "About",
+  absoluteTitle: "About 23Labs | Melbourne Automation & Software Studio",
   path: "/about",
   description:
-    "23Labs is a studio building automation, software, and AI tools that remove busywork and help businesses scale with confidence.",
-  keywords: ["23Labs", "technology studio", "AI automation team", "software development partner"],
+    "23Labs is a Melbourne automation and software studio building custom software, business automation and connected systems for Australian businesses.",
+  keywords: ["23Labs", "automation and software studio", "business automation Melbourne", "custom software development"],
 });
 
 export default function AboutPage() {
@@ -21,7 +21,7 @@ export default function AboutPage() {
         eyebrow="About 23Labs"
         title="Practical technology, built around "
         highlight="your business"
-        body="We are a studio building automation, software, and AI tools that remove busywork and help businesses scale with confidence."
+        body="23Labs is a Melbourne-based Automation & Software Studio. We design and build business automation, custom software and connected systems that make businesses easier to run."
       />
 
       <section className="sec no-top">
@@ -32,6 +32,11 @@ export default function AboutPage() {
             </h2>
             <div className="story-copy">
               <p>
+                We work with businesses that have outgrown spreadsheets, manual processes and disconnected
+                software, replacing unnecessary complexity with systems designed around how they actually
+                operate.
+              </p>
+              <p>
                 23Labs started with a simple belief: most businesses do not need more software, they need
                 the right systems working together. Too often teams are stuck doing repetitive manual work,
                 copying information between tools, and chasing tasks that technology should be handling
@@ -40,8 +45,8 @@ export default function AboutPage() {
               <p>
                 We partner with growing businesses to find where the friction is and build practical
                 solutions that actually get used, from automating day-to-day operations to designing custom
-                platforms and AI tools. We also build our own products, like Haylo, so we know first-hand
-                what it takes to ship software that scales.
+                software and connected systems. We also build our own products, like Haylo, so we know
+                first-hand what it takes to ship software that scales.
               </p>
               <p>
                 Whatever the project, the goal is always the same: smarter systems that save time, reduce

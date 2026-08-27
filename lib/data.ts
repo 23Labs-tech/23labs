@@ -9,67 +9,78 @@ export const navItems = [
 
 export const services = [
   {
-    slug: "ai-automation",
-    eyebrow: "AI",
-    title: "AI Automation",
-    homeTitle: "Automation",
+    slug: "business-automation",
+    eyebrow: "01",
+    title: "Business Automation",
+    homeTitle: "Business Automation",
+    tagline: "Make repetitive work disappear.",
     summary:
-      "We design automations that handle repetitive admin work quietly in the background, so your team spends time on what actually grows the business.",
+      "We automate repetitive processes, administration and workflows so information moves automatically and your team can spend less time on manual work.",
     description:
-      "We design automations that handle repetitive admin work quietly in the background, so your team spends time on what actually grows the business.",
+      "We automate repetitive processes, administration and workflows so information moves automatically and your team can spend less time on manual work.",
     features: [
-      "Workflow & process automation",
-      "Lead & customer communications",
-      "Scheduling, reporting & admin tasks",
-      "AI built into your existing tools",
+      "Workflow & business process automation",
+      "AI automation for enquiries, admin & support",
+      "CRM & lead management automation",
+      "Customer communication, email & SMS automation",
+      "Scheduling & reporting automation",
+      "Document processing & data entry automation",
     ],
   },
   {
-    slug: "web-development",
-    eyebrow: "WEB",
-    title: "Web Development",
-    homeTitle: "Digital Experiences",
+    slug: "custom-software-development",
+    eyebrow: "02",
+    title: "Custom Software Development",
+    homeTitle: "Custom Software Development",
+    tagline: "Build software around your business.",
     summary:
-      "Fast, modern websites that load quickly, rank well, and turn visitors into leads, built on a foundation your team can keep growing into.",
+      "We design and build custom software around the way your business actually operates, from internal tools and dashboards to customer platforms and complete business systems.",
     description:
-      "Fast, modern websites that load quickly, rank well, and turn visitors into leads, built on a foundation your team can keep growing into.",
-    features: [
-      "Marketing sites & landing pages",
-      "Web apps & customer portals",
-      "Conversion-focused design",
-      "Fast, maintainable builds",
-    ],
-  },
-  {
-    slug: "software-development",
-    eyebrow: "APP",
-    title: "App & Software Development",
-    homeTitle: "Custom Software",
-    summary:
-      "From internal tools to full platforms, we design custom software shaped around how your team actually works, not the other way around.",
-    description:
-      "From internal tools to full platforms, we design custom software shaped around how your team actually works, not the other way around.",
+      "We design and build custom software around the way your business actually operates, from internal tools and dashboards to customer platforms and complete business systems.",
     features: [
       "Internal tools & dashboards",
-      "Customer-facing platforms",
-      "SaaS product development",
-      "Scalable, maintainable architecture",
+      "Customer & business portals",
+      "CRM development",
+      "SaaS & business platforms",
+      "Mobile applications",
+      "Legacy system modernisation",
     ],
   },
   {
-    slug: "data-integration",
-    eyebrow: "DATA",
-    title: "Data Integration",
+    slug: "systems-integrations",
+    eyebrow: "03",
+    title: "Systems & Integrations",
     homeTitle: "Systems & Integrations",
+    tagline: "Make your technology work together.",
     summary:
-      "We connect the tools you already use so information moves automatically between them, removing duplicate entry and the gaps where things get missed.",
+      "We connect the systems your business already uses so data moves automatically between platforms, teams and workflows.",
     description:
-      "We connect the tools you already use so information moves automatically between them, removing duplicate entry and the gaps where things get missed.",
+      "We connect the systems your business already uses so data moves automatically between platforms, teams and workflows.",
     features: [
-      "Connecting your existing tools",
-      "Automated data flow between systems",
-      "Dashboards & live reporting",
-      "A single source of truth",
+      "API integration & custom API development",
+      "CRM & accounting software integration",
+      "ERP & database integration",
+      "Automated data sync & webhooks",
+      "Reporting integration",
+      "System architecture",
+    ],
+  },
+  {
+    slug: "digital-products-web-applications",
+    eyebrow: "04",
+    title: "Digital Products & Web Applications",
+    homeTitle: "Digital Products & Web Applications",
+    tagline: "Build modern digital experiences when the business needs them.",
+    summary:
+      "Business websites, web applications and customer portals, built when a project calls for a modern digital experience alongside the systems behind it.",
+    description:
+      "Business websites, web applications and customer portals, built when a project calls for a modern digital experience alongside the systems behind it.",
+    features: [
+      "Business & product websites",
+      "Web applications",
+      "Customer portals",
+      "SaaS interfaces",
+      "Conversion-focused landing pages",
     ],
   },
 ];

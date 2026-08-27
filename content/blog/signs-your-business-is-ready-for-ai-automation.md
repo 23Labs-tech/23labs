@@ -191,4 +191,4 @@ They're using it to solve real operational challenges and create better customer
 
 At 23Labs, we help service businesses identify inefficient processes and implement practical AI automation solutions that save time, improve responsiveness, and support growth.
 
-Explore our [AI automation services](/services#ai-automation), review our [workflow automation approach](/services), or [book a workflow review](/contact) to discover where automation could make the biggest impact in your business.
+Explore our [AI automation services](/services/ai-automation), review our [workflow automation approach](/services/business-automation), or [book a workflow review](/contact) to discover where automation could make the biggest impact in your business.

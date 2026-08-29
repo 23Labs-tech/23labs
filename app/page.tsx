@@ -4,6 +4,7 @@ import Link from "next/link";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { HomeHero } from "@/components/sections/HomeHero";
+import { OurApproach } from "@/components/sections/OurApproach";
 import { ProcessSteps } from "@/components/sections/ProcessSteps";
 import { StatsBand } from "@/components/sections/StatsBand";
 import { JsonLd } from "@/components/site/JsonLd";
@@ -11,7 +12,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ServiceIcon } from "@/components/ui/ServiceIcon";
 import { WorkShowcase } from "@/components/work/WorkShowcase";
 import { getAllPosts } from "@/lib/blog";
-import { faqs, services, values } from "@/lib/data";
+import { faqs, services } from "@/lib/data";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
@@ -107,25 +108,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="sec">
-        <div className="wrap">
-          <div className="sec-head reveal">
-            <div className="sec-tag">Why 23Labs</div>
-            <h2 className="sec-title">
-              Built on a few things we won&apos;t <span className="em">compromise</span>
-            </h2>
-          </div>
-          <div className="values-grid reveal">
-            {values.map((value, index) => (
-              <article className="value-card" key={value.title}>
-                <div className="value-k">{String(index + 1).padStart(2, "0")}</div>
-                <h3>{value.title}</h3>
-                <p>{value.body}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <OurApproach />
 
       <section className="sec sec-alt" id="haylo">
         <div className="wrap">

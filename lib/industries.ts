@@ -29,7 +29,7 @@ export const industryLinks = [
     label: "Allied Health",
     icon: "health",
     description:
-      "AI receptionist, booking automation and admin support systems for clinics that want to reduce missed calls, improve patient experience and take pressure off front desk teams.",
+      "Software and automation for allied health clinics that want to reduce admin, simplify scheduling and connect the systems their team already uses.",
   },
   {
     slug: "real-estate",
@@ -753,74 +753,72 @@ export const industryPages = [
   {
     slug: "allied-health",
     href: "/allied-health",
-    metadataTitle: "Allied Health AI Receptionist & Automation Solutions | 23Labs",
+    metadataTitle: "Allied Health Software & Automation Solutions | 23Labs",
     description:
-      "23Labs helps allied health clinics reduce missed calls, automate bookings, support front desk teams and improve patient communication with AI receptionist and workflow automation solutions.",
+      "23Labs helps allied health clinics reduce admin, simplify scheduling and connect practice systems with custom software, workflow automation and integrations.",
     hero: {
       eyebrow: "Industries / Allied Health",
-      title: "AI receptionist & automation for ",
+      title: "Software & automation for ",
       highlight: "allied health clinics",
       lead:
-        "Allied health clinics are busy enough without the front desk being buried in missed calls, booking changes, patient questions, reminders and admin.",
+        "Allied health clinics run on tight schedules, and the admin behind the scenes, bookings, patient communication, intake forms and reporting, can quietly take over a team's day.",
       lead2:
-        "When staff are stuck answering repetitive enquiries or chasing appointments, patient experience suffers and revenue opportunities are missed. 23Labs helps allied health clinics build smarter front desk systems through AI receptionist solutions, booking automation, patient communication workflows and software integrations.",
+        "23Labs helps allied health clinics build smarter systems through workflow automation, booking and scheduling tools, custom software and integrations with the practice management platforms they already use.",
     },
     help: {
       title: "Software Solutions for ",
       highlight: "Allied Health Clinics",
       body:
-        "We help clinics reduce admin pressure, improve response times and create a smoother experience for both patients and staff. Our solutions can be customised around your clinic's services, software, phone setup and booking process.",
+        "We help clinics reduce admin pressure, improve scheduling and create a smoother experience for both patients and staff. Our solutions can be customised around your clinic's services, software and booking process.",
       items: [
-        "AI receptionist setup",
-        "Missed call handling",
-        "Patient enquiry automation",
-        "Booking request workflows",
-        "Appointment reminders",
-        "Rescheduling and cancellation support",
+        "Admin and workflow automation",
+        "Booking and scheduling automation",
+        "Appointment reminders and follow-ups",
+        "Rescheduling and cancellation workflows",
         "New patient intake workflows",
-        "Patient FAQ handling",
-        "SMS and email follow-ups",
+        "Patient communication automation",
         "Practice management software integrations",
-        "Call summaries and admin notes",
+        "Reporting and admin dashboards",
+        "Custom internal tools for clinic teams",
         "Multi-location clinic workflows",
       ],
     },
     challenges: [
       {
-        icon: "phone",
-        title: "Missed Calls Become Missed Bookings",
+        icon: "refresh",
+        title: "Admin Eats Into Patient Time",
         body:
-          "Patients often call when your team is busy, closed or already helping someone else. An AI receptionist can help capture enquiries, answer common questions and support booking workflows.",
-      },
-      {
-        icon: "user",
-        title: "Front Desk Teams Are Overloaded",
-        body:
-          "Clinic admin teams deal with repetitive questions every day. We help automate common enquiries so staff can focus on higher-value patient support.",
+          "Clinic teams deal with repetitive admin every day, from intake forms to follow-ups. We help automate the repeatable parts so staff can focus on patients.",
       },
       {
         icon: "calendar",
-        title: "Booking Processes Are Too Manual",
+        title: "Scheduling Is Hard to Manage",
         body:
           "Appointment requests, confirmations, reminders, reschedules and cancellations can take up hours every week. We help automate these workflows where practical.",
       },
       {
-        icon: "message",
-        title: "Patients Want Faster Responses",
+        icon: "integration",
+        title: "Systems Don't Talk to Each Other",
         body:
-          "Patients expect quick answers about availability, services, locations, pricing, referrals and appointment details. We help clinics respond faster without adding more admin staff.",
+          "Practice management software, forms, calendars and communication tools often sit disconnected. We help connect them so information moves automatically.",
+      },
+      {
+        icon: "chart",
+        title: "Reporting Takes Too Long",
+        body:
+          "When clinic data is spread across different tools, putting together a clear picture takes time. We build dashboards that make it easier to see what's happening.",
       },
     ],
     builds: [
       {
-        icon: "ai",
-        title: "AI Receptionist for Allied Health",
-        body: "A custom AI receptionist designed around your clinic's services, FAQs, booking process and patient communication style.",
+        icon: "calendar",
+        title: "Booking & Scheduling Automation",
+        body: "Automated workflows for appointment requests, reminders, confirmations, rescheduling and follow-ups.",
       },
       {
-        icon: "calendar",
-        title: "Booking & Reminder Automation",
-        body: "Automated workflows for appointment requests, reminders, confirmations, rescheduling and follow-ups.",
+        icon: "software",
+        title: "Custom Clinic Software",
+        body: "Internal tools and dashboards designed around how your clinic team actually works day to day.",
       },
       {
         icon: "document",
@@ -831,7 +829,7 @@ export const industryPages = [
         icon: "integration",
         title: "Practice Software Integrations",
         body:
-          "Where possible, we connect your phone, forms, booking tools, CRM, email, SMS and practice management systems.",
+          "Where possible, we connect your forms, booking tools, CRM, email, SMS and practice management systems.",
       },
     ],
     note: {
@@ -839,44 +837,44 @@ export const industryPages = [
       title: "Every Clinic Is ",
       highlight: "Different",
       paragraphs: [
-        "Some clinics need simple missed call capture and SMS follow-ups. Others need more advanced AI receptionist workflows that understand services, answer detailed questions, support new patient triage and integrate with existing systems.",
-        "We review your setup first, then recommend what is realistically achievable based on your software, phone provider and workflow.",
+        "Some clinics need simple booking and reminder automation. Others need deeper integration work across several practice systems and locations.",
+        "We review your setup first, then recommend what is realistically achievable based on your software and workflow.",
       ],
     },
     process: [
       {
         number: "01",
         title: "Understand Your Clinic Setup",
-        body: "We review your services, booking process, phone system, practice software and current admin workflow.",
+        body: "We review your services, booking process, practice software and current admin workflow.",
       },
       {
         number: "02",
-        title: "Identify the Front Desk Pressure Points",
-        body: "We look at where calls are missed, where patients wait too long and where staff are spending time on repetitive admin.",
+        title: "Identify the Admin Pressure Points",
+        body: "We look at where time is lost, where patients wait too long and where staff are spending time on repetitive admin.",
       },
       {
         number: "03",
         title: "Build the Right Automation",
-        body: "We create an AI receptionist, booking workflow or admin automation that fits your clinic's actual requirements.",
+        body: "We create the automation, software or integration that fits your clinic's actual requirements.",
       },
       {
         number: "04",
         title: "Test, Improve and Support",
-        body: "We help test the system, refine responses and improve the workflow based on real patient interactions.",
+        body: "We help test the system, refine the workflow and improve it based on real day-to-day use.",
       },
     ],
     why: {
       title: "Why 23Labs for ",
       highlight: "Allied Health?",
       paragraphs: [
-        "Because allied health clinics need practical automation that supports staff and improves patient experience.",
-        "23Labs helps clinics reduce missed calls, handle enquiries faster and make front desk operations easier to manage.",
+        "Because allied health clinics need practical automation that supports staff without adding complexity.",
+        "23Labs helps clinics reduce admin, simplify scheduling and make day-to-day operations easier to manage.",
       ],
     },
     cta: {
-      title: "Book an allied health AI receptionist consultation",
+      title: "Book an allied health automation consultation",
       body:
-        "Want to reduce missed calls and take pressure off your front desk team? Speak with 23Labs and we'll help you explore what an AI receptionist or clinic automation system could look like for your practice.",
+        "Want to reduce admin and simplify scheduling for your clinic? Speak with 23Labs and we'll help you explore what automation or clinic software could look like for your practice.",
     },
   },
 ] as const;

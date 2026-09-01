@@ -10,6 +10,20 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     unoptimized: true,
   },
+  async redirects() {
+    return [
+      {
+        source: "/blog/beyond-call-answering-allied-health-ai-receptionist",
+        destination: "/allied-health",
+        permanent: true,
+      },
+      {
+        source: "/blog/ai-receptionists-allied-health-clinics-missed-calls",
+        destination: "/allied-health",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

@@ -93,27 +93,6 @@ export const stats = [
 
 export const caseStudies = [
   {
-    slug: "haylo-ai",
-    name: "Haylo AI",
-    type: "23Labs Product",
-    image: {
-      src: "/work/haylo-ai.png",
-      alt: "Haylo AI project image with an AI assistant and support agent",
-    },
-    tags: ["AI Automation", "Voice & Calls", "Booking Integration"],
-    problem:
-      "Our own AI receptionist product, answering calls, qualifying leads, and booking appointments around the clock for growing businesses.",
-    challenge:
-      "Small and growing businesses lose leads every day to calls they simply can't pick up, especially after hours or during busy periods, with no easy way to staff a receptionist around the clock.",
-    approach:
-      "We built Haylo as our own product: a configurable AI receptionist persona that answers calls, handles FAQs, and books appointments directly, with rules tuned per business so it never over-shares pricing or services unprompted.",
-    result:
-      "A 24/7 front line that qualifies leads and books appointments while the team is busy, asleep, or off the clock, with the groundwork from building it feeding directly into the client software we ship.",
-    flow: ["Call received", "AI qualifies", "Appointment booked", "Team notified"],
-    ctaHref: "https://gethaylo.co",
-    ctaLabel: "Visit gethaylo.co",
-  },
-  {
     slug: "lily-olsen-counselling",
     name: "Lily Olsen Counselling",
     type: "Website Rebuild",

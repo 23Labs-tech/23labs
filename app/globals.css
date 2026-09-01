@@ -1398,34 +1398,6 @@ textarea:focus-visible {
   stroke: var(--ink);
 }
 
-/* ---------- Haylo showcase ---------- */
-
-.haylo-strip {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: 40px;
-  padding: 0;
-}
-
-.haylo-logo {
-  width: auto;
-  height: 24px;
-  margin-bottom: 24px;
-}
-
-.haylo-strip h3 {
-  margin-bottom: 14px;
-  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
-  letter-spacing: -0.02em;
-}
-
-.haylo-strip p {
-  max-width: 54ch;
-  color: var(--ink-soft);
-  font-size: 17px;
-}
-
 .cta-band {
   max-width: 640px;
   margin: 0 auto;
@@ -2175,7 +2147,7 @@ textarea:focus-visible {
 
 .foot-in {
   display: grid;
-  grid-template-columns: 1.3fr 0.75fr 0.9fr 0.85fr 0.75fr 0.75fr;
+  grid-template-columns: 1.3fr 0.8fr 1fr 0.9fr 0.8fr;
   gap: 32px;
 }
 
@@ -2294,11 +2266,6 @@ textarea:focus-visible {
   .stat:first-child {
     border-top: 0;
     padding-top: 0;
-  }
-
-  .haylo-strip {
-    grid-template-columns: 1fr;
-    text-align: left;
   }
 
   .foot-in {
@@ -2531,10 +2498,6 @@ textarea:focus-visible {
 
   .panel-values {
     padding: 24px 20px 4px;
-  }
-
-  .haylo-strip {
-    padding: 0;
   }
 
   .foot-in {

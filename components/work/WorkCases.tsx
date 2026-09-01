@@ -26,8 +26,6 @@ export function WorkCases() {
     <div className="case-list reveal">
       {caseStudies.map((item) => {
         const isOpen = Boolean(openCases[item.slug]);
-        const ctaHref = "ctaHref" in item ? item.ctaHref : undefined;
-        const ctaLabel = "ctaLabel" in item ? item.ctaLabel : undefined;
 
         return (
           <article className="case" id={item.slug} data-open={isOpen ? "true" : "false"} key={item.slug}>
@@ -80,13 +78,6 @@ export function WorkCases() {
                     </span>
                   ))}
                 </div>
-                {ctaHref ? (
-                  <div className="case-cta">
-                    <a href={ctaHref} target="_blank" rel="noreferrer" className="work-link">
-                      {ctaLabel} <span aria-hidden="true">{"\u2192"}</span>
-                    </a>
-                  </div>
-                ) : null}
               </div>
             </div>
           </article>

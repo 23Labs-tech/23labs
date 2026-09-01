@@ -83,7 +83,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
         "The real issue is missing data or a tool that needs replacing first",
       ],
     },
-    relatedCaseStudies: ["corit-tech", "first-national-real-estate", "haylo-ai"],
+    relatedCaseStudies: ["corit-tech", "first-national-real-estate"],
     relatedReading: [
       "ai-automation-service-businesses-save-time",
       "signs-your-business-is-ready-for-ai-automation",
@@ -128,7 +128,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
         "Ongoing development and support after launch",
       ],
     },
-    relatedCaseStudies: ["haylo-ai"],
+    relatedCaseStudies: ["corit-tech"],
     relatedReading: ["buy-vs-build-custom-software", "building-a-production-ready-business-website"],
     cta: {
       title: "Have an idea for custom software?",
@@ -196,7 +196,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     },
     intro: [
       "A lot of AI automation on the market is a demo, not a business system. We build the kind that runs quietly in the background and is judged on the same terms as any other system we ship: does it save time, reduce errors, and hold up in production.",
-      "In practice that means AI agents that can answer calls and qualify leads, like our own product Haylo, tools that read and route incoming documents, and assistants that draft or triage customer communication before a person reviews it.",
+      "In practice that means AI agents that can answer calls and qualify leads, tools that read and route incoming documents, and assistants that draft or triage customer communication before a person reviews it.",
       "We are equally comfortable telling you when a traditional workflow, an integration, or a simple rule will do the job better and more reliably than an AI model. AI is one tool in the kit, not the whole toolbox.",
     ],
     included: {
@@ -211,11 +211,11 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
         "Integrations between AI tools and your existing systems",
       ],
     },
-    relatedCaseStudies: ["haylo-ai"],
+    relatedCaseStudies: ["corit-tech"],
     relatedReading: [
       "ai-vs-hiring-another-admin",
       "signs-your-business-is-ready-for-ai-automation",
-      "ai-receptionists-allied-health-clinics-missed-calls",
+      "how-ai-helps-trades-businesses-win-more-jobs",
     ],
     cta: {
       title: "Curious what AI automation could realistically do for you?",

@@ -45,8 +45,7 @@ export default function AboutPage() {
               <p>
                 We partner with growing businesses to find where the friction is and build practical
                 solutions that actually get used, from automating day-to-day operations to designing custom
-                software and connected systems. We also build our own products, like Haylo, so we know
-                first-hand what it takes to ship software that scales.
+                software and connected systems that are built to last.
               </p>
               <p>
                 Whatever the project, the goal is always the same: smarter systems that save time, reduce

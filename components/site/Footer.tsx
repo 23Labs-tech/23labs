@@ -54,19 +54,6 @@ export function Footer() {
             </ul>
           </div>
           <div className="foot-col">
-            <h5>Products</h5>
-            <ul>
-              <li>
-                <a href="https://gethaylo.co" target="_blank" rel="noreferrer">
-                  Haylo AI
-                </a>
-              </li>
-              <li>
-                <Link href="/contact">Talk to us</Link>
-              </li>
-            </ul>
-          </div>
-          <div className="foot-col">
             <h5>Connect</h5>
             <ul>
               <li>

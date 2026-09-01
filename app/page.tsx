@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { ContactSection } from "@/components/sections/ContactSection";
@@ -109,28 +108,6 @@ export default function Home() {
       </section>
 
       <OurApproach />
-
-      <section className="sec sec-alt" id="haylo">
-        <div className="wrap">
-          <div className="haylo-strip reveal">
-            <div>
-              <div className="sec-tag">Built inside 23Labs</div>
-              <Image src="/haylo-logo.png" alt="Haylo" width={200} height={52} className="haylo-logo" />
-              <h3>An AI receptionist that never misses a call.</h3>
-              <p>
-                Haylo answers calls, qualifies leads, and books appointments around the clock. It&apos;s
-                built and operated by the same team that builds client software, so what we learn running
-                it feeds straight back into the systems we ship.
-              </p>
-              <div className="hero-actions" style={{ justifyContent: "flex-start", marginTop: 32 }}>
-                <a href="https://gethaylo.co" target="_blank" rel="noreferrer" className="btn btn-primary">
-                  Visit gethaylo.co <span className="btn-arrow" aria-hidden="true">{"→"}</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section className="sec">
         <div className="wrap">

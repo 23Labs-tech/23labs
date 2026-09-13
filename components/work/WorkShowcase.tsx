@@ -3,14 +3,38 @@ import Link from "next/link";
 import { caseStudies } from "@/lib/data";
 
 export function WorkShowcase() {
+  const [featured, ...rest] = caseStudies;
+
   return (
     <div className="showcase-list">
-      {caseStudies.map((item, index) => {
-        const flow = "flow" in item ? item.flow : undefined;
+      {featured ? (
+        <Link href={`/work#${featured.slug}`} className="showcase-featured reveal">
+          <div className="showcase-featured-media">
+            <Image
+              src={featured.image.src}
+              alt={featured.image.alt}
+              fill
+              sizes="(max-width: 1080px) 100vw, 1160px"
+              priority
+            />
+            <span className="showcase-featured-tag">{featured.type}</span>
+            <div className="showcase-featured-panel">
+              <div>
+                <h3>{featured.name}</h3>
+                <p>{featured.problem}</p>
+              </div>
+              <span className="btn btn-light showcase-featured-cta">
+                View <span className="btn-arrow" aria-hidden="true">{"→"}</span>
+              </span>
+            </div>
+          </div>
+        </Link>
+      ) : null}
 
-        return (
-          <article className={`showcase-item reveal${index % 2 === 1 ? " flip" : ""}`} key={item.slug}>
-            <div className="showcase-media">
+      <div className="showcase-secondary-grid">
+        {rest.map((item) => (
+          <Link href={`/work#${item.slug}`} className="showcase-secondary-card reveal" key={item.slug}>
+            <div className="showcase-secondary-media">
               <Image
                 src={item.image.src}
                 alt={item.image.alt}
@@ -18,25 +42,18 @@ export function WorkShowcase() {
                 sizes="(max-width: 1080px) 100vw, 50vw"
                 loading="lazy"
               />
+              <span className="showcase-featured-tag">{item.type}</span>
             </div>
-            <div className="showcase-copy">
-              <span className="showcase-tag">{item.type}</span>
+            <div className="showcase-secondary-body">
               <h3>{item.name}</h3>
               <p>{item.problem}</p>
-              {flow ? (
-                <div className="showcase-flow" aria-label="Workflow">
-                  {flow.map((step) => (
-                    <span key={step}>{step}</span>
-                  ))}
-                </div>
-              ) : null}
-              <Link href={`/work#${item.slug}`} className="work-link">
+              <span className="work-link">
                 View project <span aria-hidden="true">{"→"}</span>
-              </Link>
+              </span>
             </div>
-          </article>
-        );
-      })}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }

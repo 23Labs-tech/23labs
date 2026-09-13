@@ -20,6 +20,9 @@ export function Footer() {
           <div>
             <Logo href="/#top" tone="light" />
             <p>Automation, software and connected systems for growing businesses.</p>
+            <a href={`mailto:${siteConfig.email}`} className="foot-email">
+              {siteConfig.email}
+            </a>
           </div>
           <div className="foot-col">
             <h5>Studio</h5>

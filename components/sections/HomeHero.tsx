@@ -13,7 +13,7 @@ export function HomeHero() {
             work, improve operations and help growing businesses scale.
           </p>
           <div className="hero-actions">
-            <ButtonLink href="#contact" arrow={false}>
+            <ButtonLink href="/contact" arrow={false}>
               Talk to us
             </ButtonLink>
             <ButtonLink href="/work" variant="secondary">
@@ -30,6 +30,10 @@ export function HomeHero() {
             priority
             sizes="(max-width: 900px) 100vw, 55vw"
           />
+          <div className="hero-float-card">
+            <span className="mono">Custom software</span>
+            <p>Built around the business, not the other way around.</p>
+          </div>
         </div>
       </div>
     </header>

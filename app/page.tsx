@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { BlogCard } from "@/components/blog/BlogCard";
-import { ContactSection } from "@/components/sections/ContactSection";
+import { AboutIntro } from "@/components/sections/AboutIntro";
+import { FaqAccordion } from "@/components/sections/FaqAccordion";
+import { FinalCta } from "@/components/sections/FinalCta";
 import { HomeHero } from "@/components/sections/HomeHero";
+import { HomeIndustries } from "@/components/sections/HomeIndustries";
 import { OurApproach } from "@/components/sections/OurApproach";
+import { OutcomeBand } from "@/components/sections/OutcomeBand";
 import { ProcessSteps } from "@/components/sections/ProcessSteps";
 import { StatsBand } from "@/components/sections/StatsBand";
+import { Testimonials } from "@/components/sections/Testimonials";
 import { JsonLd } from "@/components/site/JsonLd";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ServiceIcon } from "@/components/ui/ServiceIcon";
@@ -32,8 +38,6 @@ export const metadata: Metadata = createMetadata({
 
 export default function Home() {
   const posts = getAllPosts();
-  const primaryServices = services.filter((service) => service.slug !== "digital-products-web-applications");
-  const secondaryService = services.find((service) => service.slug === "digital-products-web-applications");
 
   return (
     <>
@@ -41,55 +45,56 @@ export default function Home() {
 
       <StatsBand />
 
+      <AboutIntro />
+
       <section className="sec sec-alt" id="services">
         <div className="wrap">
           <div className="sec-head reveal">
             <div className="sec-tag">What we build</div>
             <h2 className="sec-title">
-              Automation, software <span className="em">and connected systems</span>
+              Technology that removes <span className="em">operational friction</span>
             </h2>
             <p className="lead">
-              Three ways we help growing businesses remove manual work, build the right software and
+              Four ways we help growing businesses remove manual work, build the right software and
               connect the tools they already use.
             </p>
             <Link href="/services" className="work-link full-services-link">
               See the full services breakdown <span aria-hidden="true">{"→"}</span>
             </Link>
           </div>
-          <div className="svc-grid svc-grid-primary reveal">
-            {primaryServices.map((service) => (
-              <Link href={`/services/${service.slug}`} className="svc" key={service.slug}>
-                <ServiceIcon slug={service.slug} />
-                <h3>{service.homeTitle}</h3>
-                <p>{service.summary}</p>
-                <span className="work-link">
-                  Explore {service.homeTitle} <span aria-hidden="true">{"→"}</span>
-                </span>
-              </Link>
-            ))}
+          <div className="build-media-grid reveal">
+            <div className="build-media-panel">
+              <Image
+                src="/site-images/tech-img-01.png"
+                alt="Connected systems and automation visualised as a network of nodes"
+                fill
+                sizes="(max-width: 900px) 100vw, 42vw"
+              />
+            </div>
+            <div className="capability-grid svc-grid-primary">
+              {services.map((service) => (
+                <Link href={`/services/${service.slug}`} className="svc" key={service.slug}>
+                  <ServiceIcon slug={service.slug} />
+                  <h3>{service.homeTitle}</h3>
+                  <p>{service.summary}</p>
+                  <span className="work-link">
+                    Explore {service.homeTitle} <span aria-hidden="true">{"→"}</span>
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
-          {secondaryService ? (
-            <Link href="/services/web-app-development" className="svc-secondary reveal">
-              <ServiceIcon slug={secondaryService.slug} className="svc-ico svc-ico-sm" />
-              <div className="svc-secondary-body">
-                <span className="mono">Also available</span>
-                <h4>{secondaryService.title}</h4>
-                <p>{secondaryService.summary}</p>
-              </div>
-              <span className="btn-arrow" aria-hidden="true">
-                {"→"}
-              </span>
-            </Link>
-          ) : null}
         </div>
       </section>
 
-      <section className="sec sec-dark" id="work">
+      <OutcomeBand />
+
+      <section className="sec" id="work">
         <div className="wrap">
           <div className="sec-head reveal">
             <div className="sec-tag">Selected work</div>
             <h2 className="sec-title">
-              Real systems, built for <span className="em">real businesses</span>
+              Systems built for <span className="em">real businesses</span>
             </h2>
             <p className="lead">A few of the products, platforms, and rebuilds we&apos;ve shipped recently.</p>
             <Link href="/work" className="work-link full-services-link">
@@ -109,39 +114,32 @@ export default function Home() {
 
       <OurApproach />
 
+      <Testimonials />
+
+      <HomeIndustries />
+
+      <FaqAccordion />
+
       <section className="sec">
         <div className="wrap">
           <div className="sec-head reveal">
-            <div className="sec-tag">Ideas &amp; insights</div>
-            <h2 className="sec-title">Notes from inside our own projects</h2>
+            <div className="sec-tag">Insights</div>
+            <h2 className="sec-title">
+              Ideas from inside <span className="em">the work</span>
+            </h2>
+            <Link href="/blog" className="work-link full-services-link">
+              View all insights <span aria-hidden="true">{"→"}</span>
+            </Link>
           </div>
-          <div className="insights-row reveal">
-            {posts[0] ? (
-              <div className="insights-featured">
-                <BlogCard post={posts[0]} />
-              </div>
-            ) : null}
-            <div className="insights-compact-list">
-              {posts.slice(1, 3).map((post) => (
-                <Link href={`/blog/${post.slug}`} className="insights-compact" key={post.slug}>
-                  <span className="work-tag">{post.categories[0] || "Insights"}</span>
-                  <h3>{post.title}</h3>
-                </Link>
-              ))}
-              <Link href="/blog" className="work-link full-services-link">
-                View all insights <span aria-hidden="true">{"→"}</span>
-              </Link>
-            </div>
+          <div className="blog-grid reveal">
+            {posts.slice(0, 3).map((post) => (
+              <BlogCard post={post} key={post.slug} />
+            ))}
           </div>
         </div>
       </section>
 
-      <ContactSection
-        id="contact"
-        eyebrow="Get in touch"
-        title="Have something worth fixing?"
-        body={["Tell us what's slowing the business down, and we'll get back to you within one business day."]}
-      />
+      <FinalCta />
 
       <JsonLd
         data={{

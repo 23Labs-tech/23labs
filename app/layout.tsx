@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { JetBrains_Mono, Poppins } from "next/font/google";
+import { Fraunces, JetBrains_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/site/Footer";
 import { JsonLd } from "@/components/site/JsonLd";
@@ -12,6 +12,13 @@ const poppins = Poppins({
   variable: "--font-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+});
+
+const fraunces = Fraunces({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
 });
 
 const jetBrainsMono = JetBrains_Mono({
@@ -33,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${poppins.variable} ${jetBrainsMono.variable}`}>
+    <html lang="en" className={`${poppins.variable} ${fraunces.variable} ${jetBrainsMono.variable}`}>
       <body>
         <a href="#main" className="skip-link">
           Skip to content

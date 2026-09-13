@@ -281,6 +281,11 @@ export const values = [
 
 export const faqs = [
   {
+    question: "What does 23Labs actually build?",
+    answer:
+      "Business automation, custom software and the integrations that connect them, plus the occasional website or web app when a project needs one. We tend to be judged on whether it saved time or made money, not on how it looks in a demo.",
+  },
+  {
     question: "What kinds of businesses does 23Labs work with?",
     answer:
       "We work with growing service businesses, professional teams, and operators who need better systems, automation, software, or web platforms.",
@@ -289,6 +294,21 @@ export const faqs = [
     question: "Can 23Labs improve existing tools instead of replacing them?",
     answer:
       "Yes. Many projects start by connecting and improving the tools a business already uses before introducing new software.",
+  },
+  {
+    question: "Can you automate our current processes without a full rebuild?",
+    answer:
+      "Usually, yes. Most automation projects sit on top of the tools you already run, we map the process first and only recommend replacing something if it's genuinely holding you back.",
+  },
+  {
+    question: "Do you build full custom applications, or just automations?",
+    answer:
+      "Both. Some projects are a focused automation between two tools, others are a complete internal platform or customer-facing application. We scope it around the problem, not a fixed package.",
+  },
+  {
+    question: "Do you provide support after launch?",
+    answer:
+      "Yes. Launch is the start, not the end, we stay involved to refine the workflow, fix what needs fixing, and help the system keep up as the business grows.",
   },
   {
     question: "How do we start a project?",

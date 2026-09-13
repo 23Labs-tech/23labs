@@ -10,7 +10,6 @@ import { HomeIndustries } from "@/components/sections/HomeIndustries";
 import { OurApproach } from "@/components/sections/OurApproach";
 import { OutcomeBand } from "@/components/sections/OutcomeBand";
 import { ProcessSteps } from "@/components/sections/ProcessSteps";
-import { StatsBand } from "@/components/sections/StatsBand";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { JsonLd } from "@/components/site/JsonLd";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -42,8 +41,6 @@ export default function Home() {
   return (
     <>
       <HomeHero />
-
-      <StatsBand />
 
       <AboutIntro />
 

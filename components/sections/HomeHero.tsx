@@ -6,19 +6,28 @@ export function HomeHero() {
     <header className="hero" id="top">
       <div className="wrap hero-in">
         <div className="reveal in hero-copy">
-          <div className="sec-tag">Automation &amp; Software Studio</div>
-          <h1>Modern Systems for Growing Businesses</h1>
-          <p className="lead">
+          <div className="hero-eyebrow">Automation &amp; Software Studio</div>
+          <h1>
+            Modern systems for
+            <br />
+            growing businesses.
+          </h1>
+          <p className="hero-lead">
             We build business automation, custom software and connected systems that reduce manual
             work, improve operations and help growing businesses scale.
           </p>
-          <div className="hero-actions">
-            <ButtonLink href="/contact" arrow={false}>
-              Talk to us
+          <div className="hero-cta-row">
+            <ButtonLink href="/contact" className="hero-cta" arrow>
+              Start a conversation
             </ButtonLink>
-            <ButtonLink href="/work" variant="secondary">
-              See our work
-            </ButtonLink>
+            <div className="hero-trust">
+              <div className="hero-trust-avatars">
+                <span className="hero-trust-avatar tone-ink" aria-hidden="true" />
+                <span className="hero-trust-avatar tone-mint" aria-hidden="true" />
+                <span className="hero-trust-avatar tone-lilac" aria-hidden="true" />
+              </div>
+              <span className="hero-trust-label">Built for growing businesses</span>
+            </div>
           </div>
         </div>
 
@@ -28,7 +37,7 @@ export function HomeHero() {
             alt="Abstract connected glass panels representing modern systems"
             fill
             priority
-            sizes="(max-width: 900px) 100vw, 55vw"
+            sizes="(max-width: 900px) 100vw, 54vw"
           />
           <div className="hero-float-card">
             <span className="mono">Custom software</span>

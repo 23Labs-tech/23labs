@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ServiceIcon } from "@/components/ui/ServiceIcon";
 import { services } from "@/lib/data";
 
 const panelImages: Record<string, string> = {
@@ -20,14 +19,10 @@ export function ServiceShowcase() {
           key={service.slug}
         >
           <div className="service-panel-copy">
-            <div className="service-panel-meta">
-              <ServiceIcon slug={service.slug} className="service-panel-ico" />
-              <span className="mono">{service.eyebrow}</span>
-            </div>
             <h3>{service.homeTitle}</h3>
             <p>{service.summary}</p>
-            <Link href={`/services/${service.slug}`} className="work-link">
-              Explore {service.homeTitle} <span aria-hidden="true">{"→"}</span>
+            <Link href={`/services/${service.slug}`} className="service-panel-cta">
+              Learn More
             </Link>
           </div>
           <div className="service-panel-media">

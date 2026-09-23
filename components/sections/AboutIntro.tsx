@@ -2,7 +2,7 @@ export function AboutIntro() {
   return (
     <section className="sec">
       <div className="wrap intro-copy">
-        <div className="sec-tag sec-tag-plain" style={{ justifyContent: "center" }}>
+        <div className="sec-tag sec-tag-plain sec-tag-accent" style={{ justifyContent: "center" }}>
           Introduction
         </div>
         <h2>

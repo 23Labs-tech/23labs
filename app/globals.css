@@ -687,6 +687,10 @@ textarea:focus-visible {
   display: none;
 }
 
+.sec-tag-accent {
+  color: var(--accent-dark);
+}
+
 .intro-copy h2 {
   font-family: var(--font-serif), "Georgia", serif;
   font-weight: 500;
@@ -742,48 +746,36 @@ textarea:focus-visible {
   box-shadow: 0 40px 70px -40px rgba(20, 20, 22, 0.22);
 }
 
-.service-panel-meta {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.service-panel-meta .mono {
-  color: var(--accent-dark);
-}
-
-.service-panel-ico {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-}
-
-.service-panel-ico svg {
-  width: 20px;
-  height: 20px;
-  stroke: var(--ink);
-}
-
 .service-panel-copy h3 {
-  margin-top: 20px;
-  font-size: clamp(1.75rem, 2.6vw, 2.5rem);
-  letter-spacing: -0.01em;
+  font-size: clamp(1.125rem, 1.6vw, 1.375rem);
+  letter-spacing: -0.005em;
 }
 
 .service-panel-copy p {
   max-width: 46ch;
-  margin-top: 18px;
+  margin-top: 14px;
   color: var(--ink-soft);
   font-size: 16.5px;
   line-height: 1.6;
 }
 
-.service-panel-copy .work-link {
+.service-panel-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 26px;
+  border-radius: 99px;
+  padding: 13px 28px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.service-panel-cta:hover,
+.service-panel-cta:focus-visible {
+  background: var(--accent-dark);
 }
 
 .service-panel-media {

@@ -45,7 +45,7 @@ export default function Home() {
 
       <section className="sec sec-alt" id="services">
         <div className="wrap intro-copy">
-          <div className="sec-tag sec-tag-plain" style={{ justifyContent: "center" }}>
+          <div className="sec-tag sec-tag-plain sec-tag-accent" style={{ justifyContent: "center" }}>
             What we build
           </div>
           <h2 className="sec-title">

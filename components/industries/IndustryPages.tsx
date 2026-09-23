@@ -5,12 +5,12 @@ import { industryLinks, industryOverview, type IndustryPageData } from "@/lib/in
 import { absoluteUrl } from "@/lib/seo";
 
 const buildIconServiceHref: Record<string, string> = {
-  automation: "/services/business-automation",
-  ai: "/services/ai-automation",
-  software: "/services/custom-software-development",
-  dashboard: "/services/custom-software-development",
-  portal: "/services/custom-software-development",
-  integration: "/services/systems-integrations",
+  automation: "/services/business-process-automation",
+  ai: "/services/ai-agents",
+  software: "/services/full-stack-software-development",
+  dashboard: "/services/full-stack-software-development",
+  portal: "/services/full-stack-software-development",
+  integration: "/services/business-process-automation",
 };
 
 type SplitHeadingProps = {

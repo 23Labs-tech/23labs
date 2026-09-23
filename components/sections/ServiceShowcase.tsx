@@ -3,10 +3,10 @@ import Link from "next/link";
 import { services } from "@/lib/data";
 
 const panelImages: Record<string, string> = {
-  "business-automation": "/site-images/tech-img-06.png",
-  "custom-software-development": "/site-images/tech-img-10.png",
-  "systems-integrations": "/site-images/tech-img-11.png",
-  "digital-products-web-applications": "/site-images/tech-img-14.png",
+  "business-process-automation": "/site-images/tech-img-07.png",
+  "ai-workflow-automation": "/site-images/tech-img-06.png",
+  "full-stack-software-development": "/site-images/tech-img-08.png",
+  "ai-agents": "/site-images/tech-img-05.png",
 };
 
 export function ServiceShowcase() {

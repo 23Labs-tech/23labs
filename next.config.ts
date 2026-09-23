@@ -22,6 +22,31 @@ const nextConfig: NextConfig = {
         destination: "/allied-health",
         permanent: true,
       },
+      {
+        source: "/services/business-automation",
+        destination: "/services/business-process-automation",
+        permanent: true,
+      },
+      {
+        source: "/services/systems-integrations",
+        destination: "/services/business-process-automation",
+        permanent: true,
+      },
+      {
+        source: "/services/custom-software-development",
+        destination: "/services/full-stack-software-development",
+        permanent: true,
+      },
+      {
+        source: "/services/web-app-development",
+        destination: "/services/full-stack-software-development",
+        permanent: true,
+      },
+      {
+        source: "/services/ai-automation",
+        destination: "/services/ai-agents",
+        permanent: true,
+      },
     ];
   },
   async headers() {

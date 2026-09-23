@@ -107,6 +107,6 @@ Workflow automation, custom software and system integrations can help logistics 
 
 ## CTA
 
-23Labs helps freight and logistics businesses [automate workflows](/services/business-automation), [connect systems](/services/systems-integrations) and reduce manual data entry.
+23Labs helps freight and logistics businesses [automate workflows](/services/business-process-automation), [connect systems](/services/business-process-automation) and reduce manual data entry.
 
 Book a consultation to explore where your operations can be improved.

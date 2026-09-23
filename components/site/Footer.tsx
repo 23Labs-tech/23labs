@@ -6,10 +6,10 @@ import { siteConfig } from "@/lib/site";
 import { Logo } from "@/components/site/Logo";
 
 const footerServiceLinks = [
-  "business-automation",
-  "custom-software-development",
-  "systems-integrations",
-  "web-app-development",
+  "business-process-automation",
+  "ai-workflow-automation",
+  "full-stack-software-development",
+  "ai-agents",
 ].map((slug) => serviceLandingPages.find((service) => service.slug === slug)!);
 
 export function Footer() {
@@ -39,9 +39,7 @@ export function Footer() {
             <ul>
               {footerServiceLinks.map((service) => (
                 <li key={service.href}>
-                  <Link href={service.href}>
-                    {service.slug === "web-app-development" ? "Web Applications" : service.hero.eyebrow.split(" / ")[1]}
-                  </Link>
+                  <Link href={service.href}>{service.navLabel}</Link>
                 </li>
               ))}
             </ul>

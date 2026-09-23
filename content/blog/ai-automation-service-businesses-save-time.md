@@ -183,4 +183,4 @@ The question is how many hours you're currently losing by not using it.
 
 23Labs helps service businesses streamline operations, eliminate repetitive admin, and implement practical AI solutions that save time and improve efficiency.
 
-Explore our [AI automation services](/services/ai-automation), learn how we approach [workflow automation](/services/business-automation), or [book a free workflow review](/contact) to discover where automation could save your business hours every week.
+Explore our [AI automation services](/services/ai-agents), learn how we approach [workflow automation](/services/business-process-automation), or [book a free workflow review](/contact) to discover where automation could save your business hours every week.

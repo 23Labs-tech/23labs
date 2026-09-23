@@ -5,17 +5,31 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { navItems } from "@/lib/data";
 import { industryRoutePaths } from "@/lib/industries";
+import { serviceLandingPages } from "@/lib/services";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Logo } from "@/components/site/Logo";
 
 const industryPathSet = new Set<string>(industryRoutePaths);
 
+function ChevronIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="6 9 12 15 18 9" />
+    </svg>
+  );
+}
+
 export function Navbar() {
   const [menuState, setMenuState] = useState({ open: false, pathname: "" });
+  const [servicesState, setServicesState] = useState({ open: false, pathname: "" });
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const isIndustryPath = industryPathSet.has(pathname);
   const open = menuState.pathname === pathname ? menuState.open : false;
+  const servicesOpen = servicesState.pathname === pathname ? servicesState.open : false;
+  const isServicesPath = pathname === "/services" || pathname.startsWith("/services/");
+
+  const closeServices = () => setServicesState({ open: false, pathname });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -25,13 +39,16 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    if (!open) return;
+    if (!open && !servicesOpen) return;
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setMenuState({ open: false, pathname });
+      if (event.key === "Escape") {
+        setMenuState({ open: false, pathname });
+        closeServices();
+      }
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [open, pathname]);
+  }, [open, servicesOpen, pathname]);
 
   return (
     <nav className={`nav${scrolled ? " scrolled" : ""}`} id="nav">
@@ -46,6 +63,47 @@ export function Navbar() {
                 (pathname === item.href ||
                   (item.href !== "/" && pathname.startsWith(`${item.href}/`)) ||
                   (item.href === "/industries" && isIndustryPath));
+
+              if (item.href === "/services") {
+                return (
+                  <div className={`nav-dropdown${servicesOpen ? " is-open" : ""}`} key={item.href}>
+                    <div className="nav-dropdown-trigger">
+                      <Link
+                        href={item.href}
+                        className={active || isServicesPath ? "active" : undefined}
+                        aria-current={active || isServicesPath ? "page" : undefined}
+                        onClick={() => setMenuState({ open: false, pathname })}
+                      >
+                        {item.label}
+                      </Link>
+                      <button
+                        type="button"
+                        className="nav-dropdown-toggle"
+                        aria-expanded={servicesOpen}
+                        aria-label="Toggle services menu"
+                        onClick={() => setServicesState({ open: !servicesOpen, pathname })}
+                      >
+                        <ChevronIcon />
+                      </button>
+                    </div>
+                    <div className="nav-dropdown-panel">
+                      {serviceLandingPages.map((service) => (
+                        <Link
+                          href={service.href}
+                          key={service.slug}
+                          onClick={() => {
+                            setMenuState({ open: false, pathname });
+                            closeServices();
+                          }}
+                        >
+                          {service.navLabel}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+
               return (
                 <Link
                   href={item.href}

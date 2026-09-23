@@ -1,53 +1,63 @@
+import Image from "next/image";
 import Link from "next/link";
-import { CtaSection } from "@/components/sections/CtaSection";
+import { ButtonLink } from "@/components/ui/ButtonLink";
 import { JsonLd } from "@/components/site/JsonLd";
-import { caseStudies } from "@/lib/data";
-import { getPostBySlug } from "@/lib/blog";
 import { absoluteUrl } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
-import type { ServiceLandingPageData } from "@/lib/services";
-
-function CheckIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <polyline points="20 6 9 17 4 12" />
-    </svg>
-  );
-}
+import {
+  getServiceLandingPage,
+  serviceApproachSteps,
+  serviceFinalCta,
+  type ServiceLandingPageData,
+} from "@/lib/services";
 
 export function ServiceLandingPage({ service }: { service: ServiceLandingPageData }) {
-  const relatedCaseStudies = service.relatedCaseStudies
-    .map((slug) => caseStudies.find((item) => item.slug === slug))
-    .filter((item): item is (typeof caseStudies)[number] => Boolean(item));
-
-  const relatedReading = service.relatedReading
-    .map((slug) => getPostBySlug(slug))
-    .filter((post): post is NonNullable<ReturnType<typeof getPostBySlug>> => Boolean(post));
+  const serviceName = service.hero.eyebrow.split(" / ")[1];
+  const relatedServices = service.relatedSlugs
+    .map((slug) => getServiceLandingPage(slug))
+    .filter((item): item is ServiceLandingPageData => Boolean(item));
 
   return (
     <>
-      <header className="page-hero services-hero">
-        <div className="wrap reveal in">
-          <div className="sec-tag">
-            <Link href="/services" style={{ color: "inherit" }}>
-              Services
-            </Link>{" "}
-            / {service.hero.eyebrow.split(" / ")[1]}
+      <header className="svc-hero">
+        <div className="wrap svc-hero-in">
+          <div className="reveal in svc-hero-copy">
+            <div className="sec-tag">
+              <Link href="/services" style={{ color: "inherit" }}>
+                Services
+              </Link>{" "}
+              / {serviceName}
+            </div>
+            <h1>{service.hero.title}</h1>
+            <p className="lead">{service.hero.lead}</p>
+            <div className="hero-actions">
+              <ButtonLink href="/contact">Start a Conversation</ButtonLink>
+            </div>
           </div>
-          <h1>
-            {service.hero.title}
-            {service.hero.highlight ? <span className="em">{service.hero.highlight}</span> : null}
-          </h1>
-          <p className="lead">{service.hero.lead}</p>
-          {service.hero.lead2 ? <p className="lead-2">{service.hero.lead2}</p> : null}
+          <div className="reveal in svc-hero-media">
+            <Image
+              src={service.hero.image.src}
+              alt={service.hero.image.alt}
+              fill
+              priority
+              sizes="(max-width: 900px) 100vw, 50vw"
+            />
+          </div>
         </div>
       </header>
 
       <section className="sec no-top">
         <div className="wrap">
-          <div className="text-block reveal narrow">
-            {service.intro.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
+          <div className="sec-head reveal">
+            <div className="sec-tag">The problem</div>
+            <h2 className="sec-title">Where things usually break down</h2>
+            <p className="lead">{service.problem.intro}</p>
+          </div>
+          <div className="problem-grid reveal">
+            {service.problem.items.map((item) => (
+              <div className="problem-card" key={item}>
+                <p>{item}</p>
+              </div>
             ))}
           </div>
         </div>
@@ -56,65 +66,70 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
       <section className="sec">
         <div className="wrap">
           <div className="sec-head reveal">
-            <h2 className="sec-title">{service.included.title}</h2>
+            <div className="sec-tag">How we help</div>
+            <h2 className="sec-title">{serviceName}</h2>
+            <p className="lead">{service.howWeHelp.intro}</p>
           </div>
-          <div className="svc-checklist reveal">
-            {service.included.items.map((item) => (
-              <div className="svc-check" key={item}>
-                <CheckIcon />
-                {item}
+          <div className="capability-grid reveal">
+            {service.howWeHelp.capabilities.map((capability) => (
+              <article className="capability-card" key={capability}>
+                <h3>{capability}</h3>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="sec">
+        <div className="wrap">
+          <div className="sec-head reveal">
+            <div className="sec-tag">Practical use cases</div>
+            <h2 className="sec-title">What this can look like</h2>
+            <p className="lead">
+              The examples below are illustrative use cases showing how this service could apply, not
+              completed client projects.
+            </p>
+          </div>
+          <div className="usecase-grid reveal">
+            {service.useCases.map((useCase) => (
+              <div className="usecase-card" key={useCase}>
+                <span className="mono">Illustrative example</span>
+                <p>{useCase}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {service.fit ? (
-        <section className="sec no-top">
-          <div className="wrap">
-            <div className="sec-head reveal">
-              <h2 className="sec-title">{service.fit.title}</h2>
-            </div>
-            <div className="fit-grid reveal">
-              <div className="fit-col">
-                <h3>{service.fit.goodTitle}</h3>
-                <div className="svc-checklist">
-                  {service.fit.good.map((item) => (
-                    <div className="svc-check" key={item}>
-                      <CheckIcon />
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="fit-col">
-                <h3>{service.fit.notYetTitle}</h3>
-                <div className="svc-checklist">
-                  {service.fit.notYet.map((item) => (
-                    <div className="svc-check" key={item}>
-                      <CheckIcon />
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+      <section className="sec">
+        <div className="wrap">
+          <div className="sec-head reveal">
+            <div className="sec-tag">Our approach</div>
+            <h2 className="sec-title">How a project comes together</h2>
           </div>
-        </section>
-      ) : null}
+          <div className="process-cards-grid reveal">
+            {serviceApproachSteps.map((step) => (
+              <article className="process-card-plain" key={step.title}>
+                <h3>{step.title}</h3>
+                <p>{step.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      {relatedCaseStudies.length ? (
+      {relatedServices.length ? (
         <section className="sec no-top">
           <div className="wrap">
             <div className="sec-head reveal">
-              <div className="sec-tag">Related work</div>
-              <h2 className="sec-title">See it in practice</h2>
+              <div className="sec-tag">Related services</div>
+              <h2 className="sec-title">You might also need</h2>
             </div>
             <div className="related-links reveal">
-              {relatedCaseStudies.map((item) => (
-                <Link href={`/work#${item.slug}`} className="related-link" key={item.slug}>
-                  <span className="mono">{item.type}</span>
-                  <h4>{item.name}</h4>
+              {relatedServices.map((item) => (
+                <Link href={item.href} className="related-link" key={item.slug}>
+                  <span className="mono">Services</span>
+                  <h4>{item.navLabel}</h4>
                   <span className="btn-arrow" aria-hidden="true">
                     {"→"}
                   </span>
@@ -125,29 +140,15 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
         </section>
       ) : null}
 
-      {relatedReading.length ? (
-        <section className="sec no-top">
-          <div className="wrap">
-            <div className="sec-head reveal">
-              <div className="sec-tag">Related reading</div>
-              <h2 className="sec-title">Learn more</h2>
-            </div>
-            <div className="related-links reveal">
-              {relatedReading.map((post) => (
-                <Link href={`/blog/${post.slug}`} className="related-link" key={post.slug}>
-                  <span className="mono">{post.categories[0] || "Insights"}</span>
-                  <h4>{post.title}</h4>
-                  <span className="btn-arrow" aria-hidden="true">
-                    {"→"}
-                  </span>
-                </Link>
-              ))}
-            </div>
+      <section className="sec">
+        <div className="wrap cta-band reveal">
+          <h2>{serviceFinalCta.title}</h2>
+          <p>{serviceFinalCta.body}</p>
+          <div className="hero-actions">
+            <ButtonLink href="/contact">{serviceFinalCta.label}</ButtonLink>
           </div>
-        </section>
-      ) : null}
-
-      <CtaSection title={service.cta.title} body={service.cta.body} href="/contact" label="Talk to us" />
+        </div>
+      </section>
 
       <JsonLd
         data={{
@@ -155,8 +156,8 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
           "@graph": [
             {
               "@type": "Service",
-              serviceType: service.hero.eyebrow.split(" / ")[1],
-              name: service.hero.eyebrow.split(" / ")[1],
+              serviceType: serviceName,
+              name: serviceName,
               description: service.description,
               provider: {
                 "@type": "Organization",
@@ -177,7 +178,7 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
                 {
                   "@type": "ListItem",
                   position: 3,
-                  name: service.hero.eyebrow.split(" / ")[1],
+                  name: serviceName,
                   item: absoluteUrl(service.href),
                 },
               ],

@@ -3,7 +3,7 @@ import { ServiceLandingPage } from "@/components/services/ServiceLandingPage";
 import { getServiceLandingPage } from "@/lib/services";
 import { createMetadata } from "@/lib/seo";
 
-const service = getServiceLandingPage("custom-software-development")!;
+const service = getServiceLandingPage("ai-agents")!;
 
 export const metadata: Metadata = createMetadata({
   absoluteTitle: service.metadataTitle,
@@ -11,6 +11,6 @@ export const metadata: Metadata = createMetadata({
   description: service.description,
 });
 
-export default function CustomSoftwareDevelopmentPage() {
+export default function AiAgentsPage() {
   return <ServiceLandingPage service={service} />;
 }

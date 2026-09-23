@@ -282,6 +282,6 @@ It should help it move faster.
 
 ## CTA
 
-23Labs helps growing businesses decide whether to buy, [build custom software](/services/custom-software-development) or [automate](/services/business-automation) around their existing systems.
+23Labs helps growing businesses decide whether to buy, [build custom software](/services/full-stack-software-development) or [automate](/services/business-process-automation) around their existing systems.
 
 If your team is losing time to manual admin, disconnected tools or messy workflows, book a consultation and we'll help you find the most practical path forward.

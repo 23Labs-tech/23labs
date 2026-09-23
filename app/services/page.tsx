@@ -9,45 +9,43 @@ import { serviceProcessSteps, services } from "@/lib/data";
 import { absoluteUrl, createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
-  absoluteTitle: "Business Automation & Custom Software Services | 23Labs",
+  absoluteTitle: "Automation, AI and Software Development Services | 23Labs",
   path: "/services",
   description:
-    "Explore 23Labs business automation, custom software development, API integration and systems integration services for growing Australian businesses.",
-  ogTitle: "Automation & Software Services | 23Labs",
+    "Explore 23Labs business process automation, AI workflow automation, full-stack software development and AI agent services for growing Australian businesses.",
+  ogTitle: "Automation, AI & Software Services | 23Labs",
   ogDescription:
-    "Business automation, custom software, integrations and web applications designed around how your organisation actually works.",
+    "Business process automation, AI workflow automation, full-stack software development and AI agents, designed around how your business actually operates.",
   keywords: [
-    "business automation services",
-    "custom software development",
-    "systems integration",
-    "API integration",
-    "workflow automation",
+    "business process automation",
+    "AI workflow automation",
+    "full-stack software development",
+    "AI agents",
+    "workflow automation Melbourne",
   ],
 });
 
 export default function ServicesPage() {
-  const primaryServices = services.filter((service) => service.slug !== "digital-products-web-applications");
-  const secondaryService = services.find((service) => service.slug === "digital-products-web-applications");
-
   return (
     <>
       <PageHero
         eyebrow="Our services"
-        title="Automation and software built "
+        title="Automation, AI and software built "
         highlight="around your business"
-        body="From workflow automation and system integrations to complete custom software platforms, we design technology around the way your business actually operates."
+        body="From eliminating repetitive manual work to building complete custom software and AI agents, we design technology around the way your business actually operates."
         className="services-hero"
       />
 
       <section className="sec no-top">
         <div className="wrap">
           <div className="svc-rows reveal">
-            {primaryServices.map((service, index) => (
+            {services.map((service) => (
               <article className="svc-row" id={service.slug} key={service.slug}>
                 <div className="svc-row-head">
                   <ServiceIcon slug={service.slug} className="svc-row-ico" />
-                  <span className="num">{String(index + 1).padStart(2, "0")}</span>
-                  <h3>{service.title}</h3>
+                  <Link href={`/services/${service.slug}`}>
+                    <h3>{service.title}</h3>
+                  </Link>
                   <p>{service.description}</p>
                 </div>
                 <div className="svc-checklist">
@@ -66,24 +64,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
-
-      {secondaryService ? (
-        <section className="sec no-top">
-          <div className="wrap">
-            <Link href="/services/web-app-development" className="svc-secondary reveal">
-              <ServiceIcon slug={secondaryService.slug} className="svc-ico svc-ico-sm" />
-              <div className="svc-secondary-body">
-                <span className="mono">Also available</span>
-                <h4>{secondaryService.title}</h4>
-                <p>{secondaryService.description}</p>
-              </div>
-              <span className="btn-arrow" aria-hidden="true">
-                {"→"}
-              </span>
-            </Link>
-          </div>
-        </section>
-      ) : null}
 
       <section className="sec">
         <div className="wrap">

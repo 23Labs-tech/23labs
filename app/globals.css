@@ -678,9 +678,13 @@ textarea:focus-visible {
 }
 
 .intro-copy {
-  max-width: 720px;
+  max-width: 900px;
   margin: 0 auto;
   text-align: center;
+}
+
+.sec-tag-plain::before {
+  display: none;
 }
 
 .intro-copy h2 {
@@ -702,68 +706,6 @@ textarea:focus-visible {
 
 .intro-copy .hero-actions {
   justify-content: center;
-}
-
-.principle-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  max-width: 960px;
-  margin: 56px auto 0;
-}
-
-.principle {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  text-align: center;
-}
-
-.principle-ico {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  border: 1px solid var(--line);
-}
-
-.principle-ico svg {
-  width: 22px;
-  height: 22px;
-}
-
-.principle-ico.tone-mint {
-  border-color: transparent;
-  background: var(--mint);
-  color: var(--mint-ink);
-}
-
-.principle-ico.tone-lilac {
-  border-color: transparent;
-  background: var(--lilac);
-  color: var(--lilac-ink);
-}
-
-.principle-ico.tone-sky {
-  border-color: transparent;
-  background: var(--sky);
-  color: var(--sky-ink);
-}
-
-.principle h3 {
-  margin-bottom: 8px;
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-}
-
-.principle p {
-  color: var(--ink-soft);
-  font-size: 14.5px;
-  line-height: 1.5;
 }
 
 .svc-grid {
@@ -2869,7 +2811,6 @@ textarea:focus-visible {
   .capability-grid,
   .outcome-grid,
   .testimonial-grid,
-  .principle-row,
   .showcase-secondary-grid,
   .build-media-grid {
     grid-template-columns: 1fr;

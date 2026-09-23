@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { HowWeHelpShowcase } from "@/components/services/HowWeHelpShowcase";
 import { JsonLd } from "@/components/site/JsonLd";
 import { absoluteUrl } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
@@ -22,12 +23,6 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
       <header className="svc-hero">
         <div className="wrap svc-hero-in">
           <div className="reveal in svc-hero-copy">
-            <div className="sec-tag">
-              <Link href="/services" style={{ color: "inherit" }}>
-                Services
-              </Link>{" "}
-              / {serviceName}
-            </div>
             <h1>{service.hero.title}</h1>
             <p className="lead">{service.hero.lead}</p>
             <div className="hero-actions">
@@ -48,15 +43,18 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
 
       <section className="sec no-top">
         <div className="wrap">
-          <div className="sec-head reveal">
-            <div className="sec-tag">The problem</div>
+          <div className="sec-head sec-head-center reveal">
+            <div className="sec-tag sec-tag-plain sec-tag-accent" style={{ justifyContent: "center" }}>
+              The problem
+            </div>
             <h2 className="sec-title">Where things usually break down</h2>
             <p className="lead">{service.problem.intro}</p>
           </div>
           <div className="problem-grid reveal">
             {service.problem.items.map((item) => (
-              <div className="problem-card" key={item}>
-                <p>{item}</p>
+              <div className="problem-card" key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
               </div>
             ))}
           </div>
@@ -65,18 +63,14 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
 
       <section className="sec">
         <div className="wrap">
-          <div className="sec-head reveal">
-            <div className="sec-tag">How we help</div>
+          <div className="sec-head sec-head-center reveal">
+            <div className="sec-tag sec-tag-plain sec-tag-accent" style={{ justifyContent: "center" }}>
+              How we help
+            </div>
             <h2 className="sec-title">{serviceName}</h2>
             <p className="lead">{service.howWeHelp.intro}</p>
           </div>
-          <div className="capability-grid reveal">
-            {service.howWeHelp.capabilities.map((capability) => (
-              <article className="capability-card" key={capability}>
-                <h3>{capability}</h3>
-              </article>
-            ))}
-          </div>
+          <HowWeHelpShowcase capabilities={service.howWeHelp.capabilities} />
         </div>
       </section>
 

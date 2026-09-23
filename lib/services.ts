@@ -12,11 +12,11 @@ export type ServiceLandingPageData = {
   };
   problem: {
     intro: string;
-    items: string[];
+    items: { title: string; description: string }[];
   };
   howWeHelp: {
     intro: string;
-    capabilities: string[];
+    capabilities: { title: string; description: string; image: { src: string; alt: string } }[];
   };
   useCases: string[];
   relatedSlugs: string[];
@@ -69,20 +69,63 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       intro:
         "Growing businesses often reach a point where manual processes and disconnected tools start slowing everything down. These are some of the most common signs it's time to automate.",
       items: [
-        "Staff spend hours each week manually entering or transferring data between systems.",
-        "Important follow-ups, approvals or updates get missed because they depend on someone remembering to act.",
-        "Reporting takes days to pull together because information is scattered across spreadsheets and platforms.",
-        "Errors creep in whenever a process relies on manual copying or re-keying information.",
+        {
+          title: "Too Much Manual Work",
+          description:
+            "Staff spend hours each week manually entering information, copying data between systems and completing repetitive administrative tasks.",
+        },
+        {
+          title: "Disconnected Systems and Information",
+          description:
+            "Important business information is scattered across spreadsheets and platforms, making it difficult to maintain accurate records and access the information your team needs.",
+        },
+        {
+          title: "Slow Processes and Missed Follow-ups",
+          description:
+            "Approvals, updates and follow-ups depend on people remembering to act, creating unnecessary delays and increasing the risk of errors.",
+        },
       ],
     },
     howWeHelp: {
       intro:
-        "Our work here is built around eliminating manual work and improving operational efficiency through reliable, rules-based automation.",
+        "We eliminate repetitive manual work and improve operational efficiency through reliable automation designed around your existing business processes.",
       capabilities: [
-        "Business workflow automation",
-        "CRM, ERP and finance system integrations",
-        "Data synchronisation and automated reporting",
-        "Administrative and operational process automation",
+        {
+          title: "Business Workflow Automation",
+          description:
+            "Automate repetitive administrative tasks, approvals, follow-ups and routine business processes so your team can focus on higher-value work.",
+          image: {
+            src: "/site-images/tech-img-07.png",
+            alt: "A team member reviewing operational workflow dashboards on dual monitors",
+          },
+        },
+        {
+          title: "Systems & Integrations",
+          description:
+            "Connect your CRM, accounting, ERP and other business platforms so information moves automatically between the systems your team already uses.",
+          image: {
+            src: "/site-images/tech-img-12.png",
+            alt: "A glowing chain link representing connected business systems",
+          },
+        },
+        {
+          title: "Data Synchronisation & Reporting",
+          description:
+            "Keep information consistent across your business systems and automate the collection, consolidation and reporting of operational data.",
+          image: {
+            src: "/site-images/tech-img-04.png",
+            alt: "A hand interacting with live business analytics and reporting dashboards",
+          },
+        },
+        {
+          title: "Administrative & Operational Automation",
+          description:
+            "Streamline everyday operations, from invoice processing and order management to notifications, document handling and internal approvals.",
+          image: {
+            src: "/site-images/tech-img-02.png",
+            alt: "A glowing document icon representing automated administrative processing",
+          },
+        },
       ],
     },
     useCases: [
@@ -114,20 +157,63 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       intro:
         "Not every business problem follows a fixed set of rules. When work involves reading, interpreting or judging information, traditional automation alone isn't enough.",
       items: [
-        "Staff spend significant time reading documents, emails or enquiries just to work out what needs to happen next.",
-        "Important information is buried in unstructured documents, PDFs or messages instead of structured data.",
-        "Teams manually sort, categorise or prioritise incoming information every day.",
-        "Response times slow down because someone has to review and interpret every request before it can be actioned.",
+        {
+          title: "Unstructured Information",
+          description:
+            "Important details are buried in documents, emails and enquiries instead of structured, usable data.",
+        },
+        {
+          title: "Manual Reading and Interpretation",
+          description:
+            "Staff spend significant time reading, sorting and interpreting information just to work out what needs to happen next.",
+        },
+        {
+          title: "Slow Response Times",
+          description:
+            "Response times slow down because someone has to review and interpret every request before it can be actioned.",
+        },
       ],
     },
     howWeHelp: {
       intro:
-        "Our work here is built around using AI to process, interpret and organise information within existing business workflows. Unlike traditional automation, AI can handle information and tasks that don't always follow rigid, predefined rules.",
+        "We use AI to process, interpret and organise information within your existing business workflows, handling information that doesn't always follow rigid, predefined rules.",
       capabilities: [
-        "AI-powered document processing and data extraction",
-        "Intelligent email and communication workflows",
-        "AI-assisted data classification and analysis",
-        "AI integration with existing business applications",
+        {
+          title: "AI-Powered Document Processing & Data Extraction",
+          description:
+            "Automatically read, extract and structure information from invoices, purchase orders and other business documents.",
+          image: {
+            src: "/site-images/tech-img-06.png",
+            alt: "AI system extracting and organising data from business documents",
+          },
+        },
+        {
+          title: "Intelligent Email & Communication Workflows",
+          description:
+            "Categorise incoming emails and enquiries, route them to the right person and prepare information for staff review.",
+          image: {
+            src: "/site-images/tech-img-01.png",
+            alt: "Streams of data representing automated communication and information flow",
+          },
+        },
+        {
+          title: "AI-Assisted Data Classification & Analysis",
+          description:
+            "Sort, classify and interpret incoming information so your team can act on it faster and with more confidence.",
+          image: {
+            src: "/site-images/tech-img-09.png",
+            alt: "A neural network processing and classifying streams of business data",
+          },
+        },
+        {
+          title: "AI Integration with Existing Business Applications",
+          description:
+            "Connect AI capabilities directly into the tools and platforms your business already relies on every day.",
+          image: {
+            src: "/site-images/tech-img-16.png",
+            alt: "A circuit board representing AI connected into existing business systems",
+          },
+        },
       ],
     },
     useCases: [
@@ -159,20 +245,62 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       intro:
         "Sometimes off-the-shelf software isn't enough, either because the process is too specific, too important or too central to how the business runs.",
       items: [
-        "Spreadsheets and manual workarounds are being used to manage processes that have outgrown them.",
-        "Existing tools don't reflect how your team actually works, so staff build workarounds instead.",
-        "Customers or partners need a dedicated portal or platform that off-the-shelf software doesn't offer.",
-        "Growth is limited by software that can't scale or adapt with the business.",
+        {
+          title: "Outgrown Spreadsheets and Workarounds",
+          description:
+            "Spreadsheets and manual workarounds are being used to manage processes that have outgrown them, creating risk and inefficiency.",
+        },
+        {
+          title: "Software That Doesn't Fit",
+          description:
+            "Existing tools don't reflect how your team actually works, so staff build workarounds instead of using them properly.",
+        },
+        {
+          title: "Limited Growth and Scalability",
+          description:
+            "Growth is limited by software that can't scale, adapt or offer the dedicated portals your customers and partners need.",
+        },
       ],
     },
     howWeHelp: {
       intro:
-        "Our work here is built around developing complete software solutions that address business requirements which cannot be adequately met by existing off-the-shelf tools.",
+        "We develop complete software solutions that address business requirements which cannot be adequately met by existing off-the-shelf tools.",
       capabilities: [
-        "Custom business software and internal tools",
-        "SaaS platform development",
-        "Web applications and customer portals",
-        "API development and system integrations",
+        {
+          title: "Custom Business Software & Internal Tools",
+          description:
+            "Design and build internal tools and platforms tailored to the exact way your team works and operates.",
+          image: {
+            src: "/site-images/tech-img-08.png",
+            alt: "A custom software dashboard showing live business analytics",
+          },
+        },
+        {
+          title: "SaaS Platform Development",
+          description: "Take a SaaS product from initial concept through design, development and deployment.",
+          image: {
+            src: "/site-images/tech-img-10.png",
+            alt: "Abstract flowing forms representing a modern SaaS platform",
+          },
+        },
+        {
+          title: "Web Applications & Customer Portals",
+          description:
+            "Build customer-facing portals and web applications for managing accounts, requests and services online.",
+          image: {
+            src: "/site-images/tech-img-11.png",
+            alt: "Abstract glowing interface elements representing a customer web portal",
+          },
+        },
+        {
+          title: "API Development & System Integrations",
+          description:
+            "Develop custom APIs and integrations that connect your software with the wider systems your business uses.",
+          image: {
+            src: "/site-images/tech-img-13.png",
+            alt: "A circuit board with a central processor representing API architecture",
+          },
+        },
       ],
     },
     useCases: [
@@ -204,20 +332,63 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       intro:
         "Chatbots that only answer questions have limits. Many businesses need something that can actually retrieve information and take action.",
       items: [
-        "Staff spend time manually searching through documents or systems to answer routine questions.",
-        "Customer service teams are overwhelmed by repetitive enquiries that don't need a human response.",
-        "Administrative tasks such as preparing reports or updating records take up time that could go toward higher-value work.",
-        "Sales and account teams spend hours on manual research and data entry instead of building relationships.",
+        {
+          title: "Repetitive Enquiries and Support Load",
+          description:
+            "Customer service teams are overwhelmed by repetitive enquiries that don't need a human response, slowing down everyone else.",
+        },
+        {
+          title: "Manual Information Retrieval",
+          description:
+            "Staff spend time manually searching through documents or systems just to answer routine questions.",
+        },
+        {
+          title: "Time Lost to Admin and Research",
+          description:
+            "Administrative tasks, reporting and manual research take up time that could go toward higher-value, relationship-building work.",
+        },
       ],
     },
     howWeHelp: {
       intro:
-        "Our work here is built around AI-powered assistants that can interact with tools and execute multistep tasks, rather than simply generating text or answering questions. Where relevant, agents can operate with human oversight, permissions and approval workflows.",
+        "We build AI-powered assistants that can interact with tools and execute multistep tasks, operating with human oversight, permissions and approval workflows where relevant.",
       capabilities: [
-        "Custom AI assistants and business agents",
-        "AI-powered customer support",
-        "Internal knowledge and information retrieval",
-        "AI agents connected to business tools and workflows",
+        {
+          title: "Custom AI Assistants & Business Agents",
+          description:
+            "Build tailored AI agents designed around your specific business processes, tools and workflows.",
+          image: {
+            src: "/site-images/tech-img-05.png",
+            alt: "A person interacting with an AI neural network interface connected to live business data",
+          },
+        },
+        {
+          title: "AI-Powered Customer Support",
+          description:
+            "Handle routine customer enquiries automatically and escalate complex requests to your team when needed.",
+          image: {
+            src: "/site-images/tech-img-03.png",
+            alt: "A glowing circular interface representing an AI customer support agent",
+          },
+        },
+        {
+          title: "Internal Knowledge & Information Retrieval",
+          description:
+            "Give your team instant access to information stored across company documents and knowledge bases.",
+          image: {
+            src: "/site-images/tech-img-14.png",
+            alt: "A connected network of data blocks representing an internal knowledge base",
+          },
+        },
+        {
+          title: "AI Agents Connected to Business Tools & Workflows",
+          description:
+            "Connect agents directly to your business systems so they can retrieve information and complete tasks with appropriate oversight.",
+          image: {
+            src: "/site-images/tech-img-17.png",
+            alt: "A blueprint of connected gears representing an AI agent working within business workflows",
+          },
+        },
       ],
     },
     useCases: [

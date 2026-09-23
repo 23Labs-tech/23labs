@@ -66,26 +66,17 @@ export function Navbar() {
 
               if (item.href === "/services") {
                 return (
-                  <div className={`nav-dropdown${servicesOpen ? " is-open" : ""}`} key={item.href}>
-                    <div className="nav-dropdown-trigger">
-                      <Link
-                        href={item.href}
-                        className={active || isServicesPath ? "active" : undefined}
-                        aria-current={active || isServicesPath ? "page" : undefined}
-                        onClick={() => setMenuState({ open: false, pathname })}
-                      >
-                        {item.label}
-                      </Link>
-                      <button
-                        type="button"
-                        className="nav-dropdown-toggle"
-                        aria-expanded={servicesOpen}
-                        aria-label="Toggle services menu"
-                        onClick={() => setServicesState({ open: !servicesOpen, pathname })}
-                      >
-                        <ChevronIcon />
-                      </button>
-                    </div>
+                  <div className={`nav-dropdown${servicesOpen ? " is-open" : ""}`} key="services-dropdown">
+                    <button
+                      type="button"
+                      className={`nav-dropdown-trigger${isServicesPath ? " active" : ""}`}
+                      aria-expanded={servicesOpen}
+                      aria-haspopup="true"
+                      onClick={() => setServicesState({ open: !servicesOpen, pathname })}
+                    >
+                      {item.label}
+                      <ChevronIcon />
+                    </button>
                     <div className="nav-dropdown-panel">
                       {serviceLandingPages.map((service) => (
                         <Link

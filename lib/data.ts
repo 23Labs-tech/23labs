@@ -205,24 +205,6 @@ export const homeProcessBrief = [
   },
 ];
 
-export const serviceProcessSteps = [
-  {
-    number: "01",
-    title: "Discover",
-    body: "We map your processes and find where the friction and the biggest opportunities are.",
-  },
-  {
-    number: "02",
-    title: "Build",
-    body: "We design and build practical solutions tailored to how your team actually works.",
-  },
-  {
-    number: "03",
-    title: "Support",
-    body: "We launch, refine, and keep improving long after go-live so it keeps delivering.",
-  },
-];
-
 export const workflowFramework = [
   {
     step: "Step 01",

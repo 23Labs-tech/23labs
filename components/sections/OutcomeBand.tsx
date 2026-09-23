@@ -22,17 +22,17 @@ const outcomes = [
 export function OutcomeBand() {
   return (
     <section className="sec">
-      <div className="wrap">
-        <div className="sec-head reveal">
-          <div className="sec-tag">Why it matters</div>
-          <h2 className="sec-title">
-            Better systems give your team <span className="em">more time to grow the business</span>
-          </h2>
-          <p className="lead">
-            The goal is not more software for its own sake. It is less manual work, fewer disconnected
-            tools and systems that keep working as the business gets bigger.
-          </p>
+      <div className="wrap intro-copy">
+        <div className="sec-tag sec-tag-plain sec-tag-accent" style={{ justifyContent: "center" }}>
+          Why it matters
         </div>
+        <h2>
+          Better systems give your team <span className="em">more time to grow the business</span>
+        </h2>
+        <p className="lead">
+          The goal is not more software for its own sake. It is less manual work, fewer disconnected
+          tools and systems that keep working as the business gets bigger.
+        </p>
       </div>
       <div className="wrap">
         <div className="outcome-grid reveal">

@@ -5,6 +5,8 @@ import { serviceLandingPages } from "@/lib/services";
 import { siteConfig } from "@/lib/site";
 import { Logo } from "@/components/site/Logo";
 
+const studioLinks = navItems.filter((item) => item.href !== "/services");
+
 const footerServiceLinks = [
   "business-process-automation",
   "ai-workflow-automation",
@@ -27,7 +29,7 @@ export function Footer() {
           <div className="foot-col">
             <h5>Studio</h5>
             <ul>
-              {navItems.map((item) => (
+              {studioLinks.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href}>{item.label}</Link>
                 </li>

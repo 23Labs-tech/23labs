@@ -168,10 +168,9 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
               "@type": "BreadcrumbList",
               itemListElement: [
                 { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
-                { "@type": "ListItem", position: 2, name: "Services", item: absoluteUrl("/services") },
                 {
                   "@type": "ListItem",
-                  position: 3,
+                  position: 2,
                   name: serviceName,
                   item: absoluteUrl(service.href),
                 },

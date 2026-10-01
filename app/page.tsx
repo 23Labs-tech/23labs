@@ -5,12 +5,10 @@ import { AboutIntro } from "@/components/sections/AboutIntro";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { HomeHero } from "@/components/sections/HomeHero";
-import { HomeIndustries } from "@/components/sections/HomeIndustries";
 import { OurApproach } from "@/components/sections/OurApproach";
 import { OutcomeBand } from "@/components/sections/OutcomeBand";
 import { ProcessSteps } from "@/components/sections/ProcessSteps";
 import { ServiceShowcase } from "@/components/sections/ServiceShowcase";
-import { Testimonials } from "@/components/sections/Testimonials";
 import { JsonLd } from "@/components/site/JsonLd";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { WorkShowcase } from "@/components/work/WorkShowcase";
@@ -87,10 +85,6 @@ export default function Home() {
       </section>
 
       <OurApproach />
-
-      <Testimonials />
-
-      <HomeIndustries />
 
       <FaqAccordion />
 

@@ -1838,95 +1838,6 @@ textarea:focus-visible {
   max-width: 60ch;
 }
 
-.testimonial-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 56px;
-}
-
-.testimonial-card {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  border: 1px solid var(--line);
-  border-radius: 24px;
-  background: var(--card);
-  padding: 36px 34px;
-}
-
-.testimonial-card blockquote {
-  margin: 0;
-  color: var(--ink);
-  font-family: var(--font-sans), "Poppins", Arial, sans-serif;
-  font-size: 19px;
-  font-weight: 400;
-  font-style: italic;
-  line-height: 1.5;
-}
-
-.testimonial-card figcaption {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin-top: auto;
-  padding-top: 24px;
-}
-
-.testimonial-name {
-  font-size: 14.5px;
-  font-weight: 600;
-}
-
-.testimonial-role {
-  color: var(--ink-soft);
-  font-size: 13px;
-}
-
-.industry-editorial-list {
-  border-top: 1px solid var(--line);
-}
-
-.industry-editorial-row {
-  display: grid;
-  grid-template-columns: 48px 220px 1fr 24px;
-  align-items: center;
-  gap: 28px;
-  border-bottom: 1px solid var(--line);
-  padding: 28px 4px;
-  transition: background 0.2s;
-}
-
-.industry-editorial-row:hover {
-  background: var(--paper);
-}
-
-.industry-editorial-row .industry-ico {
-  margin-bottom: 0;
-}
-
-.industry-editorial-name {
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.industry-editorial-desc {
-  color: var(--ink-soft);
-  font-size: 14.5px;
-  line-height: 1.5;
-}
-
-.industry-editorial-row .btn-arrow {
-  justify-self: end;
-  color: var(--ink-faint);
-  transition: transform 0.2s, color 0.2s;
-}
-
-.industry-editorial-row:hover .btn-arrow {
-  color: var(--ink);
-  transform: translateX(3px);
-}
-
 .outcome-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -2951,15 +2862,6 @@ textarea:focus-visible {
   .outcome-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .industry-editorial-row {
-    grid-template-columns: 40px 1fr auto;
-    row-gap: 8px;
-  }
-
-  .industry-editorial-desc {
-    grid-column: 2 / -1;
-  }
 }
 
 @media (max-width: 780px) {
@@ -3149,7 +3051,6 @@ textarea:focus-visible {
   .related-links,
   .approach-grid,
   .outcome-grid,
-  .testimonial-grid,
   .usecase-grid,
   .process-cards-grid,
   .case-study-grid {

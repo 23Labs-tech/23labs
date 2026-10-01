@@ -60,9 +60,7 @@ export function Navbar() {
               const isHashLink = item.href.includes("#");
               const active =
                 !isHashLink &&
-                (pathname === item.href ||
-                  (item.href !== "/" && pathname.startsWith(`${item.href}/`)) ||
-                  (item.href === "/industries" && isIndustryPath));
+                (pathname === item.href || (item.href !== "/" && pathname.startsWith(`${item.href}/`)));
 
               if (item.href === "/services") {
                 return (

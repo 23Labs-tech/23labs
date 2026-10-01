@@ -1,6 +1,5 @@
 export const navItems = [
   { label: "Services", href: "/services" },
-  { label: "Industries", href: "/industries" },
   { label: "Work", href: "/work" },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
@@ -136,27 +135,6 @@ export const caseStudies = [
     result:
       "Improved operational visibility and reduced the manual follow-up required across common customer touchpoints.",
     flow: ["Enquiry received", "Categorised", "CRM updated", "Assigned", "Reporting"],
-  },
-];
-
-export const testimonials = [
-  {
-    quote:
-      "23Labs helped us automate repetitive workflows that were slowing the team down. The solution was practical, clear, and easy for our staff to adopt.",
-    name: "CorIT Team",
-    role: "Technology services",
-  },
-  {
-    quote:
-      "They understood the operational detail quickly and gave us systems that removed friction without making the process feel over-engineered.",
-    name: "First National Real Estate",
-    role: "Real estate operations",
-  },
-  {
-    quote:
-      "The process was calm, structured, and professional. I ended up with a website that feels aligned with the practice and easy to manage.",
-    name: "Lily Olsen",
-    role: "Counselling practice owner",
   },
 ];
 

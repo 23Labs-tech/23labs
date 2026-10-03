@@ -1712,22 +1712,18 @@ textarea:focus-visible {
 
 .think-title {
   margin-bottom: 20px;
-  color: #fff;
+  color: var(--ink);
   font-size: clamp(32px, 3.2vw, 46px);
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.01em;
 }
 
-.think-title .em {
-  color: rgba(255, 255, 255, 0.4);
-}
-
 .think-lead {
   max-width: 54ch;
   margin-left: auto;
   margin-right: auto;
-  color: var(--dark-ink-soft);
+  color: var(--ink-soft);
   font-size: 16.5px;
   line-height: 1.6;
 }
@@ -1748,7 +1744,7 @@ textarea:focus-visible {
 
 .think-item h3 {
   margin-bottom: 12px;
-  color: #fff;
+  color: var(--ink);
   font-size: 21px;
   font-weight: 600;
   letter-spacing: -0.005em;
@@ -1756,7 +1752,7 @@ textarea:focus-visible {
 
 .think-item p {
   max-width: 34ch;
-  color: var(--dark-ink-soft);
+  color: var(--ink-soft);
   font-size: 15.5px;
   line-height: 1.6;
 }

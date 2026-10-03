@@ -15,7 +15,7 @@ const principles = [
 
 export function HowWeThink() {
   return (
-    <section className="think-sec sec sec-dark">
+    <section className="think-sec sec">
       <div className="wrap think-intro reveal">
         <div className="sec-tag" style={{ justifyContent: "center" }}>
           How we think

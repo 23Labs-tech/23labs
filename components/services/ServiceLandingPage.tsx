@@ -96,7 +96,20 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
         </div>
       </section>
 
-      <ProcessSection eyebrow="How we work" heading="How a project comes together" steps={serviceApproachSteps} />
+      <ProcessSection
+        layout="split"
+        eyebrow="How we work"
+        heading={
+          <>
+            How a project comes
+            <br />
+            together
+          </>
+        }
+        intro="From discovery through to launch and support, we follow a clear process that keeps projects practical, structured and aligned to how your business actually works."
+        cta={{ href: "/contact", label: "Start a conversation" }}
+        steps={serviceApproachSteps}
+      />
 
       {relatedServices.length ? (
         <section className="sec no-top">

@@ -1702,12 +1702,11 @@ textarea:focus-visible {
   line-height: 1.6;
 }
 
-/* ---------- How we think (principles, no timeline) ---------- */
+/* ---------- How we think (values, icon-led) ---------- */
 
 .think-intro {
   max-width: 640px;
-  margin: 0 auto 64px;
-  text-align: center;
+  margin-bottom: 72px;
 }
 
 .think-title {
@@ -1721,8 +1720,6 @@ textarea:focus-visible {
 
 .think-lead {
   max-width: 54ch;
-  margin-left: auto;
-  margin-right: auto;
   color: var(--ink-soft);
   font-size: 16.5px;
   line-height: 1.6;
@@ -1734,12 +1731,11 @@ textarea:focus-visible {
   gap: 56px;
 }
 
-.think-divider {
+.think-icon {
   width: 28px;
-  height: 2px;
-  margin-bottom: 24px;
-  border-radius: 1px;
-  background: var(--accent);
+  height: 28px;
+  margin-bottom: 22px;
+  stroke: var(--accent);
 }
 
 .think-item h3 {
@@ -1751,7 +1747,7 @@ textarea:focus-visible {
 }
 
 .think-item p {
-  max-width: 34ch;
+  max-width: 320px;
   color: var(--ink-soft);
   font-size: 15.5px;
   line-height: 1.6;

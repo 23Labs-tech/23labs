@@ -165,27 +165,6 @@ export const processSteps = [
   },
 ];
 
-export const howWeWorkSteps = [
-  {
-    number: "01",
-    label: "Step 1",
-    title: "Understand",
-    body: "We map your current systems, workflows, bottlenecks and requirements so we understand exactly what needs to change.",
-  },
-  {
-    number: "02",
-    label: "Step 2",
-    title: "Design & Build",
-    body: "We design the right solution around your existing operations, then build, integrate and test it in clear stages.",
-  },
-  {
-    number: "03",
-    label: "Step 3",
-    title: "Launch & Improve",
-    body: "We deploy the solution, make sure everything works properly and continue improving it where ongoing support is needed.",
-  },
-];
-
 export const workflowFramework = [
   {
     step: "Step 01",

@@ -80,7 +80,7 @@ export default function AboutPage() {
 
       <ProcessSection
         layout="split"
-        eyebrow="Our approach"
+        eyebrow="How we work"
         heading={
           <>
             How 23Labs Helps Clients <span className="em">Work Smarter</span>

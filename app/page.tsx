@@ -5,8 +5,8 @@ import { AboutIntro } from "@/components/sections/AboutIntro";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { HomeHero } from "@/components/sections/HomeHero";
+import { HowWeThink } from "@/components/sections/HowWeThink";
 import { HowWeWork } from "@/components/sections/HowWeWork";
-import { OurApproach } from "@/components/sections/OurApproach";
 import { OutcomeBand } from "@/components/sections/OutcomeBand";
 import { ServiceShowcase } from "@/components/sections/ServiceShowcase";
 import { JsonLd } from "@/components/site/JsonLd";
@@ -78,7 +78,7 @@ export default function Home() {
 
       <HowWeWork />
 
-      <OurApproach />
+      <HowWeThink />
 
       <FaqAccordion />
 

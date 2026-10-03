@@ -1702,6 +1702,65 @@ textarea:focus-visible {
   line-height: 1.6;
 }
 
+/* ---------- How we think (principles, no timeline) ---------- */
+
+.think-intro {
+  max-width: 640px;
+  margin: 0 auto 64px;
+  text-align: center;
+}
+
+.think-title {
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: clamp(32px, 3.2vw, 46px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.think-title .em {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.think-lead {
+  max-width: 54ch;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--dark-ink-soft);
+  font-size: 16.5px;
+  line-height: 1.6;
+}
+
+.think-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 56px;
+}
+
+.think-divider {
+  width: 28px;
+  height: 2px;
+  margin-bottom: 24px;
+  border-radius: 1px;
+  background: var(--accent);
+}
+
+.think-item h3 {
+  margin-bottom: 12px;
+  color: #fff;
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+.think-item p {
+  max-width: 34ch;
+  color: var(--dark-ink-soft);
+  font-size: 15.5px;
+  line-height: 1.6;
+}
+
 .final-cta {
   position: relative;
   display: flex;
@@ -2644,7 +2703,8 @@ textarea:focus-visible {
   .industry-grid,
   .build-grid,
   .related-links,
-  .case-study-grid {
+  .case-study-grid,
+  .think-grid {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -2986,8 +3046,13 @@ textarea:focus-visible {
   .related-links,
   .outcome-grid,
   .usecase-grid,
-  .case-study-grid {
+  .case-study-grid,
+  .think-grid {
     grid-template-columns: 1fr;
+  }
+
+  .think-grid {
+    gap: 40px;
   }
 
   .build-card.xl,

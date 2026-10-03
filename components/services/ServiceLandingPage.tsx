@@ -96,7 +96,7 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
         </div>
       </section>
 
-      <ProcessSection eyebrow="Our approach" heading="How a project comes together" steps={serviceApproachSteps} />
+      <ProcessSection eyebrow="How we work" heading="How a project comes together" steps={serviceApproachSteps} />
 
       {relatedServices.length ? (
         <section className="sec no-top">

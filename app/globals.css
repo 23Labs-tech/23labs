@@ -508,31 +508,32 @@ textarea:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 86vh;
-  padding: 80px 0;
+  min-height: 80vh;
+  padding: 48px 0 104px;
   text-align: center;
 }
 
 .hero-in {
-  max-width: 1100px;
+  max-width: 1160px;
   margin: 0 auto;
 }
 
 .hero h1 {
-  max-width: 100%;
+  max-width: 1100px;
+  margin-inline: auto;
   font-family: var(--font-sans), "Poppins", Arial, sans-serif;
-  font-size: clamp(3rem, 6vw, 5rem);
+  font-size: clamp(3rem, 5vw, 5rem);
   font-weight: 600;
-  line-height: 1.08;
+  line-height: 1.02;
   letter-spacing: -0.02em;
   color: #111111;
 }
 
 .hero-lead {
-  max-width: 760px;
-  margin: 28px auto 0;
+  max-width: 960px;
+  margin: 22px auto 0;
   color: #3f3f46;
-  font-size: 18px;
+  font-size: clamp(1rem, 1.6vw, 1.3125rem);
   line-height: 1.55;
 }
 
@@ -542,7 +543,7 @@ textarea:focus-visible {
   align-items: center;
   justify-content: center;
   gap: 28px;
-  margin-top: 36px;
+  margin-top: 28px;
 }
 
 .btn.hero-cta {

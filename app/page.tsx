@@ -5,12 +5,11 @@ import { AboutIntro } from "@/components/sections/AboutIntro";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { HomeHero } from "@/components/sections/HomeHero";
+import { HowWeWork } from "@/components/sections/HowWeWork";
 import { OurApproach } from "@/components/sections/OurApproach";
 import { OutcomeBand } from "@/components/sections/OutcomeBand";
-import { ProcessSteps } from "@/components/sections/ProcessSteps";
 import { ServiceShowcase } from "@/components/sections/ServiceShowcase";
 import { JsonLd } from "@/components/site/JsonLd";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { WorkShowcase } from "@/components/work/WorkShowcase";
 import { getAllPosts } from "@/lib/blog";
 import { faqs } from "@/lib/data";
@@ -77,12 +76,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="sec">
-        <div className="wrap">
-          <SectionHeading eyebrow="How we work" title="From first call to " highlight="long-term support" />
-          <ProcessSteps />
-        </div>
-      </section>
+      <HowWeWork />
 
       <OurApproach />
 

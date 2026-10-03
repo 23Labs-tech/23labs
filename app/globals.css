@@ -1734,6 +1734,134 @@ textarea:focus-visible {
   stroke: var(--ink);
 }
 
+/* ---------- How we work (dark split timeline) ---------- */
+
+.hww-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 80px;
+}
+
+.hww-title {
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: clamp(32px, 3.2vw, 46px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.hww-lead {
+  max-width: 46ch;
+  color: var(--dark-ink-soft);
+  font-size: 16.5px;
+  line-height: 1.6;
+}
+
+.hww-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 32px;
+  border: 1.5px solid rgba(255, 255, 255, 0.28);
+  border-radius: 99px;
+  padding: 13px 24px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.hww-cta:hover,
+.hww-cta:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.hww-cta-arrow {
+  transition: transform 0.2s;
+}
+
+.hww-cta:hover .hww-cta-arrow {
+  transform: translate(2px, -2px);
+}
+
+.hww-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 52px;
+}
+
+.hww-timeline::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 80px;
+  width: 1px;
+  background: var(--dark-line);
+}
+
+.hww-step {
+  position: relative;
+  display: flex;
+  gap: 28px;
+}
+
+.hww-step-number {
+  flex: 0 0 80px;
+  color: rgba(255, 255, 255, 0.22);
+  font-size: clamp(40px, 4vw, 56px);
+  font-weight: 500;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.hww-step-dot {
+  position: absolute;
+  top: 10px;
+  left: 76px;
+  z-index: 1;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--dark-bg);
+}
+
+.hww-step-body {
+  flex: 1;
+  max-width: 420px;
+  padding-top: 2px;
+}
+
+.hww-step-label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--dark-ink-soft);
+  font-family: var(--font-sans), "Poppins", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hww-step-body h3 {
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.hww-step-body p {
+  max-width: 38ch;
+  color: var(--dark-ink-soft);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
 .final-cta {
   position: relative;
   display: flex;
@@ -2786,6 +2914,15 @@ textarea:focus-visible {
 }
 
 @media (max-width: 900px) {
+  .hww-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .hww-lead {
+    max-width: 100%;
+  }
+
   .hero {
     padding: 40px 0 48px;
   }
@@ -2903,6 +3040,27 @@ textarea:focus-visible {
 
   .svc-hero {
     padding: 24px 0 36px;
+  }
+
+  .hww-step {
+    gap: 18px;
+  }
+
+  .hww-step-number {
+    flex-basis: 52px;
+    font-size: 32px;
+  }
+
+  .hww-timeline::before {
+    left: 52px;
+  }
+
+  .hww-step-dot {
+    left: 48px;
+  }
+
+  .hww-step-body p {
+    max-width: 100%;
   }
 
   .nav-in {

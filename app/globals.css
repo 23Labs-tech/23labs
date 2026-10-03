@@ -505,55 +505,44 @@ textarea:focus-visible {
 
 .hero {
   position: relative;
-  overflow: hidden;
-  padding: 44px 0 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 86vh;
+  padding: 80px 0;
+  text-align: center;
 }
 
 .hero-in {
-  display: grid;
-  grid-template-columns: 46% 54%;
-  align-items: start;
-  gap: 60px;
-}
-
-.hero-copy {
-  max-width: 520px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .hero h1 {
-  max-width: 520px;
+  max-width: 100%;
   font-family: var(--font-sans), "Poppins", Arial, sans-serif;
-  font-size: clamp(2.75rem, 4.4vw, 4rem);
+  font-size: clamp(3rem, 6vw, 5rem);
   font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: -0.01em;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
   color: #111111;
 }
 
-.hero-line {
-  display: inline;
-}
-
-@media (min-width: 901px) {
-  .hero-line {
-    display: block;
-  }
-}
-
 .hero-lead {
-  max-width: 500px;
-  margin-top: 24px;
+  max-width: 760px;
+  margin: 28px auto 0;
   color: #3f3f46;
-  font-size: 16.5px;
-  line-height: 1.5;
+  font-size: 18px;
+  line-height: 1.55;
 }
 
 .hero-cta-row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 28px;
-  margin-top: 32px;
+  margin-top: 36px;
 }
 
 .btn.hero-cta {
@@ -564,17 +553,6 @@ textarea:focus-visible {
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-}
-
-.hero-visual {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 6 / 5;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 23% 100%, 0 76%);
-}
-
-.hero-visual img {
-  object-fit: cover;
 }
 
 /* ---------- Placeholder art (legacy thumbs) ---------- */
@@ -2757,11 +2735,6 @@ textarea:focus-visible {
     grid-template-columns: 1fr 1fr 1fr;
   }
 
-  .hero-in {
-    grid-template-columns: 48% 52%;
-    gap: 40px;
-  }
-
   :root {
     --sec-pad: 88px;
     --pad: 28px;
@@ -2779,28 +2752,12 @@ textarea:focus-visible {
   }
 
   .hero {
-    padding: 40px 0 48px;
+    min-height: auto;
+    padding: 64px 0;
   }
 
-  .hero-in {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .hero-copy,
   .hero-lead {
     max-width: 100%;
-  }
-
-  .hero h1 {
-    max-width: 100%;
-  }
-
-  .hero-visual {
-    order: 5;
-    margin-top: 0;
-    aspect-ratio: 4 / 3;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 12% 100%, 0 90%);
   }
 
   .service-stack {
@@ -3008,12 +2965,8 @@ textarea:focus-visible {
     padding: 40px 0 56px;
   }
 
-  .hero-in {
-    gap: 32px;
-  }
-
   .hero h1 {
-    font-size: clamp(2.25rem, 9vw, 2.75rem);
+    font-size: clamp(2.25rem, 10vw, 2.75rem);
     letter-spacing: -0.01em;
   }
 

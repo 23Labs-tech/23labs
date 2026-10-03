@@ -112,17 +112,19 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
       />
 
       {relatedServices.length ? (
-        <section className="sec no-top">
+        <section className="sec no-top related-sec">
           <div className="wrap">
-            <div className="sec-head reveal">
+            <div className="sec-head related-head reveal">
               <div className="sec-tag">Related services</div>
               <h2 className="sec-title">You might also need</h2>
             </div>
             <div className="related-links reveal">
               {relatedServices.map((item) => (
                 <Link href={item.href} className="related-link" key={item.slug}>
-                  <span className="mono">Services</span>
-                  <h4>{item.navLabel}</h4>
+                  <div className="related-link-body">
+                    <h4>{item.navLabel}</h4>
+                    <p>{item.description}</p>
+                  </div>
                   <span className="btn-arrow" aria-hidden="true">
                     {"→"}
                   </span>

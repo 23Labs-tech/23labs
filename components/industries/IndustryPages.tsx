@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CheckIcon, IndustryIcon } from "@/components/industries/IndustryIcon";
+import { ProcessSection } from "@/components/sections/ProcessSection";
 import { JsonLd } from "@/components/site/JsonLd";
 import { industryLinks, industryOverview, type IndustryPageData } from "@/lib/industries";
 import { absoluteUrl } from "@/lib/seo";
@@ -92,32 +93,6 @@ function Checklist({ items }: { items: readonly string[] }) {
   );
 }
 
-function ProcessPanel({
-  steps,
-}: {
-  steps: readonly {
-    number: string;
-    title: string;
-    body: string;
-  }[];
-}) {
-  return (
-    <div className="panel-card reveal">
-      <div className="process-list">
-        {steps.map((step) => (
-          <div className="process-row" key={step.number}>
-            <div className="process-k">{step.number}</div>
-            <div>
-              <h3>{step.title}</h3>
-              <p>{step.body}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function TextBlock({ paragraphs }: { paragraphs: readonly string[] }) {
   return (
     <div className="text-block reveal">
@@ -191,16 +166,18 @@ export function IndustriesOverviewPage() {
         </div>
       </section>
 
-      <section className="sec no-top">
-        <div className="wrap">
-          <SectionHeading
-            eyebrow={industryOverview.process.eyebrow}
-            title={industryOverview.process.title}
-            highlight={industryOverview.process.highlight}
-          />
-          <ProcessPanel steps={industryOverview.process.steps} />
-        </div>
-      </section>
+      <ProcessSection
+        eyebrow={industryOverview.process.eyebrow}
+        heading={
+          <>
+            {industryOverview.process.title}
+            {industryOverview.process.highlight ? (
+              <span className="em">{industryOverview.process.highlight}</span>
+            ) : null}
+          </>
+        }
+        steps={industryOverview.process.steps}
+      />
 
       <section className="sec">
         <div className="wrap">
@@ -310,12 +287,15 @@ export function IndustryDetailPage({ industry }: { industry: IndustryPageData })
         </section>
       ) : null}
 
-      <section className="sec no-top">
-        <div className="wrap">
-          <SectionHeading eyebrow="How it works" title="Our " highlight="Process" />
-          <ProcessPanel steps={industry.process} />
-        </div>
-      </section>
+      <ProcessSection
+        eyebrow="How it works"
+        heading={
+          <>
+            Our <span className="em">Process</span>
+          </>
+        }
+        steps={industry.process}
+      />
 
       <section className="sec">
         <div className="wrap">

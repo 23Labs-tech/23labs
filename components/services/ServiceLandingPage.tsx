@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { HowWeHelpShowcase } from "@/components/services/HowWeHelpShowcase";
+import { ProcessSection } from "@/components/sections/ProcessSection";
 import { JsonLd } from "@/components/site/JsonLd";
 import { absoluteUrl } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
@@ -95,22 +96,7 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
         </div>
       </section>
 
-      <section className="sec">
-        <div className="wrap">
-          <div className="sec-head reveal">
-            <div className="sec-tag">Our approach</div>
-            <h2 className="sec-title">How a project comes together</h2>
-          </div>
-          <div className="process-cards-grid reveal">
-            {serviceApproachSteps.map((step) => (
-              <article className="process-card-plain" key={step.title}>
-                <h3>{step.title}</h3>
-                <p>{step.body}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ProcessSection eyebrow="Our approach" heading="How a project comes together" steps={serviceApproachSteps} />
 
       {relatedServices.length ? (
         <section className="sec no-top">

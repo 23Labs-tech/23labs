@@ -1504,43 +1504,46 @@ textarea:focus-visible {
   display: block;
 }
 
-/* ---------- Why 23Labs (typography-led, no cards) ---------- */
+/* ---------- What we stand for (icon-led values, 4-up) ---------- */
 
-.values-grid {
-  display: flex;
-  flex-direction: column;
+.standfor-intro {
+  max-width: 640px;
+  margin-bottom: 72px;
 }
 
-.value-card {
-  display: grid;
-  grid-template-columns: 100px 1fr;
-  gap: 32px;
-  border-top: 1px solid var(--line);
-  padding: 48px 0;
-}
-
-.values-grid > .value-card:first-child {
-  border-top: 1px solid var(--line);
-}
-
-.value-k {
-  color: var(--ink-faint);
-  font-family: var(--font-sans), "Poppins", Arial, sans-serif;
-  font-size: 13px;
-  padding-top: 6px;
-}
-
-.value-card h3 {
-  margin: 0 0 12px;
-  font-size: clamp(22px, 2.4vw, 30px);
+.standfor-title {
+  color: var(--ink);
+  font-size: clamp(32px, 3.2vw, 46px);
   font-weight: 600;
-  letter-spacing: -0.015em;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
-.value-card p {
-  max-width: 62ch;
+.standfor-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.standfor-icon {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 22px;
+  stroke: var(--accent);
+}
+
+.standfor-item h3 {
+  margin-bottom: 12px;
+  color: var(--ink);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+.standfor-item p {
   color: var(--ink-soft);
-  font-size: 17px;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 /* ---------- How we work (dark split timeline) ---------- */
@@ -2696,7 +2699,8 @@ textarea:focus-visible {
   .build-grid,
   .related-links,
   .case-study-grid,
-  .think-grid {
+  .think-grid,
+  .standfor-grid {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -2849,11 +2853,6 @@ textarea:focus-visible {
   .case-grid {
     grid-template-columns: 1fr;
     gap: 20px;
-  }
-
-  .value-card {
-    grid-template-columns: 1fr;
-    gap: 12px;
   }
 }
 
@@ -3039,11 +3038,13 @@ textarea:focus-visible {
   .outcome-grid,
   .usecase-grid,
   .case-study-grid,
-  .think-grid {
+  .think-grid,
+  .standfor-grid {
     grid-template-columns: 1fr;
   }
 
-  .think-grid {
+  .think-grid,
+  .standfor-grid {
     gap: 40px;
   }
 

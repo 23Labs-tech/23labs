@@ -192,23 +192,28 @@ export const workflowFramework = [
   },
 ];
 
-export const values = [
+export const coreValues = [
   {
     title: "Practical over flashy",
-    body:
-      "Every solution has to earn its place by saving time or making money.",
+    body: "Every solution has to earn its place by saving time, reducing friction or creating measurable business value.",
+    icon: "practical",
   },
   {
     title: "Built to be used",
-    body:
-      "Technology only works when people actually use it. We design around your team and the way you already work, not the other way around.",
+    body: "The best systems are the ones your team actually wants to use every day.",
+    icon: "usable",
   },
   {
     title: "Partners, not vendors",
-    body:
-      "We stay close, explain things clearly, and keep improving long after launch. You should never feel lost in the technical detail.",
+    body: "We work closely with clients to build solutions that fit how their business actually operates.",
+    icon: "partners",
   },
-];
+  {
+    title: "Impact-driven",
+    body: "Everything we build should create measurable value and meaningful business outcomes over time.",
+    icon: "impact",
+  },
+] as const;
 
 export const faqs = [
   {

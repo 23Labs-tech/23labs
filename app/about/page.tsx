@@ -3,8 +3,8 @@ import { CtaSection } from "@/components/sections/CtaSection";
 import { PageHero } from "@/components/sections/PageHero";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { StatsBand } from "@/components/sections/StatsBand";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { values, workflowFramework } from "@/lib/data";
+import { WhatWeStandFor } from "@/components/sections/WhatWeStandFor";
+import { workflowFramework } from "@/lib/data";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
@@ -57,24 +57,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="sec no-top">
-        <div className="wrap">
-          <SectionHeading
-            eyebrow="What we stand for"
-            title="Built on a few things we won't "
-            highlight="compromise"
-          />
-          <div className="values-grid reveal">
-            {values.map((value, index) => (
-              <article className="value-card" key={value.title}>
-                <div className="value-k">{String(index + 1).padStart(2, "0")}</div>
-                <h3>{value.title}</h3>
-                <p>{value.body}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <WhatWeStandFor />
 
       <StatsBand noTop />
 

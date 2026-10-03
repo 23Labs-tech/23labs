@@ -9,6 +9,7 @@ import { HowWeThink } from "@/components/sections/HowWeThink";
 import { HowWeWork } from "@/components/sections/HowWeWork";
 import { OutcomeBand } from "@/components/sections/OutcomeBand";
 import { ServiceShowcase } from "@/components/sections/ServiceShowcase";
+import { StatsBand } from "@/components/sections/StatsBand";
 import { JsonLd } from "@/components/site/JsonLd";
 import { WorkShowcase } from "@/components/work/WorkShowcase";
 import { getAllPosts } from "@/lib/blog";
@@ -39,6 +40,8 @@ export default function Home() {
       <HomeHero />
 
       <AboutIntro />
+
+      <StatsBand />
 
       <section className="sec sec-alt" id="services">
         <div className="wrap intro-copy">

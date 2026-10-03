@@ -25,7 +25,9 @@ export default function AboutPage() {
         body="23Labs is a Melbourne-based Automation & Software Studio. We design and build business automation, custom software and connected systems that make businesses easier to run."
       />
 
-      <section className="sec no-top">
+      <StatsBand noTop />
+
+      <section className="sec">
         <div className="wrap">
           <div className="story-grid reveal">
             <h2>
@@ -58,8 +60,6 @@ export default function AboutPage() {
       </section>
 
       <WhatWeStandFor />
-
-      <StatsBand noTop />
 
       <ProcessSection
         layout="split"

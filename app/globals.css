@@ -231,7 +231,7 @@ textarea:focus-visible {
 }
 
 .em {
-  color: var(--ink-soft);
+  color: var(--accent-dark);
 }
 
 .lead {
@@ -508,8 +508,7 @@ textarea:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 80vh;
-  padding: 48px 0 104px;
+  padding: 72px 0 56px;
   text-align: center;
 }
 
@@ -519,10 +518,10 @@ textarea:focus-visible {
 }
 
 .hero h1 {
-  max-width: 1100px;
+  max-width: 960px;
   margin-inline: auto;
   font-family: var(--font-sans), "Poppins", Arial, sans-serif;
-  font-size: clamp(3rem, 5vw, 5rem);
+  font-size: clamp(3.25rem, 4.5vw, 4.625rem);
   font-weight: 600;
   line-height: 1.02;
   letter-spacing: -0.02em;
@@ -530,11 +529,11 @@ textarea:focus-visible {
 }
 
 .hero-lead {
-  max-width: 960px;
-  margin: 22px auto 0;
+  max-width: 880px;
+  margin: 34px auto 0;
   color: #3f3f46;
-  font-size: clamp(1rem, 1.6vw, 1.3125rem);
-  line-height: 1.55;
+  font-size: clamp(1rem, 1.4vw, 1.1875rem);
+  line-height: 1.5;
 }
 
 .hero-cta-row {
@@ -543,7 +542,7 @@ textarea:focus-visible {
   align-items: center;
   justify-content: center;
   gap: 28px;
-  margin-top: 28px;
+  margin-top: 42px;
 }
 
 .btn.hero-cta {
@@ -554,6 +553,10 @@ textarea:focus-visible {
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+.hero + .sec {
+  padding-top: 64px;
 }
 
 /* ---------- Placeholder art (legacy thumbs) ---------- */
@@ -755,7 +758,7 @@ textarea:focus-visible {
 
 .intro-copy h2 {
   font-family: var(--font-sans), "Poppins", Arial, sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: -0.005em;
   font-size: clamp(28px, 3.4vw, 40px);
   line-height: 1.2;
@@ -799,9 +802,9 @@ textarea:focus-visible {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 48px;
-  min-height: 460px;
-  padding: 48px;
+  gap: 40px;
+  min-height: 350px;
+  padding: 56px 72px;
   border: 1px solid var(--line);
   border-radius: 28px;
   background: var(--card);
@@ -815,7 +818,7 @@ textarea:focus-visible {
 
 .service-panel-copy p {
   max-width: 46ch;
-  margin-top: 14px;
+  margin-top: 26px;
   color: var(--ink-soft);
   font-size: 16.5px;
   line-height: 1.6;
@@ -825,7 +828,7 @@ textarea:focus-visible {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-top: 26px;
+  margin-top: 32px;
   border-radius: 99px;
   padding: 13px 28px;
   background: var(--accent);
@@ -843,6 +846,8 @@ textarea:focus-visible {
 .service-panel-media {
   position: relative;
   aspect-ratio: 5 / 4;
+  width: 88%;
+  margin-left: auto;
   border-radius: 18px;
   overflow: hidden;
 }
@@ -2777,6 +2782,8 @@ textarea:focus-visible {
 
   .service-panel-media {
     aspect-ratio: 4 / 3;
+    width: 100%;
+    margin-left: 0;
   }
 
   .svc-hero-in {

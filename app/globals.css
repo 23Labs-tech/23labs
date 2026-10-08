@@ -338,6 +338,13 @@ textarea:focus-visible {
 
 /* ---------- Buttons ---------- */
 
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -1927,6 +1934,37 @@ textarea:focus-visible {
   margin-top: 34px;
 }
 
+.inline-cta {
+  max-width: 760px;
+  margin: 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--paper-2);
+  padding: 48px 44px;
+  text-align: center;
+}
+
+.inline-cta h2 {
+  font-family: var(--font-sans), "Poppins", Arial, sans-serif;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+  font-size: clamp(24px, 2.6vw, 32px);
+}
+
+.inline-cta p {
+  max-width: 56ch;
+  margin: 14px auto 0;
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.inline-cta .hero-actions {
+  justify-content: center;
+  margin-top: 26px;
+}
+
 /* ---------- Contact ---------- */
 
 .contact-page-section {
@@ -2994,6 +3032,10 @@ textarea:focus-visible {
   .blog-hero,
   .industry-hero {
     padding: 40px 0 36px;
+  }
+
+  .inline-cta {
+    padding: 36px 28px;
   }
 
   .sec-head {

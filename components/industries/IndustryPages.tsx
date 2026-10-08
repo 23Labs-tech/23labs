@@ -1,13 +1,21 @@
+import Image from "next/image";
 import Link from "next/link";
 import { CheckIcon, IndustryIcon } from "@/components/industries/IndustryIcon";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { JsonLd } from "@/components/site/JsonLd";
-import { industryLinks, industryOverview, type IndustryPageData } from "@/lib/industries";
+import {
+  industryLinks,
+  industryOverview,
+  industryProcess,
+  industrySomethingElseCta,
+  type IndustryPageData,
+} from "@/lib/industries";
 import { absoluteUrl } from "@/lib/seo";
 
 const buildIconServiceHref: Record<string, string> = {
   automation: "/services/business-process-automation",
   ai: "/services/ai-agents",
+  message: "/services/ai-agents",
   software: "/services/full-stack-software-development",
   dashboard: "/services/full-stack-software-development",
   portal: "/services/full-stack-software-development",
@@ -27,32 +35,6 @@ function SplitHeading({ title, highlight, after }: SplitHeadingProps) {
       {highlight ? <span className="em">{highlight}</span> : null}
       {after}
     </>
-  );
-}
-
-function IndustryHero({ hero }: { hero: IndustryPageData["hero"] | typeof industryOverview.hero }) {
-  return (
-    <header className="page-hero industry-hero">
-      <div className="wrap reveal in">
-        <div className="sec-tag">
-          {hero.eyebrow.includes(" / ") ? (
-            <>
-              <Link href="/industries" style={{ color: "inherit" }}>
-                Industries
-              </Link>{" "}
-              / {hero.eyebrow.split(" / ")[1]}
-            </>
-          ) : (
-            hero.eyebrow
-          )}
-        </div>
-        <h1>
-          <SplitHeading title={hero.title} highlight={hero.highlight} />
-        </h1>
-        <p className="lead">{hero.lead}</p>
-        <p className="lead-2">{hero.lead2}</p>
-      </div>
-    </header>
   );
 }
 
@@ -80,19 +62,6 @@ function SectionHeading({
   );
 }
 
-function Checklist({ items }: { items: readonly string[] }) {
-  return (
-    <div className="svc-checklist reveal">
-      {items.map((item) => (
-        <div className="svc-check" key={item}>
-          <CheckIcon />
-          {item}
-        </div>
-      ))}
-    </div>
-  );
-}
-
 function TextBlock({ paragraphs }: { paragraphs: readonly string[] }) {
   return (
     <div className="text-block reveal">
@@ -111,8 +80,29 @@ function ConsultationCta({ title, body }: { title: string; body: string }) {
         <p>{body}</p>
         <div className="hero-actions">
           <Link href="/contact" className="btn btn-primary">
-            Book a consultation <span className="btn-arrow" aria-hidden="true">{"\u2192"}</span>
+            Book a discovery call <span className="btn-arrow" aria-hidden="true">{"→"}</span>
           </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SomethingElseCta() {
+  return (
+    <section className="sec no-top">
+      <div className="wrap">
+        <div className="inline-cta reveal">
+          <h2>{industrySomethingElseCta.title}</h2>
+          <p>{industrySomethingElseCta.body}</p>
+          <p>
+            <strong>{industrySomethingElseCta.label}</strong>
+          </p>
+          <div className="hero-actions">
+            <Link href="/contact" className="btn btn-primary">
+              {industrySomethingElseCta.cta} <span className="btn-arrow" aria-hidden="true">{"→"}</span>
+            </Link>
+          </div>
         </div>
       </div>
     </section>
@@ -122,7 +112,16 @@ function ConsultationCta({ title, body }: { title: string; body: string }) {
 export function IndustriesOverviewPage() {
   return (
     <>
-      <IndustryHero hero={industryOverview.hero} />
+      <header className="page-hero industry-hero">
+        <div className="wrap reveal in">
+          <div className="sec-tag">{industryOverview.hero.eyebrow}</div>
+          <h1>
+            <SplitHeading title={industryOverview.hero.title} highlight={industryOverview.hero.highlight} />
+          </h1>
+          <p className="lead">{industryOverview.hero.lead}</p>
+          <p className="lead-2">{industryOverview.hero.lead2}</p>
+        </div>
+      </header>
 
       <section className="sec no-top">
         <div className="wrap">
@@ -134,7 +133,7 @@ export function IndustriesOverviewPage() {
                 <h3>{industry.label}</h3>
                 <p>{industry.description}</p>
                 <span className="industry-link">
-                  Learn more <span className="btn-arrow" aria-hidden="true">{"\u2192"}</span>
+                  Learn more <span className="btn-arrow" aria-hidden="true">{"→"}</span>
                 </span>
               </Link>
             ))}
@@ -150,7 +149,14 @@ export function IndustriesOverviewPage() {
             highlight={industryOverview.fix.highlight}
             body={industryOverview.fix.body}
           />
-          <Checklist items={industryOverview.fix.items} />
+          <div className="svc-checklist reveal">
+            {industryOverview.fix.items.map((item) => (
+              <div className="svc-check" key={item}>
+                <CheckIcon />
+                {item}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -207,46 +213,97 @@ export function IndustriesOverviewPage() {
 }
 
 export function IndustryDetailPage({ industry }: { industry: IndustryPageData }) {
+  const industryLabel = industry.hero.eyebrow.split(" / ")[1] || industry.hero.eyebrow;
+
   return (
     <>
-      <IndustryHero hero={industry.hero} />
+      <header className="svc-hero">
+        <div className="wrap svc-hero-in">
+          <div className="reveal in svc-hero-copy">
+            <div className="sec-tag">
+              <Link href="/industries" style={{ color: "inherit" }}>
+                Industries
+              </Link>{" "}
+              / {industryLabel}
+            </div>
+            <h1>
+              <SplitHeading title={industry.hero.title} highlight={industry.hero.highlight} />
+            </h1>
+            <p className="lead">{industry.hero.lead}</p>
+            <div className="hero-actions">
+              <Link href="/contact" className="btn btn-primary">
+                Book a discovery call <span className="btn-arrow" aria-hidden="true">{"→"}</span>
+              </Link>
+              <Link href="#build" className="btn btn-ghost">
+                See what we can automate
+              </Link>
+            </div>
+          </div>
+          <div className="reveal in svc-hero-media">
+            <Image
+              src={industry.hero.image.src}
+              alt={industry.hero.image.alt}
+              fill
+              priority
+              sizes="(max-width: 900px) 100vw, 50vw"
+            />
+          </div>
+        </div>
+      </header>
 
       <section className="sec no-top">
         <div className="wrap">
-          <SectionHeading
-            eyebrow="What we help with"
-            title={industry.help.title}
-            highlight={industry.help.highlight}
-            body={industry.help.body}
-          />
-          <Checklist items={industry.help.items} />
+          <TextBlock paragraphs={industry.intro.paragraphs} />
         </div>
       </section>
 
-      <section className="sec industry-detail">
+      <section className="sec">
         <div className="wrap">
-          <SectionHeading eyebrow="The challenges" title="Common Problems We " highlight="Help Solve" />
-          <div className="svc-rows reveal">
-            {industry.challenges.map((challenge) => (
-              <div className="svc-row industry-row" key={challenge.title}>
-                <div className="svc-row-head">
-                  <IndustryIcon icon={challenge.icon} className="svc-row-ico" />
-                  <h3>{challenge.title}</h3>
-                </div>
-                <p>{challenge.body}</p>
+          <SectionHeading
+            eyebrow={industry.problems.eyebrow}
+            title={industry.problems.title}
+            highlight={industry.problems.highlight}
+          />
+          <div className="problem-grid reveal">
+            {industry.problems.items.map((item) => (
+              <div className="problem-card" key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="sec no-top industry-detail">
+      <section className="sec">
         <div className="wrap">
-          <SectionHeading eyebrow="What we build" title="What We Can " highlight="Build" />
+          <SectionHeading
+            eyebrow={industry.help.eyebrow}
+            title={industry.help.title}
+            highlight={industry.help.highlight}
+            body={industry.help.body}
+          />
           <div className="svc-grid reveal">
-            {industry.builds.map((item) => {
+            {industry.help.services.map((service) => (
+              <Link href={service.href} className="svc" key={service.name}>
+                <IndustryIcon icon={service.icon} className="svc-ico" />
+                <h3>{service.name}</h3>
+                <p>{service.body}</p>
+                <span className="work-link">
+                  Learn more <span aria-hidden="true">{"→"}</span>
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" id="build">
+        <div className="wrap">
+          <SectionHeading eyebrow={industry.builds.eyebrow} title={industry.builds.title} highlight={industry.builds.highlight} />
+          <div className="svc-grid reveal">
+            {industry.builds.items.map((item) => {
               const href = buildIconServiceHref[item.icon];
-              const className = `svc${"span2" in item && item.span2 ? " span2" : ""}`;
               const content = (
                 <>
                   <IndustryIcon icon={item.icon} className="svc-ico" />
@@ -261,11 +318,11 @@ export function IndustryDetailPage({ industry }: { industry: IndustryPageData })
               );
 
               return href ? (
-                <Link href={href} className={className} key={item.title}>
+                <Link href={href} className="svc" key={item.title}>
                   {content}
                 </Link>
               ) : (
-                <div className={className} key={item.title}>
+                <div className="svc" key={item.title}>
                   {content}
                 </div>
               );
@@ -274,35 +331,18 @@ export function IndustryDetailPage({ industry }: { industry: IndustryPageData })
         </div>
       </section>
 
-      {"note" in industry && industry.note ? (
-        <section className="sec">
-          <div className="wrap">
-            <SectionHeading
-              eyebrow={industry.note.eyebrow}
-              title={industry.note.title}
-              highlight={industry.note.highlight}
-            />
-            <TextBlock paragraphs={industry.note.paragraphs} />
-          </div>
-        </section>
-      ) : null}
+      <SomethingElseCta />
 
       <ProcessSection
-        eyebrow="How it works"
+        eyebrow={industryProcess.eyebrow}
         heading={
           <>
-            Our <span className="em">Process</span>
+            {industryProcess.title}
+            <span className="em">{industryProcess.highlight}</span>
           </>
         }
-        steps={industry.process}
+        steps={industryProcess.steps}
       />
-
-      <section className="sec">
-        <div className="wrap">
-          <SectionHeading eyebrow="Why 23Labs" title={industry.why.title} highlight={industry.why.highlight} />
-          <TextBlock paragraphs={industry.why.paragraphs} />
-        </div>
-      </section>
 
       <ConsultationCta title={industry.cta.title} body={industry.cta.body} />
 
@@ -316,7 +356,7 @@ export function IndustryDetailPage({ industry }: { industry: IndustryPageData })
             {
               "@type": "ListItem",
               position: 3,
-              name: industry.hero.eyebrow.split(" / ")[1] || industry.hero.eyebrow,
+              name: industryLabel,
               item: absoluteUrl(industry.href),
             },
           ],

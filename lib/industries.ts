@@ -140,6 +140,49 @@ export const industryOverview = {
   },
 } as const;
 
+export const industryProcess = {
+  eyebrow: "How we work",
+  title: "Our ",
+  highlight: "Process",
+  steps: [
+    {
+      number: "01",
+      title: "Discovery and requirements",
+      body: "Understand the current process, systems and objectives.",
+    },
+    {
+      number: "02",
+      title: "Solution design and planning",
+      body: "Map the workflow and determine the right automation, integration or software approach.",
+    },
+    {
+      number: "03",
+      title: "Development and implementation",
+      body: "Build and implement the solution while keeping the client involved.",
+    },
+    {
+      number: "04",
+      title: "Testing, deployment and ongoing support",
+      body: "Test, deploy and continue improving the solution as required.",
+    },
+  ],
+} as const;
+
+export const industrySomethingElseCta = {
+  title: "Have something else you want to automate?",
+  body:
+    "The examples above are only a starting point. If your team is spending time on repetitive admin, moving information between systems or working around a process that doesn't quite fit, we can look at building something around it.",
+  label: "Tell us what you want to improve",
+  cta: "Talk to us about your process",
+} as const;
+
+const serviceHrefs = {
+  automation: "/services/business-process-automation",
+  aiWorkflow: "/services/ai-workflow-automation",
+  software: "/services/full-stack-software-development",
+  aiAgents: "/services/ai-agents",
+} as const;
+
 export const industryPages = [
   {
     slug: "construction",
@@ -149,119 +192,84 @@ export const industryPages = [
       "23Labs helps construction businesses reduce admin, manage documentation, automate follow-ups and connect systems with custom software, workflow automation and AI solutions.",
     hero: {
       eyebrow: "Industries / Construction",
-      title: "Construction software & automation built for ",
-      highlight: "busy teams",
-      lead: "Construction businesses move fast, but the admin behind the scenes often slows everything down.",
-      lead2:
-        "Quotes, safety documents, project updates, compliance forms, supplier communication, job tracking, client follow-ups and internal reporting can quickly become scattered across spreadsheets, emails, folders and disconnected platforms. 23Labs helps construction businesses build smarter systems that reduce manual work, improve visibility and make it easier for teams to stay on top of what needs to happen next.",
+      title: "Software and automation built for ",
+      highlight: "construction teams",
+      lead:
+        "Automate repetitive admin, connect disconnected project systems and build software around the way your sites actually run.",
+      image: {
+        src: "/site-images/industries/construction.jpg",
+        alt: "Construction workers in hard hats and safety vests working on an active building site",
+      },
     },
-    help: {
-      title: "Software Solutions for ",
-      highlight: "Construction Businesses",
-      body:
-        "We work with construction companies, contractors, trades businesses and project-based teams that want to simplify operations and reduce the amount of time spent chasing information. Our solutions are built around your workflow, not around generic software templates.",
-      items: [
-        "Project tracking systems",
-        "Quote and proposal automation",
-        "Compliance and document management",
-        "SWMS and safety workflow automation",
-        "Job status dashboards",
-        "Client update automation",
-        "Internal approval workflows",
-        "Supplier and subcontractor communication",
-        "Maintenance and defect tracking",
-        "Lead enquiry automation",
-        "CRM and project management integrations",
-        "AI agents for admin support and enquiry handling",
+    intro: {
+      paragraphs: [
+        "Construction businesses move fast on site, but the admin behind the scenes rarely keeps pace. Your team is juggling quotes, compliance paperwork, supplier communication and client updates across emails, spreadsheets and apps that don't talk to each other.",
+        "We help construction businesses close that gap. Instead of forcing your team into generic project management software, we build automation, integrations and tools around how your projects, people and processes actually work.",
       ],
     },
-    challenges: [
-      {
-        icon: "refresh",
-        title: "Too Much Manual Admin",
-        body:
-          "Your team should not be spending hours copying information between emails, spreadsheets, CRMs and project tools. We automate repetitive admin so information moves where it needs to go without constant manual handling.",
-      },
-      {
-        icon: "document",
-        title: "Documents Are Hard to Track",
-        body:
-          "Construction businesses rely on documents being accurate, current and easy to find. We help create systems for storing, tracking, updating and managing important documents across jobs and teams.",
-      },
-      {
-        icon: "bell",
-        title: "Follow-Ups Get Missed",
-        body:
-          "Quotes, approvals, client updates and supplier responses often get delayed because no one has time to chase everything manually. We build automated follow-up workflows that keep work moving.",
-      },
-      {
-        icon: "eye",
-        title: "Management Lacks Visibility",
-        body:
-          "When information is spread across different tools, it becomes difficult to see what is happening across active projects. We build dashboards that give owners and managers a clearer view of jobs, tasks, risks and progress.",
-      },
-    ],
-    builds: [
-      {
-        icon: "automation",
-        title: "Construction Workflow Automation",
-        body:
-          "Automate repetitive tasks such as quote follow-ups, client updates, document requests, job reminders and internal task assignments.",
-      },
-      {
-        icon: "software",
-        title: "Custom Construction Software",
-        body: "Build internal tools, dashboards, portals and job management systems designed around how your team works.",
-      },
-      {
-        icon: "integration",
-        title: "System Integrations",
-        body:
-          "Connect the tools you already use, including your CRM, forms, email, project management software, accounting system and cloud storage.",
-      },
-      {
-        icon: "ai",
-        title: "AI Admin Agents",
-        body:
-          "Create AI agents that help with enquiries, information capture, client responses, document routing and internal admin support.",
-      },
-    ],
-    process: [
-      {
-        number: "01",
-        title: "Review Your Current Workflow",
-        body: "We look at how your team currently handles jobs, documentation, enquiries, follow-ups and reporting.",
-      },
-      {
-        number: "02",
-        title: "Find the Biggest Time Drains",
-        body:
-          "We identify where admin is slowing the team down, where information gets lost and where automation can create the fastest return.",
-      },
-      {
-        number: "03",
-        title: "Build the System",
-        body:
-          "We design and build practical software, automations or integrations that remove manual work and improve team visibility.",
-      },
-      {
-        number: "04",
-        title: "Refine Over Time",
-        body: "Once the system is live, we improve it based on real usage, feedback and new operational needs.",
-      },
-    ],
-    why: {
-      title: "Why 23Labs for ",
-      highlight: "Construction?",
-      paragraphs: [
-        "We understand that construction teams do not need more complicated software. They need systems that are simple, useful and built around the way jobs actually get delivered.",
-        "23Labs helps you reduce admin, improve communication and give your team better control over projects, documents and follow-ups.",
+    problems: {
+      eyebrow: "Common problems",
+      title: "Where ",
+      highlight: "construction teams lose time",
+      items: [
+        { title: "Manual quoting and tendering", body: "Quotes and tenders are pieced together by hand, slowing down response times on new work." },
+        { title: "Site progress tracking", body: "Job status lives in someone's head or a site diary instead of a system the whole team can see." },
+        { title: "Subcontractor and supplier coordination", body: "Chasing availability, confirmations and updates eats into time that should go toward running jobs." },
+        { title: "Safety and compliance documentation", body: "SWMS, permits and compliance forms are managed manually and are hard to track across active sites." },
+        { title: "Variations and change orders", body: "Changes to scope get approved over text or email and are easy to lose track of." },
+        { title: "Client and stakeholder updates", body: "Clients chase updates because there's no automatic way to keep them informed as a job progresses." },
+        { title: "Defect and maintenance tracking", body: "Snags and defects are logged inconsistently, making handover and follow-up harder than it needs to be." },
+        { title: "Documents spread across tools", body: "Drawings, contracts and approvals sit scattered across email, shared drives and paper files." },
+        { title: "Duplicate data entry", body: "The same job information gets typed into estimating, accounting and project tools separately." },
+      ],
+    },
+    help: {
+      eyebrow: "How we can help",
+      title: "Automation and software built around ",
+      highlight: "how your jobs run",
+      body: "Most construction businesses don't need more software. They need their existing tools and processes connected, and the repetitive parts automated.",
+      services: [
+        {
+          icon: "automation",
+          name: "Business Process Automation",
+          href: serviceHrefs.automation,
+          body: "Automate quote follow-ups, compliance reminders, job status updates and the internal admin that currently relies on someone remembering to do it.",
+        },
+        {
+          icon: "ai",
+          name: "AI Workflow Automation",
+          href: serviceHrefs.aiWorkflow,
+          body: "Route documents, approvals and site information to the right person automatically, so work keeps moving without manual handoffs.",
+        },
+        {
+          icon: "software",
+          name: "Full-Stack Software Development",
+          href: serviceHrefs.software,
+          body: "Build internal dashboards, job trackers and portals designed around how your projects and teams actually operate.",
+        },
+        {
+          icon: "message",
+          name: "AI Agents",
+          href: serviceHrefs.aiAgents,
+          body: "Deploy AI agents that handle enquiries, capture job details and support your admin team during busy periods.",
+        },
+      ],
+    },
+    builds: {
+      eyebrow: "What we can build",
+      title: "What We Can ",
+      highlight: "Build",
+      items: [
+        { icon: "automation", title: "Project Workflow Automation", body: "Automate quote follow-ups, document requests, job reminders and internal task handoffs across active projects." },
+        { icon: "software", title: "Job & Project Dashboards", body: "Give your team and clients a single, live view of job status, documents, approvals and progress." },
+        { icon: "integration", title: "System Integrations", body: "Connect your CRM, accounting, estimating and project management tools so information moves without re-entry." },
+        { icon: "ai", title: "AI Admin Agents", body: "Handle enquiries, document routing and compliance reminders with AI agents built around your workflow." },
       ],
     },
     cta: {
-      title: "Book a construction automation consultation",
+      title: "Book a construction discovery call",
       body:
-        "Want to reduce admin, improve project visibility or automate repetitive construction workflows? Speak with 23Labs and we'll help you identify where better systems can save your team time.",
+        "Tell us how quotes, documents and job updates currently move through your business and we'll show you where automation can save your team the most time.",
     },
   },
   {
@@ -272,114 +280,84 @@ export const industryPages = [
       "23Labs helps freight and logistics businesses reduce manual data entry, improve visibility, automate customer updates and connect transport systems with custom software and integrations.",
     hero: {
       eyebrow: "Industries / Freight & Logistics",
-      title: "Freight & logistics software built for ",
-      highlight: "smoother operations",
-      lead: "Freight and logistics businesses rely on speed, accuracy and visibility.",
-      lead2:
-        "But when teams are managing bookings, customer updates, delivery information, documents, rates, job statuses and reporting across different systems, things can quickly become messy. 23Labs helps freight and logistics businesses build smarter workflows through custom software, automation, integrations and AI-powered admin support. We help remove repetitive work, reduce manual data entry and give teams better visibility across day-to-day operations.",
+      title: "Software and automation built for ",
+      highlight: "freight and logistics",
+      lead:
+        "Automate repetitive work, connect disconnected systems and build software around the way your operation actually runs.",
+      image: {
+        src: "/site-images/industries/freight-logistics.jpg",
+        alt: "Freight truck travelling on a highway at sunset",
+      },
     },
-    help: {
-      title: "Software Solutions for ",
-      highlight: "Freight & Logistics Businesses",
-      body:
-        "Your business does not need more disconnected systems. It needs better flow between the systems, people and processes already in place.",
-      items: [
-        "Freight booking workflows",
-        "Job and delivery tracking dashboards",
-        "Customer update automation",
-        "Quote and rate request automation",
-        "Data entry reduction",
-        "Email-to-system workflows",
-        "Driver, dispatcher and admin task routing",
-        "Document handling and upload workflows",
-        "CRM, TMS, accounting and warehouse system integrations",
-        "Reporting dashboards",
-        "AI agents for customer enquiries and admin support",
+    intro: {
+      paragraphs: [
+        "Freight and logistics businesses run on speed, accuracy and visibility. But when your team is managing bookings, driver communication, proof of delivery and customer updates across disconnected systems, that speed is the first thing to go.",
+        "We help freight and logistics businesses build smarter operations through automation, integrations and software that fit the way your fleet, drivers and admin team already work.",
       ],
     },
-    challenges: [
-      {
-        icon: "integration",
-        title: "Manual Data Entry Across Systems",
-        body:
-          "Logistics teams often spend too much time entering the same information into multiple platforms. We build integrations and automations that reduce double handling and improve accuracy.",
-      },
-      {
-        icon: "message",
-        title: "Customers Want Faster Updates",
-        body:
-          "Customers expect clear updates on bookings, deliveries, delays and documents. We help automate customer communication so your team does not need to manually respond to every status request.",
-      },
-      {
-        icon: "eye",
-        title: "Operations Lack Visibility",
-        body:
-          "When jobs, documents and updates are spread across inboxes, spreadsheets and transport systems, managers lose visibility. We build dashboards that give teams a clearer view of what is happening.",
-      },
-      {
-        icon: "refresh",
-        title: "Admin Teams Are Constantly Chasing",
-        body:
-          "From missing paperwork to delivery confirmations and internal approvals, logistics admin can become reactive. We help create workflows that automatically trigger the right next step.",
-      },
-    ],
-    builds: [
-      {
-        icon: "automation",
-        title: "Logistics Workflow Automation",
-        body: "Automate customer updates, booking confirmations, quote follow-ups, internal reminders and document requests.",
-      },
-      {
-        icon: "dashboard",
-        title: "Custom Operations Dashboards",
-        body: "Create dashboards for job status, delivery visibility, team tasks, pending documents and operational reporting.",
-      },
-      {
-        icon: "integration",
-        title: "Transport System Integrations",
-        body: "Connect your CRM, TMS, accounting system, email inbox, forms, spreadsheets and internal databases.",
-      },
-      {
-        icon: "ai",
-        title: "AI Customer Support Agents",
-        body:
-          "Build AI agents that can answer common customer questions, capture freight enquiries, qualify requests and route information to the right person.",
-      },
-    ],
-    process: [
-      {
-        number: "01",
-        title: "Map Your Current Operations",
-        body: "We review how bookings, jobs, updates, documents and customer requests move through your business.",
-      },
-      {
-        number: "02",
-        title: "Identify Manual Bottlenecks",
-        body: "We find the points where your team is repeating work, chasing information or relying on manual updates.",
-      },
-      {
-        number: "03",
-        title: "Build the Right Workflow System",
-        body: "We create practical automations, integrations or custom software that improves speed, visibility and accuracy.",
-      },
-      {
-        number: "04",
-        title: "Continue Improving",
-        body: "As your operations grow, we help refine and expand the system so it keeps supporting your business.",
-      },
-    ],
-    why: {
-      title: "Why 23Labs for ",
-      highlight: "Freight & Logistics?",
-      paragraphs: [
-        "Because logistics businesses need systems that are reliable, practical and built for real operational pressure.",
-        "23Labs helps you reduce manual admin, improve customer communication and create better visibility across your workflows.",
+    problems: {
+      eyebrow: "Common problems",
+      title: "Where ",
+      highlight: "logistics teams lose time",
+      items: [
+        { title: "Manual quoting", body: "Rate requests are calculated and sent by hand, slowing down response times to new business." },
+        { title: "Job allocation", body: "Assigning jobs to drivers relies on phone calls and manual checks instead of a clear system." },
+        { title: "Driver communication", body: "Job details, updates and changes are relayed manually instead of flowing straight to drivers." },
+        { title: "Proof of delivery processing", body: "PODs are collected on paper or scattered across phones and have to be chased and filed by hand." },
+        { title: "Duplicate data entry", body: "The same booking and job information gets typed into multiple systems separately." },
+        { title: "Disconnected transport systems", body: "Your TMS, accounting and customer tools don't share information automatically." },
+        { title: "Invoicing delays", body: "Jobs sit waiting on paperwork before they can be invoiced, slowing down cash flow." },
+        { title: "Spreadsheet based workflows", body: "Core parts of the operation still run through spreadsheets that are easy to break and hard to scale." },
+        { title: "Manually transferring information between systems", body: "Staff spend hours moving the same information between booking, tracking and finance tools." },
+      ],
+    },
+    help: {
+      eyebrow: "How we can help",
+      title: "Automation and software built around ",
+      highlight: "how your fleet runs",
+      body: "Your business doesn't need more disconnected systems. It needs better flow between the systems, people and processes already in place.",
+      services: [
+        {
+          icon: "automation",
+          name: "Business Process Automation",
+          href: serviceHrefs.automation,
+          body: "Automate booking confirmations, customer updates, POD requests and the internal admin that currently relies on manual follow-up.",
+        },
+        {
+          icon: "ai",
+          name: "AI Workflow Automation",
+          href: serviceHrefs.aiWorkflow,
+          body: "Route jobs, documents and status updates automatically between dispatch, drivers and your back office.",
+        },
+        {
+          icon: "software",
+          name: "Full-Stack Software Development",
+          href: serviceHrefs.software,
+          body: "Build custom dashboards and portals for job tracking, delivery visibility and operational reporting.",
+        },
+        {
+          icon: "message",
+          name: "AI Agents",
+          href: serviceHrefs.aiAgents,
+          body: "Deploy AI agents that handle customer enquiries, capture freight requests and qualify jobs before they reach your team.",
+        },
+      ],
+    },
+    builds: {
+      eyebrow: "What we can build",
+      title: "What We Can ",
+      highlight: "Build",
+      items: [
+        { icon: "automation", title: "Logistics Workflow Automation", body: "Automate customer updates, booking confirmations, quote follow-ups and document requests." },
+        { icon: "software", title: "Custom Operations Dashboards", body: "Track job status, delivery visibility, pending documents and performance in one place." },
+        { icon: "integration", title: "Transport System Integrations", body: "Connect your TMS, accounting software, email and internal databases so data moves on its own." },
+        { icon: "ai", title: "AI Customer Support Agents", body: "Answer common questions, capture freight enquiries and route requests to the right person automatically." },
       ],
     },
     cta: {
-      title: "Book a freight & logistics automation consultation",
+      title: "Book a freight & logistics discovery call",
       body:
-        "Want to reduce admin and improve operational visibility? Speak with 23Labs and we'll help you find where automation and better systems can make the biggest difference.",
+        "Tell us how bookings, jobs and customer updates currently move through your operation and we'll show you where automation can make the biggest difference.",
     },
   },
   {
@@ -390,364 +368,84 @@ export const industryPages = [
       "23Labs helps professional service businesses automate admin, improve client workflows, connect systems and build custom software that supports growth.",
     hero: {
       eyebrow: "Industries / Professional Services",
-      title: "Software & automation for ",
+      title: "Software and automation built for ",
       highlight: "professional services firms",
-      lead: "Professional service businesses run on communication, trust and delivery.",
-      lead2:
-        "But behind the scenes, many firms are slowed down by manual admin, disconnected tools, repetitive client follow-ups, scattered documents and internal processes that rely too heavily on people remembering every step. 23Labs helps professional services businesses build smarter systems that reduce manual work, improve client experience and give teams more time to focus on valuable work.",
-    },
-    help: {
-      title: "Software Solutions for ",
-      highlight: "Professional Services",
-      body:
-        "We work with service-based businesses that want to create better internal workflows, automate repetitive tasks and improve how clients move through the business. This includes consultants, agencies, accountants, legal firms, advisory businesses, finance professionals and other client-service teams.",
-      items: [
-        "Client onboarding automation",
-        "Proposal and quote workflows",
-        "CRM automation",
-        "Client portal development",
-        "Internal task management systems",
-        "Document collection workflows",
-        "Appointment and meeting automation",
-        "Reporting dashboards",
-        "AI agents for admin and client support",
-        "Email and follow-up automation",
-        "Integration between business tools",
-        "Custom internal software",
-      ],
-    },
-    challenges: [
-      {
-        icon: "user",
-        title: "Client Onboarding Is Too Manual",
-        body:
-          "New clients often require emails, forms, documents, reminders, calendar invites and internal task creation. We automate the onboarding flow so your team can deliver a smoother experience from day one.",
-      },
-      {
-        icon: "bell",
-        title: "Follow-Ups Depend on Memory",
-        body:
-          "When follow-ups rely on staff manually checking inboxes or spreadsheets, opportunities get missed. We create automated follow-up systems that keep prospects and clients moving.",
-      },
-      {
-        icon: "integration",
-        title: "Systems Do Not Talk to Each Other",
-        body:
-          "Many firms use a CRM, calendar, email platform, project tool, accounting software and document storage. We help connect these tools so information does not need to be copied manually.",
-      },
-      {
-        icon: "chart",
-        title: "Reporting Takes Too Long",
-        body:
-          "If your team spends hours preparing reports from different systems, we can build dashboards that make key information easier to access and understand.",
-      },
-    ],
-    builds: [
-      {
-        icon: "automation",
-        title: "Client Workflow Automation",
-        body: "Automate onboarding, document requests, reminders, task creation, meeting follow-ups and status updates.",
-      },
-      {
-        icon: "portal",
-        title: "Custom Client Portals",
-        body: "Give clients a simple place to submit information, upload documents, track progress and communicate with your team.",
-      },
-      {
-        icon: "integration",
-        title: "CRM & Tool Integrations",
-        body: "Connect your CRM, email, calendar, accounting software, forms and project management tools.",
-      },
-      {
-        icon: "ai",
-        title: "AI Admin Agents",
-        body:
-          "Create AI agents that help answer common questions, capture enquiries, qualify leads, prepare summaries and support internal admin.",
-      },
-    ],
-    process: [
-      {
-        number: "01",
-        title: "Understand Your Client Journey",
-        body: "We map how prospects and clients move from enquiry to onboarding, delivery and ongoing support.",
-      },
-      {
-        number: "02",
-        title: "Find the Admin Gaps",
-        body: "We identify the manual tasks, delays and disconnected systems that slow your team down.",
-      },
-      {
-        number: "03",
-        title: "Build the Workflow",
-        body: "We create software, automations or integrations that improve how work moves through the business.",
-      },
-      {
-        number: "04",
-        title: "Optimise for Growth",
-        body: "As your team grows, we help improve the system so it keeps supporting better delivery and client experience.",
-      },
-    ],
-    why: {
-      title: "Why 23Labs for ",
-      highlight: "Professional Services?",
-      paragraphs: [
-        "Because professional services firms do not need flashy tech. They need systems that protect time, improve consistency and make client delivery easier.",
-        "23Labs helps your team reduce admin, improve client communication and create cleaner internal processes.",
-      ],
-    },
-    cta: {
-      title: "Book a professional services automation consultation",
-      body:
-        "Want to reduce admin and improve how clients move through your business? Speak with 23Labs and we'll help you identify the best workflow opportunities.",
-    },
-  },
-  {
-    slug: "trades-field-services",
-    href: "/trades-field-services",
-    metadataTitle: "Trades & Field Services Software & Automation Solutions | 23Labs",
-    description:
-      "23Labs helps trades and field service businesses automate enquiries, quotes, scheduling, job updates and admin workflows with custom software, integrations and AI automation.",
-    hero: {
-      eyebrow: "Industries / Trades & Field Services",
-      title: "Software & automation for ",
-      highlight: "trades & field service businesses",
       lead:
-        "Trades and field service businesses rely on fast response times, organised scheduling and smooth communication between the office, customers and technicians.",
-      lead2:
-        "But when enquiries, quotes, bookings, job updates, invoices and follow-ups are handled manually, things can quickly become messy. 23Labs helps trades and field service businesses build smarter workflows that reduce admin, improve lead response times and make it easier to manage jobs from first enquiry through to completion.",
+        "Automate repetitive admin, connect the tools your team already uses and give your people more time for client work.",
+      image: {
+        src: "/site-images/industries/professional-services.jpg",
+        alt: "Professional services team working in a modern open-plan office",
+      },
     },
-    help: {
-      title: "Software Solutions for ",
-      highlight: "Trades & Field Services",
-      body:
-        "We work with service-based businesses that want to spend less time chasing admin and more time winning and completing jobs. This includes electricians, plumbers, HVAC businesses, cleaners, landscapers, maintenance companies, installers and other mobile service teams.",
-      items: [
-        "Lead enquiry automation",
-        "Quote request workflows",
-        "Booking and scheduling automation",
-        "Customer follow-up systems",
-        "Job status dashboards",
-        "Technician task routing",
-        "Maintenance request workflows",
-        "SMS and email reminders",
-        "CRM and job management integrations",
-        "Invoice and payment follow-ups",
-        "Internal admin automation",
-        "AI agents for customer enquiries and support",
+    intro: {
+      paragraphs: [
+        "Professional services firms run on trust, communication and consistent delivery. But behind the scenes, many teams are slowed down by manual onboarding, scattered documents and follow-ups that depend on someone remembering to send them.",
+        "We help professional services businesses build systems around how your client work actually happens, from first enquiry through to ongoing delivery.",
       ],
     },
-    challenges: [
-      {
-        icon: "message",
-        title: "Leads Are Not Followed Up Fast Enough",
-        body:
-          "When a customer submits an enquiry, speed matters. If your team takes too long to respond, that lead may already be speaking to someone else. We help automate lead capture, instant replies, qualification and follow-ups so new enquiries do not sit unanswered.",
-      },
-      {
-        icon: "document",
-        title: "Quotes Take Too Long to Send",
-        body:
-          "Many trades businesses lose time preparing, chasing and updating quotes manually. We can help create quote workflows that make the process faster, more consistent and easier to track.",
-      },
-      {
-        icon: "calendar",
-        title: "Scheduling Becomes Messy",
-        body:
-          "Between new bookings, reschedules, urgent jobs and technician availability, scheduling can become difficult to manage manually. We help build workflows that improve visibility and keep everyone aligned.",
-      },
-      {
-        icon: "refresh",
-        title: "Admin Takes Time Away From Billable Work",
-        body:
-          "Every hour spent copying data, chasing customers or updating spreadsheets is time that could be spent on higher-value work. We automate repetitive tasks so your team can focus on getting jobs completed.",
-      },
-    ],
-    builds: [
-      {
-        icon: "automation",
-        title: "Lead Response Automation",
-        body:
-          "Capture new enquiries from your website, phone, forms, emails or ads and trigger instant responses, follow-ups and task creation.",
-      },
-      {
-        icon: "dashboard",
-        title: "Job Management Workflows",
-        body: "Create smoother systems for booking jobs, assigning tasks, tracking progress and keeping the office updated.",
-      },
-      {
-        icon: "message",
-        title: "Customer Communication Automation",
-        body: "Automate booking confirmations, reminders, quote follow-ups, job updates, review requests and payment reminders.",
-      },
-      {
-        icon: "integration",
-        title: "CRM & System Integrations",
-        body: "Connect your CRM, job management software, accounting system, calendar, email, website forms and internal tools.",
-      },
-      {
-        icon: "ai",
-        title: "AI Admin Agents",
-        body:
-          "Build AI agents that can answer common questions, capture job details, qualify enquiries and send information to the right team member.",
-        span2: true,
-      },
-    ],
-    process: [
-      {
-        number: "01",
-        title: "Understand How Jobs Move Through Your Business",
-        body:
-          "We review your enquiry process, booking flow, quoting system, job management tools and customer communication.",
-      },
-      {
-        number: "02",
-        title: "Find the Admin Bottlenecks",
-        body:
-          "We identify where leads are delayed, where your team repeats work and where jobs or follow-ups fall through the cracks.",
-      },
-      {
-        number: "03",
-        title: "Build the Right Workflow",
-        body: "We create practical automation, integrations or custom software that makes your operations easier to manage.",
-      },
-      {
-        number: "04",
-        title: "Improve as You Grow",
-        body: "Once live, we refine the system based on job volume, customer behaviour and team feedback.",
-      },
-    ],
-    why: {
-      title: "Why 23Labs for ",
-      highlight: "Trades & Field Services?",
-      paragraphs: [
-        "Because trades and field service businesses need systems that are simple, reliable and built around real work.",
-        "23Labs helps your team respond faster, reduce admin, manage jobs more clearly and create a better customer experience from first enquiry to final invoice.",
+    problems: {
+      eyebrow: "Common problems",
+      title: "Where ",
+      highlight: "client admin piles up",
+      items: [
+        { title: "Manual client onboarding", body: "New clients are onboarded through a string of emails, forms and manual reminders." },
+        { title: "Proposal and engagement drafting", body: "Proposals and engagement letters are built from scratch instead of a repeatable workflow." },
+        { title: "Chasing documents and signatures", body: "Staff spend time following up on outstanding documents, forms and signatures." },
+        { title: "Appointment and meeting scheduling", body: "Booking and rescheduling meetings still relies on back-and-forth emails." },
+        { title: "Status updates sent manually", body: "Clients chase progress updates because there's no automatic way to keep them informed." },
+        { title: "Time tracking and billing reconciliation", body: "Matching time, invoices and payments across systems takes longer than it should." },
+        { title: "Disconnected practice tools", body: "Your CRM, accounting, calendar and document systems don't share information automatically." },
+        { title: "Repetitive client questions", body: "The same questions get answered manually again and again by your team." },
+        { title: "Internal task handoffs", body: "Work gets passed between team members informally, with no clear record of what's been done." },
+      ],
+    },
+    help: {
+      eyebrow: "How we can help",
+      title: "Automation and software built around ",
+      highlight: "client delivery",
+      body: "Professional services firms don't need more software for its own sake. They need the admin around client delivery to run itself.",
+      services: [
+        {
+          icon: "automation",
+          name: "Business Process Automation",
+          href: serviceHrefs.automation,
+          body: "Automate onboarding, document requests, reminders and the internal admin that currently depends on manual follow-up.",
+        },
+        {
+          icon: "ai",
+          name: "AI Workflow Automation",
+          href: serviceHrefs.aiWorkflow,
+          body: "Move client information between your CRM, inbox and project tools automatically as work progresses.",
+        },
+        {
+          icon: "software",
+          name: "Full-Stack Software Development",
+          href: serviceHrefs.software,
+          body: "Build client portals and internal tools designed around how your team actually delivers work.",
+        },
+        {
+          icon: "message",
+          name: "AI Agents",
+          href: serviceHrefs.aiAgents,
+          body: "Deploy AI agents that answer common client questions, capture enquiries and support your admin team.",
+        },
+      ],
+    },
+    builds: {
+      eyebrow: "What we can build",
+      title: "What We Can ",
+      highlight: "Build",
+      items: [
+        { icon: "automation", title: "Client Workflow Automation", body: "Automate onboarding, document requests, reminders, task creation and status updates." },
+        { icon: "portal", title: "Custom Client Portals", body: "Give clients a simple place to submit information, track progress and communicate with your team." },
+        { icon: "integration", title: "CRM & Tool Integrations", body: "Connect your CRM, email, calendar, accounting software and project tools." },
+        { icon: "ai", title: "AI Admin Agents", body: "Answer common questions, capture enquiries, qualify leads and support internal admin." },
       ],
     },
     cta: {
-      title: "Book a trades & field services automation consultation",
+      title: "Book a professional services discovery call",
       body:
-        "Want to respond faster to leads, reduce admin and make job management easier? Speak with 23Labs and we'll help you identify where better systems can save your team time.",
-    },
-  },
-  {
-    slug: "real-estate",
-    href: "/real-estate",
-    metadataTitle: "Real Estate Software & Automation Solutions | 23Labs",
-    description:
-      "23Labs helps real estate agencies and property managers automate enquiries, maintenance requests, tenant communication and admin workflows with custom software, integrations and AI agents.",
-    hero: {
-      eyebrow: "Industries / Real Estate",
-      title: "Real estate software & automation for ",
-      highlight: "faster follow-up",
-      lead:
-        "Real estate teams deal with constant enquiries, inspections, maintenance requests, tenant communication, vendor updates and internal admin.",
-      lead2:
-        "The problem is not that teams are not working hard. The problem is that too much of the work is manual, repetitive and spread across too many systems. 23Labs helps real estate businesses build smarter workflows that reduce admin, improve response times and make it easier to manage enquiries, clients and properties.",
-    },
-    help: {
-      title: "Software Solutions for ",
-      highlight: "Real Estate Businesses",
-      body:
-        "We work with real estate agencies, property managers and property service teams that want to improve operational efficiency and reduce time spent on repetitive admin.",
-      items: [
-        "Enquiry response automation",
-        "Inspection booking workflows",
-        "Rental application follow-ups",
-        "Maintenance request automation",
-        "Vendor and landlord update workflows",
-        "Tenant communication automation",
-        "CRM integrations",
-        "Property management software integrations",
-        "Lead capture and qualification",
-        "Internal task routing",
-        "Reporting dashboards",
-        "AI agents for enquiry handling and admin support",
-      ],
-    },
-    challenges: [
-      {
-        icon: "message",
-        title: "Enquiries Are Not Followed Up Fast Enough",
-        body:
-          "Real estate moves quickly. If enquiries sit in an inbox for too long, opportunities are lost. We help automate responses, qualification and next steps.",
-      },
-      {
-        icon: "document",
-        title: "Maintenance Requests Become Messy",
-        body:
-          "Maintenance requests can get buried across emails, calls and messages. We help create clear workflows for capturing, assigning, tracking and following up on requests.",
-      },
-      {
-        icon: "user",
-        title: "Property Managers Are Overloaded",
-        body:
-          "Property managers handle a high volume of repetitive communication. We help automate common updates, reminders and admin tasks so they can focus on higher-value work.",
-      },
-      {
-        icon: "integration",
-        title: "Data Is Spread Across Different Tools",
-        body:
-          "When information sits across CRMs, property management systems, spreadsheets, inboxes and calendars, teams waste time chasing details. We help connect systems and reduce double handling.",
-      },
-    ],
-    builds: [
-      {
-        icon: "automation",
-        title: "Real Estate Workflow Automation",
-        body: "Automate enquiry responses, inspection reminders, maintenance updates, application follow-ups and client communication.",
-      },
-      {
-        icon: "ai",
-        title: "AI Enquiry Agents",
-        body:
-          "Create AI agents that answer common questions, capture buyer or tenant details, qualify enquiries and route leads to the right team member.",
-      },
-      {
-        icon: "dashboard",
-        title: "Property Management Workflows",
-        body: "Build systems for maintenance requests, landlord updates, tenant communication and internal task tracking.",
-      },
-      {
-        icon: "integration",
-        title: "CRM & Software Integrations",
-        body: "Connect your CRM, property management software, website forms, calendar, inbox and reporting tools.",
-      },
-    ],
-    process: [
-      {
-        number: "01",
-        title: "Map the Current Workflow",
-        body: "We review how enquiries, inspections, maintenance requests and client communication currently move through your business.",
-      },
-      {
-        number: "02",
-        title: "Identify Repetitive Admin",
-        body: "We find where staff are repeating work, manually chasing responses or losing time across disconnected tools.",
-      },
-      {
-        number: "03",
-        title: "Build the Automation",
-        body: "We create practical workflows, integrations or custom software that reduce manual handling and improve response times.",
-      },
-      {
-        number: "04",
-        title: "Improve Based on Usage",
-        body: "Once live, we refine the system based on staff feedback, enquiry volume and operational needs.",
-      },
-    ],
-    why: {
-      title: "Why 23Labs for ",
-      highlight: "Real Estate?",
-      paragraphs: [
-        "Because real estate teams need speed, consistency and visibility.",
-        "23Labs helps agencies and property managers respond faster, reduce admin and keep important tasks from falling through the cracks.",
-      ],
-    },
-    cta: {
-      title: "Book a real estate automation consultation",
-      body:
-        "Want faster follow-up, cleaner maintenance workflows or less admin for your property team? Speak with 23Labs and we'll help you identify the best automation opportunities inside your business.",
+        "Tell us how clients currently move through your business and we'll show you where automation can save your team the most time.",
     },
   },
   {
@@ -758,123 +456,260 @@ export const industryPages = [
       "23Labs helps allied health clinics reduce admin, simplify scheduling and connect practice systems with custom software, workflow automation and integrations.",
     hero: {
       eyebrow: "Industries / Allied Health",
-      title: "Software & automation for ",
+      title: "Software and automation built for ",
       highlight: "allied health clinics",
       lead:
-        "Allied health clinics run on tight schedules, and the admin behind the scenes, bookings, patient communication, intake forms and reporting, can quietly take over a team's day.",
-      lead2:
-        "23Labs helps allied health clinics build smarter systems through workflow automation, booking and scheduling tools, custom software and integrations with the practice management platforms they already use.",
+        "Automate repetitive admin, simplify scheduling and connect the systems your clinic team already uses.",
+      image: {
+        src: "/site-images/industries/allied-health.jpg",
+        alt: "Allied health practitioner guiding a patient through a rehabilitation exercise",
+      },
+    },
+    intro: {
+      paragraphs: [
+        "Allied health clinics run on tight schedules, and the admin behind the scenes, bookings, patient communication, intake forms and reporting, can quietly take over your team's day.",
+        "We help clinics build systems that reduce that admin load, so your team can spend more time with patients and less time on repetitive tasks.",
+      ],
+    },
+    problems: {
+      eyebrow: "Common problems",
+      title: "Where ",
+      highlight: "clinic admin builds up",
+      items: [
+        { title: "Manual appointment booking", body: "Bookings and confirmations are handled one at a time instead of flowing automatically." },
+        { title: "New patient intake paperwork", body: "Intake forms are collected and entered manually before a patient's first appointment." },
+        { title: "Appointment reminders and no-shows", body: "Reminders rely on staff remembering to send them, and no-shows still slip through." },
+        { title: "Rescheduling and cancellations", body: "Changes to bookings create extra admin work instead of updating a system automatically." },
+        { title: "Waitlist management", body: "Filling cancelled slots from a waitlist is done manually, often too slowly to fill the gap." },
+        { title: "Patient communication across channels", body: "Phone, email and SMS messages are handled separately with no central view of a patient's conversation." },
+        { title: "Disconnected practice software", body: "Your practice management system doesn't share information with the other tools your clinic uses." },
+        { title: "Funder and referrer reporting", body: "Reporting for referrers or funding bodies is compiled manually from several systems." },
+        { title: "Repetitive data entry", body: "The same patient details are entered more than once across intake forms and clinic systems." },
+      ],
     },
     help: {
-      title: "Software Solutions for ",
-      highlight: "Allied Health Clinics",
-      body:
-        "We help clinics reduce admin pressure, improve scheduling and create a smoother experience for both patients and staff. Our solutions can be customised around your clinic's services, software and booking process.",
+      eyebrow: "How we can help",
+      title: "Automation and software built around ",
+      highlight: "patient care",
+      body: "Clinics don't need more complicated software. They need the booking, communication and admin work around patient care to run with less manual effort.",
+      services: [
+        {
+          icon: "automation",
+          name: "Business Process Automation",
+          href: serviceHrefs.automation,
+          body: "Automate booking confirmations, reminders, intake forms and the admin tasks that currently take staff away from patients.",
+        },
+        {
+          icon: "ai",
+          name: "AI Workflow Automation",
+          href: serviceHrefs.aiWorkflow,
+          body: "Keep patient information moving automatically between your booking system, forms and practice software.",
+        },
+        {
+          icon: "software",
+          name: "Full-Stack Software Development",
+          href: serviceHrefs.software,
+          body: "Build internal tools and dashboards designed around how your clinic team actually works day to day.",
+        },
+        {
+          icon: "message",
+          name: "AI Agents",
+          href: serviceHrefs.aiAgents,
+          body: "Deploy AI agents that handle booking enquiries, answer common questions and support your front desk.",
+        },
+      ],
+    },
+    builds: {
+      eyebrow: "What we can build",
+      title: "What We Can ",
+      highlight: "Build",
       items: [
-        "Admin and workflow automation",
-        "Booking and scheduling automation",
-        "Appointment reminders and follow-ups",
-        "Rescheduling and cancellation workflows",
-        "New patient intake workflows",
-        "Patient communication automation",
-        "Practice management software integrations",
-        "Reporting and admin dashboards",
-        "Custom internal tools for clinic teams",
-        "Multi-location clinic workflows",
-      ],
-    },
-    challenges: [
-      {
-        icon: "refresh",
-        title: "Admin Eats Into Patient Time",
-        body:
-          "Clinic teams deal with repetitive admin every day, from intake forms to follow-ups. We help automate the repeatable parts so staff can focus on patients.",
-      },
-      {
-        icon: "calendar",
-        title: "Scheduling Is Hard to Manage",
-        body:
-          "Appointment requests, confirmations, reminders, reschedules and cancellations can take up hours every week. We help automate these workflows where practical.",
-      },
-      {
-        icon: "integration",
-        title: "Systems Don't Talk to Each Other",
-        body:
-          "Practice management software, forms, calendars and communication tools often sit disconnected. We help connect them so information moves automatically.",
-      },
-      {
-        icon: "chart",
-        title: "Reporting Takes Too Long",
-        body:
-          "When clinic data is spread across different tools, putting together a clear picture takes time. We build dashboards that make it easier to see what's happening.",
-      },
-    ],
-    builds: [
-      {
-        icon: "calendar",
-        title: "Booking & Scheduling Automation",
-        body: "Automated workflows for appointment requests, reminders, confirmations, rescheduling and follow-ups.",
-      },
-      {
-        icon: "software",
-        title: "Custom Clinic Software",
-        body: "Internal tools and dashboards designed around how your clinic team actually works day to day.",
-      },
-      {
-        icon: "document",
-        title: "Patient Intake Workflows",
-        body: "Digital intake processes that collect the right information before appointments and reduce manual admin.",
-      },
-      {
-        icon: "integration",
-        title: "Practice Software Integrations",
-        body:
-          "Where possible, we connect your forms, booking tools, CRM, email, SMS and practice management systems.",
-      },
-    ],
-    note: {
-      eyebrow: "Important note",
-      title: "Every Clinic Is ",
-      highlight: "Different",
-      paragraphs: [
-        "Some clinics need simple booking and reminder automation. Others need deeper integration work across several practice systems and locations.",
-        "We review your setup first, then recommend what is realistically achievable based on your software and workflow.",
-      ],
-    },
-    process: [
-      {
-        number: "01",
-        title: "Understand Your Clinic Setup",
-        body: "We review your services, booking process, practice software and current admin workflow.",
-      },
-      {
-        number: "02",
-        title: "Identify the Admin Pressure Points",
-        body: "We look at where time is lost, where patients wait too long and where staff are spending time on repetitive admin.",
-      },
-      {
-        number: "03",
-        title: "Build the Right Automation",
-        body: "We create the automation, software or integration that fits your clinic's actual requirements.",
-      },
-      {
-        number: "04",
-        title: "Test, Improve and Support",
-        body: "We help test the system, refine the workflow and improve it based on real day-to-day use.",
-      },
-    ],
-    why: {
-      title: "Why 23Labs for ",
-      highlight: "Allied Health?",
-      paragraphs: [
-        "Because allied health clinics need practical automation that supports staff without adding complexity.",
-        "23Labs helps clinics reduce admin, simplify scheduling and make day-to-day operations easier to manage.",
+        { icon: "calendar", title: "Booking & Scheduling Automation", body: "Automate appointment requests, reminders, confirmations, rescheduling and follow-ups." },
+        { icon: "software", title: "Custom Clinic Software", body: "Internal tools and dashboards built around how your clinic team actually operates." },
+        { icon: "document", title: "Patient Intake Workflows", body: "Digital intake processes that collect the right information before appointments." },
+        { icon: "integration", title: "Practice Software Integrations", body: "Connect your booking tools, forms, email, SMS and practice management system." },
       ],
     },
     cta: {
-      title: "Book an allied health automation consultation",
+      title: "Book an allied health discovery call",
       body:
-        "Want to reduce admin and simplify scheduling for your clinic? Speak with 23Labs and we'll help you explore what automation or clinic software could look like for your practice.",
+        "Tell us how bookings, intake and patient communication currently work and we'll show you where automation can save your team time.",
+    },
+  },
+  {
+    slug: "real-estate",
+    href: "/real-estate",
+    metadataTitle: "Real Estate Software & Automation Solutions | 23Labs",
+    description:
+      "23Labs helps real estate agencies and property managers automate enquiries, maintenance requests, tenant communication and admin workflows with custom software, integrations and AI agents.",
+    hero: {
+      eyebrow: "Industries / Real Estate",
+      title: "Software and automation built for ",
+      highlight: "real estate teams",
+      lead:
+        "Automate repetitive admin, respond to enquiries faster and connect the systems your agency already relies on.",
+      image: {
+        src: "/site-images/industries/real-estate.jpg",
+        alt: "Modern residential property exterior",
+      },
+    },
+    intro: {
+      paragraphs: [
+        "Real estate teams deal with constant enquiries, inspections, maintenance requests and tenant communication. The work doesn't stop, but too much of it is still manual, repetitive and spread across different systems.",
+        "We help agencies and property managers build workflows that reduce admin, speed up response times and keep enquiries, clients and properties easier to manage.",
+      ],
+    },
+    problems: {
+      eyebrow: "Common problems",
+      title: "Where ",
+      highlight: "agencies lose time",
+      items: [
+        { title: "Manual enquiry response", body: "Listing enquiries sit in an inbox waiting for someone to reply instead of triggering an instant response." },
+        { title: "Inspection scheduling", body: "Booking and confirming inspections is handled manually, one enquiry at a time." },
+        { title: "Application and document collection", body: "Chasing rental applications and supporting documents takes up significant staff time." },
+        { title: "Maintenance request handling", body: "Requests arrive through calls, emails and messages and get tracked inconsistently." },
+        { title: "Landlord and vendor updates", body: "Owners and vendors are updated manually instead of through an automatic workflow." },
+        { title: "Tenant communication", body: "Routine tenant questions and follow-ups take up time that could go toward higher-value work." },
+        { title: "Disconnected CRM and property tools", body: "Your CRM and property management software don't share information automatically." },
+        { title: "Manual data entry between portals", body: "Listing and lead data is re-entered by hand between portals and internal systems." },
+        { title: "Owner and management reporting", body: "Reports for owners are compiled manually from several different systems." },
+      ],
+    },
+    help: {
+      eyebrow: "How we can help",
+      title: "Automation and software built around ",
+      highlight: "faster response times",
+      body: "Real estate teams need speed and consistency. We help remove the manual admin that slows down enquiries, inspections and day-to-day property management.",
+      services: [
+        {
+          icon: "automation",
+          name: "Business Process Automation",
+          href: serviceHrefs.automation,
+          body: "Automate enquiry responses, inspection reminders, maintenance updates and application follow-ups.",
+        },
+        {
+          icon: "ai",
+          name: "AI Workflow Automation",
+          href: serviceHrefs.aiWorkflow,
+          body: "Route enquiries, maintenance requests and documents automatically to the right person.",
+        },
+        {
+          icon: "software",
+          name: "Full-Stack Software Development",
+          href: serviceHrefs.software,
+          body: "Build internal tools and dashboards for property management, reporting and team workflows.",
+        },
+        {
+          icon: "message",
+          name: "AI Agents",
+          href: serviceHrefs.aiAgents,
+          body: "Deploy AI agents that answer buyer and tenant questions, capture details and qualify enquiries.",
+        },
+      ],
+    },
+    builds: {
+      eyebrow: "What we can build",
+      title: "What We Can ",
+      highlight: "Build",
+      items: [
+        { icon: "automation", title: "Real Estate Workflow Automation", body: "Automate enquiry responses, inspection reminders, maintenance updates and application follow-ups." },
+        { icon: "ai", title: "AI Enquiry Agents", body: "Answer common questions, capture buyer or tenant details and route leads to the right person." },
+        { icon: "software", title: "Property Management Workflows", body: "Systems for maintenance requests, landlord updates, tenant communication and task tracking." },
+        { icon: "integration", title: "CRM & Software Integrations", body: "Connect your CRM, property management software, website forms and reporting tools." },
+      ],
+    },
+    cta: {
+      title: "Book a real estate discovery call",
+      body:
+        "Tell us how enquiries, inspections and maintenance currently move through your business and we'll show you where automation can help.",
+    },
+  },
+  {
+    slug: "trades-field-services",
+    href: "/trades-field-services",
+    metadataTitle: "Trades & Field Services Software & Automation Solutions | 23Labs",
+    description:
+      "23Labs helps trades and field service businesses automate enquiries, quotes, scheduling, job updates and admin workflows with custom software, integrations and AI automation.",
+    hero: {
+      eyebrow: "Industries / Trades & Field Services",
+      title: "Software and automation built for ",
+      highlight: "trades and field service businesses",
+      lead:
+        "Respond to leads faster, reduce admin and build software around the way your jobs actually get done.",
+      image: {
+        src: "/site-images/industries/trades-field-services.jpg",
+        alt: "Electrician installing and wiring an electrical panel on site",
+      },
+    },
+    intro: {
+      paragraphs: [
+        "Trades and field service businesses live and die by response times. When enquiries, quotes, scheduling and job updates are handled manually, jobs slip through the cracks and leads go cold.",
+        "We help trades and field service businesses build systems that speed up response times, reduce admin and make it easier to manage jobs from first enquiry through to completion.",
+      ],
+    },
+    problems: {
+      eyebrow: "Common problems",
+      title: "Where ",
+      highlight: "jobs slip through the cracks",
+      items: [
+        { title: "Slow lead response", body: "New enquiries sit unanswered while a competitor responds first." },
+        { title: "Manual quoting", body: "Quotes are prepared and sent by hand, slowing down how quickly work gets confirmed." },
+        { title: "Scheduling and job allocation", body: "Bookings, reschedules and technician availability are juggled manually." },
+        { title: "Job updates relayed by phone", body: "Status updates between the field and the office rely on calls and texts." },
+        { title: "Job status not visible to the office", body: "The office doesn't have a clear, live view of where jobs are up to." },
+        { title: "Paper-based job sheets and photos", body: "Job details and photos are collected on paper or scattered across phones." },
+        { title: "Invoicing and payment follow-ups", body: "Invoicing is delayed until paperwork is chased down after the job is done." },
+        { title: "Review and feedback requests", body: "Asking happy customers for reviews gets missed in the rush to the next job." },
+        { title: "Disconnected CRM and job tools", body: "Your CRM, scheduling and accounting software don't share information automatically." },
+      ],
+    },
+    help: {
+      eyebrow: "How we can help",
+      title: "Automation and software built around ",
+      highlight: "how jobs get done",
+      body: "Trades and field service businesses need systems that are simple, fast and built around real jobs, not more software to manage.",
+      services: [
+        {
+          icon: "automation",
+          name: "Business Process Automation",
+          href: serviceHrefs.automation,
+          body: "Automate lead responses, booking confirmations, reminders and the admin that currently takes time away from billable work.",
+        },
+        {
+          icon: "ai",
+          name: "AI Workflow Automation",
+          href: serviceHrefs.aiWorkflow,
+          body: "Move job details, updates and documents automatically between the field, the office and your customers.",
+        },
+        {
+          icon: "software",
+          name: "Full-Stack Software Development",
+          href: serviceHrefs.software,
+          body: "Build job management tools and dashboards designed around how your team actually works.",
+        },
+        {
+          icon: "message",
+          name: "AI Agents",
+          href: serviceHrefs.aiAgents,
+          body: "Deploy AI agents that answer enquiries, capture job details and qualify leads around the clock.",
+        },
+      ],
+    },
+    builds: {
+      eyebrow: "What we can build",
+      title: "What We Can ",
+      highlight: "Build",
+      items: [
+        { icon: "automation", title: "Lead Response Automation", body: "Capture new enquiries and trigger instant responses, follow-ups and task creation." },
+        { icon: "software", title: "Job Management Workflows", body: "Smoother systems for booking jobs, assigning tasks and keeping the office updated." },
+        { icon: "message", title: "Customer Communication Automation", body: "Automate confirmations, reminders, quote follow-ups, job updates and review requests." },
+        { icon: "integration", title: "CRM & System Integrations", body: "Connect your CRM, job management software, accounting and website forms." },
+      ],
+    },
+    cta: {
+      title: "Book a trades & field services discovery call",
+      body:
+        "Tell us how leads, quotes and jobs currently move through your business and we'll show you where automation can save your team time.",
     },
   },
 ] as const;

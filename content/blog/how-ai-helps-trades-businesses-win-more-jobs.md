@@ -1,8 +1,8 @@
 ---
 title: "How AI Can Help Trades and Field Service Businesses Win More Jobs"
 description: "Discover how AI automation helps trades and field service businesses capture more leads, reduce missed calls, automate follow-ups, and win more jobs."
-date: "2026-06-20"
-updated: "2026-06-20"
+date: "2026-08-04"
+updated: "2026-08-04"
 author: "23Labs"
 categories: "AI Automation, Trades, Field Service"
 image: "/site-images/tech-img-16.png"

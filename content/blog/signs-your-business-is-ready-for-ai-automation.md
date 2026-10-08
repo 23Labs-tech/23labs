@@ -1,8 +1,8 @@
 ---
 title: "7 Signs Your Business Is Ready for AI Automation"
 description: "Discover the key signs your business is ready for AI automation and how automation can reduce admin, improve response times, and help your business scale."
-date: "2026-06-22"
-updated: "2026-06-22"
+date: "2026-08-18"
+updated: "2026-08-18"
 author: "23Labs"
 categories: "AI Automation, Workflow Automation, Operations"
 image: "/site-images/tech-img-03.png"

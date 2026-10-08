@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { navItems } from "@/lib/data";
 import { industryRoutePaths } from "@/lib/industries";
 import { serviceLandingPages } from "@/lib/services";
@@ -10,6 +10,7 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Logo } from "@/components/site/Logo";
 
 const industryPathSet = new Set<string>(industryRoutePaths);
+const SERVICES_CLOSE_DELAY = 150;
 
 function ChevronIcon() {
   return (
@@ -29,7 +30,55 @@ export function Navbar() {
   const servicesOpen = servicesState.pathname === pathname ? servicesState.open : false;
   const isServicesPath = pathname === "/services" || pathname.startsWith("/services/");
 
-  const closeServices = () => setServicesState({ open: false, pathname });
+  const servicesRef = useRef<HTMLDivElement>(null);
+  const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const clearCloseTimeout = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+  };
+
+  const openServices = () => {
+    clearCloseTimeout();
+    setServicesState({ open: true, pathname });
+  };
+
+  const closeServices = () => {
+    clearCloseTimeout();
+    setServicesState({ open: false, pathname });
+  };
+
+  const scheduleCloseServices = () => {
+    clearCloseTimeout();
+    closeTimeoutRef.current = setTimeout(() => {
+      setServicesState({ open: false, pathname });
+    }, SERVICES_CLOSE_DELAY);
+  };
+
+  const isHoverCapable = () =>
+    typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches;
+
+  const handleServicesMouseEnter = () => {
+    if (!isHoverCapable()) return;
+    openServices();
+  };
+
+  const handleServicesMouseLeave = () => {
+    if (!isHoverCapable()) return;
+    scheduleCloseServices();
+  };
+
+  const handleServicesFocus = () => {
+    if (!isHoverCapable()) return;
+    openServices();
+  };
+
+  const handleServicesBlur = (event: React.FocusEvent<HTMLDivElement>) => {
+    if (servicesRef.current && servicesRef.current.contains(event.relatedTarget as Node)) return;
+    closeServices();
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -37,6 +86,19 @@ export function Navbar() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => clearCloseTimeout, []);
+
+  useEffect(() => {
+    if (!servicesOpen) return;
+    const onPointerDown = (event: PointerEvent) => {
+      if (servicesRef.current && !servicesRef.current.contains(event.target as Node)) {
+        closeServices();
+      }
+    };
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => document.removeEventListener("pointerdown", onPointerDown);
+  }, [servicesOpen, pathname]);
 
   useEffect(() => {
     if (!open && !servicesOpen) return;
@@ -64,13 +126,24 @@ export function Navbar() {
 
               if (item.href === "/services") {
                 return (
-                  <div className={`nav-dropdown${servicesOpen ? " is-open" : ""}`} key="services-dropdown">
+                  <div
+                    className={`nav-dropdown${servicesOpen ? " is-open" : ""}`}
+                    key="services-dropdown"
+                    ref={servicesRef}
+                    onMouseEnter={handleServicesMouseEnter}
+                    onMouseLeave={handleServicesMouseLeave}
+                    onBlur={handleServicesBlur}
+                  >
                     <button
                       type="button"
                       className={`nav-dropdown-trigger${isServicesPath ? " active" : ""}`}
                       aria-expanded={servicesOpen}
                       aria-haspopup="true"
-                      onClick={() => setServicesState({ open: !servicesOpen, pathname })}
+                      onClick={() => {
+                        clearCloseTimeout();
+                        setServicesState({ open: !servicesOpen, pathname });
+                      }}
+                      onFocus={handleServicesFocus}
                     >
                       {item.label}
                       <ChevronIcon />

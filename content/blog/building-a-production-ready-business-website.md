@@ -1,8 +1,8 @@
 ---
 title: "What a production-ready business website needs before launch"
 description: "A concise checklist for speed, search visibility, accessibility, forms, and maintainability before a new website goes live."
-date: "2026-05-20"
-updated: "2026-05-20"
+date: "2026-07-21"
+updated: "2026-07-21"
 author: "23Labs"
 categories: "Web Development, SEO"
 image: "/site-images/tech-img-08.png"

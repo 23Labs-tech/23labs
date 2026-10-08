@@ -1,8 +1,8 @@
 ---
 title: "The Admin Bottleneck Holding Professional Services Firms Back"
 description: "Professional services firms can remove admin bottlenecks by automating onboarding, follow-ups, documents, tasks, and reporting."
-date: "2026-06-27"
-updated: "2026-06-27"
+date: "2026-09-01"
+updated: "2026-09-01"
 author: "23Labs"
 categories: "Professional Services, Workflow Automation, Operations"
 image: "/site-images/tech-img-02.png"

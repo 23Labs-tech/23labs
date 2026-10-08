@@ -1,8 +1,8 @@
 ---
 title: "Buy vs Build: When Custom Software Actually Pays Off"
 description: "Should your business buy off-the-shelf software or build a custom system? Learn when custom software pays off, when it does not, and how to make the right decision."
-date: "2026-06-27"
-updated: "2026-06-27"
+date: "2026-09-29"
+updated: "2026-09-29"
 author: "23Labs"
 categories: "Custom Software, Business Growth, Operations"
 image: "/site-images/tech-img-15.png"

@@ -1,8 +1,8 @@
 ---
 title: "What Happens When Every Lead Gets a Response Within 60 Seconds?"
 description: "Learn how lead response automation helps businesses improve conversion rates, automate follow-ups, and turn more enquiries into paying customers."
-date: "2026-06-19"
-updated: "2026-06-19"
+date: "2026-07-28"
+updated: "2026-07-28"
 author: "23Labs"
 categories: "Lead Response, AI Automation, Sales"
 image: "/site-images/tech-img-01.png"

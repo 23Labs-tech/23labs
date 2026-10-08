@@ -1,8 +1,8 @@
 ---
 title: "The Hidden Cost of Tools That Don't Talk to Each Other"
 description: "Disconnected business tools create hidden costs through manual data entry, duplicated work, missed follow-ups and poor visibility. Learn how integrations and automation can fix it."
-date: "2026-06-27"
-updated: "2026-06-27"
+date: "2026-09-15"
+updated: "2026-09-15"
 author: "23Labs"
 categories: "Data Integration, Workflow Automation, Operations"
 image: "/site-images/tech-img-12.png"

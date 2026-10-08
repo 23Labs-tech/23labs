@@ -494,13 +494,6 @@ textarea:focus-visible {
   display: flex;
 }
 
-@media (hover: hover) {
-  .nav-dropdown:hover .nav-dropdown-panel,
-  .nav-dropdown:focus-within .nav-dropdown-panel {
-    display: flex;
-  }
-}
-
 /* ---------- Hero ---------- */
 
 .hero {

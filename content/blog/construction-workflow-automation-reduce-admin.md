@@ -1,8 +1,8 @@
 ---
 title: "How Construction Businesses Can Reduce Admin With Workflow Automation"
 description: "See how construction businesses can reduce admin, improve project visibility, and keep jobs moving with workflow automation."
-date: "2026-06-27"
-updated: "2026-06-27"
+date: "2026-09-22"
+updated: "2026-09-22"
 author: "23Labs"
 categories: "Construction, Workflow Automation, Operations"
 image: "/site-images/tech-img-17.png"

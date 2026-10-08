@@ -1,8 +1,8 @@
 ---
 title: "Why Freight & Logistics Businesses Need Better Workflow Automation"
 description: "Freight and logistics teams can reduce manual data entry, improve visibility, and move faster with workflow automation and integrations."
-date: "2026-06-27"
-updated: "2026-06-27"
+date: "2026-09-08"
+updated: "2026-09-08"
 author: "23Labs"
 categories: "Freight & Logistics, Workflow Automation, Data Integration"
 image: "/site-images/tech-img-13.png"

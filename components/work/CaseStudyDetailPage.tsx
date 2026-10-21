@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { IndustryIcon } from "@/components/industries/IndustryIcon";
@@ -6,15 +5,6 @@ import { JsonLd } from "@/components/site/JsonLd";
 import type { CaseStudy } from "@/lib/caseStudies";
 import { caseStudiesCta } from "@/lib/caseStudies";
 import { absoluteUrl } from "@/lib/seo";
-
-function ArrowIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M5 12h14" />
-      <path d="M13 6l6 6-6 6" />
-    </svg>
-  );
-}
 
 function SystemIcon({ icon }: { icon: string }) {
   if (icon === "wordpress") {
@@ -46,10 +36,8 @@ export function CaseStudyDetailPage({ caseStudy }: { caseStudy: CaseStudy }) {
     { label: "Services", value: caseStudy.services.join(", ") },
   ];
 
-  const outcomesClassName = `outcome-grid reveal${caseStudy.outcomes.length === 4 ? " cols-2" : ""}`;
-
   return (
-    <>
+    <div className="case-detail">
       <header className="svc-hero">
         <div className="wrap svc-hero-in">
           <div className="reveal in svc-hero-copy">
@@ -103,21 +91,27 @@ export function CaseStudyDetailPage({ caseStudy }: { caseStudy: CaseStudy }) {
             <p>{caseStudy.solution}</p>
           </div>
           {caseStudy.workflow ? (
-            <div className="workflow-row reveal">
-              {caseStudy.workflow.map((step, index) => (
-                <Fragment key={step.label}>
-                  <div className="workflow-step">
-                    <SystemIcon icon={step.icon} />
-                    <span>{step.label}</span>
-                  </div>
-                  {index < caseStudy.workflow!.length - 1 ? (
-                    <span className="workflow-arrow" aria-hidden="true">
-                      <ArrowIcon />
-                    </span>
-                  ) : null}
-                </Fragment>
-              ))}
-            </div>
+            <>
+              <div className="cs-flow-summary reveal">
+                {caseStudy.workflow.map((step, index) => (
+                  <span key={step.label}>
+                    {index > 0 ? <span className="cs-flow-arrow">{"→"} </span> : null}
+                    {step.label}
+                  </span>
+                ))}
+              </div>
+              <div className="cs-flow-list">
+                {caseStudy.workflow.map((step) =>
+                  step.body ? (
+                    <div className="cs-flow-item reveal" key={step.label}>
+                      <h3>{step.label}</h3>
+                      <p>{step.body}</p>
+                    </div>
+                  ) : null
+                )}
+              </div>
+              {caseStudy.workflowNote ? <p className="cs-note reveal">{caseStudy.workflowNote}</p> : null}
+            </>
           ) : null}
         </div>
       </section>
@@ -134,14 +128,15 @@ export function CaseStudyDetailPage({ caseStudy }: { caseStudy: CaseStudy }) {
       <section className="sec">
         <div className="wrap">
           <SectionIntro eyebrow="Key outcomes" title={`What changed for ${caseStudy.name}`} />
-          <div className={outcomesClassName}>
+          <div className="cs-outcomes-text reveal">
             {caseStudy.outcomes.map((item) => (
-              <article className="outcome-block" key={item.title}>
+              <div className="cs-outcome-item" key={item.title}>
                 <h3>{item.title}</h3>
                 <p>{item.body}</p>
-              </article>
+              </div>
             ))}
           </div>
+          {caseStudy.outcomesNote ? <p className="cs-note reveal">{caseStudy.outcomesNote}</p> : null}
         </div>
       </section>
 
@@ -200,6 +195,6 @@ export function CaseStudyDetailPage({ caseStudy }: { caseStudy: CaseStudy }) {
           ],
         }}
       />
-    </>
+    </div>
   );
 }

@@ -1,6 +1,6 @@
 export type CaseStudyResultChip = { value: string; label: string };
 export type CaseStudyOutcome = { title: string; body: string };
-export type CaseStudyWorkflowStep = { label: string; icon: string };
+export type CaseStudyWorkflowStep = { label: string; body?: string };
 export type CaseStudySystem = { label: string; icon: string };
 
 export type CaseStudy = {
@@ -19,8 +19,10 @@ export type CaseStudy = {
   challenge: string;
   solution: string;
   workflow?: CaseStudyWorkflowStep[];
+  workflowNote?: string;
   result: string;
   outcomes: CaseStudyOutcome[];
+  outcomesNote?: string;
   systems?: CaseStudySystem[];
   metadataTitle: string;
   description: string;
@@ -63,22 +65,47 @@ export const caseStudies: CaseStudy[] = [
     solution:
       "23Labs mapped the existing workflow between Bullhorn, SEEK and the company website to understand where information was being duplicated and where the process could be simplified. We introduced dedicated public-facing fields for job titles and locations, allowing Huntress to keep its internal Bullhorn records structured correctly while controlling what candidates saw publicly. The connected workflow allowed job information to move more consistently between Bullhorn, SEEK and the website, reducing the need for manual re-entry and workarounds.",
     workflow: [
-      { label: "Bullhorn", icon: "integration" },
-      { label: "Public Job Fields", icon: "document" },
-      { label: "SEEK", icon: "eye" },
-      { label: "Website", icon: "wordpress" },
+      {
+        label: "Bullhorn",
+        body: "Bullhorn remains the central system used by the Huntress team to manage vacancies and internal recruitment information. Instead of requiring the team to manually recreate information elsewhere, the workflow now starts from the data they are already managing inside Bullhorn.",
+      },
+      {
+        label: "Public Job Fields",
+        body: "We introduced separate public facing fields for information such as job titles, locations and other candidate facing details. This allows Huntress to keep internal Bullhorn information structured for operational purposes while controlling exactly what appears publicly.",
+      },
+      {
+        label: "SEEK",
+        body: "The relevant vacancy information can then be prepared consistently for SEEK without staff having to manually rewrite or maintain separate versions of the same job information.",
+      },
+      {
+        label: "Website",
+        body: "The Huntress website uses the same structured vacancy data, helping keep published jobs aligned across channels while reducing the amount of duplicate administration required internally.",
+      },
     ],
+    workflowNote:
+      "The result is a simpler publishing workflow where information is managed from a central source and then prepared for each public channel in a more controlled and consistent way.",
     result:
       "Huntress gained a cleaner and more connected recruitment workflow. The team now has better control over public job information while continuing to use Bullhorn as the core recruitment system. The improvements helped reduce duplicate administration, improve consistency across platforms and create a more scalable process for publishing and managing vacancies.",
     outcomes: [
-      { title: "Less duplicate administration", body: "Fewer repetitive updates across multiple systems." },
-      { title: "More consistent publishing", body: "Job information is better aligned between Bullhorn, SEEK and the website." },
+      {
+        title: "Less duplicate administration",
+        body: "Previously, vacancy information could require separate updates across Bullhorn, SEEK and the website. The new workflow reduces the amount of repetitive data entry required and gives the team a clearer process for managing changes.",
+      },
+      {
+        title: "More consistent publishing",
+        body: "Job information now follows a more structured path from Bullhorn through to the channels candidates actually see. This reduces inconsistencies in titles, locations and vacancy information across different platforms.",
+      },
       {
         title: "Better control of public information",
-        body: "Candidate-facing titles and locations can be managed separately from internal Bullhorn records.",
+        body: "Internal recruitment data does not always need to appear exactly the same way publicly. Huntress can now manage candidate facing titles, locations and other information separately while keeping Bullhorn structured around the way the internal team works.",
       },
-      { title: "More scalable workflows", body: "The process is easier to manage as job volumes increase." },
+      {
+        title: "A more scalable recruitment workflow",
+        body: "The process is easier to manage as vacancy volumes increase. Instead of adding more administration every time another job is published, the workflow creates a stronger foundation for managing larger numbers of vacancies across multiple channels.",
+      },
     ],
+    outcomesNote:
+      "Rather than replacing Bullhorn or changing how the recruitment team works day to day, the solution improves how information moves between the systems Huntress already relies on.",
     systems: [
       { label: "Bullhorn", icon: "integration" },
       { label: "SEEK", icon: "eye" },
@@ -116,11 +143,11 @@ export const caseStudies: CaseStudy[] = [
     solution:
       "We mapped the onboarding workflow end to end and built automations that sync data across their CRM and project tools the moment a new client signs on, removing the manual copy-paste step entirely.",
     workflow: [
-      { label: "CRM", icon: "integration" },
-      { label: "Automation", icon: "automation" },
-      { label: "Accounting", icon: "software" },
-      { label: "Provisioning", icon: "document" },
-      { label: "Notification", icon: "message" },
+      { label: "CRM" },
+      { label: "Automation" },
+      { label: "Accounting" },
+      { label: "Provisioning" },
+      { label: "Notification" },
     ],
     result:
       "Saved 10+ hours every month, reduced manual errors, and created a more scalable onboarding process.",
@@ -162,11 +189,11 @@ export const caseStudies: CaseStudy[] = [
     solution:
       "We automated the handoffs between customer enquiries and property records, building clear triggers so the right person is notified at the right step without anyone having to chase it manually.",
     workflow: [
-      { label: "Enquiry received", icon: "message" },
-      { label: "Categorised", icon: "document" },
-      { label: "CRM updated", icon: "integration" },
-      { label: "Assigned", icon: "user" },
-      { label: "Reporting", icon: "chart" },
+      { label: "Enquiry received" },
+      { label: "Categorised" },
+      { label: "CRM updated" },
+      { label: "Assigned" },
+      { label: "Reporting" },
     ],
     result:
       "Improved operational visibility and reduced the manual follow-up required across common customer touchpoints.",

@@ -1,31 +1,22 @@
 import type { Metadata } from "next";
+import { CaseStudyGrid } from "@/components/work/CaseStudyGrid";
 import { CtaSection } from "@/components/sections/CtaSection";
-import { PageHero } from "@/components/sections/PageHero";
-import { WorkCases } from "@/components/work/WorkCases";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
-  title: "Work",
+  title: "Case Studies",
   path: "/work",
   description:
-    "Case studies from 23Labs: products, platforms, and website rebuilds we've shipped for clients and for ourselves.",
-  keywords: ["23Labs work", "automation case studies", "software case studies", "website rebuilds"],
+    "Case studies from 23Labs: real systems we've connected, automated and built for clients, with the practical outcomes behind each one.",
+  keywords: ["23Labs case studies", "automation case studies", "software case studies", "system integration"],
 });
 
 export default function WorkPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Selected work"
-        title="Real systems, built for "
-        highlight="real businesses"
-        body="A few of the products, platforms, and rebuilds we've shipped recently. Tap any project to see how it actually came together."
-        className="work-hero"
-      />
-
-      <section className="sec no-top">
+      <section className="sec cs-sec">
         <div className="wrap">
-          <WorkCases />
+          <CaseStudyGrid />
         </div>
       </section>
 

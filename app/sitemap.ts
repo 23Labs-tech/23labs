@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/blog";
+import { getAllCaseStudies } from "@/lib/caseStudies";
 import { industryRoutePaths } from "@/lib/industries";
 import { serviceLandingPages } from "@/lib/services";
 import { getBaseUrl } from "@/lib/site";
@@ -29,5 +30,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...blogRoutes];
+  const caseStudyRoutes = getAllCaseStudies().map((caseStudy) => ({
+    url: `${baseUrl}/case-studies/${caseStudy.slug}`,
+    lastModified: new Date(caseStudy.date),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticRoutes, ...blogRoutes, ...caseStudyRoutes];
 }

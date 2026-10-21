@@ -3,7 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { IndustryIcon } from "@/components/industries/IndustryIcon";
 import { JsonLd } from "@/components/site/JsonLd";
-import type { CaseStudyDetail } from "@/lib/caseStudyDetails";
+import type { CaseStudy } from "@/lib/caseStudies";
+import { caseStudiesCta } from "@/lib/caseStudies";
 import { absoluteUrl } from "@/lib/seo";
 
 function ArrowIcon() {
@@ -37,7 +38,16 @@ function SectionIntro({ eyebrow, title }: { eyebrow: string; title: string }) {
   );
 }
 
-export function CaseStudyDetailPage({ caseStudy }: { caseStudy: CaseStudyDetail }) {
+export function CaseStudyDetailPage({ caseStudy }: { caseStudy: CaseStudy }) {
+  const metaItems = [
+    { label: "Client", value: caseStudy.name },
+    ...(caseStudy.industry ? [{ label: "Industry", value: caseStudy.industry }] : []),
+    ...(caseStudy.location ? [{ label: "Location", value: caseStudy.location }] : []),
+    { label: "Services", value: caseStudy.services.join(", ") },
+  ];
+
+  const outcomesClassName = `outcome-grid reveal${caseStudy.outcomes.length === 4 ? " cols-2" : ""}`;
+
   return (
     <>
       <header className="svc-hero">
@@ -45,21 +55,19 @@ export function CaseStudyDetailPage({ caseStudy }: { caseStudy: CaseStudyDetail 
           <div className="reveal in svc-hero-copy">
             <div className="sec-tag">
               <Link href="/work" style={{ color: "inherit" }}>
-                Work
+                Case Studies
               </Link>{" "}
-              / {caseStudy.hero.eyebrow.split(" / ")[1]}
+              / {caseStudy.name}
             </div>
-            <div className="case-hero-logo">
-              <Image
-                src={caseStudy.hero.logo.src}
-                alt={caseStudy.hero.logo.alt}
-                fill
-                sizes="150px"
-              />
-            </div>
-            <h1>{caseStudy.hero.title}</h1>
+            {caseStudy.logo?.contain ? (
+              <div className="case-hero-logo">
+                <Image src={caseStudy.logo.src} alt={caseStudy.logo.alt} fill sizes="150px" />
+              </div>
+            ) : null}
+            <h1>{caseStudy.headline}</h1>
+            <p className="lead">{caseStudy.summary}</p>
             <div className="case-hero-meta">
-              {caseStudy.hero.meta.map((item) => (
+              {metaItems.map((item) => (
                 <div className="case-hero-meta-item" key={item.label}>
                   <span className="mono">{item.label}</span>
                   <strong>{item.value}</strong>
@@ -69,8 +77,8 @@ export function CaseStudyDetailPage({ caseStudy }: { caseStudy: CaseStudyDetail 
           </div>
           <div className="reveal in svc-hero-media">
             <Image
-              src={caseStudy.hero.image.src}
-              alt={caseStudy.hero.image.alt}
+              src={caseStudy.heroImage.src}
+              alt={caseStudy.heroImage.alt}
               fill
               priority
               sizes="(max-width: 900px) 100vw, 50vw"
@@ -81,57 +89,53 @@ export function CaseStudyDetailPage({ caseStudy }: { caseStudy: CaseStudyDetail 
 
       <section className="sec no-top">
         <div className="wrap">
-          <SectionIntro eyebrow={caseStudy.challenge.eyebrow} title={caseStudy.challenge.title} />
+          <SectionIntro eyebrow="The challenge" title="The problem before 23Labs" />
           <div className="text-block reveal">
-            {caseStudy.challenge.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
+            <p>{caseStudy.challenge}</p>
           </div>
         </div>
       </section>
 
       <section className="sec">
         <div className="wrap">
-          <SectionIntro eyebrow={caseStudy.solution.eyebrow} title={caseStudy.solution.title} />
+          <SectionIntro eyebrow="The solution" title="What 23Labs built" />
           <div className="text-block reveal">
-            {caseStudy.solution.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
+            <p>{caseStudy.solution}</p>
           </div>
-          <div className="workflow-row reveal">
-            {caseStudy.solution.workflow.map((step, index) => (
-              <Fragment key={step.key}>
-                <div className="workflow-step">
-                  <SystemIcon icon={step.icon} />
-                  <span>{step.label}</span>
-                </div>
-                {index < caseStudy.solution.workflow.length - 1 ? (
-                  <span className="workflow-arrow" aria-hidden="true">
-                    <ArrowIcon />
-                  </span>
-                ) : null}
-              </Fragment>
-            ))}
+          {caseStudy.workflow ? (
+            <div className="workflow-row reveal">
+              {caseStudy.workflow.map((step, index) => (
+                <Fragment key={step.label}>
+                  <div className="workflow-step">
+                    <SystemIcon icon={step.icon} />
+                    <span>{step.label}</span>
+                  </div>
+                  {index < caseStudy.workflow!.length - 1 ? (
+                    <span className="workflow-arrow" aria-hidden="true">
+                      <ArrowIcon />
+                    </span>
+                  ) : null}
+                </Fragment>
+              ))}
+            </div>
+          ) : null}
+        </div>
+      </section>
+
+      <section className="sec">
+        <div className="wrap">
+          <SectionIntro eyebrow="The result" title="What changed" />
+          <div className="text-block reveal">
+            <p>{caseStudy.result}</p>
           </div>
         </div>
       </section>
 
       <section className="sec">
         <div className="wrap">
-          <SectionIntro eyebrow={caseStudy.result.eyebrow} title={caseStudy.result.title} />
-          <div className="text-block reveal">
-            {caseStudy.result.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="sec">
-        <div className="wrap">
-          <SectionIntro eyebrow={caseStudy.outcomes.eyebrow} title={caseStudy.outcomes.title} />
-          <div className="outcome-grid cols-2 reveal">
-            {caseStudy.outcomes.items.map((item) => (
+          <SectionIntro eyebrow="Key outcomes" title={`What changed for ${caseStudy.name}`} />
+          <div className={outcomesClassName}>
+            {caseStudy.outcomes.map((item) => (
               <article className="outcome-block" key={item.title}>
                 <h3>{item.title}</h3>
                 <p>{item.body}</p>
@@ -141,32 +145,29 @@ export function CaseStudyDetailPage({ caseStudy }: { caseStudy: CaseStudyDetail 
         </div>
       </section>
 
-      <section className="sec">
-        <div className="wrap">
-          <SectionIntro eyebrow={caseStudy.built.eyebrow} title={caseStudy.built.title} />
-          <div className="text-block reveal">
-            {caseStudy.built.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
+      {caseStudy.systems ? (
+        <section className="sec">
+          <div className="wrap">
+            <SectionIntro eyebrow="Technology" title="Systems involved" />
+            <div className="system-badges reveal">
+              {caseStudy.systems.map((system) => (
+                <span className="system-badge" key={system.label}>
+                  <SystemIcon icon={system.icon} />
+                  {system.label}
+                </span>
+              ))}
+            </div>
           </div>
-          <div className="system-badges reveal">
-            {caseStudy.built.systems.map((system) => (
-              <span className="system-badge" key={system.label}>
-                <SystemIcon icon={system.icon} />
-                {system.label}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      ) : null}
 
       <section className="sec">
         <div className="wrap cta-band reveal">
-          <h2>{caseStudy.cta.title}</h2>
-          <p>{caseStudy.cta.body}</p>
+          <h2>{caseStudiesCta.title}</h2>
+          <p>{caseStudiesCta.body}</p>
           <div className="hero-actions">
             <Link href="/contact" className="btn btn-primary">
-              {caseStudy.cta.label} <span className="btn-arrow" aria-hidden="true">{"→"}</span>
+              {caseStudiesCta.label} <span className="btn-arrow" aria-hidden="true">{"→"}</span>
             </Link>
           </div>
         </div>
@@ -178,21 +179,21 @@ export function CaseStudyDetailPage({ caseStudy }: { caseStudy: CaseStudyDetail 
           "@graph": [
             {
               "@type": "Article",
-              headline: caseStudy.hero.title,
+              headline: caseStudy.headline,
               description: caseStudy.description,
-              about: caseStudy.hero.meta.find((item) => item.label === "Client")?.value,
-              mainEntityOfPage: absoluteUrl(`/work/${caseStudy.slug}`),
+              about: caseStudy.name,
+              mainEntityOfPage: absoluteUrl(`/case-studies/${caseStudy.slug}`),
             },
             {
               "@type": "BreadcrumbList",
               itemListElement: [
                 { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
-                { "@type": "ListItem", position: 2, name: "Work", item: absoluteUrl("/work") },
+                { "@type": "ListItem", position: 2, name: "Case Studies", item: absoluteUrl("/work") },
                 {
                   "@type": "ListItem",
                   position: 3,
-                  name: caseStudy.hero.eyebrow.split(" / ")[1] || caseStudy.hero.eyebrow,
-                  item: absoluteUrl(`/work/${caseStudy.slug}`),
+                  name: caseStudy.name,
+                  item: absoluteUrl(`/case-studies/${caseStudy.slug}`),
                 },
               ],
             },

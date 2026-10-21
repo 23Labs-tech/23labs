@@ -29,13 +29,6 @@ function SectionIntro({ eyebrow, title }: { eyebrow: string; title: string }) {
 }
 
 export function CaseStudyDetailPage({ caseStudy }: { caseStudy: CaseStudy }) {
-  const metaItems = [
-    { label: "Client", value: caseStudy.name },
-    ...(caseStudy.industry ? [{ label: "Industry", value: caseStudy.industry }] : []),
-    ...(caseStudy.location ? [{ label: "Location", value: caseStudy.location }] : []),
-    { label: "Services", value: caseStudy.services.join(", ") },
-  ];
-
   return (
     <div className="case-detail">
       <header className="svc-hero">
@@ -55,12 +48,18 @@ export function CaseStudyDetailPage({ caseStudy }: { caseStudy: CaseStudy }) {
             <h1>{caseStudy.headline}</h1>
             <p className="lead">{caseStudy.summary}</p>
             <div className="case-hero-meta">
-              {metaItems.map((item) => (
-                <div className="case-hero-meta-item" key={item.label}>
-                  <span className="mono">{item.label}</span>
-                  <strong>{item.value}</strong>
+              {caseStudy.industry ? (
+                <div className="case-hero-meta-item">
+                  <span className="mono">Industry</span>
+                  <strong>{caseStudy.industry}</strong>
                 </div>
-              ))}
+              ) : null}
+              <div className="case-hero-meta-item">
+                <span className="mono">Services Provided</span>
+                {caseStudy.services.map((service) => (
+                  <strong key={service}>{service}</strong>
+                ))}
+              </div>
             </div>
           </div>
           <div className="reveal in svc-hero-media">

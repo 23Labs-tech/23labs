@@ -47,7 +47,7 @@ export const caseStudies: CaseStudy[] = [
     category: "System Integration",
     industry: "Recruitment",
     location: "New Zealand",
-    services: ["System Integration", "Workflow Automation", "Data Management"],
+    services: ["System Integration", "Workflow Automation", "Website Integration", "Custom Development"],
     headline: "How Huntress Recruitment connected Bullhorn, SEEK and its website",
     summary:
       "23Labs helped Huntress simplify how job information moved between its recruitment systems and public website, reducing repetitive administration and improving consistency.",

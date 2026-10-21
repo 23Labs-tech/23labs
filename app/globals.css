@@ -582,9 +582,12 @@ textarea:focus-visible {
   padding: 76px 0 80px;
 }
 
-.work-hero,
-.blog-hero {
+.work-hero {
   padding: 76px 0 64px;
+}
+
+.blog-hero {
+  padding: 76px 0 32px;
 }
 
 .industry-hero {
@@ -1458,48 +1461,6 @@ textarea:focus-visible {
 .blog-body p {
   color: var(--ink-soft);
   font-size: 14px;
-}
-
-.filter-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 36px;
-}
-
-.filter-pill {
-  border: 1.5px solid var(--line);
-  border-radius: 99px;
-  background: var(--paper);
-  color: var(--ink-soft);
-  cursor: pointer;
-  font-family: var(--font-sans), "Poppins", Arial, sans-serif;
-  font-size: 12px;
-  letter-spacing: 0.06em;
-  padding: 9px 16px;
-  text-transform: uppercase;
-  transition: all 0.2s;
-}
-
-.filter-pill:hover {
-  border-color: var(--ink);
-}
-
-.filter-pill.active {
-  border-color: var(--ink);
-  background: var(--ink);
-  color: #fff;
-}
-
-.empty-state {
-  display: none;
-  padding: 64px 0;
-  color: var(--ink-faint);
-  text-align: center;
-}
-
-.empty-state.show {
-  display: block;
 }
 
 /* ---------- What we stand for (icon-led values, 4-up) ---------- */
@@ -3248,9 +3209,12 @@ textarea:focus-visible {
   }
 
   .work-hero,
-  .blog-hero,
   .industry-hero {
     padding: 40px 0 36px;
+  }
+
+  .blog-hero {
+    padding: 40px 0 20px;
   }
 
   .inline-cta {

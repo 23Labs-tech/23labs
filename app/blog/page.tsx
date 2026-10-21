@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { BlogFilterList } from "@/components/blog/BlogFilterList";
+import { BlogList } from "@/components/blog/BlogList";
 import { CtaSection } from "@/components/sections/CtaSection";
 import { getAllPosts } from "@/lib/blog";
 import { createMetadata } from "@/lib/seo";
@@ -17,7 +17,7 @@ export default function BlogPage() {
 
   return (
     <>
-      <BlogFilterList posts={posts} />
+      <BlogList posts={posts} />
 
       <CtaSection
         title="Want to talk about your own project?"

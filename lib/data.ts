@@ -79,7 +79,40 @@ export const stats = [
   { value: "12+", label: "Years of experience" },
 ];
 
-export const caseStudies = [
+type CaseStudy = {
+  slug: string;
+  name: string;
+  type: string;
+  image: { src: string; alt: string };
+  tags: string[];
+  problem: string;
+  challenge: string;
+  approach: string;
+  result: string;
+  flow?: string[];
+  href?: string;
+};
+
+export const caseStudies: CaseStudy[] = [
+  {
+    slug: "huntress-recruitment",
+    name: "Huntress Recruitment",
+    type: "System Integration",
+    href: "/work/huntress-recruitment",
+    image: {
+      src: "/work/huntress/hero.jpg",
+      alt: "Huntress Recruitment case study: connecting Bullhorn, SEEK and the company website",
+    },
+    tags: ["System Integration", "Workflow Automation", "Data Management"],
+    problem:
+      "Connected Bullhorn, SEEK and the company website so job information stays consistent without manual re-entry.",
+    challenge:
+      "Huntress Recruitment was managing job information across Bullhorn, SEEK and its WordPress website, requiring recruiters to manually update job details across multiple platforms.",
+    approach:
+      "We mapped the existing workflow and introduced dedicated public-facing fields for job titles and locations, allowing information to move consistently between Bullhorn, SEEK and the website.",
+    result:
+      "A cleaner, more connected recruitment workflow with less duplicate administration and more consistent publishing across platforms.",
+  },
   {
     slug: "lily-olsen-counselling",
     name: "Lily Olsen Counselling",

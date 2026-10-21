@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { caseStudies } from "@/lib/data";
 
 export function WorkCases() {
@@ -27,6 +28,42 @@ export function WorkCases() {
       {caseStudies.map((item) => {
         const isOpen = Boolean(openCases[item.slug]);
 
+        const thumb = (
+          <div className="case-thumb">
+            <Image
+              src={item.image.src}
+              alt={item.image.alt}
+              fill
+              sizes="(max-width: 780px) 84px, 140px"
+              className="work-thumb-img"
+            />
+          </div>
+        );
+        const heading = (
+          <div className="case-heading">
+            <span className="work-tag">{item.type}</span>
+            <h3>{item.name}</h3>
+            <p>{item.problem}</p>
+          </div>
+        );
+
+        if (item.href) {
+          return (
+            <article className="case" id={item.slug} key={item.slug}>
+              <Link className="case-trigger" href={item.href}>
+                {thumb}
+                {heading}
+                <div className="case-toggle" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14" />
+                    <path d="M13 6l6 6-6 6" />
+                  </svg>
+                </div>
+              </Link>
+            </article>
+          );
+        }
+
         return (
           <article className="case" id={item.slug} data-open={isOpen ? "true" : "false"} key={item.slug}>
             <button
@@ -35,20 +72,8 @@ export function WorkCases() {
               aria-expanded={isOpen}
               onClick={() => setOpenCases((current) => ({ ...current, [item.slug]: !current[item.slug] }))}
             >
-              <div className="case-thumb">
-                <Image
-                  src={item.image.src}
-                  alt={item.image.alt}
-                  fill
-                  sizes="(max-width: 780px) 84px, 140px"
-                  className="work-thumb-img"
-                />
-              </div>
-              <div className="case-heading">
-                <span className="work-tag">{item.type}</span>
-                <h3>{item.name}</h3>
-                <p>{item.problem}</p>
-              </div>
+              {thumb}
+              {heading}
               <div className="case-toggle" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="6 9 12 15 18 9" />

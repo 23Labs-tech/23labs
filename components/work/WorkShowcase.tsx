@@ -7,7 +7,7 @@ export function WorkShowcase() {
     <div className="case-study-grid">
       {caseStudies.map((item, index) => (
         <Link
-          href={`/work#${item.slug}`}
+          href={item.href ?? `/work#${item.slug}`}
           className="case-study-card reveal"
           key={item.slug}
         >

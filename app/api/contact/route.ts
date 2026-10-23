@@ -103,19 +103,9 @@ function html(payload: ContactPayload) {
   `;
 }
 
-async function sendEmail(payload: ContactPayload) {
-  const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CONTACT_TO_EMAIL || siteConfig.email;
-  const from = process.env.CONTACT_FROM_EMAIL || "23Labs <onboarding@resend.dev>";
+const FALLBACK_FROM = "23Labs <onboarding@resend.dev>";
 
-  if (!apiKey) {
-    if (process.env.NODE_ENV !== "production") {
-      console.info("Contact form email skipped because RESEND_API_KEY is not set.");
-      return;
-    }
-    throw new Error("Contact email service is not configured.");
-  }
-
+async function callResend(apiKey: string, from: string, to: string, payload: ContactPayload) {
   const response = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
@@ -133,8 +123,53 @@ async function sendEmail(payload: ContactPayload) {
   });
 
   if (!response.ok) {
-    throw new Error("Resend rejected the email request.");
+    const body = await response.text().catch(() => "<no response body>");
+    return { ok: false as const, status: response.status, body };
   }
+
+  return { ok: true as const };
+}
+
+async function sendEmail(payload: ContactPayload) {
+  const apiKey = process.env.RESEND_API_KEY;
+  const to = process.env.CONTACT_TO_EMAIL || siteConfig.email;
+  const from = process.env.CONTACT_FROM_EMAIL || FALLBACK_FROM;
+
+  if (!apiKey) {
+    if (process.env.NODE_ENV !== "production") {
+      console.info("[contact-form] Email skipped locally: RESEND_API_KEY is not set.");
+      return;
+    }
+    console.error("[contact-form] RESEND_API_KEY is not configured in this environment.");
+    throw new Error("Contact email service is not configured.");
+  }
+
+  const attempt = await callResend(apiKey, from, to, payload);
+  if (attempt.ok) return;
+
+  console.error(
+    `[contact-form] Resend rejected the send from "${from}" (status ${attempt.status}): ${attempt.body}`
+  );
+
+  // A rejection is very often a sender-domain verification issue (e.g. the
+  // custom domain in CONTACT_FROM_EMAIL isn't verified in Resend yet). Retry
+  // once from Resend's own pre-verified address so the enquiry still gets
+  // delivered rather than silently failing.
+  if (from !== FALLBACK_FROM) {
+    const retry = await callResend(apiKey, FALLBACK_FROM, to, payload);
+    if (retry.ok) {
+      console.warn(
+        `[contact-form] Sent via fallback sender "${FALLBACK_FROM}" after the primary sender was rejected. ` +
+          "Verify the CONTACT_FROM_EMAIL domain in Resend to send from the custom address again."
+      );
+      return;
+    }
+    console.error(
+      `[contact-form] Fallback send from "${FALLBACK_FROM}" also failed (status ${retry.status}): ${retry.body}`
+    );
+  }
+
+  throw new Error("Resend rejected the email request.");
 }
 
 async function getRequestBody(request: NextRequest) {
@@ -203,9 +238,7 @@ export async function POST(request: NextRequest) {
     await sendEmail(validation.data);
     return NextResponse.json({ ok: true });
   } catch (error) {
-    if (process.env.NODE_ENV !== "production") {
-      console.error(error);
-    }
+    console.error("[contact-form] Failed to send enquiry email:", error);
     return NextResponse.json(
       { error: `We could not send your enquiry. Please email ${siteConfig.email} directly.` },
       { status: 500 }

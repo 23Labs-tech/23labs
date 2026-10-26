@@ -297,7 +297,8 @@ export default function PrivacyPolicyPage() {
             <p>
               If you have a concern about how we have handled your personal information, please email{" "}
               <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a> with the details. We will acknowledge
-              your complaint promptly and aim to respond within 30 days.
+              complaints promptly and aim to respond within 20 working days, and will let you know if we
+              need more time for complex matters.
             </p>
             <p>If you are not satisfied with our response, you can contact:</p>
             <ul>

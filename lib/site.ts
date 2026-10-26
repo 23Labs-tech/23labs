@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "23Labs",
-  legalName: "23Labs Technologies",
+  legalName: "23Labs",
   url: "https://www.23labs.co",
   email: "hello@23labs.co",
   description:

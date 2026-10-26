@@ -1980,7 +1980,7 @@ textarea:focus-visible {
 .case-hero-meta-item .mono {
   display: block;
   margin-bottom: 6px;
-  color: var(--ink-faint);
+  color: var(--ink-soft);
 }
 
 .case-hero-meta-item strong {
@@ -2413,6 +2413,13 @@ textarea:focus-visible {
 .blog-post-hero p {
   color: var(--ink-soft);
   font-size: 18px;
+}
+
+.blog-post-hero .blog-author-bio {
+  max-width: 62ch;
+  margin: 0 0 4px;
+  font-size: 15px;
+  line-height: 1.55;
 }
 
 .blog-image {
@@ -2870,7 +2877,8 @@ textarea:focus-visible {
   color: var(--accent-on-dark);
 }
 
-.foot-col h5 {
+.foot-col .foot-label {
+  max-width: none;
   margin: 0 0 18px;
   color: var(--foot-faint);
   font-family: var(--font-sans), "Poppins", Arial, sans-serif;

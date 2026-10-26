@@ -92,69 +92,161 @@ export const caseStudies: CaseStudy[] = [
       { value: "Less manual admin", label: "Reduced duplicate data entry" },
       { value: "Better control", label: "Separate internal and public job data" },
     ],
-    challenge:
-      "Huntress Recruitment was managing job information across Bullhorn, SEEK and its WordPress website. Because each system handled information differently, recruiters were often required to manually update job details across multiple platforms. Public-facing information such as job titles and locations could also differ from the internal information stored inside Bullhorn. This created unnecessary administration, increased the risk of inconsistencies and made the publishing process more complicated than it needed to be.",
     supportingImage: {
       src: "/site-images/photos/team-meeting-discussion.png",
       alt: "A team discussing the Huntress Recruitment project around a meeting table",
     },
-    solution:
-      "23Labs mapped the existing workflow between Bullhorn, SEEK and the company website to understand where information was being duplicated and where the process could be simplified. We introduced dedicated public-facing fields for job titles and locations, allowing Huntress to keep its internal Bullhorn records structured correctly while controlling what candidates saw publicly. The connected workflow allowed job information to move more consistently between Bullhorn, SEEK and the website, reducing the need for manual re-entry and workarounds.",
-    workflow: [
-      {
-        label: "Bullhorn",
-        body: "Bullhorn remains the central system used by the Huntress team to manage vacancies and internal recruitment information. Instead of requiring the team to manually recreate information elsewhere, the workflow now starts from the data they are already managing inside Bullhorn.",
-      },
-      {
-        label: "Public Job Fields",
-        body: "We introduced separate public facing fields for information such as job titles, locations and other candidate facing details. This allows Huntress to keep internal Bullhorn information structured for operational purposes while controlling exactly what appears publicly.",
-      },
-      {
-        label: "SEEK",
-        body: "The relevant vacancy information can then be prepared consistently for SEEK without staff having to manually rewrite or maintain separate versions of the same job information.",
-      },
-      {
-        label: "Website",
-        body: "The Huntress website uses the same structured vacancy data, helping keep published jobs aligned across channels while reducing the amount of duplicate administration required internally.",
-      },
-    ],
-    workflowNote:
-      "The result is a simpler publishing workflow where information is managed from a central source and then prepared for each public channel in a more controlled and consistent way.",
-    result:
-      "Huntress gained a cleaner and more connected recruitment workflow. The team now has better control over public job information while continuing to use Bullhorn as the core recruitment system. The improvements helped reduce duplicate administration, improve consistency across platforms and create a more scalable process for publishing and managing vacancies.",
-    outcomes: [
-      {
-        title: "Less duplicate administration",
-        body: "Previously, vacancy information could require separate updates across Bullhorn, SEEK and the website. The new workflow reduces the amount of repetitive data entry required and gives the team a clearer process for managing changes.",
-      },
-      {
-        title: "More consistent publishing",
-        body: "Job information now follows a more structured path from Bullhorn through to the channels candidates actually see. This reduces inconsistencies in titles, locations and vacancy information across different platforms.",
-      },
-      {
-        title: "Better control of public information",
-        body: "Internal recruitment data does not always need to appear exactly the same way publicly. Huntress can now manage candidate facing titles, locations and other information separately while keeping Bullhorn structured around the way the internal team works.",
-      },
-      {
-        title: "A more scalable recruitment workflow",
-        body: "The process is easier to manage as vacancy volumes increase. Instead of adding more administration every time another job is published, the workflow creates a stronger foundation for managing larger numbers of vacancies across multiple channels.",
-      },
-    ],
-    outcomesNote:
-      "Rather than replacing Bullhorn or changing how the recruitment team works day to day, the solution improves how information moves between the systems Huntress already relies on.",
-    systems: [
-      { label: "Bullhorn", icon: "integration" },
-      { label: "SEEK", icon: "eye" },
-      { label: "WordPress", icon: "wordpress" },
-    ],
-    metadataTitle: "Bullhorn & SEEK Integration: Huntress Recruitment | 23Labs",
+    metadataTitle: "Huntress: Bullhorn, SEEK and Website Integration | 23Labs",
     description:
       "How 23Labs connected Bullhorn, SEEK and a WordPress site for NZ firm Huntress Recruitment, cutting duplicate job admin and keeping public job data consistent.",
-    relatedCopy: [
-      { text: "This is " },
-      { text: "systems integration work", href: "/services/system-integrations" },
+    cta: {
+      title: "Closing CTA",
+      body: "If vacancy details are still being retyped between Bullhorn, SEEK and the website, tell us how that handoff works today.",
+      label: "Talk to 23Labs",
+    },
+    sections: [
       {
-        text: ": Bullhorn stays the system of record, and the public job fields are prepared for SEEK and the website without another round of retyping.",
+        title: "Project Overview",
+        paragraphs: [
+          [
+            {
+              text: "Huntress Recruitment is a recruitment business in New Zealand. The team was managing job information across Bullhorn, SEEK and its WordPress website.",
+            },
+          ],
+          [
+            {
+              text: "23Labs mapped that workflow and connected it so vacancy information could move more consistently between those three systems. Public-facing details, such as job titles and locations, can now be controlled separately from the internal Bullhorn record.",
+            },
+          ],
+          [
+            { text: "This is " },
+            { text: "systems integration", href: "/services/system-integrations" },
+            {
+              text: ": Bullhorn stays the system of record, and the public job fields are prepared for SEEK and the website without another round of retyping.",
+            },
+          ],
+        ],
+      },
+      {
+        title: "The Challenge",
+        paragraphs: [
+          [
+            {
+              text: "Each system handled job information differently, so recruiters were often updating the same vacancy by hand across Bullhorn, SEEK and the website.",
+            },
+          ],
+          [
+            {
+              text: "Public-facing information, such as job titles and locations, could also differ from the internal information stored in Bullhorn. That created unnecessary administration, raised the chance of inconsistencies, and made publishing more complicated than it needed to be.",
+            },
+          ],
+        ],
+      },
+      {
+        title: "Our Approach",
+        paragraphs: [
+          [
+            {
+              text: "23Labs mapped the existing workflow between Bullhorn, SEEK and the website, to see where information was being duplicated and where the process could be simplified. Huntress kept the systems it already used.",
+            },
+          ],
+        ],
+        steps: [
+          {
+            title: "Map the publishing path",
+            body: "Follow a vacancy from Bullhorn through to SEEK and the website, including where staff re-entered the same details.",
+          },
+          {
+            title: "Separate internal and public information",
+            body: "Keep the internal Bullhorn record structured for the team, and hold candidate-facing titles, locations and other public details in their own fields.",
+          },
+          {
+            title: "Prepare each public channel from that structure",
+            body: "Use the same structured vacancy data for SEEK and the WordPress website, so staff are not maintaining a separate version for each.",
+          },
+        ],
+      },
+      {
+        title: "The Solution",
+        paragraphs: [
+          [
+            {
+              text: "23Labs introduced dedicated public-facing fields for job titles, locations and other candidate-facing details. Huntress can keep internal Bullhorn records structured for the way the team works, and control what candidates see publicly.",
+            },
+          ],
+          [
+            {
+              text: "Bullhorn remains the central system for vacancies and internal recruitment information. The workflow starts from the data the team is already managing there. SEEK listings and the WordPress website are then prepared from that same structure.",
+            },
+          ],
+        ],
+        list: [
+          "Bullhorn stays the system of record for vacancies and internal recruitment information.",
+          "Public-facing fields hold candidate-facing titles, locations and other public details.",
+          "SEEK listings are prepared from that structure, without a separate rewrite.",
+          "The WordPress website uses the same structured vacancy data.",
+          "Internal records and the public job information can differ where they need to.",
+        ],
+      },
+      {
+        title: "How It Works",
+        paragraphs: [
+          [
+            {
+              text: "Before the change, a vacancy could need a separate update in Bullhorn, on SEEK and on the website. A public title or location could drift away from the internal record.",
+            },
+          ],
+          [
+            {
+              text: "Information is now managed from Bullhorn and prepared for each public channel:",
+            },
+          ],
+        ],
+        steps: [
+          {
+            title: "Bullhorn",
+            body: "The team manages the vacancy and the internal recruitment information in Bullhorn. The workflow starts from that record.",
+          },
+          {
+            title: "Public job fields",
+            body: "Job titles, locations and other candidate-facing details sit in separate public-facing fields, so the internal record can stay structured for operations.",
+          },
+          {
+            title: "SEEK",
+            body: "The relevant vacancy information is prepared for SEEK from that structure, without staff rewriting or maintaining another version.",
+          },
+          {
+            title: "Website",
+            body: "The WordPress site uses the same structured vacancy data, so the published job stays aligned with the SEEK listing and the duplicate administration is reduced.",
+          },
+        ],
+      },
+      {
+        title: "The Outcome",
+        paragraphs: [
+          [
+            {
+              text: "Huntress has a cleaner, more connected way to publish vacancies. The team has better control over public job information and still uses Bullhorn as the core recruitment system.",
+            },
+          ],
+          [
+            {
+              text: "Duplicate administration is reduced. Titles, locations and vacancy information are more consistent on the channels candidates see. The same path is used as more vacancies are published, which gives the team a stronger foundation for managing a larger number of jobs across those channels.",
+            },
+          ],
+          [
+            {
+              text: "Bullhorn stays in place, and the recruitment team keeps working in that system day to day. The change is in how information moves between the systems Huntress already relies on.",
+            },
+          ],
+        ],
+        list: [
+          "Less duplicate administration across Bullhorn, SEEK and the website.",
+          "More consistent job titles, locations and vacancy information on public channels.",
+          "Clearer control of what candidates see, separate from the internal Bullhorn record.",
+          "A publishing process that is easier to run as the number of vacancies grows.",
+          "Bullhorn remains the core recruitment system.",
+        ],
       },
     ],
   },
@@ -554,7 +646,7 @@ export const caseStudies: CaseStudy[] = [
     },
     category: "Website Rebuild",
     industry: "Counselling",
-    location: "Auckland, New Zealand",
+    location: "Auckland, New Zealand, delivered remotely",
     services: ["Web Development", "Brand-led Design", "Multi-page Build"],
     headline: "A calm, considered website rebuild for Lily Olsen Counselling",
     summary:

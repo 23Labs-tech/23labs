@@ -2,9 +2,10 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/site/JsonLd";
-import { getAllPosts, getPostBySlug } from "@/lib/blog";
+import { blogAuthor, getAllPosts, getPostBySlug } from "@/lib/blog";
 import { absoluteUrl, createMetadata } from "@/lib/seo";
 import { breadcrumbList, organizationId } from "@/lib/schema";
+import { getBaseUrl } from "@/lib/site";
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
@@ -58,6 +59,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               <span>{post.readingTime}</span>
               <span>{post.author}</span>
             </div>
+            <p className="blog-author-bio">{blogAuthor.bio}</p>
             <h1>{post.title}</h1>
             <p>{post.description}</p>
             <div className="tag-list">
@@ -87,7 +89,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           "@context": "https://schema.org",
           "@graph": [
             {
-              "@type": "Article",
+              "@type": "BlogPosting",
               "@id": `${absoluteUrl(`/blog/${post.slug}`)}#article`,
               headline: post.title,
               description: post.description,
@@ -96,8 +98,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               image: absoluteUrl(post.featuredImage),
               author: {
                 "@type": "Organization",
-                name: post.author,
-                "@id": organizationId(),
+                name: blogAuthor.name,
+                description: blogAuthor.bio,
+                url: `${getBaseUrl()}/`,
+                parentOrganization: { "@id": organizationId() },
               },
               publisher: { "@id": organizationId() },
               articleSection: post.categories,

@@ -154,6 +154,7 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
         <div className="wrap cta-band reveal">
           <h2>{serviceFinalCta.title}</h2>
           <p>{serviceFinalCta.body}</p>
+          <p>{serviceFinalCta.pricing}</p>
           <div className="hero-actions">
             <ButtonLink href="/contact">{serviceFinalCta.label}</ButtonLink>
           </div>

@@ -50,15 +50,14 @@ title: "Post title"
 description: "Short SEO description"
 date: "2026-06-01"
 updated: "2026-06-10"
-author: "23Labs"
+author: "23Labs Team"
 categories: "Automation, Operations"
 featuredImage: "/23labs-brand-mark.png"
 imageAlt: "Descriptive featured image alt text"
 ---
 ```
 
-The filename becomes the URL slug, for example `content/blog/example-post.md` becomes `/blog/example-post`.
-Use lowercase, hyphenated filenames such as `automation-checklist.md`.
+The filename becomes the URL slug. Use lowercase, hyphenated filenames such as `automation-checklist.md`, which is served at `/blog/automation-checklist`.
 The `updated` field is optional and is used for article metadata and the sitemap when present.
 
 ## Production Checks

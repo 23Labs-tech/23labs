@@ -46,6 +46,8 @@ export const serviceApproachSteps = [
 export const serviceFinalCta = {
   title: "Let's build something that works for your business.",
   body: "Tell us what you're looking to improve, automate or build. We'll help you explore the right solution for your business.",
+  pricing:
+    "Custom software and automation projects typically start from A$2,500. Final pricing depends on the systems involved, complexity and scope. For a larger or more complex project, book an initial consultation.",
   label: "Start a Conversation",
 };
 

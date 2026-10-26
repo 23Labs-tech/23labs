@@ -4,7 +4,7 @@ export const siteConfig = {
   url: "https://www.23labs.co",
   email: "hello@23labs.co",
   description:
-    "23Labs is a Melbourne software and automation company helping businesses across Australia and New Zealand replace manual, disconnected processes with custom software, automation and system integrations.",
+    "23Labs serves clients across Australia and New Zealand remotely from Melbourne, building custom software, automation and system integrations.",
   tagline: "Automation, software and connected systems for growing businesses.",
   location: "Melbourne, Australia",
   socials: {

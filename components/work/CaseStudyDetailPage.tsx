@@ -2,10 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { IndustryIcon } from "@/components/industries/IndustryIcon";
 import { JsonLd } from "@/components/site/JsonLd";
-import type { CaseStudy } from "@/lib/caseStudies";
+import type { CaseStudy, CaseStudyCopyPart, CaseStudySection } from "@/lib/caseStudies";
 import { caseStudiesCta, caseStudyServiceHrefs } from "@/lib/caseStudies";
-import { absoluteUrl } from "@/lib/seo";
-import { breadcrumbList, organizationId } from "@/lib/schema";
+import { articleJsonLd, breadcrumbList } from "@/lib/schema";
 
 function SystemIcon({ icon }: { icon: string }) {
   if (icon === "wordpress") {
@@ -20,7 +19,7 @@ function SystemIcon({ icon }: { icon: string }) {
   return <IndustryIcon icon={icon} className="svc-ico" />;
 }
 
-function SectionIntro({ title }: { eyebrow: string; title: string }) {
+function SectionIntro({ title }: { title: string }) {
   return (
     <div className="reveal">
       <h2 className="case-section-title">{title}</h2>
@@ -28,68 +27,168 @@ function SectionIntro({ title }: { eyebrow: string; title: string }) {
   );
 }
 
-export function CaseStudyDetailPage({ caseStudy }: { caseStudy: CaseStudy }) {
+function CopyParagraph({ parts }: { parts: CaseStudyCopyPart[] }) {
   return (
-    <div className="case-detail">
-      <header className="svc-hero">
-        <div className="wrap svc-hero-in">
-          <div className="reveal in svc-hero-copy">
-            <div className="mono">
-              <Link href="/work" style={{ color: "inherit" }}>
-                Case Studies
-              </Link>{" "}
-              / {caseStudy.name}
+    <p>
+      {parts.map((part, index) =>
+        part.href ? (
+          <Link href={part.href} key={`${part.href}-${index}`}>
+            {part.text}
+          </Link>
+        ) : (
+          <span key={index}>{part.text}</span>
+        )
+      )}
+    </p>
+  );
+}
+
+function CaseStudyHero({ caseStudy }: { caseStudy: CaseStudy }) {
+  return (
+    <header className="svc-hero">
+      <div className="wrap svc-hero-in">
+        <div className="reveal in svc-hero-copy">
+          <div className="mono">
+            <Link href="/work" style={{ color: "inherit" }}>
+              Case Studies
+            </Link>{" "}
+            / {caseStudy.name}
+          </div>
+          {caseStudy.logo?.contain ? (
+            <div className="case-hero-logo">
+              <Image src={caseStudy.logo.src} alt={caseStudy.logo.alt} fill sizes="150px" />
             </div>
-            {caseStudy.logo?.contain ? (
-              <div className="case-hero-logo">
-                <Image src={caseStudy.logo.src} alt={caseStudy.logo.alt} fill sizes="150px" />
+          ) : null}
+          <h1>{caseStudy.headline}</h1>
+          <p className="lead">{caseStudy.summary}</p>
+          <div className="case-hero-meta">
+            {caseStudy.industry ? (
+              <div className="case-hero-meta-item">
+                <span className="mono">Industry</span>
+                <strong>{caseStudy.industry}</strong>
               </div>
             ) : null}
-            <h1>{caseStudy.headline}</h1>
-            <p className="lead">{caseStudy.summary}</p>
-            <div className="case-hero-meta">
-              {caseStudy.industry ? (
-                <div className="case-hero-meta-item">
-                  <span className="mono">Industry</span>
-                  <strong>{caseStudy.industry}</strong>
-                </div>
-              ) : null}
-              {caseStudy.location ? (
-                <div className="case-hero-meta-item">
-                  <span className="mono">Location</span>
-                  <strong>{caseStudy.location}</strong>
-                </div>
-              ) : null}
+            {caseStudy.location ? (
               <div className="case-hero-meta-item">
-                <span className="mono">Services Provided</span>
-                {caseStudy.services.map((service) => {
-                  const href = caseStudyServiceHrefs[service];
-                  return href ? (
-                    <Link href={href} className="case-service-link" key={service}>
-                      {service}
-                    </Link>
-                  ) : (
-                    <strong key={service}>{service}</strong>
-                  );
-                })}
+                <span className="mono">Location</span>
+                <strong>{caseStudy.location}</strong>
               </div>
+            ) : null}
+            <div className="case-hero-meta-item">
+              <span className="mono">Services Provided</span>
+              {caseStudy.services.map((service) => {
+                const href = caseStudyServiceHrefs[service];
+                return href ? (
+                  <Link href={href} className="case-service-link" key={service}>
+                    {service}
+                  </Link>
+                ) : (
+                  <strong key={service}>{service}</strong>
+                );
+              })}
             </div>
           </div>
-          <div className="reveal in svc-hero-media">
+        </div>
+        <div className="reveal in svc-hero-media">
+          <Image
+            src={caseStudy.heroImage.src}
+            alt={caseStudy.heroImage.alt}
+            fill
+            preload
+            sizes="(max-width: 900px) 100vw, 50vw"
+          />
+        </div>
+      </div>
+    </header>
+  );
+}
+
+function NarrativeSection({
+  section,
+  caseStudy,
+  first = false,
+}: {
+  section: CaseStudySection;
+  caseStudy: CaseStudy;
+  first?: boolean;
+}) {
+  const showSupportingImage = section.title === "The Solution" && caseStudy.supportingImage;
+
+  return (
+    <section className={first ? "sec no-top" : "sec"}>
+      <div className="wrap">
+        <SectionIntro title={section.title} />
+        <div className="text-block reveal">
+          {section.paragraphs?.map((paragraph, index) => (
+            <CopyParagraph parts={paragraph} key={`${section.title}-p-${index}`} />
+          ))}
+          {section.list?.length ? (
+            <ul>
+              {section.list.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          ) : null}
+          {section.steps?.length ? (
+            <ol className="cs-steps">
+              {section.steps.map((step) => (
+                <li key={step.title}>
+                  <strong>{step.title}.</strong> {step.body}
+                </li>
+              ))}
+            </ol>
+          ) : null}
+        </div>
+        {showSupportingImage && caseStudy.supportingImage ? (
+          <div className="cs-supporting-image reveal">
             <Image
-              src={caseStudy.heroImage.src}
-              alt={caseStudy.heroImage.alt}
+              src={caseStudy.supportingImage.src}
+              alt={caseStudy.supportingImage.alt}
               fill
-              preload
-              sizes="(max-width: 900px) 100vw, 50vw"
+              sizes="(max-width: 900px) 100vw, 1100px"
             />
           </div>
-        </div>
-      </header>
+        ) : null}
+      </div>
+    </section>
+  );
+}
 
+function NarrativeBody({ caseStudy }: { caseStudy: CaseStudy }) {
+  const cta = caseStudy.cta ?? {
+    title: "Closing CTA",
+    body: caseStudiesCta.body,
+    label: caseStudiesCta.label,
+  };
+
+  return (
+    <>
+      {caseStudy.sections?.map((section, index) => (
+        <NarrativeSection section={section} caseStudy={caseStudy} first={index === 0} key={section.title} />
+      ))}
+      <section className="sec" id="closing-cta">
+        <div className="wrap cs-closing">
+          <SectionIntro title={cta.title} />
+          <div className="text-block reveal">
+            <p>{cta.body}</p>
+          </div>
+          <div className="hero-actions reveal">
+            <Link href="/contact" className="btn btn-primary">
+              {cta.label ?? caseStudiesCta.label} <span className="btn-arrow" aria-hidden="true">{"→"}</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function LegacyBody({ caseStudy }: { caseStudy: CaseStudy }) {
+  return (
+    <>
       <section className="sec no-top">
         <div className="wrap">
-          <SectionIntro eyebrow="The challenge" title="The problem before 23Labs" />
+          <SectionIntro title="The problem before 23Labs" />
           <div className="text-block reveal">
             <p>{caseStudy.challenge}</p>
           </div>
@@ -98,7 +197,7 @@ export function CaseStudyDetailPage({ caseStudy }: { caseStudy: CaseStudy }) {
 
       <section className="sec">
         <div className="wrap">
-          <SectionIntro eyebrow="The solution" title="What 23Labs built" />
+          <SectionIntro title="What 23Labs built" />
           <div className="text-block reveal">
             <p>{caseStudy.solution}</p>
           </div>
@@ -140,44 +239,36 @@ export function CaseStudyDetailPage({ caseStudy }: { caseStudy: CaseStudy }) {
 
       <section className="sec">
         <div className="wrap">
-          <SectionIntro eyebrow="The result" title="What changed" />
+          <SectionIntro title="What changed" />
           <div className="text-block reveal">
             <p>{caseStudy.result}</p>
           </div>
         </div>
       </section>
 
-      <section className="sec">
-        <div className="wrap">
-          <SectionIntro eyebrow="Key outcomes" title={`What changed for ${caseStudy.name}`} />
-          <div className="cs-outcomes-text reveal">
-            {caseStudy.outcomes.map((item) => (
-              <div className="cs-outcome-item" key={item.title}>
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-              </div>
-            ))}
+      {caseStudy.outcomes?.length ? (
+        <section className="sec">
+          <div className="wrap">
+            <SectionIntro title={`What changed for ${caseStudy.name}`} />
+            <div className="cs-outcomes-text reveal">
+              {caseStudy.outcomes.map((item) => (
+                <div className="cs-outcome-item" key={item.title}>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </div>
+              ))}
+            </div>
+            {caseStudy.outcomesNote ? <p className="cs-note reveal">{caseStudy.outcomesNote}</p> : null}
           </div>
-          {caseStudy.outcomesNote ? <p className="cs-note reveal">{caseStudy.outcomesNote}</p> : null}
-        </div>
-      </section>
+        </section>
+      ) : null}
 
       {caseStudy.relatedCopy?.length ? (
         <section className="sec">
           <div className="wrap">
-            <SectionIntro eyebrow="Related" title="Where this fits" />
+            <SectionIntro title="Where this fits" />
             <div className="text-block reveal">
-              <p>
-                {caseStudy.relatedCopy.map((part, index) =>
-                  part.href ? (
-                    <Link href={part.href} key={`${part.href}-${index}`}>
-                      {part.text}
-                    </Link>
-                  ) : (
-                    <span key={index}>{part.text}</span>
-                  )
-                )}
-              </p>
+              <CopyParagraph parts={caseStudy.relatedCopy} />
             </div>
           </div>
         </section>
@@ -186,7 +277,7 @@ export function CaseStudyDetailPage({ caseStudy }: { caseStudy: CaseStudy }) {
       {caseStudy.systems ? (
         <section className="sec">
           <div className="wrap">
-            <SectionIntro eyebrow="Technology" title="Systems involved" />
+            <SectionIntro title="Systems involved" />
             <div className="system-badges reveal">
               {caseStudy.systems.map((system) => (
                 <span className="system-badge" key={system.label}>
@@ -210,23 +301,27 @@ export function CaseStudyDetailPage({ caseStudy }: { caseStudy: CaseStudy }) {
           </div>
         </div>
       </section>
+    </>
+  );
+}
 
+export function CaseStudyDetailPage({ caseStudy }: { caseStudy: CaseStudy }) {
+  return (
+    <div className="case-detail">
+      <CaseStudyHero caseStudy={caseStudy} />
+      {caseStudy.sections?.length ? <NarrativeBody caseStudy={caseStudy} /> : <LegacyBody caseStudy={caseStudy} />}
       <JsonLd
         data={{
           "@context": "https://schema.org",
           "@graph": [
-            {
-              "@type": "Article",
+            articleJsonLd({
               headline: caseStudy.headline,
               description: caseStudy.description,
               datePublished: caseStudy.date,
-              image: absoluteUrl(caseStudy.heroImage.src),
-              author: { "@id": organizationId() },
-              publisher: { "@id": organizationId() },
+              image: caseStudy.heroImage.src,
               about: caseStudy.name,
-              mainEntityOfPage: absoluteUrl(`/case-studies/${caseStudy.slug}`),
-              inLanguage: "en-AU",
-            },
+              path: `/case-studies/${caseStudy.slug}`,
+            }),
             breadcrumbList([
               { name: "Home", path: "/" },
               { name: "Case Studies", path: "/work" },

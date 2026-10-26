@@ -60,6 +60,28 @@ export function breadcrumbList(items: { name: string; path: string }[]) {
   };
 }
 
+export function articleJsonLd(article: {
+  headline: string;
+  description: string;
+  datePublished: string;
+  image?: string;
+  about: string;
+  path: string;
+}) {
+  return {
+    "@type": "Article",
+    headline: article.headline,
+    description: article.description,
+    datePublished: article.datePublished,
+    ...(article.image ? { image: absoluteUrl(article.image) } : {}),
+    author: { "@id": organizationId() },
+    publisher: { "@id": organizationId() },
+    about: article.about,
+    mainEntityOfPage: absoluteUrl(article.path),
+    inLanguage: "en-AU",
+  };
+}
+
 export function serviceJsonLd(service: { name: string; description: string; path: string }) {
   return {
     "@type": "Service",

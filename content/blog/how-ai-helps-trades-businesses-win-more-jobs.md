@@ -1,6 +1,7 @@
 ---
 title: "How AI Can Help Trades and Field Service Businesses Win More Jobs"
-description: "Discover how AI automation helps trades and field service businesses capture more leads, reduce missed calls, automate follow-ups, and win more jobs."
+seoTitle: "AI for Trades and Field Service Businesses | 23Labs"
+description: "How AI automation helps trades and field service businesses capture more leads, reduce missed calls and follow up without another person chasing."
 date: "2026-08-04"
 updated: "2026-08-04"
 author: "23Labs"
@@ -206,4 +207,4 @@ The question is whether every opportunity is being handled as efficiently as pos
 
 23Labs helps trades and field service businesses streamline operations, automate repetitive tasks, and ensure no opportunity slips through the cracks.
 
-Explore our [AI automation services](/services/ai-agents), learn about [service business automation](/services/business-process-automation), or [book a free workflow review](/contact) to discover how AI automation can help your business win more jobs while reducing administrative workload.
+See how we [use AI inside an existing workflow](/services/ai-workflow-automation) and how we [automate follow-up for a service business](/services/business-process-automation), or [talk to us about the process](/contact).

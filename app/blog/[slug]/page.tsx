@@ -4,11 +4,13 @@ import type { Metadata } from "next";
 import { JsonLd } from "@/components/site/JsonLd";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
 import { absoluteUrl, createMetadata } from "@/lib/seo";
-import { siteConfig } from "@/lib/site";
+import { breadcrumbList, organizationId } from "@/lib/schema";
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
 };
+
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
@@ -20,7 +22,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   if (!post) return createMetadata({ title: "Blog post", path: "/blog" });
 
   return createMetadata({
-    title: post.title,
+    absoluteTitle: post.seoTitle || `${post.title} | 23Labs`,
     description: post.description,
     path: `/blog/${post.slug}`,
     image: post.featuredImage,
@@ -70,7 +72,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               alt={post.imageAlt}
               width={1200}
               height={640}
-              priority
+              preload
+              sizes="(max-width: 900px) 100vw, 1100px"
               className="blog-post-image"
             />
           </div>
@@ -84,51 +87,28 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           "@context": "https://schema.org",
           "@graph": [
             {
-              "@type": "BlogPosting",
+              "@type": "Article",
+              "@id": `${absoluteUrl(`/blog/${post.slug}`)}#article`,
               headline: post.title,
               description: post.description,
               datePublished: post.date,
               dateModified: post.updated || post.date,
+              image: absoluteUrl(post.featuredImage),
               author: {
                 "@type": "Organization",
                 name: post.author,
+                "@id": organizationId(),
               },
-              publisher: {
-                "@type": "Organization",
-                name: siteConfig.name,
-              },
-              image: {
-                "@type": "ImageObject",
-                url: absoluteUrl(post.featuredImage),
-                caption: post.imageAlt,
-              },
+              publisher: { "@id": organizationId() },
               articleSection: post.categories,
-              keywords: post.categories.join(", "),
               mainEntityOfPage: absoluteUrl(`/blog/${post.slug}`),
+              inLanguage: "en-AU",
             },
-            {
-              "@type": "BreadcrumbList",
-              itemListElement: [
-                {
-                  "@type": "ListItem",
-                  position: 1,
-                  name: "Home",
-                  item: absoluteUrl("/"),
-                },
-                {
-                  "@type": "ListItem",
-                  position: 2,
-                  name: "Blog",
-                  item: absoluteUrl("/blog"),
-                },
-                {
-                  "@type": "ListItem",
-                  position: 3,
-                  name: post.title,
-                  item: absoluteUrl(`/blog/${post.slug}`),
-                },
-              ],
-            },
+            breadcrumbList([
+              { name: "Home", path: "/" },
+              { name: "Blog", path: "/blog" },
+              { name: post.title, path: `/blog/${post.slug}` },
+            ]),
           ],
         }}
       />

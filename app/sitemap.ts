@@ -7,34 +7,28 @@ import { getBaseUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = getBaseUrl();
-  const servicePaths = serviceLandingPages.map((service) => service.href);
-  const staticRoutes = [
+  const staticPaths = [
     "",
     "/about",
-    ...servicePaths,
+    ...serviceLandingPages.map((service) => service.href),
     "/work",
     "/contact",
     "/blog",
     ...industryRoutePaths,
-  ].map((path) => ({
-    url: `${baseUrl}${path}`,
-    lastModified: new Date(),
-    changeFrequency: path === "" ? "weekly" : "monthly",
-    priority: path === "" ? 1 : 0.8,
-  })) satisfies MetadataRoute.Sitemap;
+  ];
+
+  const staticRoutes = staticPaths.map((path) => ({
+    url: `${baseUrl}${path || "/"}`,
+  }));
 
   const blogRoutes = getAllPosts().map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.updated || post.date),
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
+    lastModified: post.updated || post.date,
   }));
 
   const caseStudyRoutes = getAllCaseStudies().map((caseStudy) => ({
     url: `${baseUrl}/case-studies/${caseStudy.slug}`,
-    lastModified: new Date(caseStudy.date),
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
+    lastModified: caseStudy.date,
   }));
 
   return [...staticRoutes, ...blogRoutes, ...caseStudyRoutes];

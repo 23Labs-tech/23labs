@@ -27,6 +27,16 @@ export type CaseStudy = {
   systems?: CaseStudySystem[];
   metadataTitle: string;
   description: string;
+  relatedCopy?: { text: string; href?: string }[];
+};
+
+export const caseStudyServiceHrefs: Record<string, string> = {
+  "System Integration": "/services/system-integrations",
+  "Workflow Automation": "/services/business-process-automation",
+  "Website Integration": "/services/system-integrations",
+  "Custom Development": "/services/custom-software-development",
+  "Data Integration": "/services/system-integrations",
+  Automation: "/services/business-process-automation",
 };
 
 export const caseStudiesCta = {
@@ -49,7 +59,7 @@ export const caseStudies: CaseStudy[] = [
     industry: "Recruitment",
     location: "New Zealand",
     services: ["System Integration", "Workflow Automation", "Website Integration", "Custom Development"],
-    headline: "How Huntress Recruitment connected Bullhorn, SEEK and its website",
+    headline: "Bullhorn, SEEK and Website Integration for Huntress Recruitment",
     summary:
       "23Labs helped Huntress simplify how job information moved between its recruitment systems and public website, reducing repetitive administration and improving consistency.",
     heroImage: {
@@ -116,9 +126,16 @@ export const caseStudies: CaseStudy[] = [
       { label: "SEEK", icon: "eye" },
       { label: "WordPress", icon: "wordpress" },
     ],
-    metadataTitle: "Huntress Recruitment Case Study | 23Labs",
+    metadataTitle: "Bullhorn & SEEK Integration: Huntress Recruitment | 23Labs",
     description:
-      "How 23Labs helped Huntress Recruitment connect Bullhorn, SEEK and its website, reducing duplicate admin and improving consistency across platforms.",
+      "How 23Labs connected Bullhorn, SEEK and a WordPress site for NZ firm Huntress Recruitment, cutting duplicate job admin and keeping public job data consistent.",
+    relatedCopy: [
+      { text: "This is " },
+      { text: "systems integration work", href: "/services/system-integrations" },
+      {
+        text: ": Bullhorn stays the system of record, and the public job fields are prepared for SEEK and the website without another round of retyping.",
+      },
+    ],
   },
   {
     slug: "corit-tech",
@@ -131,7 +148,7 @@ export const caseStudies: CaseStudy[] = [
     category: "Onboarding Automation",
     industry: "IT Services",
     services: ["AI Automation", "Data Integration"],
-    headline: "How CorIT Tech automated client onboarding across its tools",
+    headline: "Client Onboarding Automation for CorIT Tech",
     summary:
       "23Labs automated CorIT Tech's onboarding workflow, syncing data across their CRM and project tools the moment a new client signs on.",
     heroImage: {
@@ -166,9 +183,16 @@ export const caseStudies: CaseStudy[] = [
       { title: "Fewer manual errors", body: "Automating the handoff removed a common source of mistakes in the onboarding process." },
       { title: "A more scalable process", body: "Onboarding keeps working smoothly as client volume grows." },
     ],
-    metadataTitle: "CorIT Tech Case Study | 23Labs",
+    metadataTitle: "Client Onboarding Automation for CorIT Tech | 23Labs",
     description:
-      "How 23Labs automated CorIT Tech's client onboarding, syncing data across their CRM and project tools and saving 10+ hours a month.",
+      "How 23Labs automated CorIT Tech's client onboarding so new-client data flows between CRM, accounting and project tools without manual re-entry.",
+    relatedCopy: [
+      { text: "The useful change was " },
+      { text: "taking the onboarding steps off the team's hands", href: "/services/business-process-automation" },
+      { text: ", so a new client was not re-entered into the CRM, accounting and project tools. CorIT is an IT services firm, which is the same kind of work described on the " },
+      { text: "professional services page", href: "/professional-services" },
+      { text: "." },
+    ],
   },
   {
     slug: "first-national-real-estate",
@@ -181,7 +205,7 @@ export const caseStudies: CaseStudy[] = [
     category: "Workflow Automation",
     industry: "Real Estate",
     services: ["Automation", "Customer Experience"],
-    headline: "Connecting enquiries and property records for First National Real Estate",
+    headline: "Enquiry-to-Property-Record Automation for First National Real Estate",
     summary:
       "23Labs automated the handoffs between customer enquiries and property records, reducing repetitive admin for the team.",
     heroImage: {
@@ -216,9 +240,16 @@ export const caseStudies: CaseStudy[] = [
       { title: "Better operational visibility", body: "Common customer touchpoints are easier to track across the team." },
       { title: "A more structured workflow", body: "Categorisation and reporting happen as part of the process, not after it." },
     ],
-    metadataTitle: "First National Real Estate Case Study | 23Labs",
+    metadataTitle: "Real Estate Enquiry Automation for First National | 23Labs",
     description:
-      "How 23Labs automated the handoffs between customer enquiries and property records for First National Real Estate.",
+      "How 23Labs automated the handoff from customer enquiries to property records for a First National Real Estate office, reducing manual follow-up.",
+    relatedCopy: [
+      { text: "The enquiry-to-record handoff is the sort of " },
+      { text: "repetitive admin we automate", href: "/services/business-process-automation" },
+      { text: ". More of the operational context for agencies is on the " },
+      { text: "real estate page", href: "/real-estate" },
+      { text: "." },
+    ],
   },
   {
     slug: "lily-olsen-counselling",
@@ -260,9 +291,16 @@ export const caseStudies: CaseStudy[] = [
       { title: "Calm, considered design", body: "A sage and ivory palette and single typeface keep the experience unhurried." },
       { title: "Easy to keep updated", body: "Built so a non-technical owner can manage it going forward." },
     ],
-    metadataTitle: "Lily Olsen Counselling Case Study | 23Labs",
+    metadataTitle: "Website Rebuild for Auckland Counselling Practice | 23Labs",
     description:
-      "How 23Labs rebuilt Lily Olsen Counselling's website across four pages with a calm, considered design and a clear path to booking.",
+      "A four-page website rebuild for Auckland practice Lily Olsen Counselling, with a clear booking path and a layout a non-technical owner can update.",
+    relatedCopy: [
+      {
+        text: "This was a website rebuild for a practice in Auckland, New Zealand. Where the need is an internal platform or a portal rather than a marketing site, that work is ",
+      },
+      { text: "software built around how the business operates", href: "/services/custom-software-development" },
+      { text: "." },
+    ],
   },
 ];
 

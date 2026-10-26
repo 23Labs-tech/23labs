@@ -1,6 +1,7 @@
 ---
 title: "The Hidden Cost of Tools That Don't Talk to Each Other"
-description: "Disconnected business tools create hidden costs through manual data entry, duplicated work, missed follow-ups and poor visibility. Learn how integrations and automation can fix it."
+seoTitle: "When Business Tools Do Not Talk to Each Other | 23Labs"
+description: "Disconnected tools create hidden costs through manual data entry, duplicated work, missed follow-ups and poor visibility across the business."
 date: "2026-09-15"
 updated: "2026-09-15"
 author: "23Labs"
@@ -287,6 +288,8 @@ That is when software starts doing what it was meant to do.
 
 ## CTA
 
-23Labs helps businesses [connect their tools](/services/business-process-automation), [automate manual workflows](/services/business-process-automation) and build smarter systems that reduce admin.
+The [Huntress Recruitment project](/case-studies/huntress-recruitment) is one place this showed up: job information moved between Bullhorn, SEEK and the website instead of being kept in three places.
+
+23Labs helps businesses [connect the tools they already use](/services/system-integrations) and [automate the copying in between](/services/business-process-automation).
 
 If your team is spending too much time copying data, chasing updates or working across disconnected platforms, book a consultation and we'll help you find the highest-impact integration opportunities.

@@ -7,9 +7,11 @@ export type ServiceLandingPageData = {
   hero: {
     eyebrow: string;
     title: string;
+    subheading?: string;
     lead: string;
     image: { src: string; alt: string };
   };
+  proof?: { text: string; href?: string }[];
   problem: {
     intro: string;
     items: { title: string; description: string }[];
@@ -52,12 +54,13 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     slug: "business-process-automation",
     href: "/services/business-process-automation",
     navLabel: "Business Process Automation",
-    metadataTitle: "Business Process Automation Melbourne | 23Labs",
+    metadataTitle: "Business Process Automation Services Australia | 23Labs",
     description:
-      "We streamline repetitive tasks, manual processes and disconnected workflows, helping businesses improve efficiency, reduce errors and free up their teams to focus on higher-value work.",
+      "Automate quoting, onboarding, reporting, job allocation and data entry. We map the process first, then automate the steps your team repeats every day.",
     hero: {
       eyebrow: "Services / Business Process Automation",
-      title: "Automate the repetitive. Focus on what matters.",
+      title: "Business process automation that removes repetitive admin",
+      subheading: "Automate the repetitive. Focus on what matters.",
       lead:
         "Streamline business processes, eliminate repetitive manual work and connect the systems your team relies on. We build automation solutions that help your business operate more efficiently as it grows.",
       image: {
@@ -134,18 +137,26 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       "Automate invoice processing, approval workflows and financial reporting.",
       "Consolidate operational data from multiple sources into centralised reporting dashboards.",
     ],
-    relatedSlugs: ["ai-workflow-automation", "full-stack-software-development"],
+    relatedSlugs: ["ai-workflow-automation", "custom-software-development"],
+    proof: [
+      { text: "Two recent projects follow this pattern. " },
+      { text: "CorIT Tech's onboarding", href: "/case-studies/corit-tech" },
+      { text: " stopped new-client details being typed into every tool, and a " },
+      { text: "First National office", href: "/case-studies/first-national-real-estate" },
+      { text: " now passes enquiries through to the property record without someone chasing the handoff." },
+    ],
   },
   {
     slug: "ai-workflow-automation",
     href: "/services/ai-workflow-automation",
     navLabel: "AI Workflow Automation",
-    metadataTitle: "AI Workflow Automation Melbourne | 23Labs",
+    metadataTitle: "AI Workflow Automation for Business Processes | 23Labs",
     description:
-      "We integrate AI into everyday business workflows to automate document processing, data extraction, communications and complex tasks that traditionally require manual intervention.",
+      "Add AI to the steps where it actually helps: document processing, data extraction and classification inside workflows your team already runs.",
     hero: {
       eyebrow: "Services / AI Workflow Automation",
-      title: "Smarter workflows. Less manual work.",
+      title: "AI workflow automation for document-heavy and repetitive processes",
+      subheading: "Smarter workflows. Less manual work.",
       lead:
         "Bring AI into your everyday operations to automate information processing, document handling and complex business workflows. We build intelligent solutions that help your team work faster without adding unnecessary complexity.",
       image: {
@@ -225,15 +236,16 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     relatedSlugs: ["business-process-automation", "ai-agents"],
   },
   {
-    slug: "full-stack-software-development",
-    href: "/services/full-stack-software-development",
-    navLabel: "Full-Stack Software Development",
-    metadataTitle: "Full-Stack Software Development Melbourne | 23Labs",
+    slug: "custom-software-development",
+    href: "/services/custom-software-development",
+    navLabel: "Custom Software Development",
+    metadataTitle: "Custom Software Development Australia | 23Labs",
     description:
-      "We design and develop custom software, SaaS platforms, internal tools and web applications tailored to your business, from initial concept through development, deployment and ongoing support.",
+      "Custom business software, internal platforms, client portals and dashboards, built around how your team works. Replace spreadsheets and outdated systems.",
     hero: {
-      eyebrow: "Services / Full-Stack Software Development",
-      title: "Software built around your business.",
+      eyebrow: "Services / Custom Software Development",
+      title: "Custom software development for growing businesses",
+      subheading: "Software built around your business.",
       lead:
         "From custom business applications to complete SaaS platforms, we design and develop software tailored to the way your business operates. Built to solve real problems, integrate with your existing systems and support your long-term growth.",
       image: {
@@ -284,9 +296,9 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
           },
         },
         {
-          title: "Web Applications & Customer Portals",
+          title: "Web Applications, Client and Staff Portals",
           description:
-            "Build customer-facing portals and web applications for managing accounts, requests and services online.",
+            "Build client and staff portals and web applications for managing accounts, requests and services online.",
           image: {
             src: "/site-images/photos/field-team-laptop-review.png",
             alt: "Two team members reviewing information together on a laptop",
@@ -309,18 +321,28 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       "Create customer portals for accessing services, submitting requests and managing accounts.",
       "Replace spreadsheet-based processes with a centralised custom business application.",
     ],
-    relatedSlugs: ["ai-agents", "business-process-automation"],
+    relatedSlugs: ["business-process-automation", "system-integrations"],
+    proof: [
+      { text: "On the Huntress Recruitment project we added " },
+      { text: "custom public-facing fields", href: "/case-studies/huntress-recruitment" },
+      { text: " so internal vacancy records and the website did not have to match word for word. " },
+      { text: "Lily Olsen Counselling", href: "/case-studies/lily-olsen-counselling" },
+      {
+        text: " was a four-page website rebuild for an Auckland practice, which is a different job from an internal platform.",
+      },
+    ],
   },
   {
     slug: "ai-agents",
     href: "/services/ai-agents",
     navLabel: "AI Agents",
-    metadataTitle: "AI Agents Melbourne | Custom Business AI Agents | 23Labs",
+    metadataTitle: "AI Agent Development for Business Operations | 23Labs",
     description:
-      "We build AI agents that can interact with business systems, retrieve information, execute tasks and support your team across customer service, administration and internal operations.",
+      "Custom AI agents that work inside your systems for support, sales and admin tasks, with clear limits and a person approving the steps that matter.",
     hero: {
       eyebrow: "Services / AI Agents",
-      title: "AI agents that work with your business.",
+      title: "Custom AI agents for support, sales and internal operations",
+      subheading: "AI agents that work with your business.",
       lead:
         "Go beyond simple chatbots with AI agents that can retrieve information, interact with business systems and carry out tasks across your operations. We design agents that support your team, streamline workflows and help your business get more done.",
       image: {
@@ -397,18 +419,19 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       "An administrative agent that retrieves records, prepares reports and performs authorised tasks within business systems.",
       "A sales support agent that researches prospects, prepares account summaries and updates CRM records with appropriate approval controls.",
     ],
-    relatedSlugs: ["ai-workflow-automation", "full-stack-software-development"],
+    relatedSlugs: ["ai-workflow-automation", "custom-software-development"],
   },
   {
     slug: "system-integrations",
     href: "/services/system-integrations",
     navLabel: "System Integrations",
-    metadataTitle: "System Integrations Melbourne | Connect Your Business Systems | 23Labs",
+    metadataTitle: "System Integration & API Development | 23Labs",
     description:
-      "We connect the CRM, accounting, operations and customer-facing platforms your business already relies on, so information moves between them automatically instead of being re-entered by hand.",
+      "Connect your CRM, accounting, job and website systems so data moves automatically. API integrations and custom connectors that end double entry.",
     hero: {
       eyebrow: "Services / System Integrations",
-      title: "Make your systems talk to each other.",
+      title: "System integrations and API development",
+      subheading: "Make your systems talk to each other.",
       lead:
         "Connect the CRM, accounting, operations and customer platforms your business already relies on, so information moves between them automatically instead of being copied by hand. We build integrations that hold up as the number of tools and the volume of data grows.",
       image: {
@@ -485,18 +508,26 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       "Keep inventory, pricing or customer data consistent across multiple connected platforms.",
       "Replace manual CSV exports and imports with an automated, real-time data connection.",
     ],
-    relatedSlugs: ["business-process-automation", "full-stack-software-development"],
+    relatedSlugs: ["business-process-automation", "custom-software-development"],
+    proof: [
+      { text: "The " },
+      { text: "Huntress Recruitment project", href: "/case-studies/huntress-recruitment" },
+      {
+        text: " connected Bullhorn, SEEK and the company website so recruiters were not keeping three copies of the same vacancy.",
+      },
+    ],
   },
   {
     slug: "ongoing-support",
     href: "/services/ongoing-support",
     navLabel: "Ongoing Support",
-    metadataTitle: "Ongoing Software & Automation Support Melbourne | 23Labs",
+    metadataTitle: "Ongoing Software Development & Support | 23Labs",
     description:
-      "We stay involved after launch, monitoring, refining and extending the automation, software and integrations we build so they keep working as your business changes.",
+      "Maintenance, feature development and improvements for your existing software, automations and integrations, so they keep working as the business changes.",
     hero: {
       eyebrow: "Services / Ongoing Support",
-      title: "Launch is the start, not the finish.",
+      title: "Ongoing software development and support",
+      subheading: "Launch is the start, not the finish.",
       lead:
         "Business needs change, teams grow and systems need attention long after the initial build. We stay involved after launch to monitor, refine and extend what we've built, so it keeps delivering value as your business changes.",
       image: {

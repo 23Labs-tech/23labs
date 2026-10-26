@@ -1,6 +1,7 @@
 ---
 title: "Buy vs Build: When Custom Software Actually Pays Off"
-description: "Should your business buy off-the-shelf software or build a custom system? Learn when custom software pays off, when it does not, and how to make the right decision."
+seoTitle: "Buy vs Build: When Custom Software Pays Off | 23Labs"
+description: "Should your business buy off-the-shelf software or build a custom system? A plain look at when a custom build pays off, and when it does not."
 date: "2026-09-29"
 updated: "2026-09-29"
 author: "23Labs"
@@ -282,6 +283,6 @@ It should help it move faster.
 
 ## CTA
 
-23Labs helps growing businesses decide whether to buy, [build custom software](/services/full-stack-software-development) or [automate](/services/business-process-automation) around their existing systems.
+23Labs helps growing businesses decide whether to buy, [build software around the workflow](/services/custom-software-development) or [automate the steps around the tools they already have](/services/business-process-automation).
 
 If your team is losing time to manual admin, disconnected tools or messy workflows, book a consultation and we'll help you find the most practical path forward.

@@ -1,6 +1,7 @@
 ---
 title: "Why Freight & Logistics Businesses Need Better Workflow Automation"
-description: "Freight and logistics teams can reduce manual data entry, improve visibility, and move faster with workflow automation and integrations."
+seoTitle: "Workflow Automation for Freight and Logistics | 23Labs"
+description: "How freight and logistics teams reduce manual data entry, improve visibility and move jobs faster with workflow automation and system integrations."
 date: "2026-09-08"
 updated: "2026-09-08"
 author: "23Labs"
@@ -93,7 +94,7 @@ The aim is to remove repetitive admin and create smoother movement between your 
 
 AI agents can also support logistics businesses by handling common enquiries, capturing job information and routing requests to the right person.
 
-For example, an AI agent could help answer simple customer questions, collect freight enquiry details, summarise inbound emails or prepare internal notes for your team.
+For example, an [AI agent](/services/ai-agents) could help answer simple customer questions, collect freight enquiry details, summarise inbound emails or prepare internal notes for your team.
 
 The best use of AI in logistics is not replacing staff. It is helping staff handle repetitive communication faster.
 
@@ -107,6 +108,6 @@ Workflow automation, custom software and system integrations can help logistics 
 
 ## CTA
 
-23Labs helps freight and logistics businesses [automate workflows](/services/business-process-automation), [connect systems](/services/business-process-automation) and reduce manual data entry.
+23Labs helps freight and logistics businesses [automate the repetitive jobs in the workflow](/services/business-process-automation) and [connect the systems that do not share data](/services/system-integrations). More of that context is on the [transport and logistics page](/freight-logistics).
 
 Book a consultation to explore where your operations can be improved.

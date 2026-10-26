@@ -8,7 +8,6 @@ const nextConfig: NextConfig = {
   },
   images: {
     formats: ["image/avif", "image/webp"],
-    unoptimized: true,
   },
   async redirects() {
     return [
@@ -29,17 +28,27 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/services/systems-integrations",
-        destination: "/services/business-process-automation",
+        destination: "/services/system-integrations",
         permanent: true,
       },
       {
-        source: "/services/custom-software-development",
-        destination: "/services/full-stack-software-development",
+        source: "/services/system-integration",
+        destination: "/services/system-integrations",
+        permanent: true,
+      },
+      {
+        source: "/services/api-integration",
+        destination: "/services/system-integrations",
+        permanent: true,
+      },
+      {
+        source: "/services/full-stack-software-development",
+        destination: "/services/custom-software-development",
         permanent: true,
       },
       {
         source: "/services/web-app-development",
-        destination: "/services/full-stack-software-development",
+        destination: "/services/custom-software-development",
         permanent: true,
       },
       {
@@ -50,6 +59,11 @@ const nextConfig: NextConfig = {
       {
         source: "/services",
         destination: "/#services",
+        permanent: true,
+      },
+      {
+        source: "/case-studies",
+        destination: "/work",
         permanent: true,
       },
     ];

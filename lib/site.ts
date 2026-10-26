@@ -1,10 +1,10 @@
 export const siteConfig = {
   name: "23Labs",
   legalName: "23Labs Technologies",
-  url: "https://23labs.co",
+  url: "https://www.23labs.co",
   email: "hello@23labs.co",
   description:
-    "23Labs is a Melbourne automation and software studio building business automation, custom software and connected systems for growing Australian businesses.",
+    "23Labs is a Melbourne software and automation company helping businesses across Australia and New Zealand replace manual, disconnected processes with custom software, automation and system integrations.",
   tagline: "Automation, software and connected systems for growing businesses.",
   location: "Melbourne, Australia",
   socials: {
@@ -13,6 +13,23 @@ export const siteConfig = {
   },
 };
 
+/**
+ * Absolute origin for canonicals, sitemap, Open Graph and JSON-LD.
+ * www is the primary host. The apex redirects to www in production.
+ * A stale NEXT_PUBLIC_SITE_URL of https://23labs.co is rewritten to www
+ * so preview hosts are left alone and the apex cannot republish canonicals.
+ */
 export function getBaseUrl() {
-  return process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || siteConfig.url;
+  const configured = process.env.NEXT_PUBLIC_SITE_URL?.trim() || siteConfig.url;
+  const raw = configured.replace(/\/$/, "");
+
+  try {
+    const url = new URL(raw);
+    if (url.hostname === "23labs.co") {
+      url.hostname = "www.23labs.co";
+    }
+    return url.origin;
+  } catch {
+    return siteConfig.url;
+  }
 }

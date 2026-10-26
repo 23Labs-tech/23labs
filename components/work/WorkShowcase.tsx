@@ -15,8 +15,6 @@ export function WorkShowcase() {
               alt={item.heroImage.alt}
               fill
               sizes="(max-width: 900px) 100vw, 50vw"
-              priority={index === 0}
-              loading={index === 0 ? undefined : "lazy"}
             />
           </div>
           <div className="work-feature-copy">

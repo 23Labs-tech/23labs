@@ -1,6 +1,6 @@
 # 23Labs Website
 
-Production Next.js website for 23labs.co.
+Production Next.js website for www.23labs.co.
 
 ## Stack
 
@@ -25,7 +25,7 @@ Open `http://localhost:3000`.
 Copy `.env.example` to `.env.local` and set:
 
 ```bash
-NEXT_PUBLIC_SITE_URL=https://23labs.co
+NEXT_PUBLIC_SITE_URL=https://www.23labs.co
 RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxxx
 CONTACT_TO_EMAIL=hello@23labs.co
 CONTACT_FROM_EMAIL=23Labs <hello@23labs.co>
@@ -33,6 +33,10 @@ CONTACT_FROM_EMAIL=23Labs <hello@23labs.co>
 
 `CONTACT_FROM_EMAIL` should use a sender domain verified in Resend before deploying to production.
 If `RESEND_API_KEY` is omitted in local development, form submissions validate successfully but email delivery is skipped.
+
+`NEXT_PUBLIC_GA_ID` overrides the GA4 measurement ID. When it is unset, the site loads `G-WW10V0N5G6`. Set the same value in Vercel so production does not depend on the code default. There is no cookie banner. A successful enquiry sends `generate_lead`. A click on `mailto:hello@23labs.co` sends `email_click`.
+
+The production site is served on `https://www.23labs.co`. If `NEXT_PUBLIC_SITE_URL` is set to the apex in Vercel, change it to `https://www.23labs.co`. The app also rewrites an apex value to www so canonicals stay on the primary host.
 
 ## Blog Publishing
 

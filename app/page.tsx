@@ -18,11 +18,11 @@ import { faqs } from "@/lib/data";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
-  absoluteTitle: "Automation & Custom Software Melbourne | 23Labs",
+  absoluteTitle: "Custom Software & Business Automation | 23Labs",
   description:
-    "23Labs is a Melbourne automation and software studio building business automation, custom software, AI workflows and system integrations for growing Australian businesses.",
+    "23Labs builds custom software, business automation and system integrations for Australian and NZ businesses still running on manual work and spreadsheets.",
   ogDescription:
-    "Business automation, custom software and connected systems designed to reduce manual work and help growing businesses operate better.",
+    "Custom software, business automation and system integrations for businesses still running on manual work and spreadsheets.",
   keywords: [
     "business automation Melbourne",
     "custom software development Melbourne",

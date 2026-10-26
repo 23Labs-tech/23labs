@@ -1,6 +1,7 @@
 ---
 title: "What a production-ready business website needs before launch"
-description: "A concise checklist for speed, search visibility, accessibility, forms, and maintainability before a new website goes live."
+seoTitle: "What a Business Website Needs Before Launch | 23Labs"
+description: "A practical checklist for speed, search visibility, accessibility, forms and how the site stays maintainable after a business website goes live."
 date: "2026-07-21"
 updated: "2026-07-21"
 author: "23Labs"
@@ -29,3 +30,5 @@ This protects the business from spam and gives visitors confidence that their en
 Good SEO foundations are practical: descriptive titles, useful descriptions, canonical URLs, Open Graph data, structured data, a sitemap, robots rules, and content that answers real customer questions.
 
 When those pieces are in place, every future page or article has a stronger baseline to build from.
+
+When the job is an internal platform or a portal rather than a marketing site, that sits with [software built around the business](/services/custom-software-development).

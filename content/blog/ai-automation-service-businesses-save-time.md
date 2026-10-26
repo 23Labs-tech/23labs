@@ -1,6 +1,7 @@
 ---
 title: "How AI Automation Helps Service Businesses Save 10+ Hours Per Week"
-description: "Discover how AI automation helps service businesses reduce admin, improve customer response times, and save 10+ hours every week."
+seoTitle: "AI Automation for Service Businesses | 23Labs"
+description: "How AI automation helps service businesses reduce repetitive admin and reply to customers faster, without adding another person to the team."
 date: "2026-08-25"
 updated: "2026-08-25"
 author: "23Labs"
@@ -183,4 +184,4 @@ The question is how many hours you're currently losing by not using it.
 
 23Labs helps service businesses streamline operations, eliminate repetitive admin, and implement practical AI solutions that save time and improve efficiency.
 
-Explore our [AI automation services](/services/ai-agents), learn how we approach [workflow automation](/services/business-process-automation), or [book a free workflow review](/contact) to discover where automation could save your business hours every week.
+See how we [use AI inside an existing workflow](/services/ai-workflow-automation), how we [automate the repetitive admin around it](/services/business-process-automation), or [talk to us about the process](/contact).

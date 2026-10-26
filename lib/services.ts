@@ -284,7 +284,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
           match: { name: "CorIT Tech" },
           label: "CorIT Tech",
           summary:
-            "CorIT Tech was transferring new-client information out of the CRM and into project records by hand. 23Labs automated that handoff so the relevant projects and tasks are created from the CRM, and the team is not retyping customer details. CorIT reported saving more than 10 hours of administrative work a month.",
+            "CorIT Tech was transferring new-client information out of the CRM and into project records by hand. 23Labs automated that handoff so the relevant projects and tasks are created from the CRM, and the team is not retyping customer details. CorIT reported saving more than 10 hours of administrative work a month. After the initial onboarding automation engagement, CorIT Tech developed an ongoing relationship with 23Labs and became a white-label partner.",
         },
         {
           match: { includes: "real estate" },
@@ -1437,7 +1437,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
         },
         {
           label: "Professional services",
-          body: "An onboarding workflow that is already running needs the next change when the firm adds a step. After the first automation, CorIT Tech continued working with 23Labs. That is the closest published example of the relationship this page describes.",
+          body: "An onboarding workflow that is already running needs the next change when the firm adds a step. After the initial onboarding automation engagement, CorIT Tech developed an ongoing relationship with 23Labs and became a white-label partner. That is the closest published example of the relationship this page describes.",
           links: [professionalServicesLink],
         },
       ],
@@ -1446,7 +1446,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       heading: "Published work",
       intro: [
         {
-          text: "After the onboarding workflow, CorIT Tech continued working with 23Labs. That is the shape of this service: the first build, then the changes that follow. We are not describing a response-time promise or a published retainer.",
+          text: "After the initial onboarding automation engagement, CorIT Tech developed an ongoing relationship with 23Labs and became a white-label partner. That is the shape of this service: the first build, then the changes that follow. We are not describing a response-time promise or a published retainer.",
         },
       ],
       studies: [
@@ -1454,7 +1454,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
           match: { name: "CorIT Tech" },
           label: "CorIT Tech",
           summary:
-            "The original work automated client onboarding between the CRM and project management tools. CorIT reported saving more than 10 hours of administrative work a month. The firm then kept working with 23Labs as the process continued.",
+            "The original work automated client onboarding between the CRM and project management tools. CorIT reported saving more than 10 hours of administrative work a month. After the initial onboarding automation engagement, CorIT Tech developed an ongoing relationship with 23Labs and became a white-label partner.",
         },
       ],
     },

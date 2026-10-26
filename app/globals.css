@@ -2491,8 +2491,36 @@ textarea:focus-visible {
 }
 
 .article-body {
-  padding: 56px 0 96px;
+  padding: 56px 0 8px;
   font-size: 17px;
+}
+
+.article-author {
+  margin: 36px 0 96px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+
+.article-author p {
+  margin: 0;
+}
+
+.article-author-kicker {
+  color: var(--ink-faint);
+  font-size: 13px;
+}
+
+.article-author-name {
+  margin: 6px 0 8px;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.article-author-bio {
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  line-height: 1.55;
 }
 
 .article-body h2 {

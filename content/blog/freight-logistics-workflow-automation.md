@@ -1,17 +1,17 @@
 ---
-title: "Why Freight & Logistics Businesses Need Better Workflow Automation"
-seoTitle: "Workflow Automation for Freight and Logistics | 23Labs"
-description: "How freight and logistics teams reduce manual data entry, improve visibility and move jobs faster with workflow automation and system integrations."
+title: "Why Transport & Logistics Businesses Need Better Workflow Automation"
+seoTitle: "Workflow Automation for Transport & Logistics | 23Labs"
+description: "How transport and logistics teams reduce manual data entry, improve visibility and move jobs faster with workflow automation and system integrations."
 date: "2026-09-08"
-updated: "2026-09-08"
-author: "23Labs"
-categories: "Freight & Logistics, Workflow Automation, Data Integration"
+updated: "2026-10-26"
+author: "23Labs Team"
+categories: "Transport & Logistics, Workflow Automation, Data Integration"
 image: "/site-images/tech-img-13.png"
 featuredImage: "/site-images/tech-img-13.png"
 imageAlt: "Connected glass links representing integrated freight and logistics workflows"
 ---
 
-Freight and logistics businesses rely on speed, accuracy and visibility.
+Transport and logistics businesses rely on speed, accuracy and visibility.
 
 Every booking, delivery, quote, update and document needs to move through the business without unnecessary delays. But for many logistics teams, too much work is still handled manually.
 
@@ -27,7 +27,7 @@ Reports take hours to prepare.
 
 The business may still get the work done, but the process becomes harder to manage as volume grows.
 
-That is where freight and logistics workflow automation can create a real advantage.
+That is where transport and logistics workflow automation can help.
 
 ## The Cost of Manual Data Entry
 
@@ -39,7 +39,7 @@ A freight booking might start in an email, then get entered into a spreadsheet, 
 
 That is not efficient.
 
-Automation and system integrations can move information between platforms automatically, reducing double handling and improving accuracy.
+Automation and system integrations can move information between platforms automatically, reducing double handling and improving accuracy. If two systems will not connect out of the box, [what to do when software does not integrate](/blog/business-software-does-not-integrate) sets out the options. The wider problem is in [the hidden cost of tools that do not talk to each other](/blog/disconnected-business-tools).
 
 ## Customers Expect Faster Updates
 
@@ -57,7 +57,7 @@ This improves the customer experience while reducing pressure on your team.
 
 When information sits across inboxes, spreadsheets, transport systems and accounting platforms, managers struggle to see the full picture.
 
-Custom dashboards can help bring important information into one place.
+Custom dashboards can help bring important information into one place. Whether that means buying a tool or building one is covered in [buy vs build](/blog/buy-vs-build-custom-software).
 
 This could include:
 
@@ -72,9 +72,9 @@ This could include:
 
 Better visibility helps teams make faster decisions and reduce the amount of time spent chasing updates.
 
-## What Can Be Automated in Freight and Logistics?
+## What Can Be Automated in Transport and Logistics?
 
-Freight and logistics businesses can automate many everyday workflows, including:
+Transport and logistics businesses can automate many everyday workflows, including:
 
 - Booking confirmations
 - Quote requests
@@ -100,14 +100,14 @@ The best use of AI in logistics is not replacing staff. It is helping staff hand
 
 ## Final Thoughts
 
-Freight and logistics businesses need systems that are accurate, fast and easy to manage.
+Transport and logistics businesses need systems that are accurate, fast and easy to manage.
 
 Manual processes may work at a small scale, but they quickly become a bottleneck as job volume increases.
 
 Workflow automation, custom software and system integrations can help logistics businesses reduce admin, improve visibility and deliver a better customer experience.
 
-## CTA
+## Tell us where the handoff breaks
 
-23Labs helps freight and logistics businesses [automate the repetitive jobs in the workflow](/services/business-process-automation) and [connect the systems that do not share data](/services/system-integrations). More of that context is on the [transport and logistics page](/freight-logistics).
+23Labs helps transport and logistics businesses [automate the repetitive jobs in the workflow](/services/business-process-automation) and [connect the systems that do not share data](/services/system-integrations). More of that context is on the [transport and logistics page](/freight-logistics).
 
-Book a consultation to explore where your operations can be improved.
+[Send us one booking or delivery workflow](/contact), from the first email to the invoice. We will say which step is worth taking off the team.

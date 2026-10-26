@@ -3,8 +3,8 @@ title: "Buy vs Build: When Custom Software Actually Pays Off"
 seoTitle: "Buy vs Build: When Custom Software Pays Off | 23Labs"
 description: "Should your business buy off-the-shelf software or build a custom system? A plain look at when a custom build pays off, and when it does not."
 date: "2026-09-29"
-updated: "2026-09-29"
-author: "23Labs"
+updated: "2026-10-26"
+author: "23Labs Team"
 categories: "Custom Software, Business Growth, Operations"
 image: "/site-images/tech-img-15.png"
 featuredImage: "/site-images/tech-img-15.png"
@@ -116,7 +116,7 @@ If your team spends hours every week on repetitive admin, custom software can re
 
 This might include data entry, reporting, follow-ups, document handling, job updates, lead routing or task creation.
 
-Saving 5 to 10 hours per week across a team can quickly become a meaningful return.
+How much time comes back depends on the task: how often it happens, and how long it takes, including the checking. Count that for one workflow before you decide to build. [Which processes to automate first](/blog/business-processes-to-automate-first) is a simple way to score the list.
 
 ### 2. Fewer Errors
 
@@ -200,17 +200,17 @@ If it is a basic support function, buying is usually better.
 
 Custom software can be a smart investment in situations like these:
 
-A construction company needs a better way to manage project documents, compliance tasks and job status reporting across multiple teams.
+A [construction](/construction) company needs a better way to manage project documents, compliance tasks and job status reporting across multiple teams.
 
-A freight business needs to reduce manual data entry between booking emails, transport systems, customer updates and accounting tools.
+A [transport and logistics](/freight-logistics) business needs to reduce manual data entry between booking emails, transport systems, customer updates and accounting tools.
 
-A professional services firm needs a custom client onboarding workflow that connects forms, documents, tasks, CRM updates and email follow-ups.
+A [professional services](/professional-services) firm needs a custom client onboarding workflow that connects forms, documents, tasks, CRM updates and email follow-ups.
 
-An allied health clinic needs an AI receptionist and booking workflow built around its services, phone system and practice management software.
+An [allied health](/allied-health) clinic needs an AI receptionist and booking workflow built around its services, phone system and practice management software.
 
-A real estate agency needs to automate enquiry handling, maintenance requests, tenant communication and internal task routing.
+A [real estate](/real-estate) agency needs to automate enquiry handling, maintenance requests, tenant communication and internal task routing.
 
-A trades business needs instant lead response, quote follow-up automation, job reminders and customer communication workflows.
+A [trades and field service](/trades-field-services) business needs fast lead response, quote follow-up, job reminders and customer communication workflows.
 
 In each case, the value comes from solving a real operational bottleneck.
 
@@ -237,7 +237,7 @@ For many businesses, the best answer is not strictly buy or build.
 
 It is a mix of both.
 
-You may already have good tools in place, but they do not connect properly. In that case, the best solution might be custom integrations and automation between the systems you already use.
+You may already have good tools in place, but they do not connect properly. In that case, the best solution might be custom integrations and automation between the systems you already use. [What to do when your software does not integrate](/blog/business-software-does-not-integrate) sets out those options. The cost of leaving the tools apart is covered in [the hidden cost of tools that do not talk to each other](/blog/disconnected-business-tools).
 
 For example, your business might keep its CRM, accounting software and project management tool, but build a custom workflow layer that connects them.
 
@@ -281,8 +281,8 @@ The right software should not slow your business down.
 
 It should help it move faster.
 
-## CTA
+## Not sure whether to buy or build?
 
 23Labs helps growing businesses decide whether to buy, [build software around the workflow](/services/custom-software-development) or [automate the steps around the tools they already have](/services/business-process-automation).
 
-If your team is losing time to manual admin, disconnected tools or messy workflows, book a consultation and we'll help you find the most practical path forward.
+If your team is losing time to manual admin, disconnected tools or messy workflows, [tell us how it works today](/contact). We will say whether buying, building or connecting what you already have is the practical next step.

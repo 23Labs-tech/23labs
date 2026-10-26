@@ -3,8 +3,8 @@ title: "The Admin Bottleneck Holding Professional Services Firms Back"
 seoTitle: "The Admin Bottleneck in Professional Services | 23Labs"
 description: "How professional services firms remove the admin bottleneck by automating onboarding, follow-ups, documents, tasks and the reporting that follows."
 date: "2026-09-01"
-updated: "2026-09-01"
-author: "23Labs"
+updated: "2026-10-26"
+author: "23Labs Team"
 categories: "Professional Services, Workflow Automation, Operations"
 image: "/site-images/tech-img-02.png"
 featuredImage: "/site-images/tech-img-02.png"
@@ -43,7 +43,7 @@ Without better systems, your team ends up working harder just to keep up.
 
 ## Client Onboarding Is a Major Opportunity
 
-Client onboarding is one of the best places to start with automation.
+Client onboarding is one of the best places to start with automation. It is also one of the [processes worth automating first](/blog/business-processes-to-automate-first) for a lot of firms. The setting for this work is our [professional services](/professional-services) page.
 
 Most onboarding processes include repeatable steps such as:
 
@@ -108,7 +108,7 @@ Many firms already have plenty of tools. The issue is that those tools often do 
 
 A CRM, calendar, inbox, document storage system, accounting platform and project management tool can all be useful, but they create friction when information needs to be copied between them manually.
 
-Custom software and integrations can connect those systems and create a cleaner workflow.
+Custom software and integrations can connect those systems and create a cleaner workflow. If the tools themselves are fine and the cost is the copying between them, [disconnected tools](/blog/disconnected-business-tools) goes into that.
 
 ## Final Thoughts
 
@@ -118,8 +118,8 @@ By automating repeatable admin, improving client workflows and connecting busine
 
 The businesses that fix their admin bottlenecks early are usually the ones that scale more smoothly.
 
-## CTA
+## Want a second look at the admin?
 
-23Labs helps professional services firms [take onboarding and follow-up admin off the team](/services/business-process-automation) and [build software around how the firm actually works](/services/custom-software-development). The [CorIT Tech onboarding project](/case-studies/corit-tech) is one example of new-client details moving between tools without being retyped.
+23Labs helps professional services firms [take onboarding and follow-up admin off the team](/services/business-process-automation) and [build software around how the firm actually works](/services/custom-software-development). The [CorIT Tech onboarding project](/case-studies/corit-tech) is one example: customer details in the CRM create the project and its tasks, instead of being retyped. CorIT reported saving more than 10 hours of admin a month.
 
-Book a consultation to find the highest-impact automation opportunities in your business.
+[Tell us how a new client gets from yes to the first piece of work](/contact). We will say which steps can be automated and which should stay with a person.

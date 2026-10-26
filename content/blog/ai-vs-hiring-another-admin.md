@@ -3,8 +3,8 @@ title: "AI vs Hiring Another Admin: Which Makes More Sense for Growing Businesse
 seoTitle: "AI or Another Admin Hire? | 23Labs"
 description: "Compare hiring another administrator with putting AI inside the workflow, and how a growing business decides which one actually reduces the load."
 date: "2026-08-11"
-updated: "2026-08-11"
-author: "23Labs"
+updated: "2026-10-26"
+author: "23Labs Team"
 categories: "AI Automation, Business Growth, Operations"
 image: "/site-images/tech-img-05.png"
 featuredImage: "/site-images/tech-img-05.png"
@@ -158,11 +158,9 @@ Small businesses can implement targeted automation solutions without needing ent
 
 ### "Customers don't want to talk to AI"
 
-Customers care about getting fast and accurate responses.
+Customers care about getting a useful answer, and about reaching a person when the question needs one.
 
-For routine enquiries, many customers actually prefer immediate assistance over waiting hours or days for a response.
-
-The key is knowing when automation should assist and when a human should take over.
+For a routine enquiry, an immediate acknowledgement can hold the conversation until someone is free. A complaint, a pricing exception or anything sensitive should still go to a person. There is no general rule that customers prefer a machine. The useful question is which enquiries are routine enough to acknowledge automatically.
 
 ## When hiring makes more sense
 
@@ -234,6 +232,8 @@ The goal is to allow your team to focus on the work that truly requires human ex
 Before hiring your next administrator, it may be worth asking one simple question:
 
 Could automation solve this problem first?
+
+If you are not sure the business is ready, [seven signs](/blog/signs-your-business-is-ready-for-ai-automation) is the checklist. If the pressure is specifically slow replies, [lead response](/blog/lead-response-automation-increase-conversions) is the narrower problem. The broader picture for service businesses is [how AI automation takes repetitive admin off the team](/blog/ai-automation-service-businesses-save-time).
 
 ## Ready to explore automation opportunities?
 

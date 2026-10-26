@@ -10,7 +10,7 @@ export const industryLinks = [
   {
     slug: "freight-logistics",
     href: "/freight-logistics",
-    label: "Freight & Logistics",
+    label: "Transport & Logistics",
     icon: "freight",
     description:
       "Workflow systems for transport, freight and logistics businesses that need better visibility, less manual data entry and smoother communication between teams, customers and systems.",
@@ -283,8 +283,8 @@ export const industryPages = [
     description:
       "Automate quoting, job allocation, POD and invoicing, and connect your TMS with accounting and customer systems. Built for transport operators.",
     hero: {
-      eyebrow: "Industries / Freight & Logistics",
-      title: "Transport and logistics automation and software",
+      eyebrow: "Industries / Transport & Logistics",
+      title: "Transport & Logistics automation and software",
       highlight: "",
       lead:
         "Automate repetitive work, connect disconnected systems and build software around the way your operation actually runs.",
@@ -363,7 +363,7 @@ export const industryPages = [
       ],
     },
     cta: {
-      title: "Book a freight & logistics discovery call",
+      title: "Book a transport & logistics discovery call",
       body:
         "Tell us how bookings, jobs and customer updates currently move through your operation and we'll show you where automation can make the biggest difference.",
     },

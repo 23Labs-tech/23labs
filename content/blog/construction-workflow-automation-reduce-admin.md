@@ -3,8 +3,8 @@ title: "How Construction Businesses Can Reduce Admin With Workflow Automation"
 seoTitle: "Workflow Automation for Construction Businesses | 23Labs"
 description: "How construction businesses reduce admin, improve project visibility and keep jobs moving with workflow automation around the tools they already use."
 date: "2026-09-22"
-updated: "2026-09-22"
-author: "23Labs"
+updated: "2026-10-26"
+author: "23Labs Team"
 categories: "Construction, Workflow Automation, Operations"
 image: "/site-images/tech-img-17.png"
 featuredImage: "/site-images/tech-img-17.png"
@@ -89,7 +89,7 @@ Off-the-shelf construction software can be useful, but it does not always match 
 
 Some businesses only need a better workflow between their CRM, email and document storage. Others need a custom dashboard, internal portal or automated project management process.
 
-Custom software allows the system to be built around your workflow instead of forcing your team to work around the software.
+Custom software allows the system to be built around your workflow instead of forcing your team to work around the software. [Buy vs build](/blog/buy-vs-build-custom-software) is the longer version of that decision. The wider picture for builders is on our [construction](/construction) page.
 
 ## Final Thoughts
 
@@ -99,8 +99,8 @@ Workflow automation can help construction teams save time, reduce errors and sta
 
 If your team is still relying on spreadsheets, manual follow-ups and disconnected systems, it may be time to review where automation can make the biggest impact.
 
-## CTA
+## Want a second look at the admin?
 
 23Labs helps construction businesses [build software around how a job actually runs](/services/custom-software-development) and [take the repetitive admin off the team](/services/business-process-automation).
 
-Book a consultation to explore where your construction workflows can be improved.
+[Tell us where quotes, documents or follow-ups get stuck](/contact). We will point at the step worth automating first, and say if the tools you already have can do it.

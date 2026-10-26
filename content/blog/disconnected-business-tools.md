@@ -3,8 +3,8 @@ title: "The Hidden Cost of Tools That Don't Talk to Each Other"
 seoTitle: "When Business Tools Do Not Talk to Each Other | 23Labs"
 description: "Disconnected tools create hidden costs through manual data entry, duplicated work, missed follow-ups and poor visibility across the business."
 date: "2026-09-15"
-updated: "2026-09-15"
-author: "23Labs"
+updated: "2026-10-26"
+author: "23Labs Team"
 categories: "Data Integration, Workflow Automation, Operations"
 image: "/site-images/tech-img-12.png"
 featuredImage: "/site-images/tech-img-12.png"
@@ -107,7 +107,7 @@ A maintenance request might be received, but no update is sent to the customer.
 
 A patient might miss a call, but no SMS follow-up goes out.
 
-A freight customer might ask for a status update, but the information sits in another system.
+A freight customer might ask for a status update, but the information sits in another system. [Transport and logistics](/freight-logistics) teams run into this on bookings and deliveries. The same pattern shows up for [professional services firms](/professional-services).
 
 When follow-ups rely on people manually checking multiple tools, things get missed.
 
@@ -213,9 +213,9 @@ A lot of businesses assume the answer is buying another platform.
 
 Sometimes that is the worst move.
 
-If your current tools are already useful, the better option may be connecting them properly.
+If your current tools are already useful, the better option may be connecting them properly. [What to do when your business software does not integrate](/blog/business-software-does-not-integrate) walks through the options in the order we check them, from a native integration to a custom build. [Buy vs build](/blog/buy-vs-build-custom-software) covers when replacing a system is the cheaper path.
 
-This can be done through API integrations, workflow automation, custom dashboards or lightweight internal software.
+This can be done through [system integrations](/services/system-integrations), workflow automation, custom dashboards or lightweight internal software.
 
 The goal is not to add more tools.
 
@@ -270,7 +270,7 @@ It might mean creating an AI agent that captures enquiries and routes them into 
 
 It might mean replacing a messy spreadsheet process with a simple internal tool.
 
-The solution depends on your workflow, your existing systems and where the biggest time losses are happening.
+The solution depends on your workflow, your existing systems and where the biggest time losses are happening. If you are choosing which manual job to take on first, [seven processes worth automating first](/blog/business-processes-to-automate-first) is a simpler filter than connecting everything. The same admin shows up in [transport and logistics](/blog/freight-logistics-workflow-automation) and in [professional services](/blog/professional-services-admin-bottleneck).
 
 ## Final Thoughts
 
@@ -286,10 +286,10 @@ When your systems are connected properly, your business becomes easier to run. I
 
 That is when software starts doing what it was meant to do.
 
-## CTA
+## Want to know which connection is worth doing first?
 
 The [Huntress Recruitment project](/case-studies/huntress-recruitment) is one place this showed up: job information moved between Bullhorn, SEEK and the website instead of being kept in three places.
 
 23Labs helps businesses [connect the tools they already use](/services/system-integrations) and [automate the copying in between](/services/business-process-automation).
 
-If your team is spending too much time copying data, chasing updates or working across disconnected platforms, book a consultation and we'll help you find the highest-impact integration opportunities.
+If your team is spending too much time copying data, chasing updates or working across disconnected platforms, [describe the two systems](/contact). We will tell you whether they can already be connected, or whether something custom is actually required.

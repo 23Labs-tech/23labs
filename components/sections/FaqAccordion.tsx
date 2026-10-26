@@ -1,27 +1,39 @@
 "use client";
 
 import { useState } from "react";
-import { faqs } from "@/lib/data";
+import { faqs as defaultFaqs } from "@/lib/data";
 
-export function FaqAccordion() {
+type FaqItem = { question: string; answer: string };
+
+export function FaqAccordion({
+  items,
+  idPrefix = "faq",
+  heading = "Frequently asked questions",
+}: {
+  items?: readonly FaqItem[];
+  idPrefix?: string;
+  heading?: string;
+}) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const faqs = items ?? defaultFaqs;
 
   return (
-    <section className="sec">
+    <section className="sec" id={idPrefix}>
       <div className="wrap">
         <div className="sec-head reveal sec-head-center">
-          <h2 className="sec-title">Frequently asked questions</h2>
+          <h2 className="sec-title">{heading}</h2>
         </div>
         <div className="faq-list reveal">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
+            const panelId = `${idPrefix}-panel-${index}`;
             return (
               <div className={`faq-item${isOpen ? " is-open" : ""}`} key={faq.question}>
                 <button
                   type="button"
                   className="faq-trigger"
                   aria-expanded={isOpen}
-                  aria-controls={`faq-panel-${index}`}
+                  aria-controls={panelId}
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                 >
                   <span>{faq.question}</span>
@@ -29,7 +41,7 @@ export function FaqAccordion() {
                     {isOpen ? "−" : "+"}
                   </span>
                 </button>
-                <div className="faq-panel" id={`faq-panel-${index}`} role="region" hidden={!isOpen}>
+                <div className="faq-panel" id={panelId} role="region" hidden={!isOpen}>
                   <p>{faq.answer}</p>
                 </div>
               </div>

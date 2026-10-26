@@ -72,3 +72,18 @@ export function serviceJsonLd(service: { name: string; description: string; path
     areaServed,
   };
 }
+
+export function faqPageJsonLd(path: string, faqs: { question: string; answer: string }[]) {
+  return {
+    "@type": "FAQPage",
+    "@id": `${absoluteUrl(path)}#faq`,
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+}

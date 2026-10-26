@@ -89,6 +89,27 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
         </div>
       </section>
 
+      {service.industries?.length ? (
+        <section className="sec">
+          <div className="wrap">
+            <div className="sec-head reveal">
+              <h2 className="sec-title">Industries we build this for</h2>
+            </div>
+            <div className="problem-grid reveal">
+              {service.industries.map((industry) => (
+                <Link href={industry.href} className="problem-card problem-card-link" key={industry.href}>
+                  <h3>{industry.title}</h3>
+                  <p>{industry.body}</p>
+                  <span className="work-link">
+                    View the industry <span aria-hidden="true">{"→"}</span>
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       {service.proof?.length ? (
         <section className="sec">
           <div className="wrap">

@@ -8,9 +8,11 @@ import {
   industryOverview,
   industryProcess,
   industrySomethingElseCta,
+  type CopyBlock,
   type IndustryPageData,
 } from "@/lib/industries";
-import { absoluteUrl } from "@/lib/seo";
+import { industryCostFaq, industryCostQuestions } from "@/lib/industryPricing";
+import { breadcrumbList, faqPageJsonLd, serviceJsonLd } from "@/lib/schema";
 
 const buildIconServiceHref: Record<string, string> = {
   automation: "/services/business-process-automation",
@@ -60,17 +62,68 @@ function SectionHeading({
   );
 }
 
-function TextBlock({ paragraphs }: { paragraphs: readonly string[] }) {
+function isCopyParts(paragraph: CopyBlock): paragraph is Exclude<CopyBlock, string> {
+  return typeof paragraph !== "string";
+}
+
+function RichParagraph({ paragraph }: { paragraph: CopyBlock }) {
+  if (!isCopyParts(paragraph)) {
+    return <p>{paragraph}</p>;
+  }
+
+  return (
+    <p>
+      {paragraph.map((part, index) =>
+        part.href ? (
+          <Link href={part.href} key={`${part.href}-${index}`}>
+            {part.text}
+          </Link>
+        ) : (
+          <span key={`${part.text}-${index}`}>{part.text}</span>
+        ),
+      )}
+    </p>
+  );
+}
+
+function TextBlock({ paragraphs }: { paragraphs: readonly CopyBlock[] }) {
   return (
     <div className="text-block reveal">
-      {paragraphs.map((paragraph) => (
-        <p key={paragraph}>{paragraph}</p>
+      {paragraphs.map((paragraph, index) => (
+        <RichParagraph paragraph={paragraph} key={index} />
       ))}
     </div>
   );
 }
 
-function ConsultationCta({ title, body }: { title: string; body: string }) {
+function FaqAnswer({ answer }: { answer: string }) {
+  const marker = "initial consultation";
+  const index = answer.indexOf(marker);
+  if (index === -1) return <p>{answer}</p>;
+
+  return (
+    <p>
+      {answer.slice(0, index)}
+      <Link href="/contact">{marker}</Link>
+      {answer.slice(index + marker.length)}
+    </p>
+  );
+}
+
+function visibleFaqs(industry: IndustryPageData) {
+  const faqs = [...(industry.faq ?? [])];
+  const hasCostAnswer = faqs.some((item) => item.answer.includes("typically start from A$2,500"));
+  if (!hasCostAnswer) {
+    faqs.push(
+      industryCostFaq(
+        industryCostQuestions[industry.slug] ?? "How much does a project like this cost?",
+      ),
+    );
+  }
+  return faqs;
+}
+
+function ConsultationCta({ title, body, label = "Book a discovery call" }: { title: string; body: string; label?: string }) {
   return (
     <section className="sec">
       <div className="wrap cta-band reveal">
@@ -78,7 +131,7 @@ function ConsultationCta({ title, body }: { title: string; body: string }) {
         <p>{body}</p>
         <div className="hero-actions">
           <Link href="/contact" className="btn btn-primary">
-            Book a discovery call <span className="btn-arrow" aria-hidden="true">{"→"}</span>
+            {label} <span className="btn-arrow" aria-hidden="true">{"→"}</span>
           </Link>
         </div>
       </div>
@@ -199,11 +252,10 @@ export function IndustriesOverviewPage() {
       <JsonLd
         data={{
           "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
-            { "@type": "ListItem", position: 2, name: "Industries", item: absoluteUrl("/industries") },
-          ],
+          ...breadcrumbList([
+            { name: "Home", path: "/" },
+            { name: "Industries", path: "/industries" },
+          ]),
         }}
       />
     </>
@@ -212,6 +264,7 @@ export function IndustriesOverviewPage() {
 
 export function IndustryDetailPage({ industry }: { industry: IndustryPageData }) {
   const industryLabel = industry.hero.eyebrow.split(" / ")[1] || industry.hero.eyebrow;
+  const faqs = visibleFaqs(industry);
 
   return (
     <>
@@ -230,7 +283,8 @@ export function IndustryDetailPage({ industry }: { industry: IndustryPageData })
             <p className="lead">{industry.hero.lead}</p>
             <div className="hero-actions">
               <Link href="/contact" className="btn btn-primary">
-                Book a discovery call <span className="btn-arrow" aria-hidden="true">{"→"}</span>
+                {industry.hero.ctaLabel ?? "Book a discovery call"}{" "}
+                <span className="btn-arrow" aria-hidden="true">{"→"}</span>
               </Link>
               <Link href="#build" className="btn btn-ghost">
                 See what we can automate
@@ -286,6 +340,55 @@ export function IndustryDetailPage({ industry }: { industry: IndustryPageData })
         </div>
       </section>
 
+      {industry.workflows ? (
+        <section className="sec">
+          <div className="wrap">
+            <SectionHeading
+              eyebrow={industry.workflows.eyebrow}
+              title={industry.workflows.title}
+              highlight={industry.workflows.highlight}
+            />
+            {industry.workflows.paragraphs ? <TextBlock paragraphs={industry.workflows.paragraphs} /> : null}
+            <div className="workflow-list reveal">
+              {industry.workflows.items.map((item) => (
+                <article className="workflow-card" key={item.title}>
+                  <h3>{item.title}</h3>
+                  {item.paragraphs.map((paragraph, index) => (
+                    <RichParagraph paragraph={paragraph} key={index} />
+                  ))}
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {industry.proof ? (
+        <section className="sec">
+          <div className="wrap">
+            <SectionHeading
+              eyebrow={industry.proof.eyebrow}
+              title={industry.proof.title}
+              highlight={industry.proof.highlight}
+            />
+            <TextBlock paragraphs={industry.proof.paragraphs} />
+            {industry.proof.links?.length ? (
+              <div className="workflow-list reveal">
+                {industry.proof.links.map((link) => (
+                  <Link href={link.href} className="workflow-card proof-link" key={link.href}>
+                    <h3>{link.label}</h3>
+                    <p>{link.body}</p>
+                    <span className="work-link">
+                      Read the case study <span aria-hidden="true">{"→"}</span>
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            ) : null}
+          </div>
+        </section>
+      ) : null}
+
       <section className="sec">
         <div className="wrap">
           <SectionHeading
@@ -314,7 +417,7 @@ export function IndustryDetailPage({ industry }: { industry: IndustryPageData })
           <SectionHeading eyebrow={industry.builds.eyebrow} title={industry.builds.title} highlight={industry.builds.highlight} />
           <div className="svc-grid reveal">
             {industry.builds.items.map((item) => {
-              const href = buildIconServiceHref[item.icon];
+              const href = item.href || buildIconServiceHref[item.icon];
               const content = (
                 <>
                   <IndustryIcon icon={item.icon} className="svc-ico" />
@@ -355,21 +458,39 @@ export function IndustryDetailPage({ industry }: { industry: IndustryPageData })
         steps={industryProcess.steps}
       />
 
-      <ConsultationCta title={industry.cta.title} body={industry.cta.body} />
+      <section className="sec" id="faq">
+        <div className="wrap">
+          <div className="sec-head reveal">
+            <h2 className="sec-title">Common questions</h2>
+          </div>
+          <div className="faq-list">
+            {faqs.map((item) => (
+              <article className="faq-item faq-static" key={item.question}>
+                <h3>{item.question}</h3>
+                <FaqAnswer answer={item.answer} />
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <ConsultationCta title={industry.cta.title} body={industry.cta.body} label={industry.cta.label} />
 
       <JsonLd
         data={{
           "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
-            { "@type": "ListItem", position: 2, name: "Industries", item: absoluteUrl("/industries") },
-            {
-              "@type": "ListItem",
-              position: 3,
-              name: industryLabel,
-              item: absoluteUrl(industry.href),
-            },
+          "@graph": [
+            serviceJsonLd({
+              name: industry.serviceName,
+              description: industry.description,
+              path: industry.href,
+            }),
+            breadcrumbList([
+              { name: "Home", path: "/" },
+              { name: "Industries", path: "/industries" },
+              { name: industryLabel, path: industry.href },
+            ]),
+            faqPageJsonLd(faqs),
           ],
         }}
       />

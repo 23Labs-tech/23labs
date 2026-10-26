@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { navItems } from "@/lib/data";
-import { industryRoutePaths } from "@/lib/industries";
+import { industryLinks, industryRoutePaths } from "@/lib/industries";
 import { serviceLandingPages } from "@/lib/services";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Logo } from "@/components/site/Logo";
@@ -20,17 +20,23 @@ function ChevronIcon() {
   );
 }
 
+type DropdownKey = "services" | "industries";
+
 export function Navbar() {
   const [menuState, setMenuState] = useState({ open: false, pathname: "" });
-  const [servicesState, setServicesState] = useState({ open: false, pathname: "" });
+  const [dropdownState, setDropdownState] = useState<{ key: DropdownKey | null; pathname: string }>({
+    key: null,
+    pathname: "",
+  });
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const isIndustryPath = industryPathSet.has(pathname);
   const open = menuState.pathname === pathname ? menuState.open : false;
-  const servicesOpen = servicesState.pathname === pathname ? servicesState.open : false;
+  const openDropdown = dropdownState.pathname === pathname ? dropdownState.key : null;
   const isServicesPath = pathname === "/services" || pathname.startsWith("/services/");
 
   const servicesRef = useRef<HTMLDivElement>(null);
+  const industriesRef = useRef<HTMLDivElement>(null);
   const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const clearCloseTimeout = () => {
@@ -40,45 +46,30 @@ export function Navbar() {
     }
   };
 
-  const openServices = () => {
+  const showDropdown = (key: DropdownKey) => {
     clearCloseTimeout();
-    setServicesState({ open: true, pathname });
+    setDropdownState({ key, pathname });
   };
 
-  const closeServices = () => {
-    clearCloseTimeout();
-    setServicesState({ open: false, pathname });
-  };
+  const closeDropdown = useCallback(() => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setDropdownState({ key: null, pathname });
+  }, [pathname]);
 
-  const scheduleCloseServices = () => {
+  const scheduleCloseDropdown = () => {
     clearCloseTimeout();
     closeTimeoutRef.current = setTimeout(() => {
-      setServicesState({ open: false, pathname });
+      setDropdownState({ key: null, pathname });
     }, SERVICES_CLOSE_DELAY);
   };
 
   const isHoverCapable = () =>
     typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches;
 
-  const handleServicesMouseEnter = () => {
-    if (!isHoverCapable()) return;
-    openServices();
-  };
-
-  const handleServicesMouseLeave = () => {
-    if (!isHoverCapable()) return;
-    scheduleCloseServices();
-  };
-
-  const handleServicesFocus = () => {
-    if (!isHoverCapable()) return;
-    openServices();
-  };
-
-  const handleServicesBlur = (event: React.FocusEvent<HTMLDivElement>) => {
-    if (servicesRef.current && servicesRef.current.contains(event.relatedTarget as Node)) return;
-    closeServices();
-  };
+  const dropdownRef = (key: DropdownKey) => (key === "services" ? servicesRef : industriesRef);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -90,27 +81,28 @@ export function Navbar() {
   useEffect(() => clearCloseTimeout, []);
 
   useEffect(() => {
-    if (!servicesOpen) return;
+    if (!openDropdown) return;
+    const ref = openDropdown === "services" ? servicesRef : industriesRef;
     const onPointerDown = (event: PointerEvent) => {
-      if (servicesRef.current && !servicesRef.current.contains(event.target as Node)) {
-        closeServices();
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        closeDropdown();
       }
     };
     document.addEventListener("pointerdown", onPointerDown);
     return () => document.removeEventListener("pointerdown", onPointerDown);
-  }, [servicesOpen, pathname]);
+  }, [openDropdown, pathname, closeDropdown]);
 
   useEffect(() => {
-    if (!open && !servicesOpen) return;
+    if (!open && !openDropdown) return;
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setMenuState({ open: false, pathname });
-        closeServices();
+        closeDropdown();
       }
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [open, servicesOpen, pathname]);
+  }, [open, openDropdown, pathname, closeDropdown]);
 
   return (
     <nav className={`nav${scrolled ? " scrolled" : ""}`} id="nav">
@@ -125,43 +117,91 @@ export function Navbar() {
                 (pathname === item.href || (item.href !== "/" && pathname.startsWith(`${item.href}/`)));
 
               if (item.href === "/services") {
+                const menus: {
+                  key: DropdownKey;
+                  label: string;
+                  active: boolean;
+                  items: { href: string; label: string }[];
+                }[] = [
+                  {
+                    key: "services",
+                    label: item.label,
+                    active: isServicesPath,
+                    items: serviceLandingPages.map((service) => ({
+                      href: service.href,
+                      label: service.navLabel,
+                    })),
+                  },
+                  {
+                    key: "industries",
+                    label: "Industries",
+                    active: isIndustryPath,
+                    items: industryLinks.map((industry) => ({
+                      href: industry.href,
+                      label: industry.label,
+                    })),
+                  },
+                ];
+
                 return (
-                  <div
-                    className={`nav-dropdown${servicesOpen ? " is-open" : ""}`}
-                    key="services-dropdown"
-                    ref={servicesRef}
-                    onMouseEnter={handleServicesMouseEnter}
-                    onMouseLeave={handleServicesMouseLeave}
-                    onBlur={handleServicesBlur}
-                  >
-                    <button
-                      type="button"
-                      className={`nav-dropdown-trigger${isServicesPath ? " active" : ""}`}
-                      aria-expanded={servicesOpen}
-                      aria-haspopup="true"
-                      onClick={() => {
-                        clearCloseTimeout();
-                        setServicesState({ open: !servicesOpen, pathname });
-                      }}
-                      onFocus={handleServicesFocus}
-                    >
-                      {item.label}
-                      <ChevronIcon />
-                    </button>
-                    <div className="nav-dropdown-panel">
-                      {serviceLandingPages.map((service) => (
-                        <Link
-                          href={service.href}
-                          key={service.slug}
-                          onClick={() => {
-                            setMenuState({ open: false, pathname });
-                            closeServices();
+                  <div className="nav-dropdown-group" key="services-and-industries">
+                    {menus.map((menu) => {
+                      const isOpen = openDropdown === menu.key;
+                      return (
+                        <div
+                          className={`nav-dropdown${isOpen ? " is-open" : ""}`}
+                          key={menu.key}
+                          ref={dropdownRef(menu.key)}
+                          onMouseEnter={() => {
+                            if (!isHoverCapable()) return;
+                            showDropdown(menu.key);
+                          }}
+                          onMouseLeave={() => {
+                            if (!isHoverCapable()) return;
+                            scheduleCloseDropdown();
+                          }}
+                          onBlur={(event) => {
+                            const ref = dropdownRef(menu.key).current;
+                            if (ref && ref.contains(event.relatedTarget as Node)) return;
+                            closeDropdown();
                           }}
                         >
-                          {service.navLabel}
-                        </Link>
-                      ))}
-                    </div>
+                          <button
+                            type="button"
+                            className={`nav-dropdown-trigger${menu.active ? " active" : ""}`}
+                            aria-expanded={isOpen}
+                            aria-haspopup="true"
+                            onClick={() => {
+                              clearCloseTimeout();
+                              setDropdownState({ key: isOpen ? null : menu.key, pathname });
+                            }}
+                            onFocus={() => {
+                              if (!isHoverCapable()) return;
+                              showDropdown(menu.key);
+                            }}
+                          >
+                            {menu.label}
+                            <ChevronIcon />
+                          </button>
+                          <div className="nav-dropdown-panel">
+                            {menu.items.map((entry) => (
+                              <Link
+                                href={entry.href}
+                                key={entry.href}
+                                className={pathname === entry.href ? "active" : undefined}
+                                aria-current={pathname === entry.href ? "page" : undefined}
+                                onClick={() => {
+                                  setMenuState({ open: false, pathname });
+                                  closeDropdown();
+                                }}
+                              >
+                                {entry.label}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                 );
               }

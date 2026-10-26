@@ -22,6 +22,7 @@ export type ServiceLandingPageData = {
   };
   useCases: string[];
   relatedSlugs: string[];
+  industries?: { href: string; title: string; body: string }[];
 };
 
 export const serviceApproachSteps = [
@@ -138,6 +139,23 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       "Consolidate operational data from multiple sources into centralised reporting dashboards.",
     ],
     relatedSlugs: ["ai-workflow-automation", "custom-software-development"],
+    industries: [
+      {
+        href: "/freight-logistics",
+        title: "Transport & Logistics",
+        body: "Quoting, job allocation, proof of delivery and invoicing, and the handoff from the TMS into accounting.",
+      },
+      {
+        href: "/recruitment",
+        title: "Recruitment",
+        body: "Candidate and job intake, publishing from the ATS to a job board and the website, plus onboarding and reporting.",
+      },
+      {
+        href: "/professional-services",
+        title: "Professional Services",
+        body: "Client onboarding, proposals, project setup and reporting, without typing the client into the next tool.",
+      },
+    ],
     proof: [
       { text: "Two recent projects follow this pattern. " },
       { text: "CorIT Tech's onboarding", href: "/case-studies/corit-tech" },
@@ -233,6 +251,18 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       "Process incoming customer enquiries and prepare relevant information for staff review.",
       "Extract and structure information from CVs, contracts and other unstructured documents.",
     ],
+    industries: [
+      {
+        href: "/freight-logistics",
+        title: "Transport & Logistics",
+        body: "Reading a proof of delivery, rate card or delivery docket when the next step depends on a document. Structured job data does not need AI.",
+      },
+      {
+        href: "/professional-services",
+        title: "Professional Services",
+        body: "Reading a proposal or onboarding document into fields. Moving a CRM field into a project tool is an integration, not an AI workflow.",
+      },
+    ],
     relatedSlugs: ["business-process-automation", "ai-agents"],
   },
   {
@@ -320,6 +350,23 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       "Develop a SaaS product from concept through to deployment.",
       "Create customer portals for accessing services, submitting requests and managing accounts.",
       "Replace spreadsheet-based processes with a centralised custom business application.",
+    ],
+    industries: [
+      {
+        href: "/recruitment",
+        title: "Recruitment",
+        body: "Public job fields when the ATS record and the candidate-facing title should not be identical, as on the Huntress website.",
+      },
+      {
+        href: "/freight-logistics",
+        title: "Transport & Logistics",
+        body: "A dispatch or proof-of-delivery view when the TMS does not match how the yard works. There is no published transport case study.",
+      },
+      {
+        href: "/professional-services",
+        title: "Professional Services",
+        body: "An internal tool only when the CRM and the project system cannot carry the workflow. CorIT Tech kept the software it already had.",
+      },
     ],
     relatedSlugs: ["business-process-automation", "system-integrations"],
     proof: [
@@ -511,6 +558,23 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       "Connect an industry-specific operational tool to your core business systems via a custom API.",
       "Keep inventory, pricing or customer data consistent across multiple connected platforms.",
       "Replace manual CSV exports and imports with an automated, real-time data connection.",
+    ],
+    industries: [
+      {
+        href: "/recruitment",
+        title: "Recruitment",
+        body: "ATS, job board and website. The published example connected Bullhorn, SEEK and WordPress for Huntress Recruitment.",
+      },
+      {
+        href: "/freight-logistics",
+        title: "Transport & Logistics",
+        body: "A functional link between the TMS and accounting. No transport product is named here, because no transport integration is published as a case study.",
+      },
+      {
+        href: "/professional-services",
+        title: "Professional Services",
+        body: "CRM to project management. CorIT Tech's onboarding workflow creates projects and tasks from the CRM record.",
+      },
     ],
     relatedSlugs: ["business-process-automation", "custom-software-development"],
     proof: [

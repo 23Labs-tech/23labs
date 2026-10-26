@@ -80,6 +80,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </header>
         <div className="container narrow">
           <div className="article-body" dangerouslySetInnerHTML={{ __html: post.html }} />
+          <aside className="article-author">
+            <p className="article-author-kicker">Written by</p>
+            <p className="article-author-name">{post.author}</p>
+            <p className="article-author-bio">
+              The 23Labs team builds software, integrations and automation solutions that help businesses
+              reduce manual work, connect systems and improve how their operations run.
+            </p>
+          </aside>
         </div>
       </article>
       <JsonLd

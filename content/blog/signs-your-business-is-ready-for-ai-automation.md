@@ -3,8 +3,8 @@ title: "7 Signs Your Business Is Ready for AI Automation"
 seoTitle: "7 Signs a Business Is Ready for AI Automation | 23Labs"
 description: "Signs a business is ready to add AI to a workflow, and how that differs from automating a process that already follows a clear set of rules."
 date: "2026-08-18"
-updated: "2026-08-18"
-author: "23Labs"
+updated: "2026-10-26"
+author: "23Labs Team"
 categories: "AI Automation, Workflow Automation, Operations"
 image: "/site-images/tech-img-03.png"
 featuredImage: "/site-images/tech-img-03.png"
@@ -36,7 +36,7 @@ Common signs include:
 
 AI automation can instantly capture enquiries, respond to customers, collect information, and route requests to the right person without manual intervention.
 
-The faster you respond, the more likely you are to win the business.
+The faster you respond, the more likely you are to win the business. [Lead response](/blog/lead-response-automation-increase-conversions) is the version of this problem that is only about speed.
 
 ## 2. Response times are slowing down
 
@@ -174,7 +174,7 @@ For example:
 - Internal notifications
 - Data entry workflows
 
-Small improvements can create substantial time savings and operational efficiencies.
+Small improvements are usually enough to start. A practical way to pick the first process is in [seven business processes worth automating first](/blog/business-processes-to-automate-first). If the pressure is headcount, compare that with [hiring another admin](/blog/ai-vs-hiring-another-admin). If the systems do not share data, start with [tools that do not talk to each other](/blog/disconnected-business-tools).
 
 ## Final thoughts
 

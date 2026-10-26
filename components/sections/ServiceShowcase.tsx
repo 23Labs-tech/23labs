@@ -21,13 +21,23 @@ const sizeBySlug: Record<string, string> = {
   "ai-agents": "lg",
 };
 
+const toneBySlug: Record<string, string> = {
+  "business-process-automation": "tone-sky",
+  "ai-workflow-automation": "tone-lilac",
+  "full-stack-software-development": "tone-plain",
+  "ai-agents": "tone-mint",
+};
+
 export function ServiceShowcase() {
   return (
     <div className="build-grid">
       {services.map((service) => {
         const Visual = visuals[service.slug];
         return (
-          <article className={`build-card ${sizeBySlug[service.slug]} reveal`} key={service.slug}>
+          <article
+            className={`build-card ${sizeBySlug[service.slug]} ${toneBySlug[service.slug]} reveal`}
+            key={service.slug}
+          >
             <div className="build-visual">
               <Visual />
             </div>

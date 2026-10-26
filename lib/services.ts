@@ -84,11 +84,8 @@ export const serviceApproachSteps = [
   },
 ];
 
-export const serviceFinalCta = {
-  title: "Let's build something that works for your business.",
-  body: "Tell us what you're looking to improve, automate or build. We'll help you explore the right solution for your business.",
-  label: "Start a Conversation",
-};
+export const servicePricingNote =
+  "Custom software and automation projects typically start from A$2,500. Final pricing depends on the systems involved, complexity and scope. For a larger or more complex project, book an initial consultation.";
 
 const freightLink = {
   href: "/freight-logistics",
@@ -318,7 +315,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       {
         question: "How much does business process automation cost?",
         answer:
-          "23Labs does not publish a price. Scope follows the process: how many steps, how many systems, and how many exceptions a person still handles. A walkthrough of the current work is how a figure gets set, and that figure is for your process.",
+          `${servicePricingNote} Scope still follows the process: how many steps, how many systems, and how many exceptions a person still handles.`,
       },
       {
         question: "How long does an engagement take?",
@@ -555,7 +552,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       {
         question: "How much does AI workflow automation cost?",
         answer:
-          "We do not publish a price. It depends on the step, how much a person still needs to review, and which system the result has to land in. We will not quote a model licence or a package rate on this page.",
+          `${servicePricingNote} It also depends on the step, how much a person still needs to review, and which system the result has to land in. We do not quote a model licence or a package rate on this page.`,
       },
       {
         question: "Do you work with New Zealand businesses?",
@@ -779,7 +776,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       {
         question: "What does custom software cost in Australia?",
         answer:
-          "We do not publish a price. It depends on the process, how many people use it, and whether the first version is a focused tool or a larger platform. If a smaller integration or automation would solve it, we say that before talking about a build.",
+          `${servicePricingNote} It also depends on the process, how many people use it, and whether the first version is a focused tool or a larger platform. If a smaller integration or automation would solve it, we say that before talking about a build.`,
       },
       {
         question: "How long does a build take?",
@@ -1021,7 +1018,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       {
         question: "How much does an AI agent cost, and can it use our current systems?",
         answer:
-          "We do not publish a price or a list of supported products. Cost follows the task, the systems it may touch, and how much a person still approves. It can use a CRM or an inbox where that system allows a controlled connection. We name a platform only once that connection is part of the project.",
+          `${servicePricingNote} Cost also follows the task, the systems it may touch, and how much a person still approves. It can use a CRM or an inbox where that system allows a controlled connection. We do not publish a list of supported products, and we name a platform only once that connection is part of the project.`,
       },
       {
         question: "Do you build AI agents for New Zealand businesses?",
@@ -1262,7 +1259,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       {
         question: "What does system integration cost?",
         answer:
-          "We do not publish a price. It depends on how many systems, whether they already expose a usable interface, and how many fields and exceptions the record has. A conversation about what gets typed twice is how it gets scoped.",
+          `${servicePricingNote} For an integration, that includes how many systems, whether they already expose a usable interface, and how many fields and exceptions the record has.`,
       },
       {
         question: "Do you integrate systems for New Zealand businesses?",
@@ -1477,7 +1474,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       {
         question: "Do you offer a fixed support package or response time?",
         answer:
-          "We do not publish packages, prices or response-time guarantees. What is covered is agreed from the systems you rely on and how they tend to change.",
+          `${servicePricingNote} We do not publish fixed support packages or response-time guarantees. What is covered is agreed from the systems you rely on and how they tend to change.`,
       },
       {
         question: "What if the original developer has left?",

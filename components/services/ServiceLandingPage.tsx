@@ -9,6 +9,7 @@ import { breadcrumbList, faqPageJsonLd, serviceJsonLd } from "@/lib/schema";
 import { caseStudyPath, resolveCaseStudy } from "@/lib/caseStudyMatch";
 import {
   getServiceLandingPage,
+  servicePricingNote,
   type ServiceLandingPageData,
   type ServiceTextPart,
 } from "@/lib/services";
@@ -211,6 +212,7 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
         <div className="wrap cta-band reveal">
           <h2>{service.cta.title}</h2>
           <p>{service.cta.body}</p>
+          <p>{servicePricingNote}</p>
           <div className="hero-actions">
             <ButtonLink href="/contact">{service.cta.label}</ButtonLink>
           </div>

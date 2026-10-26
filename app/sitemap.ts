@@ -10,7 +10,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths = [
     "",
     "/about",
+    "/services",
     ...serviceLandingPages.map((service) => service.href),
+    "/new-zealand",
     "/work",
     "/contact",
     "/privacy-policy",

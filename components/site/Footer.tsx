@@ -6,6 +6,15 @@ import { siteConfig } from "@/lib/site";
 import { Logo } from "@/components/site/Logo";
 
 const studioLinks = navItems.filter((item) => item.href !== "/services");
+const contactIndex = studioLinks.findIndex((item) => item.href === "/contact");
+const studioFooterLinks =
+  contactIndex === -1
+    ? [...studioLinks, { label: "New Zealand", href: "/new-zealand" }]
+    : [
+        ...studioLinks.slice(0, contactIndex),
+        { label: "New Zealand", href: "/new-zealand" },
+        ...studioLinks.slice(contactIndex),
+      ];
 
 const footerServiceLinks = [
   "business-process-automation",
@@ -31,7 +40,7 @@ export function Footer() {
           <div className="foot-col">
             <p className="foot-label">Studio</p>
             <ul>
-              {studioLinks.map((item) => (
+              {studioFooterLinks.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href}>{item.label}</Link>
                 </li>
@@ -41,6 +50,9 @@ export function Footer() {
           <div className="foot-col">
             <p className="foot-label">Services</p>
             <ul>
+              <li>
+                <Link href="/services">All services</Link>
+              </li>
               {footerServiceLinks.map((service) => (
                 <li key={service.href}>
                   <Link href={service.href}>{service.navLabel}</Link>

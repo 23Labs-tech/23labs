@@ -231,7 +231,7 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
             faqPageJsonLd(service.href, service.faqs),
             breadcrumbList([
               { name: "Home", path: "/" },
-              { name: "Services", path: "/#services" },
+              { name: "Services", path: "/services" },
               { name: service.navLabel, path: service.href },
             ]),
           ],

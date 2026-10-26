@@ -8,6 +8,20 @@ import { absoluteUrl } from "@/lib/seo";
 import { breadcrumbList, faqPageJsonLd, organizationId, websiteId } from "@/lib/schema";
 import { serviceLandingPages } from "@/lib/services";
 
+function FaqAnswer({ answer }: { answer: string }) {
+  const marker = "case study";
+  const index = answer.indexOf(marker);
+  if (index === -1) return <p>{answer}</p>;
+
+  return (
+    <p>
+      {answer.slice(0, index)}
+      <Link href="/case-studies/huntress-recruitment">{marker}</Link>
+      {answer.slice(index + marker.length)}
+    </p>
+  );
+}
+
 export function NewZealandPage() {
   const industries = newZealandPage.industries.slugs.flatMap((slug) => {
     const industry = industryLinks.find((item) => item.slug === slug);
@@ -136,7 +150,7 @@ export function NewZealandPage() {
             {newZealandPage.faqs.map((item) => (
               <article className="faq-item faq-static" key={item.question}>
                 <h3>{item.question}</h3>
-                <p>{item.answer}</p>
+                <FaqAnswer answer={item.answer} />
               </article>
             ))}
           </div>

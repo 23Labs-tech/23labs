@@ -16,7 +16,7 @@ export const newZealandPage = {
     highlight: "New Zealand businesses",
     subheading: "Remote delivery from Melbourne, in New Zealand business hours.",
     lead:
-      "23Labs is a Melbourne software and automation studio. We work with growing service businesses in New Zealand remotely: video calls, booked during the New Zealand working day, for the same services we offer in Australia. There is no New Zealand office.",
+      "23Labs is a Melbourne software and automation studio. We work with growing service businesses in New Zealand remotely: video calls, booked during the New Zealand working day, for the same services we offer in Australia.",
     ctaLabel: "Talk to 23Labs",
     secondaryLabel: "See the services",
     image: {
@@ -40,20 +40,18 @@ export const newZealandPage = {
           "Calls are booked during the New Zealand working day. New Zealand is usually two hours ahead of Melbourne, so a morning or afternoon there still falls inside a normal Melbourne day.",
       },
       {
-        title: "No exchange-rate pricing",
-        description: `We do not publish a New Zealand dollar price or an exchange rate. ${approvedProjectPricing}`,
+        title: "Clear starting point",
+        description: approvedProjectPricing,
       },
     ],
   },
   services: {
     heading: "The same six services",
-    intro:
-      "These are the services on this site. Each one is delivered remotely for businesses in Australia and New Zealand. The short description is the one already used on that service page.",
+    intro: "Each one is delivered remotely for businesses in Australia and New Zealand.",
   },
   industries: {
     heading: "Industries that fit this work",
-    intro:
-      "Recruitment, transport and logistics, and professional services are the industry pages most relevant to New Zealand service businesses here. They describe the kind of work. They are not a list of New Zealand clients.",
+    intro: "The industry pages most relevant to New Zealand service businesses.",
     slugs: ["recruitment", "freight-logistics", "professional-services"] as const,
   },
   proof: {
@@ -61,19 +59,18 @@ export const newZealandPage = {
     paragraphs: [
       "Huntress Recruitment is a recruitment business in New Zealand. The team was managing job information across Bullhorn, SEEK and its WordPress website.",
       "23Labs mapped that workflow and connected it so vacancy information could move more consistently between those three systems. Public-facing details, such as job titles and locations, can be controlled separately from the internal Bullhorn record. Bullhorn stays the system of record, and duplicate administration is reduced.",
-      "23Labs delivered the work remotely from Melbourne. The case study does not publish a time saving.",
+      "23Labs delivered the work remotely from Melbourne.",
     ],
     study: {
       href: "/case-studies/huntress-recruitment",
       label: "Huntress Recruitment",
-      body: "Bullhorn, SEEK and the WordPress website for a New Zealand recruitment business. Public-facing job titles and locations are kept separate from the internal Bullhorn record. No published time saving.",
+      body: "Bullhorn, SEEK and the WordPress website for a New Zealand recruitment business. Public-facing job titles and locations are kept separate from the internal Bullhorn record.",
     },
   },
   faqs: [
     {
       question: "Does 23Labs have an office in New Zealand?",
-      answer:
-        "No. 23Labs is based in Melbourne, Australia. There is no New Zealand office. Work with New Zealand businesses is delivered remotely.",
+      answer: "23Labs is based in Melbourne and works with New Zealand businesses remotely.",
     },
     {
       question: "How do projects with New Zealand businesses run?",
@@ -86,8 +83,8 @@ export const newZealandPage = {
         "Yes. Calls are booked during the New Zealand working day. New Zealand is usually two hours ahead of Melbourne, so those hours still fall inside a normal Melbourne day.",
     },
     {
-      question: "Do you quote in New Zealand dollars?",
-      answer: `We do not publish a New Zealand dollar price or an exchange rate. ${approvedProjectPricing}`,
+      question: "What does a project cost?",
+      answer: `${approvedProjectPricing} Larger projects start with an initial consultation.`,
     },
     {
       question: "Which services can a New Zealand business use?",
@@ -97,7 +94,7 @@ export const newZealandPage = {
     {
       question: "Is there a published New Zealand case study?",
       answer:
-        "Yes. Huntress Recruitment, a recruitment business in New Zealand, is published on this site. The team was managing job information across Bullhorn, SEEK and its WordPress website. 23Labs mapped that workflow and connected it so vacancy information could move more consistently, with public-facing fields for job titles and locations kept separate from the internal Bullhorn record. Duplicate administration is reduced, and Bullhorn stays the system of record. The work was delivered remotely. The case study does not publish a time saving.",
+        "Huntress Recruitment is a recruitment business in New Zealand. 23Labs connected Bullhorn, SEEK and its WordPress website remotely from Melbourne so vacancy information could move more consistently, which the case study describes.",
     },
   ],
   cta: {

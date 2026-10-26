@@ -24,9 +24,6 @@ export function ServicesHubPage() {
         <div className="wrap">
           <div className="sec-head industry-sec-head reveal">
             <h2 className="sec-title">Six services</h2>
-            <p className="lead">
-              Short descriptions below are the ones already used on each service page.
-            </p>
           </div>
           <div className="industry-grid reveal">
             {serviceLandingPages.map((service) => (
@@ -74,7 +71,7 @@ export function ServicesHubPage() {
             </p>
             <p>
               23Labs is based in Melbourne and delivers this work remotely for businesses in Australia and{" "}
-              <Link href="/new-zealand">New Zealand</Link>. There is no New Zealand office.
+              <Link href="/new-zealand">New Zealand</Link>.
             </p>
           </div>
         </div>

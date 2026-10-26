@@ -19,7 +19,7 @@ const buildIconServiceHref: Record<string, string> = {
   software: "/services/full-stack-software-development",
   dashboard: "/services/full-stack-software-development",
   portal: "/services/full-stack-software-development",
-  integration: "/services/business-process-automation",
+  integration: "/services/system-integrations",
 };
 
 type SplitHeadingProps = {

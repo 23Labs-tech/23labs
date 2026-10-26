@@ -1,6 +1,7 @@
 ---
 title: "7 Signs Your Business Is Ready for AI Automation"
-description: "Discover the key signs your business is ready for AI automation and how automation can reduce admin, improve response times, and help your business scale."
+seoTitle: "7 Signs a Business Is Ready for AI Automation | 23Labs"
+description: "Signs a business is ready to add AI to a workflow, and how that differs from automating a process that already follows a clear set of rules."
 date: "2026-08-18"
 updated: "2026-08-18"
 author: "23Labs"
@@ -191,4 +192,4 @@ They're using it to solve real operational challenges and create better customer
 
 At 23Labs, we help service businesses identify inefficient processes and implement practical AI automation solutions that save time, improve responsiveness, and support growth.
 
-Explore our [AI automation services](/services/ai-agents), review our [workflow automation approach](/services/business-process-automation), or [book a workflow review](/contact) to discover where automation could make the biggest impact in your business.
+See how we [add AI to the steps that need judgement](/services/ai-workflow-automation), and how that differs from [automating a process that already has clear rules](/services/business-process-automation). [Talk to us about the process](/contact) if you want a second opinion on which is which.

@@ -4,8 +4,7 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 import { HowWeHelpShowcase } from "@/components/services/HowWeHelpShowcase";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { JsonLd } from "@/components/site/JsonLd";
-import { absoluteUrl } from "@/lib/seo";
-import { siteConfig } from "@/lib/site";
+import { breadcrumbList, serviceJsonLd } from "@/lib/schema";
 import {
   getServiceLandingPage,
   serviceApproachSteps,
@@ -25,6 +24,7 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
         <div className="wrap svc-hero-in">
           <div className="reveal in svc-hero-copy">
             <h1>{service.hero.title}</h1>
+            {service.hero.subheading ? <p className="hero-sub">{service.hero.subheading}</p> : null}
             <p className="lead">{service.hero.lead}</p>
             <div className="hero-actions">
               <ButtonLink href="/contact">Start a Conversation</ButtonLink>
@@ -35,7 +35,7 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
               src={service.hero.image.src}
               alt={service.hero.image.alt}
               fill
-              priority
+              preload
               sizes="(max-width: 900px) 100vw, 50vw"
             />
           </div>
@@ -89,6 +89,29 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
         </div>
       </section>
 
+      {service.proof?.length ? (
+        <section className="sec">
+          <div className="wrap">
+            <div className="sec-head reveal">
+              <h2 className="sec-title">Where this shows up</h2>
+            </div>
+            <div className="text-block reveal">
+              <p>
+                {service.proof.map((part, index) =>
+                  part.href ? (
+                    <Link href={part.href} key={`${part.href}-${index}`}>
+                      {part.text}
+                    </Link>
+                  ) : (
+                    <span key={index}>{part.text}</span>
+                  )
+                )}
+              </p>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       <ProcessSection
         layout="split"
         eyebrow="How we work"
@@ -114,7 +137,7 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
               {relatedServices.map((item) => (
                 <Link href={item.href} className="related-link" key={item.slug}>
                   <div className="related-link-body">
-                    <h4>{item.navLabel}</h4>
+                    <h3>{item.navLabel}</h3>
                     <p>{item.description}</p>
                   </div>
                   <span className="btn-arrow" aria-hidden="true">
@@ -141,34 +164,16 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
         data={{
           "@context": "https://schema.org",
           "@graph": [
-            {
-              "@type": "Service",
-              serviceType: serviceName,
-              name: serviceName,
+            serviceJsonLd({
+              name: service.navLabel,
               description: service.description,
-              provider: {
-                "@type": "Organization",
-                name: siteConfig.name,
-                url: siteConfig.url,
-              },
-              areaServed: {
-                "@type": "State",
-                name: "Victoria, Australia",
-              },
-              url: absoluteUrl(service.href),
-            },
-            {
-              "@type": "BreadcrumbList",
-              itemListElement: [
-                { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
-                {
-                  "@type": "ListItem",
-                  position: 2,
-                  name: serviceName,
-                  item: absoluteUrl(service.href),
-                },
-              ],
-            },
+              path: service.href,
+            }),
+            breadcrumbList([
+              { name: "Home", path: "/" },
+              { name: "Services", path: "/#services" },
+              { name: service.navLabel, path: service.href },
+            ]),
           ],
         }}
       />

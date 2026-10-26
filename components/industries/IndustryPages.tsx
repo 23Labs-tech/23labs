@@ -16,9 +16,9 @@ const buildIconServiceHref: Record<string, string> = {
   automation: "/services/business-process-automation",
   ai: "/services/ai-agents",
   message: "/services/ai-agents",
-  software: "/services/full-stack-software-development",
-  dashboard: "/services/full-stack-software-development",
-  portal: "/services/full-stack-software-development",
+  software: "/services/custom-software-development",
+  dashboard: "/services/custom-software-development",
+  portal: "/services/custom-software-development",
   integration: "/services/system-integrations",
 };
 
@@ -242,7 +242,7 @@ export function IndustryDetailPage({ industry }: { industry: IndustryPageData })
               src={industry.hero.image.src}
               alt={industry.hero.image.alt}
               fill
-              priority
+              preload
               sizes="(max-width: 900px) 100vw, 50vw"
             />
           </div>

@@ -24,7 +24,7 @@ export function Logo({ href = "/", tone = "dark", priority = false, className }:
       alt="23Labs"
       width={width}
       height={height}
-      priority={priority}
+      preload={priority}
       className="logo-image"
     />
   );

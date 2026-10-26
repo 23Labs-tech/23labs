@@ -10,21 +10,21 @@ import { services } from "@/lib/data";
 const visuals: Record<string, React.ComponentType> = {
   "business-process-automation": AutomationVisual,
   "ai-workflow-automation": DocumentVisual,
-  "full-stack-software-development": SoftwareVisual,
+  "custom-software-development": SoftwareVisual,
   "ai-agents": AgentVisual,
 };
 
 const sizeBySlug: Record<string, string> = {
   "business-process-automation": "xl",
   "ai-workflow-automation": "sm",
-  "full-stack-software-development": "lg",
+  "custom-software-development": "lg",
   "ai-agents": "lg",
 };
 
 const toneBySlug: Record<string, string> = {
   "business-process-automation": "tone-sky",
   "ai-workflow-automation": "tone-lilac",
-  "full-stack-software-development": "tone-plain",
+  "custom-software-development": "tone-plain",
   "ai-agents": "tone-mint",
 };
 

@@ -19,6 +19,7 @@ export function WorkShowcase() {
           </div>
           <div className="work-feature-copy">
             <span className="cs-card-category">{item.category}</span>
+            {item.headline.includes(item.name) ? null : <p className="cs-card-client">{item.name}</p>}
             <h3>{item.headline}</h3>
             <p>{item.summary}</p>
             <div className="cs-card-results">

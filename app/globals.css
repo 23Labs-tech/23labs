@@ -429,6 +429,12 @@ textarea:focus-visible {
 
 /* ---------- Nav services dropdown ---------- */
 
+.nav-dropdown-group {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
 .nav-dropdown {
   position: relative;
   display: flex;
@@ -1059,6 +1065,23 @@ textarea:focus-visible {
   color: var(--ink-soft);
   font-size: 15.5px;
   line-height: 1.6;
+}
+
+a.problem-card-link {
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+a.problem-card-link:hover {
+  border-color: var(--ink-faint);
+  background: var(--paper-2);
+}
+
+a.problem-card-link .work-link {
+  display: inline-block;
+  margin-top: 16px;
 }
 
 /* ---------- How we help (interactive showcase) ---------- */
@@ -1921,6 +1944,86 @@ textarea:focus-visible {
 
 .faq-panel p {
   max-width: 60ch;
+}
+
+.faq-static h3 {
+  margin: 0;
+  padding: 20px 26px 0;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+
+.faq-static p {
+  margin: 0;
+  padding: 10px 26px 22px;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.faq-static a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.workflow-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.workflow-card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper);
+  padding: 28px 32px;
+}
+
+.workflow-card h3 {
+  margin-bottom: 12px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.workflow-card p {
+  margin-bottom: 12px;
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.workflow-card p:last-child {
+  margin-bottom: 0;
+}
+
+.workflow-card a,
+.proof-link {
+  color: var(--ink);
+}
+
+.workflow-card a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+a.proof-link {
+  display: block;
+  text-decoration: none;
+}
+
+a.proof-link:hover {
+  border-color: var(--ink-faint);
+  background: var(--paper-2);
+}
+
+a.proof-link .work-link {
+  display: inline-block;
+  margin-top: 14px;
 }
 
 .outcome-grid {
@@ -3183,6 +3286,13 @@ textarea:focus-visible {
 
   .nav-links.is-open {
     display: flex;
+  }
+
+  .nav-dropdown-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
   }
 
   .nav-dropdown {

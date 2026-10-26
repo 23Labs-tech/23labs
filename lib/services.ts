@@ -97,6 +97,11 @@ const professionalServicesLink = {
   label: "Professional services",
 };
 
+const recruitmentLink = {
+  href: "/recruitment",
+  label: "Recruitment",
+};
+
 export const serviceLandingPages: ServiceLandingPageData[] = [
   {
     slug: "business-process-automation",
@@ -261,6 +266,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
         {
           label: "Recruitment",
           body: "A new client or candidate still means someone copies the same details out of an email, and follow-ups depend on who remembers. Publishing the same vacancy to a website and a job board is a different problem: that is system integration, and Huntress Recruitment is the published example of it.",
+          links: [recruitmentLink],
         },
         {
           label: "Professional services",
@@ -496,6 +502,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
         {
           label: "Recruitment",
           body: "A CV or an application arrives as unstructured text and someone classifies it against an open role before a recruiter decides. That classification is the workflow step. An agent that corresponds with the candidate is a different service.",
+          links: [recruitmentLink],
         },
         {
           label: "Professional services",
@@ -726,6 +733,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
         {
           label: "Recruitment",
           body: "A client or candidate portal for a step the recruitment system does not cover, such as a structured brief or a status view for the hiring client. Where the real issue is the same vacancy being retyped onto the website and a job board, an integration is the better job. Huntress Recruitment was that kind of connection, plus a small set of public-facing fields.",
+          links: [recruitmentLink],
         },
         {
           label: "Professional services",
@@ -957,6 +965,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
         {
           label: "Recruitment",
           body: "A consultant needs a short account summary before a client call, and someone assembles it from the recruitment system for them to approve. That is an agent task. The Huntress Recruitment project was an integration that moved vacancy data between Bullhorn, SEEK and the website. It was not an agent.",
+          links: [recruitmentLink],
         },
         {
           label: "Professional services",
@@ -1194,6 +1203,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
         {
           label: "Recruitment",
           body: "Vacancy details kept in a recruitment system, then again on a job board and again on the website. Huntress Recruitment is the published version: Bullhorn, SEEK and the company website, with public fields so the internal record and the candidate-facing version can differ.",
+          links: [recruitmentLink],
         },
         {
           label: "Professional services",
@@ -1431,6 +1441,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
         {
           label: "Recruitment",
           body: "A live connection between a recruitment system and a website needs a new public field. That is a change to an existing build. Huntress Recruitment is the original integration, not a statement that a support agreement is in place.",
+          links: [recruitmentLink],
         },
         {
           label: "Professional services",

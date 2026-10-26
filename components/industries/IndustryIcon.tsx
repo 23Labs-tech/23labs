@@ -42,6 +42,17 @@ function IconSvg({ icon }: { icon: string }) {
     );
   }
 
+  if (icon === "recruitment") {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="9" cy="8" r="2.4" />
+        <circle cx="16" cy="9" r="1.8" />
+        <path d="M3.8 19a5.2 5.2 0 0 1 10.4 0" />
+        <path d="M14.2 19a4 4 0 0 1 6-3.2" />
+      </svg>
+    );
+  }
+
   if (icon === "professional") {
     return (
       <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">

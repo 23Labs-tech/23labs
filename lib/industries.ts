@@ -1,19 +1,81 @@
+import {
+  professionalServicesIndustryPage,
+  recruitmentIndustryPage,
+  transportIndustryPage,
+} from "@/lib/industryClusterPages";
+
+export type CopyPart = { text: string; href?: string };
+export type CopyBlock = string | CopyPart[];
+
+export type IndustryPage = {
+  slug: string;
+  href: string;
+  serviceName: string;
+  metadataTitle: string;
+  description: string;
+  hero: {
+    eyebrow: string;
+    title: string;
+    highlight: string;
+    lead: string;
+    image: { src: string; alt: string };
+    ctaLabel?: string;
+  };
+  intro: { paragraphs: CopyBlock[] };
+  problems: {
+    eyebrow: string;
+    title: string;
+    highlight: string;
+    items: { title: string; body: string }[];
+  };
+  supportingImage: { src: string; alt: string };
+  help: {
+    eyebrow: string;
+    title: string;
+    highlight: string;
+    body: string;
+    services: { icon: string; name: string; href: string; body: string }[];
+  };
+  builds: {
+    eyebrow: string;
+    title: string;
+    highlight: string;
+    items: { icon: string; title: string; body: string; href?: string }[];
+  };
+  workflows?: {
+    eyebrow: string;
+    title: string;
+    highlight: string;
+    paragraphs?: CopyBlock[];
+    items: { title: string; paragraphs: CopyBlock[] }[];
+  };
+  proof?: {
+    eyebrow: string;
+    title: string;
+    highlight: string;
+    paragraphs: CopyBlock[];
+    links?: { href: string; label: string; body: string }[];
+  };
+  faq?: { question: string; answer: string }[];
+  cta: { title: string; body: string; label?: string };
+};
+
 export const industryLinks = [
-  {
-    slug: "construction",
-    href: "/construction",
-    label: "Construction",
-    icon: "construction",
-    description:
-      "Software and automation for builders, contractors and construction businesses managing projects, compliance, documentation, quotes and client communication.",
-  },
   {
     slug: "freight-logistics",
     href: "/freight-logistics",
-    label: "Freight & Logistics",
+    label: "Transport & Logistics",
     icon: "freight",
     description:
-      "Workflow systems for transport, freight and logistics businesses that need better visibility, less manual data entry and smoother communication between teams, customers and systems.",
+      "Automation and software for transport and logistics operators that need quoting, allocation, proof of delivery, invoicing and a cleaner link between the TMS and accounting.",
+  },
+  {
+    slug: "recruitment",
+    href: "/recruitment",
+    label: "Recruitment",
+    icon: "recruitment",
+    description:
+      "Automation and integrations for recruitment teams that need candidate and job intake, ATS to job board and website sync, onboarding and reporting in one workflow.",
   },
   {
     slug: "professional-services",
@@ -21,7 +83,15 @@ export const industryLinks = [
     label: "Professional Services",
     icon: "professional",
     description:
-      "Automation and custom software for consultants, agencies, accountants, legal firms and service businesses that rely on client communication, admin workflows and repeatable internal processes.",
+      "Automation for professional services firms that need client onboarding, proposals, project setup and reporting to follow the client record instead of another round of admin.",
+  },
+  {
+    slug: "construction",
+    href: "/construction",
+    label: "Construction",
+    icon: "construction",
+    description:
+      "Software and automation for builders, contractors and construction businesses managing projects, compliance, documentation, quotes and client communication.",
   },
   {
     slug: "allied-health",
@@ -183,10 +253,11 @@ const serviceHrefs = {
   aiAgents: "/services/ai-agents",
 } as const;
 
-export const industryPages = [
+export const industryPages: IndustryPage[] = [
   {
     slug: "construction",
     href: "/construction",
+    serviceName: "Construction software and automation",
     metadataTitle: "Construction Software & Automation Solutions | 23Labs",
     description:
       "23Labs helps construction businesses reduce admin, manage documentation, automate follow-ups and connect the systems a job already runs through.",
@@ -276,193 +347,13 @@ export const industryPages = [
         "Tell us how quotes, documents and job updates currently move through your business and we'll show you where automation can save your team the most time.",
     },
   },
-  {
-    slug: "freight-logistics",
-    href: "/freight-logistics",
-    metadataTitle: "Transport & Logistics Automation and Software | 23Labs",
-    description:
-      "Automate quoting, job allocation, POD and invoicing, and connect your TMS with accounting and customer systems. Built for transport operators.",
-    hero: {
-      eyebrow: "Industries / Freight & Logistics",
-      title: "Transport and logistics automation and software",
-      highlight: "",
-      lead:
-        "Automate repetitive work, connect disconnected systems and build software around the way your operation actually runs.",
-      image: {
-        src: "/site-images/industries/freight-logistics.jpg",
-        alt: "Freight truck travelling on a highway at sunset",
-      },
-    },
-    intro: {
-      paragraphs: [
-        "Freight and logistics businesses run on speed, accuracy and visibility. But when your team is managing bookings, driver communication, proof of delivery and customer updates across disconnected systems, that speed is the first thing to go.",
-        "We help freight and logistics businesses build smarter operations through automation, integrations and software that fit the way your fleet, drivers and admin team already work.",
-      ],
-    },
-    problems: {
-      eyebrow: "Common problems",
-      title: "Where ",
-      highlight: "logistics teams lose time",
-      items: [
-        { title: "Manual quoting", body: "Rate requests are calculated and sent by hand, slowing down response times to new business." },
-        { title: "Job allocation", body: "Assigning jobs to drivers relies on phone calls and manual checks instead of a clear system." },
-        { title: "Driver communication", body: "Job details, updates and changes are relayed manually instead of flowing straight to drivers." },
-        { title: "Proof of delivery processing", body: "PODs are collected on paper or scattered across phones and have to be chased and filed by hand." },
-        { title: "Duplicate data entry", body: "The same booking and job information gets typed into multiple systems separately." },
-        { title: "Disconnected transport systems", body: "Your TMS, accounting and customer tools don't share information automatically." },
-        { title: "Invoicing delays", body: "Jobs sit waiting on paperwork before they can be invoiced, slowing down cash flow." },
-        { title: "Spreadsheet based workflows", body: "Core parts of the operation still run through spreadsheets that are easy to break and hard to scale." },
-        { title: "Manually transferring information between systems", body: "Staff spend hours moving the same information between booking, tracking and finance tools." },
-      ],
-    },
-    supportingImage: {
-      src: "/site-images/photos/connected-tools-overlay.png",
-      alt: "A diagram showing freight and logistics tools connected through an automation hub",
-    },
-    help: {
-      eyebrow: "How we can help",
-      title: "Automation and software built around ",
-      highlight: "how your fleet runs",
-      body: "Your business doesn't need more disconnected systems. It needs better flow between the systems, people and processes already in place.",
-      services: [
-        {
-          icon: "automation",
-          name: "Business Process Automation",
-          href: serviceHrefs.automation,
-          body: "Automate booking confirmations, customer updates, POD requests and the internal admin that currently relies on manual follow-up.",
-        },
-        {
-          icon: "ai",
-          name: "AI Workflow Automation",
-          href: serviceHrefs.aiWorkflow,
-          body: "Route jobs, documents and status updates automatically between dispatch, drivers and your back office.",
-        },
-        {
-          icon: "software",
-          name: "Custom Software Development",
-          href: serviceHrefs.software,
-          body: "Build custom dashboards and portals for job tracking, delivery visibility and operational reporting.",
-        },
-        {
-          icon: "message",
-          name: "AI Agents",
-          href: serviceHrefs.aiAgents,
-          body: "Deploy AI agents that handle customer enquiries, capture freight requests and qualify jobs before they reach your team.",
-        },
-      ],
-    },
-    builds: {
-      eyebrow: "What we can build",
-      title: "What We Can ",
-      highlight: "Build",
-      items: [
-        { icon: "automation", title: "Logistics Workflow Automation", body: "Automate customer updates, booking confirmations, quote follow-ups and document requests." },
-        { icon: "software", title: "Custom Operations Dashboards", body: "Track job status, delivery visibility, pending documents and performance in one place." },
-        { icon: "integration", title: "Transport System Integrations", body: "Connect your TMS, accounting software, email and internal databases so data moves on its own." },
-        { icon: "ai", title: "AI Customer Support Agents", body: "Answer common questions, capture freight enquiries and route requests to the right person automatically." },
-      ],
-    },
-    cta: {
-      title: "Book a freight & logistics discovery call",
-      body:
-        "Tell us how bookings, jobs and customer updates currently move through your operation and we'll show you where automation can make the biggest difference.",
-    },
-  },
-  {
-    slug: "professional-services",
-    href: "/professional-services",
-    metadataTitle: "Professional Services Automation & Software | 23Labs",
-    description:
-      "Automate client onboarding, proposals, documents and reporting, and connect the CRM, practice management and accounting systems your firm already uses.",
-    hero: {
-      eyebrow: "Industries / Professional Services",
-      title: "Software and automation built for ",
-      highlight: "professional services firms",
-      lead:
-        "Automate repetitive admin, connect the tools your team already uses and give your people more time for client work.",
-      image: {
-        src: "/site-images/industries/professional-services.jpg",
-        alt: "Professional services team working in a modern open-plan office",
-      },
-    },
-    intro: {
-      paragraphs: [
-        "Professional services firms run on trust, communication and consistent delivery. But behind the scenes, many teams are slowed down by manual onboarding, scattered documents and follow-ups that depend on someone remembering to send them.",
-        "We help professional services businesses build systems around how your client work actually happens, from first enquiry through to ongoing delivery.",
-      ],
-    },
-    problems: {
-      eyebrow: "Common problems",
-      title: "Where ",
-      highlight: "client admin piles up",
-      items: [
-        { title: "Manual client onboarding", body: "New clients are onboarded through a string of emails, forms and manual reminders." },
-        { title: "Proposal and engagement drafting", body: "Proposals and engagement letters are built from scratch instead of a repeatable workflow." },
-        { title: "Chasing documents and signatures", body: "Staff spend time following up on outstanding documents, forms and signatures." },
-        { title: "Appointment and meeting scheduling", body: "Booking and rescheduling meetings still relies on back-and-forth emails." },
-        { title: "Status updates sent manually", body: "Clients chase progress updates because there's no automatic way to keep them informed." },
-        { title: "Time tracking and billing reconciliation", body: "Matching time, invoices and payments across systems takes longer than it should." },
-        { title: "Disconnected practice tools", body: "Your CRM, accounting, calendar and document systems don't share information automatically." },
-        { title: "Repetitive client questions", body: "The same questions get answered manually again and again by your team." },
-        { title: "Internal task handoffs", body: "Work gets passed between team members informally, with no clear record of what's been done." },
-      ],
-    },
-    supportingImage: {
-      src: "/site-images/photos/team-meeting-discussion.png",
-      alt: "A professional services team discussing client work around a meeting table",
-    },
-    help: {
-      eyebrow: "How we can help",
-      title: "Automation and software built around ",
-      highlight: "client delivery",
-      body: "Professional services firms don't need more software for its own sake. They need the admin around client delivery to run itself.",
-      services: [
-        {
-          icon: "automation",
-          name: "Business Process Automation",
-          href: serviceHrefs.automation,
-          body: "Automate onboarding, document requests, reminders and the internal admin that currently depends on manual follow-up.",
-        },
-        {
-          icon: "ai",
-          name: "AI Workflow Automation",
-          href: serviceHrefs.aiWorkflow,
-          body: "Move client information between your CRM, inbox and project tools automatically as work progresses.",
-        },
-        {
-          icon: "software",
-          name: "Custom Software Development",
-          href: serviceHrefs.software,
-          body: "Build client portals and internal tools designed around how your team actually delivers work.",
-        },
-        {
-          icon: "message",
-          name: "AI Agents",
-          href: serviceHrefs.aiAgents,
-          body: "Deploy AI agents that answer common client questions, capture enquiries and support your admin team.",
-        },
-      ],
-    },
-    builds: {
-      eyebrow: "What we can build",
-      title: "What We Can ",
-      highlight: "Build",
-      items: [
-        { icon: "automation", title: "Client Workflow Automation", body: "Automate onboarding, document requests, reminders, task creation and status updates." },
-        { icon: "portal", title: "Custom Client Portals", body: "Give clients a simple place to submit information, track progress and communicate with your team." },
-        { icon: "integration", title: "CRM & Tool Integrations", body: "Connect your CRM, email, calendar, accounting software and project tools." },
-        { icon: "ai", title: "AI Admin Agents", body: "Answer common questions, capture enquiries, qualify leads and support internal admin." },
-      ],
-    },
-    cta: {
-      title: "Book a professional services discovery call",
-      body:
-        "Tell us how clients currently move through your business and we'll show you where automation can save your team the most time.",
-    },
-  },
+  transportIndustryPage,
+  recruitmentIndustryPage,
+  professionalServicesIndustryPage,
   {
     slug: "allied-health",
     href: "/allied-health",
+    serviceName: "Allied health software and automation",
     metadataTitle: "Allied Health Software & Automation Solutions | 23Labs",
     description:
       "23Labs helps allied health clinics reduce admin, simplify scheduling and connect practice systems with custom software, workflow automation and integrations.",
@@ -555,6 +446,7 @@ export const industryPages = [
   {
     slug: "real-estate",
     href: "/real-estate",
+    serviceName: "Real estate software and automation",
     metadataTitle: "Real Estate Software & Automation Solutions | 23Labs",
     description:
       "Automate enquiries, maintenance requests and tenant updates for agencies and property managers, and connect the systems the office already uses.",
@@ -647,6 +539,7 @@ export const industryPages = [
   {
     slug: "trades-field-services",
     href: "/trades-field-services",
+    serviceName: "Trades and field services automation",
     metadataTitle: "Trades & Field Services Automation | 23Labs",
     description:
       "Automate enquiries, quotes, scheduling and job updates for trades and field service teams, and connect the systems the crew already uses each day.",
@@ -736,10 +629,10 @@ export const industryPages = [
         "Tell us how leads, quotes and jobs currently move through your business and we'll show you where automation can save your team time.",
     },
   },
-] as const;
+];
 
 export type IndustryOverviewLink = (typeof industryLinks)[number];
-export type IndustryPageData = (typeof industryPages)[number];
+export type IndustryPageData = IndustryPage;
 
 export function getIndustryPage(slug: string) {
   return industryPages.find((industry) => industry.slug === slug);

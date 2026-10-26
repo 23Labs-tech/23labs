@@ -64,7 +64,7 @@ const nextConfig: NextConfig = {
       {
         source: "/case-studies",
         destination: "/work",
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/case-studies/first-national-real-estate",

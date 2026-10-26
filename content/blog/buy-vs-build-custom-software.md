@@ -4,7 +4,7 @@ seoTitle: "Buy vs Build: When Custom Software Pays Off | 23Labs"
 description: "Should your business buy off-the-shelf software or build a custom system? A plain look at when a custom build pays off, and when it does not."
 date: "2026-09-29"
 updated: "2026-09-29"
-author: "23Labs"
+author: "23Labs Team"
 categories: "Custom Software, Business Growth, Operations"
 image: "/site-images/tech-img-15.png"
 featuredImage: "/site-images/tech-img-15.png"
@@ -50,7 +50,7 @@ There are already strong tools available for those problems.
 Buying software makes sense when:
 
 - The process is standard across most businesses
-- The software solves at least 80 percent of the problem
+- The software solves most of the problem
 - Your team can adapt to the workflow without major issues
 - The cost is reasonable compared to the value
 - The tool integrates with your existing systems
@@ -116,7 +116,7 @@ If your team spends hours every week on repetitive admin, custom software can re
 
 This might include data entry, reporting, follow-ups, document handling, job updates, lead routing or task creation.
 
-Saving 5 to 10 hours per week across a team can quickly become a meaningful return.
+Reducing that repetitive admin across a team can quickly become a meaningful return.
 
 ### 2. Fewer Errors
 
@@ -172,9 +172,9 @@ If the problem is specific to your business process, build may be worth consider
 
 ### Does existing software solve most of the problem?
 
-If an existing tool solves 80 percent or more of the problem, buy it.
+If an existing tool solves most of the problem, buy it.
 
-If it only solves 40 to 60 percent and creates extra admin around it, custom software may be better.
+If it only solves part of the problem and creates extra admin around it, custom software may be better.
 
 ### Are your team's workarounds becoming expensive?
 

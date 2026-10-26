@@ -765,6 +765,28 @@ textarea:focus-visible {
   text-underline-offset: 3px;
 }
 
+.case-detail .text-block ul,
+.case-detail .text-block ol {
+  margin: 8px 0 16px;
+  padding-left: 1.25em;
+  color: var(--ink-soft);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.case-detail .text-block li + li {
+  margin-top: 12px;
+}
+
+.case-detail .text-block li strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.cs-closing .hero-actions {
+  margin-top: 28px;
+}
+
 .industry-detail .svc-row {
   align-items: start;
 }
@@ -2685,6 +2707,14 @@ textarea:focus-visible {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent-dark);
+}
+
+.cs-card-client {
+  margin-top: 10px;
+  color: var(--ink);
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.4;
 }
 
 .cs-card-headline {

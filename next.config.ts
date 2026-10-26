@@ -66,6 +66,11 @@ const nextConfig: NextConfig = {
         destination: "/work",
         permanent: true,
       },
+      {
+        source: "/case-studies/first-national-real-estate",
+        destination: "/case-studies/real-estate-workflow-automation",
+        statusCode: 301,
+      },
     ];
   },
   async headers() {

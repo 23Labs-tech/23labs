@@ -141,9 +141,9 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     proof: [
       { text: "Two recent projects follow this pattern. " },
       { text: "CorIT Tech's onboarding", href: "/case-studies/corit-tech" },
-      { text: " stopped new-client details being typed into every tool, and a " },
-      { text: "First National office", href: "/case-studies/first-national-real-estate" },
-      { text: " now passes enquiries through to the property record without someone chasing the handoff." },
+      { text: " connects CRM information with project records, and a " },
+      { text: "real estate office in Australia", href: "/case-studies/real-estate-workflow-automation" },
+      { text: " has a clearer path from a website enquiry to the property record and the person who needs to act." },
     ],
   },
   {
@@ -328,7 +328,11 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       { text: " so internal vacancy records and the website did not have to match word for word. " },
       { text: "Lily Olsen Counselling", href: "/case-studies/lily-olsen-counselling" },
       {
-        text: " was a four-page website rebuild for an Auckland practice, which is a different job from an internal platform.",
+        text: " was a four-page website rebuild for an Auckland practice, which is a different job from an internal platform. A ",
+      },
+      { text: "real estate office in Australia", href: "/case-studies/real-estate-workflow-automation" },
+      {
+        text: " also had its website improved so enquiries could move into the records the team already used.",
       },
     ],
   },
@@ -513,8 +517,12 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       { text: "The " },
       { text: "Huntress Recruitment project", href: "/case-studies/huntress-recruitment" },
       {
-        text: " connected Bullhorn, SEEK and the company website so recruiters were not keeping three copies of the same vacancy.",
+        text: " connected Bullhorn, SEEK and the company website so recruiters were not keeping three copies of the same vacancy. ",
       },
+      { text: "CorIT Tech", href: "/case-studies/corit-tech" },
+      { text: " had its CRM joined to project management for client onboarding, and a " },
+      { text: "real estate office in Australia", href: "/case-studies/real-estate-workflow-automation" },
+      { text: " had enquiry details connected with property records." },
     ],
   },
   {

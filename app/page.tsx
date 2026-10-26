@@ -55,6 +55,9 @@ export default function Home() {
             Four ways we help growing businesses remove manual work, build the right software and
             connect the tools they already use.
           </p>
+          <Link href="/services" className="work-link full-services-link">
+            See all services <span aria-hidden="true">{"→"}</span>
+          </Link>
         </div>
         <div className="wrap">
           <ServiceShowcase />

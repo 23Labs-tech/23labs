@@ -120,17 +120,22 @@ export function Navbar() {
                 const menus: {
                   key: DropdownKey;
                   label: string;
+                  href?: string;
                   active: boolean;
                   items: { href: string; label: string }[];
                 }[] = [
                   {
                     key: "services",
                     label: item.label,
+                    href: "/services",
                     active: isServicesPath,
-                    items: serviceLandingPages.map((service) => ({
-                      href: service.href,
-                      label: service.navLabel,
-                    })),
+                    items: [
+                      { href: "/services", label: "All services" },
+                      ...serviceLandingPages.map((service) => ({
+                        href: service.href,
+                        label: service.navLabel,
+                      })),
+                    ],
                   },
                   {
                     key: "industries",
@@ -166,23 +171,56 @@ export function Navbar() {
                             closeDropdown();
                           }}
                         >
-                          <button
-                            type="button"
-                            className={`nav-dropdown-trigger${menu.active ? " active" : ""}`}
-                            aria-expanded={isOpen}
-                            aria-haspopup="true"
-                            onClick={() => {
-                              clearCloseTimeout();
-                              setDropdownState({ key: isOpen ? null : menu.key, pathname });
-                            }}
-                            onFocus={() => {
-                              if (!isHoverCapable()) return;
-                              showDropdown(menu.key);
-                            }}
-                          >
-                            {menu.label}
-                            <ChevronIcon />
-                          </button>
+                          {menu.href ? (
+                            <div className={`nav-service-trigger${menu.active ? " active" : ""}`}>
+                              <Link
+                                href={menu.href}
+                                className={menu.active ? "active" : undefined}
+                                aria-current={pathname === menu.href ? "page" : undefined}
+                                onClick={() => {
+                                  setMenuState({ open: false, pathname });
+                                  closeDropdown();
+                                }}
+                              >
+                                {menu.label}
+                              </Link>
+                              <button
+                                type="button"
+                                className="nav-service-chevron"
+                                aria-expanded={isOpen}
+                                aria-haspopup="true"
+                                aria-label={isOpen ? "Hide services menu" : "Show services menu"}
+                                onClick={() => {
+                                  clearCloseTimeout();
+                                  setDropdownState({ key: isOpen ? null : menu.key, pathname });
+                                }}
+                                onFocus={() => {
+                                  if (!isHoverCapable()) return;
+                                  showDropdown(menu.key);
+                                }}
+                              >
+                                <ChevronIcon />
+                              </button>
+                            </div>
+                          ) : (
+                            <button
+                              type="button"
+                              className={`nav-dropdown-trigger${menu.active ? " active" : ""}`}
+                              aria-expanded={isOpen}
+                              aria-haspopup="true"
+                              onClick={() => {
+                                clearCloseTimeout();
+                                setDropdownState({ key: isOpen ? null : menu.key, pathname });
+                              }}
+                              onFocus={() => {
+                                if (!isHoverCapable()) return;
+                                showDropdown(menu.key);
+                              }}
+                            >
+                              {menu.label}
+                              <ChevronIcon />
+                            </button>
+                          )}
                           <div className="nav-dropdown-panel">
                             {menu.items.map((entry) => (
                               <Link

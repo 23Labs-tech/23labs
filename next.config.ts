@@ -11,6 +11,20 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Apex host to the canonical www origin, preserving the path.
+      // Vercel domain settings may already do this at the edge; this is the
+      // application-level permanent redirect for host 23labs.co only.
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "23labs.co",
+          },
+        ],
+        destination: "https://www.23labs.co/:path*",
+        permanent: true,
+      },
       {
         source: "/blog/beyond-call-answering-allied-health-ai-receptionist",
         destination: "/allied-health",
@@ -54,11 +68,6 @@ const nextConfig: NextConfig = {
       {
         source: "/services/ai-automation",
         destination: "/services/ai-agents",
-        permanent: true,
-      },
-      {
-        source: "/services",
-        destination: "/#services",
         permanent: true,
       },
       {

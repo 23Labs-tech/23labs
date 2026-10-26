@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { CtaSection } from "@/components/sections/CtaSection";
 import { PageHero } from "@/components/sections/PageHero";
 import { ProcessSection } from "@/components/sections/ProcessSection";
@@ -54,6 +55,10 @@ export default function AboutPage() {
               <p>
                 Whatever the project, the goal is always the same: smarter systems that save time, reduce
                 errors, and give your team confidence to grow.
+              </p>
+              <p>
+                For businesses in New Zealand, that work is delivered remotely from Melbourne.{" "}
+                <Link href="/new-zealand">How we work with New Zealand businesses</Link>.
               </p>
             </div>
           </div>

@@ -508,6 +508,57 @@ textarea:focus-visible {
   display: flex;
 }
 
+.nav-service-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-service-trigger.active > a,
+.nav-dropdown.is-open .nav-service-trigger > a {
+  color: var(--ink);
+}
+
+.nav-service-chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+
+.nav-service-chevron:hover,
+.nav-service-chevron:focus-visible,
+.nav-dropdown.is-open .nav-service-chevron {
+  color: var(--ink);
+}
+
+.nav-service-chevron svg {
+  width: 12px;
+  height: 12px;
+  stroke: currentColor;
+  transition: transform 0.2s;
+}
+
+.nav-dropdown.is-open .nav-service-chevron svg {
+  transform: rotate(180deg);
+}
+
+.intro-copy .lead a,
+.story-copy a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* ---------- Hero ---------- */
 
 .hero {
@@ -3356,6 +3407,22 @@ a.proof-link .work-link {
   .nav-dropdown-panel a {
     padding: 11px 14px;
     font-size: 14.5px;
+  }
+
+  .nav-service-trigger {
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 8px 0 0;
+  }
+
+  .nav-links .nav-service-trigger > a {
+    width: auto;
+    flex: 1;
+  }
+
+  .nav-service-chevron {
+    width: 36px;
+    height: 36px;
   }
 
   .nav-toggle {

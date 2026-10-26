@@ -15,6 +15,7 @@ export type CaseStudy = {
   headline: string;
   summary: string;
   heroImage: { src: string; alt: string };
+  supportingImage?: { src: string; alt: string };
   cardResults: CaseStudyResultChip[];
   challenge: string;
   solution: string;
@@ -62,6 +63,10 @@ export const caseStudies: CaseStudy[] = [
     ],
     challenge:
       "Huntress Recruitment was managing job information across Bullhorn, SEEK and its WordPress website. Because each system handled information differently, recruiters were often required to manually update job details across multiple platforms. Public-facing information such as job titles and locations could also differ from the internal information stored inside Bullhorn. This created unnecessary administration, increased the risk of inconsistencies and made the publishing process more complicated than it needed to be.",
+    supportingImage: {
+      src: "/site-images/photos/team-meeting-discussion.png",
+      alt: "A team discussing the Huntress Recruitment project around a meeting table",
+    },
     solution:
       "23Labs mapped the existing workflow between Bullhorn, SEEK and the company website to understand where information was being duplicated and where the process could be simplified. We introduced dedicated public-facing fields for job titles and locations, allowing Huntress to keep its internal Bullhorn records structured correctly while controlling what candidates saw publicly. The connected workflow allowed job information to move more consistently between Bullhorn, SEEK and the website, reducing the need for manual re-entry and workarounds.",
     workflow: [
@@ -140,6 +145,10 @@ export const caseStudies: CaseStudy[] = [
     ],
     challenge:
       "The team was manually moving onboarding data between disconnected tools as client volume increased. Every new client meant copying the same information by hand into their CRM, accounting and project tools, which took time and left room for mistakes.",
+    supportingImage: {
+      src: "/site-images/photos/workers-system-monitors.png",
+      alt: "Two engineers reviewing connected system data across multiple monitors",
+    },
     solution:
       "We mapped the onboarding workflow end to end and built automations that sync data across their CRM and project tools the moment a new client signs on, removing the manual copy-paste step entirely.",
     workflow: [
@@ -186,6 +195,10 @@ export const caseStudies: CaseStudy[] = [
     ],
     challenge:
       "Customer and property workflows needed clearer handoffs and fewer repetitive administrative steps. Enquiries and property records moved between people manually, with no consistent way to make sure the right person was notified at the right step.",
+    supportingImage: {
+      src: "/site-images/photos/team-standup-tablet.png",
+      alt: "A team member presenting the enquiry workflow to colleagues around a table",
+    },
     solution:
       "We automated the handoffs between customer enquiries and property records, building clear triggers so the right person is notified at the right step without anyone having to chase it manually.",
     workflow: [
@@ -233,6 +246,10 @@ export const caseStudies: CaseStudy[] = [
     ],
     challenge:
       "The existing site didn't reflect the calm, trustworthy feel a therapy practice needs, and key pages like services and booking pathways were scattered and hard to follow.",
+    supportingImage: {
+      src: "/site-images/photos/notes-planning-desk.png",
+      alt: "Planning notes for the Lily Olsen Counselling website rebuild",
+    },
     solution:
       "We rebuilt the site across four pages, home, about, services, and contact, with a consistent sage and ivory palette, soft scroll-triggered animation, and a single typeface throughout to keep the whole experience calm and unhurried.",
     result:

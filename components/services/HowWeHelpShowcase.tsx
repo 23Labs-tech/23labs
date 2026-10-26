@@ -1,8 +1,7 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
-import { serviceVisualMap } from "@/components/ui/serviceVisualMap";
-import { WorkflowField } from "@/components/ui/ServiceVisuals";
 
 type Capability = {
   title: string;
@@ -15,16 +14,18 @@ export function HowWeHelpShowcase({ capabilities }: { capabilities: Capability[]
 
   return (
     <div className="howwehelp reveal">
-      <div className="howwehelp-media" role="img" aria-label={capabilities[activeIndex]?.image.alt}>
-        {capabilities.map((capability, index) => {
-          const Visual = serviceVisualMap[capability.image.src] ?? WorkflowField;
-          return (
-            <Visual
-              key={capability.title}
-              className={`howwehelp-media-img${index === activeIndex ? " is-active" : ""}`}
-            />
-          );
-        })}
+      <div className="howwehelp-media">
+        {capabilities.map((capability, index) => (
+          <Image
+            key={capability.title}
+            src={capability.image.src}
+            alt={capability.image.alt}
+            fill
+            priority={index === 0}
+            sizes="(max-width: 900px) 100vw, 50vw"
+            className={`howwehelp-media-img${index === activeIndex ? " is-active" : ""}`}
+          />
+        ))}
       </div>
       <div className="howwehelp-list">
         {capabilities.map((capability, index) => (

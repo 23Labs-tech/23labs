@@ -273,6 +273,19 @@ export function IndustryDetailPage({ industry }: { industry: IndustryPageData })
         </div>
       </section>
 
+      <section className="sec no-top">
+        <div className="wrap">
+          <div className="cs-supporting-image reveal">
+            <Image
+              src={industry.supportingImage.src}
+              alt={industry.supportingImage.alt}
+              fill
+              sizes="(max-width: 900px) 100vw, 1100px"
+            />
+          </div>
+        </div>
+      </section>
+
       <section className="sec">
         <div className="wrap">
           <SectionHeading

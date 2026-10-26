@@ -223,6 +223,10 @@ export const industryPages = [
         { title: "Duplicate data entry", body: "The same job information gets typed into estimating, accounting and project tools separately." },
       ],
     },
+    supportingImage: {
+      src: "/site-images/photos/field-team-laptop-review.png",
+      alt: "Two field team members reviewing project information together on a laptop",
+    },
     help: {
       eyebrow: "How we can help",
       title: "Automation and software built around ",
@@ -310,6 +314,10 @@ export const industryPages = [
         { title: "Spreadsheet based workflows", body: "Core parts of the operation still run through spreadsheets that are easy to break and hard to scale." },
         { title: "Manually transferring information between systems", body: "Staff spend hours moving the same information between booking, tracking and finance tools." },
       ],
+    },
+    supportingImage: {
+      src: "/site-images/photos/connected-tools-overlay.png",
+      alt: "A diagram showing freight and logistics tools connected through an automation hub",
     },
     help: {
       eyebrow: "How we can help",
@@ -399,6 +407,10 @@ export const industryPages = [
         { title: "Internal task handoffs", body: "Work gets passed between team members informally, with no clear record of what's been done." },
       ],
     },
+    supportingImage: {
+      src: "/site-images/photos/team-meeting-discussion.png",
+      alt: "A professional services team discussing client work around a meeting table",
+    },
     help: {
       eyebrow: "How we can help",
       title: "Automation and software built around ",
@@ -486,6 +498,10 @@ export const industryPages = [
         { title: "Funder and referrer reporting", body: "Reporting for referrers or funding bodies is compiled manually from several systems." },
         { title: "Repetitive data entry", body: "The same patient details are entered more than once across intake forms and clinic systems." },
       ],
+    },
+    supportingImage: {
+      src: "/site-images/photos/dashboard-review-pair.png",
+      alt: "Two colleagues reviewing a clinic scheduling dashboard together",
     },
     help: {
       eyebrow: "How we can help",
@@ -575,6 +591,10 @@ export const industryPages = [
         { title: "Owner and management reporting", body: "Reports for owners are compiled manually from several different systems." },
       ],
     },
+    supportingImage: {
+      src: "/site-images/photos/team-standup-tablet.png",
+      alt: "A real estate team member presenting enquiry data to colleagues around a table",
+    },
     help: {
       eyebrow: "How we can help",
       title: "Automation and software built around ",
@@ -662,6 +682,10 @@ export const industryPages = [
         { title: "Review and feedback requests", body: "Asking happy customers for reviews gets missed in the rush to the next job." },
         { title: "Disconnected CRM and job tools", body: "Your CRM, scheduling and accounting software don't share information automatically." },
       ],
+    },
+    supportingImage: {
+      src: "/site-images/photos/factory-automation-review.png",
+      alt: "Two people reviewing field equipment and job automation on site",
     },
     help: {
       eyebrow: "How we can help",

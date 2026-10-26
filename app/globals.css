@@ -2045,6 +2045,18 @@ textarea:focus-visible {
   object-fit: contain;
 }
 
+.cs-supporting-image {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  margin-top: 40px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.cs-supporting-image img {
+  object-fit: cover;
+}
+
 .cs-flow-summary {
   display: flex;
   flex-wrap: wrap;

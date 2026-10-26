@@ -61,8 +61,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       lead:
         "Streamline business processes, eliminate repetitive manual work and connect the systems your team relies on. We build automation solutions that help your business operate more efficiently as it grows.",
       image: {
-        src: "/site-images/tech-img-07.png",
-        alt: "A team member reviewing operational dashboards and workflow data on dual monitors",
+        src: "/site-images/photos/team-dashboard-presentation.png",
+        alt: "A team reviewing a performance dashboard presented on a screen during a meeting",
       },
     },
     problem: {
@@ -95,8 +95,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
           description:
             "Automate repetitive administrative tasks, approvals, follow-ups and routine business processes so your team can focus on higher-value work.",
           image: {
-            src: "/site-images/tech-img-07.png",
-            alt: "A team member reviewing operational workflow dashboards on dual monitors",
+            src: "/site-images/photos/team-dashboard-presentation.png",
+            alt: "A team reviewing a performance dashboard presented on a screen during a meeting",
           },
         },
         {
@@ -104,8 +104,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
           description:
             "Connect your CRM, accounting, ERP and other business platforms so information moves automatically between the systems your team already uses.",
           image: {
-            src: "/site-images/tech-img-12.png",
-            alt: "A glowing chain link representing connected business systems",
+            src: "/site-images/photos/connected-tools-overlay.png",
+            alt: "A diagram showing business tools connected through an automation hub",
           },
         },
         {
@@ -113,8 +113,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
           description:
             "Keep information consistent across your business systems and automate the collection, consolidation and reporting of operational data.",
           image: {
-            src: "/site-images/tech-img-04.png",
-            alt: "A hand interacting with live business analytics and reporting dashboards",
+            src: "/site-images/photos/growth-chart-overlay.png",
+            alt: "A hand pointing to a business growth chart trending upward",
           },
         },
         {
@@ -122,8 +122,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
           description:
             "Streamline everyday operations, from invoice processing and order management to notifications, document handling and internal approvals.",
           image: {
-            src: "/site-images/tech-img-02.png",
-            alt: "A glowing document icon representing automated administrative processing",
+            src: "/site-images/photos/notes-planning-desk.png",
+            alt: "A person planning workflow notes at a desk",
           },
         },
       ],
@@ -149,8 +149,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       lead:
         "Bring AI into your everyday operations to automate information processing, document handling and complex business workflows. We build intelligent solutions that help your team work faster without adding unnecessary complexity.",
       image: {
-        src: "/site-images/tech-img-06.png",
-        alt: "AI system processing and organising business data across connected workflow cards",
+        src: "/site-images/photos/ai-analytics-overlay.png",
+        alt: "A person reviewing business analytics on a tablet and laptop",
       },
     },
     problem: {
@@ -183,8 +183,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
           description:
             "Automatically read, extract and structure information from invoices, purchase orders and other business documents.",
           image: {
-            src: "/site-images/tech-img-06.png",
-            alt: "AI system extracting and organising data from business documents",
+            src: "/site-images/photos/ai-analytics-overlay.png",
+            alt: "A person reviewing business analytics on a tablet and laptop",
           },
         },
         {
@@ -192,8 +192,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
           description:
             "Categorise incoming emails and enquiries, route them to the right person and prepare information for staff review.",
           image: {
-            src: "/site-images/tech-img-01.png",
-            alt: "Streams of data representing automated communication and information flow",
+            src: "/site-images/photos/connected-tools-overlay.png",
+            alt: "A diagram showing business tools connected through an automation hub",
           },
         },
         {
@@ -201,8 +201,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
           description:
             "Sort, classify and interpret incoming information so your team can act on it faster and with more confidence.",
           image: {
-            src: "/site-images/tech-img-09.png",
-            alt: "A neural network processing and classifying streams of business data",
+            src: "/site-images/photos/office-analytics-overlay.png",
+            alt: "Business analytics charts displayed in an office setting",
           },
         },
         {
@@ -210,8 +210,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
           description:
             "Connect AI capabilities directly into the tools and platforms your business already relies on every day.",
           image: {
-            src: "/site-images/tech-img-16.png",
-            alt: "A circuit board representing AI connected into existing business systems",
+            src: "/site-images/photos/factory-automation-review.png",
+            alt: "Two people reviewing automated equipment on a production floor",
           },
         },
       ],
@@ -237,8 +237,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       lead:
         "From custom business applications to complete SaaS platforms, we design and develop software tailored to the way your business operates. Built to solve real problems, integrate with your existing systems and support your long-term growth.",
       image: {
-        src: "/site-images/tech-img-08.png",
-        alt: "A custom software dashboard showing live business analytics and performance data",
+        src: "/site-images/photos/dashboard-laptop-review.png",
+        alt: "A person reviewing a software dashboard on a laptop",
       },
     },
     problem: {
@@ -271,16 +271,16 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
           description:
             "Design and build internal tools and platforms tailored to the exact way your team works and operates.",
           image: {
-            src: "/site-images/tech-img-08.png",
-            alt: "A custom software dashboard showing live business analytics",
+            src: "/site-images/photos/dashboard-laptop-review.png",
+            alt: "A person reviewing a software dashboard on a laptop",
           },
         },
         {
           title: "SaaS Platform Development",
           description: "Take a SaaS product from initial concept through design, development and deployment.",
           image: {
-            src: "/site-images/tech-img-10.png",
-            alt: "Abstract flowing forms representing a modern SaaS platform",
+            src: "/site-images/photos/team-standup-tablet.png",
+            alt: "A team member presenting project updates to colleagues around a table",
           },
         },
         {
@@ -288,8 +288,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
           description:
             "Build customer-facing portals and web applications for managing accounts, requests and services online.",
           image: {
-            src: "/site-images/tech-img-11.png",
-            alt: "Abstract glowing interface elements representing a customer web portal",
+            src: "/site-images/photos/field-team-laptop-review.png",
+            alt: "Two team members reviewing information together on a laptop",
           },
         },
         {
@@ -297,8 +297,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
           description:
             "Develop custom APIs and integrations that connect your software with the wider systems your business uses.",
           image: {
-            src: "/site-images/tech-img-13.png",
-            alt: "A circuit board with a central processor representing API architecture",
+            src: "/site-images/photos/workers-system-monitors.png",
+            alt: "Two engineers reviewing system data across multiple monitors",
           },
         },
       ],
@@ -324,8 +324,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       lead:
         "Go beyond simple chatbots with AI agents that can retrieve information, interact with business systems and carry out tasks across your operations. We design agents that support your team, streamline workflows and help your business get more done.",
       image: {
-        src: "/site-images/tech-img-05.png",
-        alt: "A person interacting with an AI neural network interface connected to live business data",
+        src: "/site-images/photos/ai-network-diagram.png",
+        alt: "A diagram showing an AI system connected to business documents and reporting",
       },
     },
     problem: {
@@ -358,8 +358,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
           description:
             "Build tailored AI agents designed around your specific business processes, tools and workflows.",
           image: {
-            src: "/site-images/tech-img-05.png",
-            alt: "A person interacting with an AI neural network interface connected to live business data",
+            src: "/site-images/photos/ai-network-diagram.png",
+            alt: "A diagram showing an AI system connected to business documents and reporting",
           },
         },
         {
@@ -367,8 +367,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
           description:
             "Handle routine customer enquiries automatically and escalate complex requests to your team when needed.",
           image: {
-            src: "/site-images/tech-img-03.png",
-            alt: "A glowing circular interface representing an AI customer support agent",
+            src: "/site-images/photos/dashboard-review-pair.png",
+            alt: "Two colleagues reviewing analytics together on a desktop monitor",
           },
         },
         {
@@ -376,8 +376,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
           description:
             "Give your team instant access to information stored across company documents and knowledge bases.",
           image: {
-            src: "/site-images/tech-img-14.png",
-            alt: "A connected network of data blocks representing an internal knowledge base",
+            src: "/site-images/photos/team-meeting-discussion.png",
+            alt: "A team discussing a project together around a meeting table",
           },
         },
         {
@@ -385,8 +385,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
           description:
             "Connect agents directly to your business systems so they can retrieve information and complete tasks with appropriate oversight.",
           image: {
-            src: "/site-images/tech-img-17.png",
-            alt: "A blueprint of connected gears representing an AI agent working within business workflows",
+            src: "/site-images/photos/workers-system-monitors.png",
+            alt: "Two engineers reviewing system data across multiple monitors",
           },
         },
       ],
@@ -412,8 +412,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       lead:
         "Connect the CRM, accounting, operations and customer platforms your business already relies on, so information moves between them automatically instead of being copied by hand. We build integrations that hold up as the number of tools and the volume of data grows.",
       image: {
-        src: "/site-images/tech-img-12.png",
-        alt: "A glowing chain link representing connected business systems",
+        src: "/site-images/photos/connected-tools-overlay.png",
+        alt: "A diagram showing business tools connected through an automation hub",
       },
     },
     problem: {
@@ -446,8 +446,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
           description:
             "Connect the platforms your team relies on every day, from CRM and accounting software to job management and operational tools.",
           image: {
-            src: "/site-images/tech-img-12.png",
-            alt: "A glowing chain link representing connected business systems",
+            src: "/site-images/photos/connected-tools-overlay.png",
+            alt: "A diagram showing business tools connected through an automation hub",
           },
         },
         {
@@ -455,8 +455,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
           description:
             "Build custom APIs and connectors for platforms that don't offer an off-the-shelf integration.",
           image: {
-            src: "/site-images/tech-img-13.png",
-            alt: "A circuit board with a central processor representing API architecture",
+            src: "/site-images/photos/workers-system-monitors.png",
+            alt: "Two engineers reviewing system data across multiple monitors",
           },
         },
         {
@@ -464,8 +464,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
           description:
             "Keep records consistent across systems as information changes, instead of relying on scheduled exports or manual syncing.",
           image: {
-            src: "/site-images/tech-img-01.png",
-            alt: "Streams of data representing automated communication and information flow",
+            src: "/site-images/photos/growth-chart-overlay.png",
+            alt: "A hand pointing to a business growth chart trending upward",
           },
         },
         {
@@ -473,8 +473,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
           description:
             "Bring older or specialised platforms into the same connected environment, even where a modern integration doesn't already exist.",
           image: {
-            src: "/site-images/tech-img-17.png",
-            alt: "A blueprint of connected gears representing systems working within business workflows",
+            src: "/site-images/photos/notes-planning-desk.png",
+            alt: "A person planning workflow notes at a desk",
           },
         },
       ],
@@ -500,8 +500,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       lead:
         "Business needs change, teams grow and systems need attention long after the initial build. We stay involved after launch to monitor, refine and extend what we've built, so it keeps delivering value as your business changes.",
       image: {
-        src: "/site-images/tech-img-15.png",
-        alt: "A team member reviewing live system performance on a laptop",
+        src: "/site-images/photos/dashboard-review-pair.png",
+        alt: "Two colleagues reviewing analytics together on a desktop monitor",
       },
     },
     problem: {
@@ -534,8 +534,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
           description:
             "Keep an eye on the automations, integrations and software we've built, and resolve issues before they affect your team.",
           image: {
-            src: "/site-images/tech-img-14.png",
-            alt: "A connected network of data blocks representing monitored business systems",
+            src: "/site-images/photos/team-meeting-discussion.png",
+            alt: "A team discussing a project together around a meeting table",
           },
         },
         {
@@ -543,8 +543,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
           description:
             "Review how systems are actually being used and adjust them to remove new friction as your processes evolve.",
           image: {
-            src: "/site-images/tech-img-10.png",
-            alt: "Abstract flowing forms representing a refined, evolving software platform",
+            src: "/site-images/photos/team-standup-tablet.png",
+            alt: "A team member presenting project updates to colleagues around a table",
           },
         },
         {
@@ -552,8 +552,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
           description:
             "Add new capabilities to existing software and automations as your business takes on new work or new requirements.",
           image: {
-            src: "/site-images/tech-img-11.png",
-            alt: "Abstract glowing interface elements representing an extended software platform",
+            src: "/site-images/photos/field-team-laptop-review.png",
+            alt: "Two team members reviewing information together on a laptop",
           },
         },
         {
@@ -561,8 +561,8 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
           description:
             "Make sure your team understands how the systems work, with documentation and support so you're never dependent on one person.",
           image: {
-            src: "/site-images/tech-img-16.png",
-            alt: "A circuit board representing systems connected into day-to-day team workflows",
+            src: "/site-images/photos/factory-automation-review.png",
+            alt: "Two people reviewing automated equipment on a production floor",
           },
         },
       ],

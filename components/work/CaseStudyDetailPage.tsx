@@ -88,6 +88,16 @@ export function CaseStudyDetailPage({ caseStudy }: { caseStudy: CaseStudy }) {
           <div className="text-block reveal">
             <p>{caseStudy.solution}</p>
           </div>
+          {caseStudy.supportingImage ? (
+            <div className="cs-supporting-image reveal">
+              <Image
+                src={caseStudy.supportingImage.src}
+                alt={caseStudy.supportingImage.alt}
+                fill
+                sizes="(max-width: 900px) 100vw, 1100px"
+              />
+            </div>
+          ) : null}
           {caseStudy.workflow ? (
             <>
               <div className="cs-flow-summary reveal">

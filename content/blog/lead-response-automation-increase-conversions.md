@@ -1,6 +1,7 @@
 ---
 title: "What Happens When Every Lead Gets a Response Within 60 Seconds?"
-description: "Learn how lead response automation helps businesses improve conversion rates, automate follow-ups, and turn more enquiries into paying customers."
+seoTitle: "Lead Response Automation for Businesses | 23Labs"
+description: "How lead response automation helps businesses reply faster, follow up without someone remembering, and turn more enquiries into conversations."
 date: "2026-07-28"
 updated: "2026-07-28"
 author: "23Labs"
@@ -247,4 +248,4 @@ The question is whether every enquiry is receiving the attention it deserves.
 
 23Labs helps service businesses implement AI-powered lead response automation that captures enquiries, qualifies prospects, automates follow-ups, and ensures every opportunity receives immediate attention.
 
-Explore our [AI automation services](/services/ai-agents), learn how we help with [workflow automation](/services/business-process-automation), or [book a free lead flow review](/contact) to identify where automation can improve response times, follow-up rates, and conversions.
+See how we [use AI where a person is currently reading every enquiry](/services/ai-workflow-automation) and how we [automate the follow-up around a lead](/services/business-process-automation), or [talk to us about the process](/contact).

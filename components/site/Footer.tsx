@@ -10,7 +10,7 @@ const studioLinks = navItems.filter((item) => item.href !== "/services");
 const footerServiceLinks = [
   "business-process-automation",
   "ai-workflow-automation",
-  "full-stack-software-development",
+  "custom-software-development",
   "ai-agents",
   "system-integrations",
   "ongoing-support",

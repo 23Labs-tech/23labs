@@ -11,7 +11,7 @@ const images: Record<string, { src: string; alt: string }> = {
     src: "/site-images/photos/office-analytics-overlay.png",
     alt: "Business analytics charts displayed in an office setting",
   },
-  "full-stack-software-development": {
+  "custom-software-development": {
     src: "/site-images/photos/dashboard-laptop-review.png",
     alt: "A person reviewing a software dashboard on a laptop",
   },
@@ -24,14 +24,14 @@ const images: Record<string, { src: string; alt: string }> = {
 const sizeBySlug: Record<string, string> = {
   "business-process-automation": "xl",
   "ai-workflow-automation": "sm",
-  "full-stack-software-development": "lg",
+  "custom-software-development": "lg",
   "ai-agents": "lg",
 };
 
 const toneBySlug: Record<string, string> = {
   "business-process-automation": "tone-sky",
   "ai-workflow-automation": "tone-lilac",
-  "full-stack-software-development": "tone-plain",
+  "custom-software-development": "tone-plain",
   "ai-agents": "tone-mint",
 };
 

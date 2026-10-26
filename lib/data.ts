@@ -40,9 +40,9 @@ export const services = [
     ],
   },
   {
-    slug: "full-stack-software-development",
-    title: "Full-Stack Software Development",
-    homeTitle: "Full-Stack Software Development",
+    slug: "custom-software-development",
+    title: "Custom Software Development",
+    homeTitle: "Custom Software Development",
     tagline: "Software built around your business.",
     summary:
       "We design and develop custom software, SaaS platforms, internal tools and web applications tailored to your business, from initial concept through development, deployment and ongoing support.",
@@ -73,6 +73,10 @@ export const services = [
   },
 ];
 
+/**
+ * Homepage and About figures. Unverified: the owner must confirm 60+, 100+ and 12+
+ * before these are treated as public claims. This is the only place they are defined.
+ */
 export const stats = [
   { value: "60+", label: "Projects shipped end to end" },
   { value: "100+", label: "Custom automations in production" },

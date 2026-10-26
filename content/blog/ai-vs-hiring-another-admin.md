@@ -1,6 +1,7 @@
 ---
 title: "AI vs Hiring Another Admin: Which Makes More Sense for Growing Businesses?"
-description: "Compare the costs and benefits of hiring administrative staff versus implementing AI automation, and learn which option can deliver better ROI for growing businesses."
+seoTitle: "AI or Another Admin Hire? | 23Labs"
+description: "Compare hiring another administrator with putting AI inside the workflow, and how a growing business decides which one actually reduces the load."
 date: "2026-08-11"
 updated: "2026-08-11"
 author: "23Labs"
@@ -238,4 +239,4 @@ Could automation solve this problem first?
 
 23Labs helps service businesses identify operational bottlenecks and implement practical AI automation solutions that save time, improve customer experiences, and support growth.
 
-Explore our [AI automation services](/services/ai-agents), learn about [workflow automation solutions](/services/business-process-automation), or [book a free workflow review](/contact) to discover where automation could create the biggest impact in your business.
+See how we [use AI inside an existing workflow](/services/ai-workflow-automation), how we [take repetitive admin off the team](/services/business-process-automation), or [talk to us about the process](/contact).

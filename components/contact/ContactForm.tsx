@@ -3,6 +3,7 @@
 import { cloneElement, useRef, useState } from "react";
 import type { ContactErrors, ContactPayload } from "@/lib/contact";
 import { validateContactPayload } from "@/lib/contact";
+import { trackGenerateLead } from "@/lib/analytics";
 import { siteConfig } from "@/lib/site";
 
 const emptyForm = {
@@ -74,6 +75,8 @@ export function ContactForm() {
         }
         throw new Error(data.error || "Your enquiry could not be sent.");
       }
+
+      if (!validation.spam) trackGenerateLead();
 
       setForm(emptyForm);
       setErrors({});
@@ -190,7 +193,11 @@ export function ContactForm() {
       {status === "error" ? (
         <div className="form-status form-status-error" role="alert">
           {serverMessage ||
-            `Something went wrong sending your enquiry. Please email ${siteConfig.email} directly.`}
+            <>
+              Something went wrong sending your enquiry. Please email{" "}
+              <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a> directly.
+            </>
+          }
         </div>
       ) : null}
 

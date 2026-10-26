@@ -522,16 +522,25 @@ textarea:focus-visible {
   max-width: 960px;
   margin-inline: auto;
   font-family: var(--font-sans), "Poppins", Arial, sans-serif;
-  font-size: clamp(3.25rem, 4.5vw, 4.625rem);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
   font-weight: 600;
-  line-height: 1.02;
+  line-height: 1.08;
   letter-spacing: -0.02em;
   color: var(--ink);
 }
 
+.hero-kicker {
+  max-width: 880px;
+  margin: 18px auto 0;
+  color: var(--ink-soft);
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
 .hero-lead {
   max-width: 880px;
-  margin: 34px auto 0;
+  margin: 22px auto 0;
   color: var(--ink-soft);
   font-size: clamp(1rem, 1.4vw, 1.1875rem);
   line-height: 1.5;
@@ -750,6 +759,12 @@ textarea:focus-visible {
   margin-bottom: 0;
 }
 
+.text-block a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .industry-detail .svc-row {
   align-items: start;
 }
@@ -958,13 +973,21 @@ textarea:focus-visible {
 }
 
 .svc-hero-copy h1 {
-  max-width: 16ch;
-  margin-bottom: 16px;
+  max-width: 18em;
+  margin-bottom: 12px;
   font-family: var(--font-sans), "Poppins", Arial, sans-serif;
   font-size: clamp(28px, 3.6vw, 48px);
   font-weight: 600;
   line-height: 1.15;
   letter-spacing: -0.01em;
+}
+
+.svc-hero-copy .hero-sub {
+  margin: 0 0 4px;
+  color: var(--ink-soft);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
 }
 
 .svc-hero-copy .lead {
@@ -1166,7 +1189,7 @@ textarea:focus-visible {
   min-width: 0;
 }
 
-.related-link-body h4 {
+.related-link-body h3 {
   margin: 0 0 8px;
   font-size: 18px;
   font-weight: 600;
@@ -1946,8 +1969,21 @@ textarea:focus-visible {
   line-height: 1.4;
 }
 
-.case-hero-meta-item strong + strong {
+.case-hero-meta-item strong + strong,
+.case-hero-meta-item strong + .case-service-link,
+.case-hero-meta-item .case-service-link + strong,
+.case-hero-meta-item .case-service-link + .case-service-link {
   margin-top: 4px;
+}
+
+.case-hero-meta-item .case-service-link {
+  display: block;
+  color: var(--ink);
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .case-hero-logo {
@@ -2296,6 +2332,12 @@ textarea:focus-visible {
   font-size: 14px;
 }
 
+.form-status a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .form-status-error {
   border: 1px solid #efc3b8;
   background: #fff0ed;
@@ -2549,7 +2591,14 @@ textarea:focus-visible {
 }
 
 .cs-head-copy {
-  max-width: 640px;
+  max-width: 760px;
+}
+
+.cs-head .hero-sub {
+  margin: 14px 0 0;
+  color: var(--ink-soft);
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .cs-head h1 {

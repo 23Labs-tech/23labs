@@ -8,6 +8,7 @@ const EXCLUDED_SLUGS = new Set(["example-post"]);
 export type BlogPost = {
   slug: string;
   title: string;
+  seoTitle?: string;
   description: string;
   date: string;
   updated?: string;
@@ -154,6 +155,7 @@ function readPost(slug: string): BlogPost | null {
   return {
     slug,
     title: frontmatter.title || slug.replace(/-/g, " "),
+    seoTitle: frontmatter.seoTitle || undefined,
     description: frontmatter.description || "",
     date: frontmatter.date || new Date().toISOString().slice(0, 10),
     updated: frontmatter.updated || undefined,

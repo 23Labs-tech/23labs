@@ -44,8 +44,8 @@ export function createMetadata({
   const fullTitle = absoluteTitle
     ? absoluteTitle
     : title
-      ? `${title} — ${siteConfig.name}`
-      : `${siteConfig.name} — Automation & Software Studio`;
+      ? `${title} | ${siteConfig.name}`
+      : `${siteConfig.name} | Automation and Software Studio`;
   const url = absoluteUrl(path);
   const imageUrl = absoluteUrl(image);
 

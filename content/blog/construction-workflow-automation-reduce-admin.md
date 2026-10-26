@@ -1,6 +1,7 @@
 ---
 title: "How Construction Businesses Can Reduce Admin With Workflow Automation"
-description: "See how construction businesses can reduce admin, improve project visibility, and keep jobs moving with workflow automation."
+seoTitle: "Workflow Automation for Construction Businesses | 23Labs"
+description: "How construction businesses reduce admin, improve project visibility and keep jobs moving with workflow automation around the tools they already use."
 date: "2026-09-22"
 updated: "2026-09-22"
 author: "23Labs"
@@ -100,6 +101,6 @@ If your team is still relying on spreadsheets, manual follow-ups and disconnecte
 
 ## CTA
 
-23Labs helps construction businesses build [custom software](/services/full-stack-software-development), [business automation](/services/business-process-automation) and AI systems that reduce admin and improve project visibility.
+23Labs helps construction businesses [build software around how a job actually runs](/services/custom-software-development) and [take the repetitive admin off the team](/services/business-process-automation).
 
 Book a consultation to explore where your construction workflows can be improved.

@@ -21,7 +21,6 @@ export function HowWeHelpShowcase({ capabilities }: { capabilities: Capability[]
             src={capability.image.src}
             alt={capability.image.alt}
             fill
-            priority={index === 0}
             sizes="(max-width: 900px) 100vw, 50vw"
             className={`howwehelp-media-img${index === activeIndex ? " is-active" : ""}`}
           />

@@ -3,11 +3,13 @@ import { Poppins } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { Footer } from "@/components/site/Footer";
+import { GoogleAnalytics } from "@/components/site/GoogleAnalytics";
+import { MailtoClickTracker } from "@/components/site/MailtoClickTracker";
 import { JsonLd } from "@/components/site/JsonLd";
 import { Navbar } from "@/components/site/Navbar";
 import { RevealObserver } from "@/components/site/RevealObserver";
 import { createMetadata } from "@/lib/seo";
-import { siteConfig } from "@/lib/site";
+import { organizationJsonLd, websiteJsonLd } from "@/lib/schema";
 
 const poppins = Poppins({
   variable: "--font-sans",
@@ -53,43 +55,12 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <Footer />
         <RevealObserver />
+        <GoogleAnalytics />
+        <MailtoClickTracker />
         <JsonLd
           data={{
             "@context": "https://schema.org",
-            "@graph": [
-              {
-                "@type": "Organization",
-                name: siteConfig.name,
-                legalName: siteConfig.legalName,
-                description: siteConfig.description,
-                url: siteConfig.url,
-                email: siteConfig.email,
-                areaServed: "Australia",
-                address: {
-                  "@type": "PostalAddress",
-                  addressLocality: "Melbourne",
-                  addressRegion: "VIC",
-                  addressCountry: "AU",
-                },
-                sameAs: [siteConfig.socials.linkedin, siteConfig.socials.instagram],
-                knowsAbout: [
-                  "Business Automation",
-                  "Custom Software Development",
-                  "Systems Integration",
-                  "API Integration",
-                  "AI Automation",
-                ],
-              },
-              {
-                "@type": "WebSite",
-                name: siteConfig.name,
-                url: siteConfig.url,
-                publisher: {
-                  "@type": "Organization",
-                  name: siteConfig.name,
-                },
-              },
-            ],
+            "@graph": [organizationJsonLd(), websiteJsonLd()],
           }}
         />
       </body>

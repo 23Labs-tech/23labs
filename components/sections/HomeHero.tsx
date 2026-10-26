@@ -5,10 +5,11 @@ export function HomeHero() {
     <header className="hero" id="top">
       <div className="wrap hero-in reveal in">
         <h1>
-          Modern systems
+          Custom software and automation
           <br />
-          for growing businesses.
+          for businesses that have outgrown manual work
         </h1>
+        <p className="hero-kicker">Modern systems for growing businesses.</p>
         <p className="hero-lead">
           We build business automation, custom software and connected systems that reduce manual
           work, improve operations and help growing businesses scale.

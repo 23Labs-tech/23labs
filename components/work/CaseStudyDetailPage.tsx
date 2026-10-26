@@ -3,8 +3,9 @@ import Link from "next/link";
 import { IndustryIcon } from "@/components/industries/IndustryIcon";
 import { JsonLd } from "@/components/site/JsonLd";
 import type { CaseStudy } from "@/lib/caseStudies";
-import { caseStudiesCta } from "@/lib/caseStudies";
+import { caseStudiesCta, caseStudyServiceHrefs } from "@/lib/caseStudies";
 import { absoluteUrl } from "@/lib/seo";
+import { breadcrumbList, organizationId } from "@/lib/schema";
 
 function SystemIcon({ icon }: { icon: string }) {
   if (icon === "wordpress") {
@@ -53,11 +54,24 @@ export function CaseStudyDetailPage({ caseStudy }: { caseStudy: CaseStudy }) {
                   <strong>{caseStudy.industry}</strong>
                 </div>
               ) : null}
+              {caseStudy.location ? (
+                <div className="case-hero-meta-item">
+                  <span className="mono">Location</span>
+                  <strong>{caseStudy.location}</strong>
+                </div>
+              ) : null}
               <div className="case-hero-meta-item">
                 <span className="mono">Services Provided</span>
-                {caseStudy.services.map((service) => (
-                  <strong key={service}>{service}</strong>
-                ))}
+                {caseStudy.services.map((service) => {
+                  const href = caseStudyServiceHrefs[service];
+                  return href ? (
+                    <Link href={href} className="case-service-link" key={service}>
+                      {service}
+                    </Link>
+                  ) : (
+                    <strong key={service}>{service}</strong>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -66,7 +80,7 @@ export function CaseStudyDetailPage({ caseStudy }: { caseStudy: CaseStudy }) {
               src={caseStudy.heroImage.src}
               alt={caseStudy.heroImage.alt}
               fill
-              priority
+              preload
               sizes="(max-width: 900px) 100vw, 50vw"
             />
           </div>
@@ -148,6 +162,27 @@ export function CaseStudyDetailPage({ caseStudy }: { caseStudy: CaseStudy }) {
         </div>
       </section>
 
+      {caseStudy.relatedCopy?.length ? (
+        <section className="sec">
+          <div className="wrap">
+            <SectionIntro eyebrow="Related" title="Where this fits" />
+            <div className="text-block reveal">
+              <p>
+                {caseStudy.relatedCopy.map((part, index) =>
+                  part.href ? (
+                    <Link href={part.href} key={`${part.href}-${index}`}>
+                      {part.text}
+                    </Link>
+                  ) : (
+                    <span key={index}>{part.text}</span>
+                  )
+                )}
+              </p>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       {caseStudy.systems ? (
         <section className="sec">
           <div className="wrap">
@@ -184,22 +219,19 @@ export function CaseStudyDetailPage({ caseStudy }: { caseStudy: CaseStudy }) {
               "@type": "Article",
               headline: caseStudy.headline,
               description: caseStudy.description,
+              datePublished: caseStudy.date,
+              image: absoluteUrl(caseStudy.heroImage.src),
+              author: { "@id": organizationId() },
+              publisher: { "@id": organizationId() },
               about: caseStudy.name,
               mainEntityOfPage: absoluteUrl(`/case-studies/${caseStudy.slug}`),
+              inLanguage: "en-AU",
             },
-            {
-              "@type": "BreadcrumbList",
-              itemListElement: [
-                { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
-                { "@type": "ListItem", position: 2, name: "Case Studies", item: absoluteUrl("/work") },
-                {
-                  "@type": "ListItem",
-                  position: 3,
-                  name: caseStudy.name,
-                  item: absoluteUrl(`/case-studies/${caseStudy.slug}`),
-                },
-              ],
-            },
+            breadcrumbList([
+              { name: "Home", path: "/" },
+              { name: "Case Studies", path: "/work" },
+              { name: caseStudy.name, path: `/case-studies/${caseStudy.slug}` },
+            ]),
           ],
         }}
       />

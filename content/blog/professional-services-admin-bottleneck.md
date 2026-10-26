@@ -1,6 +1,7 @@
 ---
 title: "The Admin Bottleneck Holding Professional Services Firms Back"
-description: "Professional services firms can remove admin bottlenecks by automating onboarding, follow-ups, documents, tasks, and reporting."
+seoTitle: "The Admin Bottleneck in Professional Services | 23Labs"
+description: "How professional services firms remove the admin bottleneck by automating onboarding, follow-ups, documents, tasks and the reporting that follows."
 date: "2026-09-01"
 updated: "2026-09-01"
 author: "23Labs"
@@ -119,6 +120,6 @@ The businesses that fix their admin bottlenecks early are usually the ones that 
 
 ## CTA
 
-23Labs helps professional services firms [automate admin](/services/business-process-automation), improve client workflows and build [custom software](/services/full-stack-software-development) around how they work.
+23Labs helps professional services firms [take onboarding and follow-up admin off the team](/services/business-process-automation) and [build software around how the firm actually works](/services/custom-software-development). The [CorIT Tech onboarding project](/case-studies/corit-tech) is one example of new-client details moving between tools without being retyped.
 
 Book a consultation to find the highest-impact automation opportunities in your business.

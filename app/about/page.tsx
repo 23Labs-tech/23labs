@@ -4,14 +4,15 @@ import { PageHero } from "@/components/sections/PageHero";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { StatsBand } from "@/components/sections/StatsBand";
 import { WhatWeStandFor } from "@/components/sections/WhatWeStandFor";
+import { BreadcrumbJsonLd } from "@/components/site/BreadcrumbJsonLd";
 import { workflowFramework } from "@/lib/data";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
-  absoluteTitle: "About 23Labs | Melbourne Automation & Software Studio",
+  absoluteTitle: "About 23Labs | Software & Automation Studio, Melbourne",
   path: "/about",
   description:
-    "23Labs is a Melbourne automation and software studio building custom software, business automation and connected systems for Australian businesses.",
+    "23Labs is a Melbourne software and automation studio working with businesses across Australia and New Zealand to replace manual, disconnected processes.",
   keywords: ["23Labs", "automation and software studio", "business automation Melbourne", "custom software development"],
 });
 
@@ -22,7 +23,7 @@ export default function AboutPage() {
         eyebrow="About 23Labs"
         title="Practical technology, built around "
         highlight="your business"
-        body="23Labs is a Melbourne-based Automation & Software Studio. We design and build business automation, custom software and connected systems that make businesses easier to run."
+        body="23Labs is a Melbourne software and automation studio. We design and build business automation, custom software and connected systems for businesses across Australia and New Zealand."
       />
 
       <StatsBand noTop />
@@ -79,6 +80,12 @@ export default function AboutPage() {
         body="Tell us where the friction is and we'll show you a practical path forward, no obligation."
         href="/contact"
         label="Talk to us"
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" },
+        ]}
       />
     </>
   );

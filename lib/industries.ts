@@ -52,9 +52,9 @@ export const industryLinks = [
 export const industryRoutePaths = ["/industries", ...industryLinks.map((industry) => industry.href)] as const;
 
 export const industryOverview = {
-  metadataTitle: "Industry Software, Automation & AI Solutions | 23Labs",
+  metadataTitle: "Industries We Build Software & Automation For | 23Labs",
   description:
-    "23Labs helps construction, logistics, professional services, allied health and real estate businesses reduce admin, connect systems and build smarter workflows through custom software, automation, integrations and AI agents.",
+    "Software, automation and integrations for transport and logistics, recruitment, professional services and other service businesses in Australia and NZ.",
   hero: {
     eyebrow: "Industries",
     title: "Software, automation & AI built around ",
@@ -179,7 +179,7 @@ export const industrySomethingElseCta = {
 const serviceHrefs = {
   automation: "/services/business-process-automation",
   aiWorkflow: "/services/ai-workflow-automation",
-  software: "/services/full-stack-software-development",
+  software: "/services/custom-software-development",
   aiAgents: "/services/ai-agents",
 } as const;
 
@@ -189,7 +189,7 @@ export const industryPages = [
     href: "/construction",
     metadataTitle: "Construction Software & Automation Solutions | 23Labs",
     description:
-      "23Labs helps construction businesses reduce admin, manage documentation, automate follow-ups and connect systems with custom software, workflow automation and AI solutions.",
+      "23Labs helps construction businesses reduce admin, manage documentation, automate follow-ups and connect the systems a job already runs through.",
     hero: {
       eyebrow: "Industries / Construction",
       title: "Software and automation built for ",
@@ -247,7 +247,7 @@ export const industryPages = [
         },
         {
           icon: "software",
-          name: "Full-Stack Software Development",
+          name: "Custom Software Development",
           href: serviceHrefs.software,
           body: "Build internal dashboards, job trackers and portals designed around how your projects and teams actually operate.",
         },
@@ -279,13 +279,13 @@ export const industryPages = [
   {
     slug: "freight-logistics",
     href: "/freight-logistics",
-    metadataTitle: "Freight & Logistics Software & Automation Solutions | 23Labs",
+    metadataTitle: "Transport & Logistics Automation and Software | 23Labs",
     description:
-      "23Labs helps freight and logistics businesses reduce manual data entry, improve visibility, automate customer updates and connect transport systems with custom software and integrations.",
+      "Automate quoting, job allocation, POD and invoicing, and connect your TMS with accounting and customer systems. Built for transport operators.",
     hero: {
       eyebrow: "Industries / Freight & Logistics",
-      title: "Software and automation built for ",
-      highlight: "freight and logistics",
+      title: "Transport and logistics automation and software",
+      highlight: "",
       lead:
         "Automate repetitive work, connect disconnected systems and build software around the way your operation actually runs.",
       image: {
@@ -339,7 +339,7 @@ export const industryPages = [
         },
         {
           icon: "software",
-          name: "Full-Stack Software Development",
+          name: "Custom Software Development",
           href: serviceHrefs.software,
           body: "Build custom dashboards and portals for job tracking, delivery visibility and operational reporting.",
         },
@@ -371,9 +371,9 @@ export const industryPages = [
   {
     slug: "professional-services",
     href: "/professional-services",
-    metadataTitle: "Professional Services Software & Automation Solutions | 23Labs",
+    metadataTitle: "Professional Services Automation & Software | 23Labs",
     description:
-      "23Labs helps professional service businesses automate admin, improve client workflows, connect systems and build custom software that supports growth.",
+      "Automate client onboarding, proposals, documents and reporting, and connect the CRM, practice management and accounting systems your firm already uses.",
     hero: {
       eyebrow: "Industries / Professional Services",
       title: "Software and automation built for ",
@@ -431,7 +431,7 @@ export const industryPages = [
         },
         {
           icon: "software",
-          name: "Full-Stack Software Development",
+          name: "Custom Software Development",
           href: serviceHrefs.software,
           body: "Build client portals and internal tools designed around how your team actually delivers work.",
         },
@@ -523,7 +523,7 @@ export const industryPages = [
         },
         {
           icon: "software",
-          name: "Full-Stack Software Development",
+          name: "Custom Software Development",
           href: serviceHrefs.software,
           body: "Build internal tools and dashboards designed around how your clinic team actually works day to day.",
         },
@@ -557,7 +557,7 @@ export const industryPages = [
     href: "/real-estate",
     metadataTitle: "Real Estate Software & Automation Solutions | 23Labs",
     description:
-      "23Labs helps real estate agencies and property managers automate enquiries, maintenance requests, tenant communication and admin workflows with custom software, integrations and AI agents.",
+      "Automate enquiries, maintenance requests and tenant updates for agencies and property managers, and connect the systems the office already uses.",
     hero: {
       eyebrow: "Industries / Real Estate",
       title: "Software and automation built for ",
@@ -615,7 +615,7 @@ export const industryPages = [
         },
         {
           icon: "software",
-          name: "Full-Stack Software Development",
+          name: "Custom Software Development",
           href: serviceHrefs.software,
           body: "Build internal tools and dashboards for property management, reporting and team workflows.",
         },
@@ -647,9 +647,9 @@ export const industryPages = [
   {
     slug: "trades-field-services",
     href: "/trades-field-services",
-    metadataTitle: "Trades & Field Services Software & Automation Solutions | 23Labs",
+    metadataTitle: "Trades & Field Services Automation | 23Labs",
     description:
-      "23Labs helps trades and field service businesses automate enquiries, quotes, scheduling, job updates and admin workflows with custom software, integrations and AI automation.",
+      "Automate enquiries, quotes, scheduling and job updates for trades and field service teams, and connect the systems the crew already uses each day.",
     hero: {
       eyebrow: "Industries / Trades & Field Services",
       title: "Software and automation built for ",
@@ -707,7 +707,7 @@ export const industryPages = [
         },
         {
           icon: "software",
-          name: "Full-Stack Software Development",
+          name: "Custom Software Development",
           href: serviceHrefs.software,
           body: "Build job management tools and dashboards designed around how your team actually works.",
         },

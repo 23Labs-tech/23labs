@@ -1,0 +1,31 @@
+import {
+  AgentField,
+  ApiField,
+  DashboardField,
+  DataFlowField,
+  DocumentField,
+  IntegrationField,
+  MonitorField,
+  PortalField,
+  WorkflowField,
+} from "@/components/ui/ServiceVisuals";
+
+export const serviceVisualMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  "/site-images/tech-img-01.png": DataFlowField,
+  "/site-images/tech-img-02.png": DocumentField,
+  "/site-images/tech-img-03.png": AgentField,
+  "/site-images/tech-img-04.png": DashboardField,
+  "/site-images/tech-img-05.png": AgentField,
+  "/site-images/tech-img-06.png": DocumentField,
+  "/site-images/tech-img-07.png": DashboardField,
+  "/site-images/tech-img-08.png": DashboardField,
+  "/site-images/tech-img-09.png": DataFlowField,
+  "/site-images/tech-img-10.png": PortalField,
+  "/site-images/tech-img-11.png": PortalField,
+  "/site-images/tech-img-12.png": IntegrationField,
+  "/site-images/tech-img-13.png": ApiField,
+  "/site-images/tech-img-14.png": IntegrationField,
+  "/site-images/tech-img-15.png": MonitorField,
+  "/site-images/tech-img-16.png": ApiField,
+  "/site-images/tech-img-17.png": WorkflowField,
+};

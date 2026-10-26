@@ -1,9 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { HowWeHelpShowcase } from "@/components/services/HowWeHelpShowcase";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { JsonLd } from "@/components/site/JsonLd";
+import { serviceVisualMap } from "@/components/ui/serviceVisualMap";
+import { WorkflowField } from "@/components/ui/ServiceVisuals";
 import { absoluteUrl } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 import {
@@ -18,6 +19,7 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
   const relatedServices = service.relatedSlugs
     .map((slug) => getServiceLandingPage(slug))
     .filter((item): item is ServiceLandingPageData => Boolean(item));
+  const HeroVisual = serviceVisualMap[service.hero.image.src] ?? WorkflowField;
 
   return (
     <>
@@ -30,14 +32,8 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
               <ButtonLink href="/contact">Start a Conversation</ButtonLink>
             </div>
           </div>
-          <div className="reveal in svc-hero-media">
-            <Image
-              src={service.hero.image.src}
-              alt={service.hero.image.alt}
-              fill
-              priority
-              sizes="(max-width: 900px) 100vw, 50vw"
-            />
+          <div className="reveal in svc-hero-media" role="img" aria-label={service.hero.image.alt}>
+            <HeroVisual />
           </div>
         </div>
       </header>

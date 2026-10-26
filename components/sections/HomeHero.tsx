@@ -1,4 +1,5 @@
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { HeroVisual } from "@/components/ui/HeroVisual";
 
 export function HomeHero() {
   return (
@@ -18,6 +19,9 @@ export function HomeHero() {
             Start a conversation
           </ButtonLink>
         </div>
+      </div>
+      <div className="hero-visual" aria-hidden="true">
+        <HeroVisual />
       </div>
     </header>
   );

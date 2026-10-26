@@ -83,7 +83,7 @@ function Stat({ value, label }: Stat) {
 
 export function StatsBand({ stats = defaultStats, noTop = false }: StatsBandProps) {
   return (
-    <section className={`sec stats-section${noTop ? " no-top" : ""}`}>
+    <section className={`sec sec-dark stats-section${noTop ? " no-top" : ""}`}>
       <div className="wrap stats-band" aria-label="23Labs project statistics">
         {stats.map((stat) => (
           <Stat value={stat.value} label={stat.label} key={stat.label} />

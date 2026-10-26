@@ -136,6 +136,28 @@ Pick one process, automate it properly, check it against the manual version for 
 - Write down what each automation does and who looks after it.
 - Measure the time spent before you start, so you can judge whether the change was worth it.
 
+## Frequently asked questions
+
+### How long does it take to set up the first automation?
+
+There isn't a standard timeframe. A stable task that already lives in a system such as Xero, MYOB, ServiceM8 or your CRM is a smaller piece of work than a process that changes often or sits only in someone's head. What adds effort is unclear rules, missing logins, and exceptions that have never been written down. Once we can see the path from the first step to done, we can tell you what that first slice involves.
+
+### Will staff have to change the tools they use?
+
+In most cases, no. People can keep working in the inbox, CRM, job system or accounting package they already know. What changes is that a record, a task or a message appears without someone retyping it. If a product genuinely cannot support the step, that is a separate conversation from automating the work around it.
+
+### How do we start small?
+
+Limit the first build to one task the team already repeats, and leave everything else alone. Run that automated path beside the manual one until the person who owns it trusts the result, then decide whether a second task is worth doing. A narrow start is easier to look after, because someone can still explain what it does when it misbehaves.
+
+### What should I prepare before I talk to you?
+
+A plain description is enough. Say what kicks the task off, which tools it passes through, who does each step, and what finished looks like. If you know how often it happens and where it usually breaks, add that too. You don't need a diagram, a software shortlist or a budget.
+
+### Do we have to replace our current software?
+
+No. Replacing a product is a bigger decision than automating one process, and it is not where we start. If the tools you have can store the information and the steps repeat, we work with them. Replacement comes up when the software itself is what makes the process complicated, not when you simply want the copying to stop.
+
 ## Get a second opinion on one workflow
 
 If one of these processes sounds like yours, send us a short description of how it runs today, from what starts it to what "done" looks like. We'll review the workflow and come back with an honest view: whether it's a good candidate, which parts to automate, where people should stay involved, and whether there's a simpler fix with the tools you already have.

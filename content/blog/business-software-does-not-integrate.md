@@ -134,6 +134,28 @@ If you're weighing up options, this order works for most businesses:
 
 The goal isn't to connect everything. It's to stop your team acting as the link between systems for the tasks that matter most. If you're still working out where those gaps are, our article on [the hidden cost of tools that don't talk to each other](/blog/disconnected-business-tools) is a good place to start. For the processes around those connections, see our [business process automation](/services/business-process-automation) service.
 
+## Frequently asked questions
+
+### What if one of our tools has no API?
+
+Ask the vendor whether an API, webhooks or a scheduled export exists on your plan before you assume the product is a dead end. Some vendors only offer that access on certain plans or to approved partners. If other software still cannot read or write the data, a regular file export or import can carry it, provided you accept the delay and someone is told when a file does not turn up. Replacing the product is the fallback when even that path is unreliable.
+
+### Will my team have to leave the software they already use?
+
+Connecting two systems is meant to leave people where they already work. Sales can stay in the CRM, accounts can stay in Xero or MYOB, and the office can keep Microsoft 365 or Google Workspace. The change is that the record moves without a person sitting between the products. We talk about replacing a tool only when keeping it connected costs more than moving off it.
+
+### Is a tool like Zapier enough, or do we need something built for us?
+
+A simple rule, such as a form creating a CRM contact and notifying someone, is often a good fit for Zapier, Make or Power Automate. A custom integration earns its place when there are many exceptions, the volume is high, or a failure that nobody notices would affect customers or payments. Complexity, volume and how much the data matters are what decide it.
+
+### How long does an integration take?
+
+We can't put a duration on it until we know the two products and what has to move between them. Switching on a native connection is a different job from building a link that applies your rules, retries after a failure and keeps a record of what happened. Access, vendor documentation and the number of exceptions shape the effort more than the brand names do. After a look at both systems, we can say which of those you are facing.
+
+### What should we have ready before we talk?
+
+Bring the two product names, which details need to move, which direction they travel, and which system should win if the two disagree. It also helps to know whether the other side needs the update straight away or can wait, and who should hear about a failure. You don't need API keys or a technical specification. We can read the vendor documentation once we know which products are involved.
+
 ## Tell us which two systems need to talk to each other
 
 If you have two systems that should be sharing information but aren't, tell us which ones and what needs to move between them. We'll give you a straight answer on the options, whether that's a native integration you haven't switched on, a simple automation or a custom integration.

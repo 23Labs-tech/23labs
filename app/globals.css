@@ -2338,6 +2338,21 @@ textarea:focus-visible {
   margin-top: 12px;
 }
 
+.form-privacy {
+  align-self: flex-start;
+  margin-top: -8px;
+  color: var(--ink-soft);
+  font-size: 13.5px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.form-privacy:hover,
+.form-privacy:focus-visible {
+  color: var(--ink);
+}
+
 .form-success {
   position: absolute;
   inset: 0;

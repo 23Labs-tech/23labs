@@ -8,6 +8,7 @@
   --accent: #1769e0;
   --accent-dark: #0d4fac;
   --accent-soft: #e3effd;
+  --accent-on-dark: #5b9df5;
   --secondary: #5b6472;
   --line: #dde4ee;
   --line-soft: #eef2f7;
@@ -2832,7 +2833,7 @@ textarea:focus-visible {
 }
 
 .foot-email:hover {
-  color: var(--accent);
+  color: var(--accent-on-dark);
 }
 
 .foot-col h5 {
@@ -2865,7 +2866,7 @@ textarea:focus-visible {
 .foot-col a:hover,
 .foot-col a:focus-visible {
   opacity: 1;
-  color: var(--accent);
+  color: var(--accent-on-dark);
 }
 
 .foot-bottom {

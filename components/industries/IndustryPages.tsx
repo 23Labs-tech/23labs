@@ -490,7 +490,7 @@ export function IndustryDetailPage({ industry }: { industry: IndustryPageData })
               { name: "Industries", path: "/industries" },
               { name: industryLabel, path: industry.href },
             ]),
-            faqPageJsonLd(faqs),
+            faqPageJsonLd(industry.href, faqs),
           ],
         }}
       />

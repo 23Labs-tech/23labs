@@ -1,5 +1,5 @@
 export const industryProjectCostAnswer =
-  "Custom software and automation projects typically start from A$2,500. Final pricing depends on the systems involved, complexity and scope. Larger or more complex projects are scoped in an initial consultation.";
+  "Custom software and automation projects typically start from A$2,500. Final pricing depends on the systems involved, complexity and scope. For a larger or more complex project, book an initial consultation.";
 
 export function industryCostFaq(question: string) {
   return {

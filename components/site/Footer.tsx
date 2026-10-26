@@ -29,7 +29,7 @@ export function Footer() {
             </a>
           </div>
           <div className="foot-col">
-            <h5>Studio</h5>
+            <p className="foot-label">Studio</p>
             <ul>
               {studioLinks.map((item) => (
                 <li key={item.href}>
@@ -39,7 +39,7 @@ export function Footer() {
             </ul>
           </div>
           <div className="foot-col">
-            <h5>Services</h5>
+            <p className="foot-label">Services</p>
             <ul>
               {footerServiceLinks.map((service) => (
                 <li key={service.href}>
@@ -49,7 +49,7 @@ export function Footer() {
             </ul>
           </div>
           <div className="foot-col">
-            <h5>Industries</h5>
+            <p className="foot-label">Industries</p>
             <ul>
               {industryLinks.map((industry) => (
                 <li key={industry.href}>
@@ -59,7 +59,7 @@ export function Footer() {
             </ul>
           </div>
           <div className="foot-col">
-            <h5>Connect</h5>
+            <p className="foot-label">Connect</p>
             <ul>
               <li>
                 <a href={siteConfig.socials.linkedin} target="_blank" rel="noreferrer">

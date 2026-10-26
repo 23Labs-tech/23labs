@@ -3,7 +3,11 @@ import path from "node:path";
 
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
 const SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
-const EXCLUDED_SLUGS = new Set(["example-post"]);
+
+export const blogAuthor = {
+  name: "23Labs Team",
+  bio: "The 23Labs team builds software, integrations and automation solutions that help businesses reduce manual work, connect systems and improve how their operations run.",
+} as const;
 
 export type BlogPost = {
   slug: string;
@@ -137,11 +141,11 @@ function getSlugs() {
     .readdirSync(BLOG_DIR)
     .filter((file) => file.endsWith(".md"))
     .map((file) => file.replace(/\.md$/, ""))
-    .filter((slug) => SLUG_RE.test(slug) && !EXCLUDED_SLUGS.has(slug));
+    .filter((slug) => SLUG_RE.test(slug));
 }
 
 function readPost(slug: string): BlogPost | null {
-  if (!SLUG_RE.test(slug) || EXCLUDED_SLUGS.has(slug)) return null;
+  if (!SLUG_RE.test(slug)) return null;
 
   const filePath = path.join(BLOG_DIR, `${slug}.md`);
   if (!fs.existsSync(filePath)) return null;
@@ -159,7 +163,7 @@ function readPost(slug: string): BlogPost | null {
     description: frontmatter.description || "",
     date: frontmatter.date || new Date().toISOString().slice(0, 10),
     updated: frontmatter.updated || undefined,
-    author: frontmatter.author || "23Labs",
+    author: blogAuthor.name,
     categories: (frontmatter.categories || "Automation")
       .split(",")
       .map((category) => category.trim())

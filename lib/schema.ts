@@ -82,20 +82,6 @@ export function articleJsonLd(article: {
   };
 }
 
-export function faqPageJsonLd(items: readonly { question: string; answer: string }[]) {
-  return {
-    "@type": "FAQPage",
-    mainEntity: items.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-  };
-}
-
 export function serviceJsonLd(service: { name: string; description: string; path: string }) {
   return {
     "@type": "Service",
@@ -106,5 +92,20 @@ export function serviceJsonLd(service: { name: string; description: string; path
     url: absoluteUrl(service.path),
     provider: { "@id": organizationId() },
     areaServed,
+  };
+}
+
+export function faqPageJsonLd(path: string, faqs: { question: string; answer: string }[]) {
+  return {
+    "@type": "FAQPage",
+    "@id": `${absoluteUrl(path)}#faq`,
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
   };
 }

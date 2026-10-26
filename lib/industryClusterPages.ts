@@ -35,7 +35,7 @@ export const transportIndustryPage = {
       "A transport job has two lives. Commercially it is a quote, a rate and an invoice. Operationally it is an allocation, a dispatch, a delivery and a proof of delivery. In many freight and logistics businesses those lives sit in different systems, plus the phone, plus a spreadsheet that someone trusts more than the screen.",
       "23Labs builds software and automation around that sequence for transport and logistics operators in Australia and New Zealand. The work is delivered remotely from Melbourne. We do not have a New Zealand office.",
       [
-        { text: "The workflows below are typical of what we build. 23Labs does not publish a transport or logistics case study, so this page is not a write-up of a named operator, a named TMS or a named accounting product. Where a product name matters, we confirm it on the job. The commercial services behind this work are " },
+        { text: "The workflows below are typical of the quoting, allocation, dispatch, proof of delivery and invoicing work we build. Product names are confirmed for the systems already in use. The commercial services behind this work are " },
         { text: "business process automation", href: services.automation },
         { text: " and " },
         { text: "system integrations", href: services.integrations },
@@ -83,7 +83,7 @@ export const transportIndustryPage = {
     title: "The job, from quote ",
     highlight: "to invoice",
     paragraphs: [
-      "These are the workflows 23Labs builds for this kind of operation. They are not a description of a completed client project. Nothing on this page should be read as a claim that we have integrated a particular TMS or accounting platform.",
+      "These are the workflows 23Labs builds around a transport job, from the quote through to the invoice.",
     ],
     items: [
       {
@@ -118,19 +118,18 @@ export const transportIndustryPage = {
           [
             { text: "Once the job is complete and the proof is against it, the charge can move to the accounting system without a second copy of the same details. The TMS stays the record of the job. Accounting stays the record of the invoice. " },
             { text: "System integrations", href: services.integrations },
-            { text: " is the work of joining those two. We do not name a TMS or an accounting product here, because this site does not publish a transport integration we have shipped." },
+            { text: " is the work of joining those two. The connection is scoped to the TMS and the accounting system already in place, and to what those products allow." },
           ],
         ],
       },
     ],
   },
   proof: {
-    eyebrow: "Proof",
-    title: "Typical workflows, ",
-    highlight: "not a named project",
+    eyebrow: "The pattern",
+    title: "Quote, dispatch, prove, ",
+    highlight: "then invoice",
     paragraphs: [
-      "23Labs does not publish a transport or logistics case study. If you are looking for a named operator, a before-and-after from a live fleet, or a list of transport products we connect, that material is not on this site.",
-      "What is here is the operational pattern we build: quote, allocate and dispatch, prove the delivery, then invoice, with the TMS and accounting sharing the job instead of a person retyping it. Treat it as a description of the work, not as evidence that a particular client has been through it.",
+      "A rate request becomes a quote. The job is allocated and dispatched from one list. Proof of delivery is filed against that job. The completed charge moves into accounting, so the transport system and the accounts share the job.",
       [
         { text: "Where the steps are repetitive admin, the fit is " },
         { text: "business process automation", href: services.automation },
@@ -209,17 +208,12 @@ export const transportIndustryPage = {
     {
       question: "Can you automate quoting, dispatch and invoicing without replacing our TMS?",
       answer:
-        "Often, yes. The usual pattern is to leave the TMS as the place the job is managed, and to automate the steps around it: a quote from your rate rules, a clearer allocation for dispatch, proof of delivery attached to the job, and the completed charge sent to accounting. Replacing the TMS is a different project. We would only propose that if the current system cannot carry the workflow. This site does not publish a transport case study, so this is the shape of the work rather than a result from a named operator.",
+        "Often, yes. The usual pattern is to leave the TMS as the place the job is managed, and to automate the steps around it: a quote from your rate rules, a clearer allocation for dispatch, proof of delivery attached to the job, and the completed charge sent to accounting. Replacing the TMS is a different project. We would only propose that if the current system cannot carry the workflow.",
     },
     {
       question: "Which TMS and accounting products do you integrate with?",
       answer:
-        "We do not publish a list. A transport integration is scoped to the products you use and to what those products allow. Naming a TMS or an accounting platform here would imply a connector this site does not document. If you tell us the systems, we can say whether a connection is realistic.",
-    },
-    {
-      question: "Do you have a transport or logistics case study?",
-      answer:
-        "No. 23Labs does not publish a transport or logistics case study. The workflows on this page are typical of the software and automation we build. They are not a description of a completed project for a particular client.",
+        "Each connection is scoped to the TMS and the accounting system already in use, and to what those products allow. Tell us the systems, and we can say whether a connection is realistic.",
     },
     {
       question: "Do you work with operators outside Melbourne?",

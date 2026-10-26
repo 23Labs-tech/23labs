@@ -12,7 +12,7 @@ export const metadata: Metadata = createMetadata({
   absoluteTitle: "About 23Labs | Software & Automation Studio, Melbourne",
   path: "/about",
   description:
-    "23Labs is a Melbourne software and automation studio working with businesses across Australia and New Zealand to replace manual, disconnected processes.",
+    "23Labs serves clients across Australia and New Zealand remotely from Melbourne, building custom software, automation and system integrations.",
   keywords: ["23Labs", "automation and software studio", "business automation Melbourne", "custom software development"],
 });
 
@@ -23,7 +23,7 @@ export default function AboutPage() {
         eyebrow="About 23Labs"
         title="Practical technology, built around "
         highlight="your business"
-        body="23Labs is a Melbourne software and automation studio. We design and build business automation, custom software and connected systems for businesses across Australia and New Zealand."
+        body="23Labs serves clients across Australia and New Zealand remotely from Melbourne. We design and build business automation, custom software and connected systems for those clients."
       />
 
       <StatsBand noTop />

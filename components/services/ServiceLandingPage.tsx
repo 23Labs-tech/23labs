@@ -3,20 +3,39 @@ import Link from "next/link";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { HowWeHelpShowcase } from "@/components/services/HowWeHelpShowcase";
 import { ProcessSection } from "@/components/sections/ProcessSection";
+import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { JsonLd } from "@/components/site/JsonLd";
-import { breadcrumbList, serviceJsonLd } from "@/lib/schema";
+import { breadcrumbList, faqPageJsonLd, serviceJsonLd } from "@/lib/schema";
+import { caseStudyPath, resolveCaseStudy } from "@/lib/caseStudyMatch";
 import {
   getServiceLandingPage,
-  serviceApproachSteps,
-  serviceFinalCta,
+  servicePricingNote,
   type ServiceLandingPageData,
+  type ServiceTextPart,
 } from "@/lib/services";
 
+function RichText({ parts }: { parts: readonly ServiceTextPart[] }) {
+  return parts.map((part, index) =>
+    part.href ? (
+      <Link href={part.href} key={`${part.href}-${index}`}>
+        {part.text}
+      </Link>
+    ) : (
+      <span key={index}>{part.text}</span>
+    ),
+  );
+}
+
 export function ServiceLandingPage({ service }: { service: ServiceLandingPageData }) {
-  const serviceName = service.hero.eyebrow.split(" / ")[1];
   const relatedServices = service.relatedSlugs
     .map((slug) => getServiceLandingPage(slug))
     .filter((item): item is ServiceLandingPageData => Boolean(item));
+
+  const proofStudies = service.proof.studies.flatMap((item) => {
+    const study = resolveCaseStudy(item.match);
+    if (!study) return [];
+    return [{ ...item, href: caseStudyPath(study) }];
+  });
 
   return (
     <>
@@ -27,7 +46,7 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
             {service.hero.subheading ? <p className="hero-sub">{service.hero.subheading}</p> : null}
             <p className="lead">{service.hero.lead}</p>
             <div className="hero-actions">
-              <ButtonLink href="/contact">Start a Conversation</ButtonLink>
+              <ButtonLink href="/contact">{service.hero.ctaLabel}</ButtonLink>
             </div>
           </div>
           <div className="reveal in svc-hero-media">
@@ -36,6 +55,7 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
               alt={service.hero.image.alt}
               fill
               preload
+              fetchPriority="high"
               sizes="(max-width: 900px) 100vw, 50vw"
             />
           </div>
@@ -44,8 +64,25 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
 
       <section className="sec no-top">
         <div className="wrap">
+          <div className="sec-head reveal">
+            <h2 className="sec-title">{service.audience.heading}</h2>
+            <p className="lead">{service.audience.intro}</p>
+          </div>
+          <div className="problem-grid reveal">
+            {service.audience.items.map((item) => (
+              <div className="problem-card" key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="sec">
+        <div className="wrap">
           <div className="sec-head sec-head-center reveal">
-            <h2 className="sec-title">Where things usually break down</h2>
+            <h2 className="sec-title">{service.problem.heading}</h2>
             <p className="lead">{service.problem.intro}</p>
           </div>
           <div className="problem-grid reveal">
@@ -62,91 +99,89 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
       <section className="sec">
         <div className="wrap">
           <div className="sec-head sec-head-center reveal">
-            <h2 className="sec-title">{serviceName}</h2>
+            <h2 className="sec-title">{service.howWeHelp.heading}</h2>
             <p className="lead">{service.howWeHelp.intro}</p>
           </div>
           <HowWeHelpShowcase capabilities={service.howWeHelp.capabilities} />
         </div>
       </section>
 
+      <section className="sec no-top">
+        <div className="wrap">
+          <div className="sec-head reveal">
+            <h2 className="sec-title">{service.boundary.heading}</h2>
+          </div>
+          <div className="text-block reveal">
+            <p>
+              <RichText parts={service.boundary.parts} />
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <ProcessSection
+        layout="split"
+        eyebrow="How we work"
+        heading={service.engagement.heading}
+        intro={service.engagement.intro}
+        cta={{ href: "/contact", label: service.engagement.ctaLabel }}
+        steps={service.engagement.steps}
+      />
+
       <section className="sec">
         <div className="wrap">
           <div className="sec-head reveal">
-            <h2 className="sec-title">What this can look like</h2>
-            <p className="lead">
-              The examples below are illustrative use cases showing how this service could apply, not
-              completed client projects.
-            </p>
+            <h2 className="sec-title">{service.useCases.heading}</h2>
+            <p className="lead">{service.useCases.intro}</p>
           </div>
           <div className="usecase-grid reveal">
-            {service.useCases.map((useCase) => (
-              <div className="usecase-card" key={useCase}>
-                <span className="mono">Illustrative example</span>
-                <p>{useCase}</p>
+            {service.useCases.items.map((item) => (
+              <div className="usecase-card" key={item.label}>
+                <span className="mono">{item.label}</span>
+                <p>{item.body}</p>
+                {item.links?.length ? (
+                  <div className="usecase-links">
+                    {item.links.map((link) => (
+                      <Link href={link.href} className="work-link" key={link.href}>
+                        {link.label}
+                        <span aria-hidden="true">{"→"}</span>
+                      </Link>
+                    ))}
+                  </div>
+                ) : null}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {service.industries?.length ? (
-        <section className="sec">
-          <div className="wrap">
-            <div className="sec-head reveal">
-              <h2 className="sec-title">Industries we build this for</h2>
-            </div>
-            <div className="problem-grid reveal">
-              {service.industries.map((industry) => (
-                <Link href={industry.href} className="problem-card problem-card-link" key={industry.href}>
-                  <h3>{industry.title}</h3>
-                  <p>{industry.body}</p>
-                  <span className="work-link">
-                    View the industry <span aria-hidden="true">{"→"}</span>
-                  </span>
-                </Link>
+      <section className="sec">
+        <div className="wrap">
+          <div className="sec-head reveal">
+            <h2 className="sec-title">{service.proof.heading}</h2>
+          </div>
+          <div className="text-block reveal">
+            <p>
+              <RichText parts={service.proof.intro} />
+            </p>
+          </div>
+          {proofStudies.length ? (
+            <div className="usecase-grid follow reveal">
+              {proofStudies.map((item) => (
+                <div className="usecase-card" key={item.href}>
+                  <span className="mono">{item.relation === "contrast" ? "Related project" : "Case study"}</span>
+                  <h3>{item.label}</h3>
+                  <p>{item.summary}</p>
+                  <Link href={item.href} className="work-link">
+                    Read the project
+                    <span aria-hidden="true">{"→"}</span>
+                  </Link>
+                </div>
               ))}
             </div>
-          </div>
-        </section>
-      ) : null}
-
-      {service.proof?.length ? (
-        <section className="sec">
-          <div className="wrap">
-            <div className="sec-head reveal">
-              <h2 className="sec-title">Where this shows up</h2>
-            </div>
-            <div className="text-block reveal">
-              <p>
-                {service.proof.map((part, index) =>
-                  part.href ? (
-                    <Link href={part.href} key={`${part.href}-${index}`}>
-                      {part.text}
-                    </Link>
-                  ) : (
-                    <span key={index}>{part.text}</span>
-                  )
-                )}
-              </p>
-            </div>
-          </div>
-        </section>
-      ) : null}
-
-      <ProcessSection
-        layout="split"
-        eyebrow="How we work"
-        heading={
-          <>
-            How a project comes
-            <br />
-            together
-          </>
-        }
-        intro="From discovery through to launch and support, we follow a clear process that keeps projects practical, structured and aligned to how your business actually works."
-        cta={{ href: "/contact", label: "Start a conversation" }}
-        steps={serviceApproachSteps}
-      />
+          ) : null}
+        </div>
+      </section>
 
       {relatedServices.length ? (
         <section className="sec no-top related-sec">
@@ -171,12 +206,15 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
         </section>
       ) : null}
 
+      <FaqAccordion items={service.faqs} idPrefix={`faq-${service.slug}`} />
+
       <section className="sec">
         <div className="wrap cta-band reveal">
-          <h2>{serviceFinalCta.title}</h2>
-          <p>{serviceFinalCta.body}</p>
+          <h2>{service.cta.title}</h2>
+          <p>{service.cta.body}</p>
+          <p>{servicePricingNote}</p>
           <div className="hero-actions">
-            <ButtonLink href="/contact">{serviceFinalCta.label}</ButtonLink>
+            <ButtonLink href="/contact">{service.cta.label}</ButtonLink>
           </div>
         </div>
       </section>
@@ -190,6 +228,7 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
               description: service.description,
               path: service.href,
             }),
+            faqPageJsonLd(service.href, service.faqs),
             breadcrumbList([
               { name: "Home", path: "/" },
               { name: "Services", path: "/#services" },

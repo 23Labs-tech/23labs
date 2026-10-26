@@ -1178,6 +1178,24 @@ a.problem-card-link .work-link {
   color: var(--accent-dark);
 }
 
+.usecase-card h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.usecase-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.usecase-grid.follow {
+  margin-top: 28px;
+}
+
 .usecase-card p {
   color: var(--ink-soft);
   font-size: 16px;
@@ -2083,7 +2101,7 @@ a.proof-link .work-link {
 .case-hero-meta-item .mono {
   display: block;
   margin-bottom: 6px;
-  color: var(--ink-faint);
+  color: var(--ink-soft);
 }
 
 .case-hero-meta-item strong {
@@ -2516,6 +2534,13 @@ a.proof-link .work-link {
 .blog-post-hero p {
   color: var(--ink-soft);
   font-size: 18px;
+}
+
+.blog-post-hero .blog-author-bio {
+  max-width: 62ch;
+  margin: 0 0 4px;
+  font-size: 15px;
+  line-height: 1.55;
 }
 
 .blog-image {
@@ -2973,7 +2998,8 @@ a.proof-link .work-link {
   color: var(--accent-on-dark);
 }
 
-.foot-col h5 {
+.foot-col .foot-label {
+  max-width: none;
   margin: 0 0 18px;
   color: var(--foot-faint);
   font-family: var(--font-sans), "Poppins", Arial, sans-serif;

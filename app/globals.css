@@ -507,15 +507,34 @@ textarea:focus-visible {
 .hero {
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 72px 0 56px;
+  padding: 72px 0 0;
   text-align: center;
 }
 
 .hero-in {
   max-width: 1160px;
   margin: 0 auto;
+}
+
+.hero-visual {
+  width: 100%;
+  max-width: 1200px;
+  margin: 56px auto 0;
+  padding: 0 var(--pad);
+}
+
+.hero-visual-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 680px) {
+  .hero-visual {
+    margin-top: 36px;
+  }
 }
 
 .hero h1 {
@@ -783,73 +802,82 @@ textarea:focus-visible {
   background: var(--line);
 }
 
-/* ---------- Service showcase (stacked scroll panels) ---------- */
+/* ---------- Service showcase (asymmetric bento grid) ---------- */
 
-.service-stack {
-  position: relative;
+.build-grid {
   margin-top: 72px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
   gap: 24px;
 }
 
-.service-panel {
-  position: sticky;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 40px;
-  min-height: 350px;
-  padding: 56px 72px;
+.build-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 28px;
+  border-radius: 20px;
   background: var(--card);
-  box-shadow: 0 40px 70px -40px rgba(20, 20, 22, 0.22);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.service-panel-copy h3 {
+.build-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 32px 56px -32px rgba(11, 31, 58, 0.22);
+}
+
+.build-card.xl {
+  grid-column: span 4;
+}
+
+.build-card.lg {
+  grid-column: span 3;
+}
+
+.build-card.sm {
+  grid-column: span 2;
+}
+
+.build-visual {
+  border-bottom: 1px solid var(--line-soft);
+  background: var(--paper-2);
+}
+
+.build-visual svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.build-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 32px 36px 36px;
+}
+
+.build-body h3 {
   font-size: clamp(1.125rem, 1.6vw, 1.375rem);
   letter-spacing: -0.005em;
 }
 
-.service-panel-copy p {
+.build-body p {
   max-width: 46ch;
-  margin-top: 26px;
+  margin-top: 16px;
   color: var(--ink-soft);
-  font-size: 16.5px;
+  font-size: 16px;
   line-height: 1.6;
 }
 
-.service-panel-cta {
+.build-link {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  margin-top: 32px;
-  border-radius: 99px;
-  padding: 13px 28px;
-  background: var(--accent);
-  color: #fff;
+  gap: 8px;
+  margin-top: 24px;
+  color: var(--accent-dark);
   font-size: 14px;
   font-weight: 600;
-  transition: background 0.2s;
-}
-
-.service-panel-cta:hover,
-.service-panel-cta:focus-visible {
-  background: var(--accent-dark);
-}
-
-.service-panel-media {
-  position: relative;
-  aspect-ratio: 5 / 4;
-  width: 88%;
-  margin-left: auto;
-  border-radius: 18px;
-  overflow: hidden;
-}
-
-.service-panel-media img {
-  object-fit: cover;
 }
 
 .svc-secondary {
@@ -2405,83 +2433,6 @@ textarea:focus-visible {
   padding: 2px 5px;
   font-family: var(--font-sans), "Poppins", Arial, sans-serif;
   font-size: 0.92em;
-}
-
-/* ---------- What We Build (bento) ---------- */
-
-.build-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 24px;
-}
-
-.build-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  background: var(--paper-2);
-  transition:
-    transform 0.3s,
-    box-shadow 0.3s;
-}
-
-.build-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 26px 50px -32px rgba(20, 20, 22, 0.25);
-}
-
-.build-card.xl {
-  grid-column: span 4;
-}
-
-.build-card.sm {
-  grid-column: span 2;
-}
-
-.build-card.lg {
-  grid-column: span 3;
-}
-
-.build-visual {
-  position: relative;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  background: var(--paper);
-  border-bottom: 1px solid var(--line);
-}
-
-.build-visual svg {
-  width: 100%;
-  height: 100%;
-}
-
-.build-body {
-  padding: 30px 32px 34px;
-}
-
-.build-num {
-  display: block;
-  margin-bottom: 14px;
-  color: var(--ink-faint);
-  font-family: var(--font-sans), "Poppins", Arial, sans-serif;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.build-body h3 {
-  margin-bottom: 10px;
-  font-size: 22px;
-  font-weight: 600;
-}
-
-.build-body p {
-  max-width: 46ch;
-  color: var(--ink-soft);
-  font-size: 15.5px;
 }
 
 /* ---------- Selected work (featured + grid) ---------- */

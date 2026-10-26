@@ -12,6 +12,8 @@ const footerServiceLinks = [
   "ai-workflow-automation",
   "full-stack-software-development",
   "ai-agents",
+  "system-integrations",
+  "ongoing-support",
 ].map((slug) => serviceLandingPages.find((service) => service.slug === slug)!);
 
 export function Footer() {

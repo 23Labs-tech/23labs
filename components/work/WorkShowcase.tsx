@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getAllCaseStudies } from "@/lib/caseStudies";
 
 export function WorkShowcase() {
-  const items = getAllCaseStudies();
+  const items = getAllCaseStudies().slice(0, 3);
 
   return (
     <div className="case-study-grid">

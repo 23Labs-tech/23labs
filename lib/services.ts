@@ -399,6 +399,182 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     ],
     relatedSlugs: ["ai-workflow-automation", "full-stack-software-development"],
   },
+  {
+    slug: "system-integrations",
+    href: "/services/system-integrations",
+    navLabel: "System Integrations",
+    metadataTitle: "System Integrations Melbourne | Connect Your Business Systems | 23Labs",
+    description:
+      "We connect the CRM, accounting, operations and customer-facing platforms your business already relies on, so information moves between them automatically instead of being re-entered by hand.",
+    hero: {
+      eyebrow: "Services / System Integrations",
+      title: "Make your systems talk to each other.",
+      lead:
+        "Connect the CRM, accounting, operations and customer platforms your business already relies on, so information moves between them automatically instead of being copied by hand. We build integrations that hold up as the number of tools and the volume of data grows.",
+      image: {
+        src: "/site-images/tech-img-12.png",
+        alt: "A glowing chain link representing connected business systems",
+      },
+    },
+    problem: {
+      intro:
+        "Most growing businesses don't run on one system, they run on several, and the gaps between them are where time and accuracy get lost.",
+      items: [
+        {
+          title: "Re-entering the Same Information",
+          description:
+            "The same customer, job or invoice details get typed into two or three different systems because nothing is connected.",
+        },
+        {
+          title: "Tools That Don't Share Data",
+          description:
+            "Your CRM, accounting platform and operational software each hold a different version of the truth, and nobody is sure which one is current.",
+        },
+        {
+          title: "Integrations That Break Under Load",
+          description:
+            "Existing connections were built quickly or rely on manual exports, and stop working reliably as the business adds more tools and more volume.",
+        },
+      ],
+    },
+    howWeHelp: {
+      intro:
+        "We design integrations around the systems you already use, so data moves automatically and reliably without forcing your team onto new software.",
+      capabilities: [
+        {
+          title: "CRM, Accounting & Operations Integration",
+          description:
+            "Connect the platforms your team relies on every day, from CRM and accounting software to job management and operational tools.",
+          image: {
+            src: "/site-images/tech-img-12.png",
+            alt: "A glowing chain link representing connected business systems",
+          },
+        },
+        {
+          title: "API Development & Custom Connections",
+          description:
+            "Build custom APIs and connectors for platforms that don't offer an off-the-shelf integration.",
+          image: {
+            src: "/site-images/tech-img-13.png",
+            alt: "A circuit board with a central processor representing API architecture",
+          },
+        },
+        {
+          title: "Real-Time Data Synchronisation",
+          description:
+            "Keep records consistent across systems as information changes, instead of relying on scheduled exports or manual syncing.",
+          image: {
+            src: "/site-images/tech-img-01.png",
+            alt: "Streams of data representing automated communication and information flow",
+          },
+        },
+        {
+          title: "Legacy & Third-Party System Connections",
+          description:
+            "Bring older or specialised platforms into the same connected environment, even where a modern integration doesn't already exist.",
+          image: {
+            src: "/site-images/tech-img-17.png",
+            alt: "A blueprint of connected gears representing systems working within business workflows",
+          },
+        },
+      ],
+    },
+    useCases: [
+      "Sync customer and job records automatically between your CRM and accounting platform.",
+      "Connect an industry-specific operational tool to your core business systems via a custom API.",
+      "Keep inventory, pricing or customer data consistent across multiple connected platforms.",
+      "Replace manual CSV exports and imports with an automated, real-time data connection.",
+    ],
+    relatedSlugs: ["business-process-automation", "full-stack-software-development"],
+  },
+  {
+    slug: "ongoing-support",
+    href: "/services/ongoing-support",
+    navLabel: "Ongoing Support",
+    metadataTitle: "Ongoing Software & Automation Support Melbourne | 23Labs",
+    description:
+      "We stay involved after launch, monitoring, refining and extending the automation, software and integrations we build so they keep working as your business changes.",
+    hero: {
+      eyebrow: "Services / Ongoing Support",
+      title: "Launch is the start, not the finish.",
+      lead:
+        "Business needs change, teams grow and systems need attention long after the initial build. We stay involved after launch to monitor, refine and extend what we've built, so it keeps delivering value as your business changes.",
+      image: {
+        src: "/site-images/tech-img-15.png",
+        alt: "A team member reviewing live system performance on a laptop",
+      },
+    },
+    problem: {
+      intro:
+        "Software and automation that isn't maintained tends to quietly stop fitting the business it was built for.",
+      items: [
+        {
+          title: "No One Watching What You Rely On",
+          description:
+            "Automations and integrations that run quietly in the background can fail silently if nobody is monitoring them.",
+        },
+        {
+          title: "The Business Keeps Changing",
+          description:
+            "New products, new tools and new processes mean systems built a year ago may no longer match how the team actually works.",
+        },
+        {
+          title: "The Original Team Has Moved On",
+          description:
+            "Whoever built the original solution isn't around to explain it, extend it or fix it when something needs to change.",
+        },
+      ],
+    },
+    howWeHelp: {
+      intro:
+        "We stay close to what we build, so it keeps working properly and keeps evolving as your business does.",
+      capabilities: [
+        {
+          title: "Monitoring & Issue Resolution",
+          description:
+            "Keep an eye on the automations, integrations and software we've built, and resolve issues before they affect your team.",
+          image: {
+            src: "/site-images/tech-img-14.png",
+            alt: "A connected network of data blocks representing monitored business systems",
+          },
+        },
+        {
+          title: "Ongoing Refinement & Optimisation",
+          description:
+            "Review how systems are actually being used and adjust them to remove new friction as your processes evolve.",
+          image: {
+            src: "/site-images/tech-img-10.png",
+            alt: "Abstract flowing forms representing a refined, evolving software platform",
+          },
+        },
+        {
+          title: "Feature Extensions & New Requirements",
+          description:
+            "Add new capabilities to existing software and automations as your business takes on new work or new requirements.",
+          image: {
+            src: "/site-images/tech-img-11.png",
+            alt: "Abstract glowing interface elements representing an extended software platform",
+          },
+        },
+        {
+          title: "Team Support & Handover",
+          description:
+            "Make sure your team understands how the systems work, with documentation and support so you're never dependent on one person.",
+          image: {
+            src: "/site-images/tech-img-16.png",
+            alt: "A circuit board representing systems connected into day-to-day team workflows",
+          },
+        },
+      ],
+    },
+    useCases: [
+      "Ongoing monitoring of business-critical automations and integrations, with issues resolved before they cause disruption.",
+      "Regular reviews of how a custom platform is being used, with refinements based on real usage.",
+      "Adding a new capability to existing software as the business takes on a new service line.",
+      "Documentation and handover support so internal teams can confidently manage day-to-day changes.",
+    ],
+    relatedSlugs: ["business-process-automation", "system-integrations"],
+  },
 ];
 
 export function getServiceLandingPage(slug: string) {

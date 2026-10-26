@@ -45,9 +45,6 @@ export default function Home() {
 
       <section className="sec sec-alt" id="services">
         <div className="wrap intro-copy">
-          <div className="sec-tag sec-tag-plain sec-tag-accent" style={{ justifyContent: "center" }}>
-            What we build
-          </div>
           <h2 className="sec-title">
             Technology that removes <span className="em">operational friction</span>
           </h2>
@@ -66,7 +63,6 @@ export default function Home() {
       <section className="sec" id="work">
         <div className="wrap">
           <div className="sec-head reveal">
-            <div className="sec-tag">Selected work</div>
             <h2 className="sec-title">
               Systems built for <span className="em">real businesses</span>
             </h2>
@@ -88,7 +84,6 @@ export default function Home() {
       <section className="sec">
         <div className="wrap">
           <div className="sec-head reveal">
-            <div className="sec-tag">Insights</div>
             <h2 className="sec-title">
               Ideas from inside <span className="em">the work</span>
             </h2>

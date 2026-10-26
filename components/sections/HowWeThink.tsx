@@ -8,7 +8,6 @@ export function HowWeThink() {
     <section className="think-sec sec">
       <div className="wrap">
         <div className="think-intro reveal">
-          <div className="sec-tag">How we think</div>
           <h2 className="think-title">
             We build software that works for <span className="em">real businesses</span>
           </h2>

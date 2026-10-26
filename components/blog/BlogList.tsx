@@ -10,7 +10,7 @@ export function BlogList({ posts }: BlogListProps) {
     <>
       <header className="page-hero blog-hero">
         <div className="wrap reveal in">
-          <div className="sec-tag">From the blog</div>
+          <div className="hero-badge">From the blog</div>
           <h1>
             Practical notes from inside our <span className="em">own projects</span>
           </h1>

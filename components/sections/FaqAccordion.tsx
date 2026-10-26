@@ -10,9 +10,6 @@ export function FaqAccordion() {
     <section className="sec">
       <div className="wrap">
         <div className="sec-head reveal sec-head-center">
-          <div className="sec-tag" style={{ justifyContent: "center" }}>
-            FAQ
-          </div>
           <h2 className="sec-title">Frequently asked questions</h2>
         </div>
         <div className="faq-list reveal">

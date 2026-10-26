@@ -19,10 +19,9 @@ function SystemIcon({ icon }: { icon: string }) {
   return <IndustryIcon icon={icon} className="svc-ico" />;
 }
 
-function SectionIntro({ eyebrow, title }: { eyebrow: string; title: string }) {
+function SectionIntro({ title }: { eyebrow: string; title: string }) {
   return (
     <div className="reveal">
-      <div className="sec-tag case-section-eyebrow">{eyebrow}</div>
       <h2 className="case-section-title">{title}</h2>
     </div>
   );
@@ -34,7 +33,7 @@ export function CaseStudyDetailPage({ caseStudy }: { caseStudy: CaseStudy }) {
       <header className="svc-hero">
         <div className="wrap svc-hero-in">
           <div className="reveal in svc-hero-copy">
-            <div className="sec-tag">
+            <div className="mono">
               <Link href="/work" style={{ color: "inherit" }}>
                 Case Studies
               </Link>{" "}

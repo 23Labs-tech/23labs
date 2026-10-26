@@ -23,9 +23,6 @@ export function OutcomeBand() {
   return (
     <section className="sec">
       <div className="wrap intro-copy">
-        <div className="sec-tag sec-tag-plain sec-tag-accent" style={{ justifyContent: "center" }}>
-          Why it matters
-        </div>
         <h2>
           Better systems give your team <span className="em">more time to grow the business</span>
         </h2>

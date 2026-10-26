@@ -13,7 +13,6 @@ type ContactSectionProps = {
 export function ContactSection({
   id,
   variant = "band",
-  eyebrow,
   title,
   body,
 }: ContactSectionProps) {
@@ -26,7 +25,6 @@ export function ContactSection({
       <div className="wrap">
         <div className="contact-grid reveal">
           <div className="contact-copy">
-            <div className="sec-tag">{eyebrow}</div>
             <h2 className="sec-title">{title}</h2>
             {bodyItems.map((item) => (
               <p className="lead" key={item}>

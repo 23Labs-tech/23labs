@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { cloneElement, useRef, useState } from "react";
 import type { ContactErrors, ContactPayload } from "@/lib/contact";
 import { validateContactPayload } from "@/lib/contact";
@@ -207,6 +208,9 @@ export function ContactForm() {
           {"\u2192"}
         </span>
       </button>
+      <Link className="form-privacy" href="/privacy-policy">
+        See our Privacy Policy
+      </Link>
       <div
         className={`form-success${status === "success" ? " is-visible" : ""}`}
         role="status"

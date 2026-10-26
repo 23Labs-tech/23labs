@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...serviceLandingPages.map((service) => service.href),
     "/work",
     "/contact",
+    "/privacy-policy",
     "/blog",
     ...industryRoutePaths,
   ];

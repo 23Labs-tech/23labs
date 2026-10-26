@@ -76,6 +76,7 @@ export function Footer() {
         </div>
         <div className="foot-bottom">
           <span>{"\u00A9"} 2026 {siteConfig.legalName}. All rights reserved.</span>
+          <Link href="/privacy-policy">Privacy Policy</Link>
         </div>
       </div>
     </footer>

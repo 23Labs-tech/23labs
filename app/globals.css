@@ -2441,6 +2441,21 @@ a.proof-link .work-link {
   margin-top: 12px;
 }
 
+.form-privacy {
+  align-self: flex-start;
+  margin-top: -8px;
+  color: var(--ink-soft);
+  font-size: 13.5px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.form-privacy:hover,
+.form-privacy:focus-visible {
+  color: var(--ink);
+}
+
 .form-success {
   position: absolute;
   inset: 0;
@@ -3043,9 +3058,20 @@ a.proof-link .work-link {
   padding-top: 28px;
 }
 
-.foot-bottom span {
+.foot-bottom span,
+.foot-bottom a {
   color: var(--foot-faint);
   font-size: 13.5px;
+}
+
+.foot-bottom a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.foot-bottom a:hover,
+.foot-bottom a:focus-visible {
+  color: var(--accent-on-dark);
 }
 
 @media (max-width: 1080px) {

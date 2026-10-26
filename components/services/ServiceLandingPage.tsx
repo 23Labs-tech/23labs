@@ -45,9 +45,6 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
       <section className="sec no-top">
         <div className="wrap">
           <div className="sec-head sec-head-center reveal">
-            <div className="sec-tag sec-tag-plain sec-tag-accent" style={{ justifyContent: "center" }}>
-              The problem
-            </div>
             <h2 className="sec-title">Where things usually break down</h2>
             <p className="lead">{service.problem.intro}</p>
           </div>
@@ -65,9 +62,6 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
       <section className="sec">
         <div className="wrap">
           <div className="sec-head sec-head-center reveal">
-            <div className="sec-tag sec-tag-plain sec-tag-accent" style={{ justifyContent: "center" }}>
-              How we help
-            </div>
             <h2 className="sec-title">{serviceName}</h2>
             <p className="lead">{service.howWeHelp.intro}</p>
           </div>
@@ -78,7 +72,6 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
       <section className="sec">
         <div className="wrap">
           <div className="sec-head reveal">
-            <div className="sec-tag">Practical use cases</div>
             <h2 className="sec-title">What this can look like</h2>
             <p className="lead">
               The examples below are illustrative use cases showing how this service could apply, not
@@ -115,7 +108,6 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
         <section className="sec no-top related-sec">
           <div className="wrap">
             <div className="sec-head related-head reveal">
-              <div className="sec-tag">Related services</div>
               <h2 className="sec-title">You might also need</h2>
             </div>
             <div className="related-links reveal">

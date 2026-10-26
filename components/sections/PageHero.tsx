@@ -12,7 +12,7 @@ export function PageHero({ eyebrow, title, highlight, body, className }: PageHer
   return (
     <header className={heroClassName}>
       <div className="wrap reveal in">
-        <div className="sec-tag">{eyebrow}</div>
+        <div className="hero-badge">{eyebrow}</div>
         <h1>
           {title}
           {highlight ? <span className="em">{highlight}</span> : null}

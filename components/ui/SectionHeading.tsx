@@ -1,5 +1,4 @@
 type SectionHeadingProps = {
-  eyebrow?: string;
   title: string;
   highlight?: string;
   body?: string;
@@ -7,7 +6,6 @@ type SectionHeadingProps = {
 };
 
 export function SectionHeading({
-  eyebrow,
   title,
   highlight,
   body,
@@ -15,7 +13,6 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <div className={`sec-head reveal ${align === "center" ? "sec-head-center" : ""}`.trim()}>
-      {eyebrow ? <div className="sec-tag">{eyebrow}</div> : null}
       <h2 className="sec-title">
         {title}
         {highlight ? <span className="em">{highlight}</span> : null}

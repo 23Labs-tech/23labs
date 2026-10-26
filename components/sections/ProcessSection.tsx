@@ -46,7 +46,6 @@ function ProcessTimeline({
 }
 
 export function ProcessSection({
-  eyebrow,
   heading,
   intro,
   timelineLabel,
@@ -60,7 +59,6 @@ export function ProcessSection({
       <section className="proc-sec sec sec-dark" id={id}>
         <div className="wrap proc-grid">
           <div className="proc-intro reveal">
-            {eyebrow ? <div className="sec-tag">{eyebrow}</div> : null}
             <h2 className="proc-title">{heading}</h2>
             {intro ? <p className="proc-lead">{intro}</p> : null}
             {cta ? (
@@ -81,11 +79,6 @@ export function ProcessSection({
   return (
     <section className="proc-sec sec sec-dark" id={id}>
       <div className="wrap proc-intro-center reveal">
-        {eyebrow ? (
-          <div className="sec-tag" style={{ justifyContent: "center" }}>
-            {eyebrow}
-          </div>
-        ) : null}
         <h2 className="proc-title">{heading}</h2>
         {intro ? <p className="proc-lead proc-lead-center">{intro}</p> : null}
       </div>

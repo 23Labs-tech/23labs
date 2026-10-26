@@ -6,7 +6,6 @@ export function WhatWeStandFor() {
     <section className="standfor-sec sec no-top">
       <div className="wrap">
         <div className="standfor-intro reveal">
-          <div className="sec-tag">What we stand for</div>
           <h2 className="standfor-title">Built on a few things we won&apos;t compromise</h2>
         </div>
         <div className="standfor-grid reveal">

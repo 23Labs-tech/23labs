@@ -39,7 +39,6 @@ function SplitHeading({ title, highlight, after }: SplitHeadingProps) {
 }
 
 function SectionHeading({
-  eyebrow,
   title,
   highlight,
   after,
@@ -53,7 +52,6 @@ function SectionHeading({
 }) {
   return (
     <div className="sec-head industry-sec-head reveal">
-      <div className="sec-tag">{eyebrow}</div>
       <h2 className="sec-title">
         <SplitHeading title={title} highlight={highlight} after={after} />
       </h2>
@@ -114,7 +112,7 @@ export function IndustriesOverviewPage() {
     <>
       <header className="page-hero industry-hero">
         <div className="wrap reveal in">
-          <div className="sec-tag">{industryOverview.hero.eyebrow}</div>
+          <div className="hero-badge">{industryOverview.hero.eyebrow}</div>
           <h1>
             <SplitHeading title={industryOverview.hero.title} highlight={industryOverview.hero.highlight} />
           </h1>
@@ -220,7 +218,7 @@ export function IndustryDetailPage({ industry }: { industry: IndustryPageData })
       <header className="svc-hero">
         <div className="wrap svc-hero-in">
           <div className="reveal in svc-hero-copy">
-            <div className="sec-tag">
+            <div className="mono">
               <Link href="/industries" style={{ color: "inherit" }}>
                 Industries
               </Link>{" "}

@@ -9,7 +9,7 @@ export function CaseStudyGrid() {
     <>
       <div className="cs-head reveal in">
         <div className="cs-head-copy">
-          <div className="sec-tag">Case studies</div>
+          <div className="hero-badge">Case studies</div>
           <h1>
             Real work. <span className="em">Real results.</span>
           </h1>

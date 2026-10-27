@@ -4,10 +4,41 @@ import path from "node:path";
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
 const SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
-export const blogAuthor = {
+/**
+ * Named founder byline. Leave `name` empty to keep the "23Labs Team" byline.
+ * Once set, every post shows the founder, links to LinkedIn and publishes a
+ * Person author in the BlogPosting schema (an E-E-A-T signal for search).
+ */
+export const founderAuthor = {
+  name: "",
+  jobTitle: "Founder, 23Labs",
+  linkedin: "",
+  bio: "",
+};
+
+type BlogAuthor = {
+  name: string;
+  bio: string;
+  isPerson: boolean;
+  jobTitle?: string;
+  url?: string;
+};
+
+const teamAuthor: BlogAuthor = {
   name: "23Labs Team",
   bio: "The 23Labs team builds software, integrations and automation solutions that help businesses reduce manual work, connect systems and improve how their operations run.",
-} as const;
+  isPerson: false,
+};
+
+export const blogAuthor: BlogAuthor = founderAuthor.name.trim()
+  ? {
+      name: founderAuthor.name.trim(),
+      bio: founderAuthor.bio.trim() || teamAuthor.bio,
+      isPerson: true,
+      jobTitle: founderAuthor.jobTitle,
+      url: founderAuthor.linkedin.trim() || undefined,
+    }
+  : teamAuthor;
 
 export type BlogPost = {
   slug: string;

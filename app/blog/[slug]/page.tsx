@@ -57,7 +57,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <div className="blog-meta">
               <time dateTime={post.date}>{formattedDate}</time>
               <span>{post.readingTime}</span>
-              <span>{post.author}</span>
+              <span>
+                {blogAuthor.isPerson && blogAuthor.url ? (
+                  <a href={blogAuthor.url} rel="author noopener" target="_blank">
+                    {post.author}
+                  </a>
+                ) : (
+                  post.author
+                )}
+                {blogAuthor.jobTitle ? `, ${blogAuthor.jobTitle}` : null}
+              </span>
             </div>
             <p className="blog-author-bio">{blogAuthor.bio}</p>
             <h1>{post.title}</h1>
@@ -96,13 +105,22 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               datePublished: post.date,
               dateModified: post.updated || post.date,
               image: absoluteUrl(post.featuredImage),
-              author: {
-                "@type": "Organization",
-                name: blogAuthor.name,
-                description: blogAuthor.bio,
-                url: `${getBaseUrl()}/`,
-                parentOrganization: { "@id": organizationId() },
-              },
+              author: blogAuthor.isPerson
+                ? {
+                    "@type": "Person",
+                    name: blogAuthor.name,
+                    description: blogAuthor.bio,
+                    jobTitle: blogAuthor.jobTitle,
+                    ...(blogAuthor.url ? { url: blogAuthor.url, sameAs: [blogAuthor.url] } : {}),
+                    worksFor: { "@id": organizationId() },
+                  }
+                : {
+                    "@type": "Organization",
+                    name: blogAuthor.name,
+                    description: blogAuthor.bio,
+                    url: `${getBaseUrl()}/`,
+                    parentOrganization: { "@id": organizationId() },
+                  },
               publisher: { "@id": organizationId() },
               articleSection: post.categories,
               mainEntityOfPage: absoluteUrl(`/blog/${post.slug}`),

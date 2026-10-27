@@ -66,15 +66,42 @@ function escapeHtml(value: string) {
     .replace(/"/g, "&quot;");
 }
 
+function emailSubject(payload: ContactPayload) {
+  return `New 23Labs enquiry — ${payload.company || payload.fullName}`;
+}
+
+function submittedAt() {
+  return new Date().toLocaleString("en-AU", {
+    timeZone: "Australia/Melbourne",
+    dateStyle: "medium",
+    timeStyle: "short",
+  });
+}
+
 function plainText(payload: ContactPayload) {
   return [
-    `Name: ${payload.fullName}`,
-    `Company: ${payload.company || "Not provided"}`,
-    `Email: ${payload.email}`,
-    `Phone: ${payload.phone || "Not provided"}`,
+    "New website enquiry",
     "",
-    "Message:",
+    "Name:",
+    payload.fullName,
+    "",
+    "Company:",
+    payload.company || "Not provided",
+    "",
+    "Email:",
+    payload.email,
+    "",
+    "Phone:",
+    payload.phone || "Not provided",
+    "",
+    "What they are trying to improve:",
     payload.message,
+    "",
+    "Submitted:",
+    submittedAt(),
+    "",
+    "Source:",
+    "23labs.co/contact",
   ].join("\n");
 }
 
@@ -84,11 +111,13 @@ function html(payload: ContactPayload) {
     ["Company", payload.company || "Not provided"],
     ["Email", payload.email],
     ["Phone", payload.phone || "Not provided"],
+    ["Submitted", submittedAt()],
+    ["Source", "23labs.co/contact"],
   ];
 
   return `
     <div style="font-family:Arial,sans-serif;line-height:1.5;color:#161410">
-      <h1 style="font-size:20px">New 23Labs enquiry</h1>
+      <h1 style="font-size:20px">New website enquiry</h1>
       <table cellpadding="6" cellspacing="0" style="border-collapse:collapse">
         ${rows
           .map(
@@ -97,7 +126,7 @@ function html(payload: ContactPayload) {
           )
           .join("")}
       </table>
-      <h2 style="font-size:16px">Message</h2>
+      <h2 style="font-size:16px">What they are trying to improve</h2>
       <p>${escapeHtml(payload.message).replace(/\n/g, "<br />")}</p>
     </div>
   `;
@@ -106,31 +135,45 @@ function html(payload: ContactPayload) {
 const FALLBACK_FROM = "23Labs <onboarding@resend.dev>";
 
 async function callResend(apiKey: string, from: string, to: string, payload: ContactPayload) {
-  const response = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from,
-      to: [to],
-      reply_to: payload.email,
-      subject: `New 23Labs enquiry from ${payload.fullName}`,
-      text: plainText(payload),
-      html: html(payload),
-    }),
-  });
+  let response: Response;
+  try {
+    response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from,
+        to: [to],
+        reply_to: payload.email,
+        subject: emailSubject(payload),
+        text: plainText(payload),
+        html: html(payload),
+      }),
+    });
+  } catch (networkError) {
+    return {
+      ok: false as const,
+      status: 0,
+      body: networkError instanceof Error ? networkError.message : "network error calling Resend",
+    };
+  }
 
   if (!response.ok) {
     const body = await response.text().catch(() => "<no response body>");
     return { ok: false as const, status: response.status, body };
   }
 
-  return { ok: true as const };
+  const json = (await response.json().catch(() => ({}))) as { id?: string };
+  return { ok: true as const, providerId: json.id };
 }
 
-async function sendEmail(payload: ContactPayload) {
+type SendEmailResult =
+  | { delivered: true; providerId?: string }
+  | { delivered: false; reason: string };
+
+async function sendEmail(payload: ContactPayload): Promise<SendEmailResult> {
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_TO_EMAIL || siteConfig.email;
   const from = process.env.CONTACT_FROM_EMAIL || FALLBACK_FROM;
@@ -138,23 +181,24 @@ async function sendEmail(payload: ContactPayload) {
   if (!apiKey) {
     if (process.env.NODE_ENV !== "production") {
       console.info("[contact-form] Email skipped locally: RESEND_API_KEY is not set.");
-      return;
+      return { delivered: true };
     }
-    console.error("[contact-form] RESEND_API_KEY is not configured in this environment.");
-    throw new Error("Contact email service is not configured.");
+    console.error("[contact-form] RESEND_API_KEY is not set in this environment (Production).");
+    return { delivered: false, reason: "RESEND_API_KEY is not configured" };
   }
 
   const attempt = await callResend(apiKey, from, to, payload);
-  if (attempt.ok) return;
+  if (attempt.ok) return { delivered: true, providerId: attempt.providerId };
 
   console.error(
-    `[contact-form] Resend rejected the send from "${from}" (status ${attempt.status}): ${attempt.body}`
+    `[contact-form] Resend rejected the send from "${from}" to "${to}" ` +
+      `(status ${attempt.status}): ${attempt.body}`
   );
 
-  // A rejection is very often a sender-domain verification issue (e.g. the
-  // custom domain in CONTACT_FROM_EMAIL isn't verified in Resend yet). Retry
-  // once from Resend's own pre-verified address so the enquiry still gets
-  // delivered rather than silently failing.
+  // A rejection on the primary sender is very often a sender-domain
+  // verification issue (the custom domain in CONTACT_FROM_EMAIL isn't
+  // verified in Resend). Retry once from Resend's own pre-verified address
+  // so the enquiry still gets delivered rather than silently failing.
   if (from !== FALLBACK_FROM) {
     const retry = await callResend(apiKey, FALLBACK_FROM, to, payload);
     if (retry.ok) {
@@ -162,14 +206,17 @@ async function sendEmail(payload: ContactPayload) {
         `[contact-form] Sent via fallback sender "${FALLBACK_FROM}" after the primary sender was rejected. ` +
           "Verify the CONTACT_FROM_EMAIL domain in Resend to send from the custom address again."
       );
-      return;
+      return { delivered: true, providerId: retry.providerId };
     }
     console.error(
-      `[contact-form] Fallback send from "${FALLBACK_FROM}" also failed (status ${retry.status}): ${retry.body}`
+      `[contact-form] Fallback send from "${FALLBACK_FROM}" to "${to}" also failed ` +
+        `(status ${retry.status}): ${retry.body}. ` +
+        "If this is a 403 on an unverified Resend account, onboarding@resend.dev can only deliver to the " +
+        "Resend account's own registered email — that restriction, not a code bug, is the likely cause."
     );
   }
 
-  throw new Error("Resend rejected the email request.");
+  return { delivered: false, reason: `Resend status ${attempt.status}: ${attempt.body}` };
 }
 
 async function getRequestBody(request: NextRequest) {
@@ -234,14 +281,35 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  try {
-    await sendEmail(validation.data);
+  const result = await sendEmail(validation.data);
+
+  if (result.delivered) {
+    if (result.providerId) {
+      console.info(`[contact-form] Delivered (Resend id ${result.providerId}) from ip ${ip}.`);
+    }
     return NextResponse.json({ ok: true });
-  } catch (error) {
-    console.error("[contact-form] Failed to send enquiry email:", error);
-    return NextResponse.json(
-      { error: `We could not send your enquiry. Please email ${siteConfig.email} directly.` },
-      { status: 500 }
-    );
   }
+
+  // Email delivery failed. The enquiry must not simply disappear: log the
+  // full lead here so it can be recovered from Vercel's function logs
+  // (Project -> Logs, filter for "LEAD CAPTURE") until this project has a
+  // database to persist it to directly. Never log secrets (API keys etc).
+  console.error(
+    "[contact-form] LEAD CAPTURE (email delivery failed, reason: " +
+      `${result.reason}) ` +
+      JSON.stringify({
+        name: validation.data.fullName,
+        company: validation.data.company || null,
+        email: validation.data.email,
+        phone: validation.data.phone || null,
+        message: validation.data.message,
+        submittedAt: new Date().toISOString(),
+        ip,
+      })
+  );
+
+  return NextResponse.json(
+    { error: `We could not send your enquiry. Please email ${siteConfig.email} directly.` },
+    { status: 500 }
+  );
 }

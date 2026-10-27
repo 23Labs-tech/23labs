@@ -341,6 +341,33 @@ export const industryPages: IndustryPage[] = [
         { icon: "ai", title: "AI Admin Agents", body: "Handle enquiries, document routing and compliance reminders with AI agents built around your workflow." },
       ],
     },
+    faq: [
+      {
+        question: "Can you automate construction admin without replacing our job management software?",
+        answer:
+          "Yes. Most construction work starts with the systems already in place. We look at where quotes, variations, compliance documents and client updates are being retyped or chased by hand, then automate or connect those steps around the software you use.",
+      },
+      {
+        question: "What construction processes are worth automating first?",
+        answer:
+          "Usually the ones that happen on every job: quote follow-ups, document and compliance collection from subcontractors, progress updates to clients, and moving job costs into accounting. Frequency is where the time goes, so that is where the payback shows first.",
+      },
+      {
+        question: "Can you help with subcontractor and compliance paperwork?",
+        answer:
+          "Yes. We can build a structured way to request, collect and track insurances, licences and SWMS so expiry dates and missing documents are flagged automatically rather than checked by hand.",
+      },
+      {
+        question: "Do you build custom software for builders and contractors?",
+        answer:
+          "When a process does not fit any product you already use, yes. That might be a job dashboard, a client portal for progress updates or an internal tool for estimating. If connecting or automating existing tools solves it, we will recommend that first.",
+      },
+      {
+        question: "Do you work with construction businesses outside Melbourne?",
+        answer:
+          "Yes. 23Labs is based in Melbourne and delivers remotely for construction businesses across Australia and New Zealand.",
+      },
+    ],
     cta: {
       title: "Book a construction discovery call",
       body:
@@ -437,6 +464,33 @@ export const industryPages: IndustryPage[] = [
         { icon: "integration", title: "Practice Software Integrations", body: "Connect your booking tools, forms, email, SMS and practice management system." },
       ],
     },
+    faq: [
+      {
+        question: "Can you work with our practice management software?",
+        answer:
+          "Usually. Many clinics run on platforms such as Cliniko that offer an API. We check what your system allows first, then automate or connect around it rather than asking you to switch.",
+      },
+      {
+        question: "What clinic admin can be automated?",
+        answer:
+          "Common starting points are new patient intake forms, appointment reminders and follow-ups, referral handling, recall lists and moving information between the practice system, accounting and email marketing.",
+      },
+      {
+        question: "How do you handle patient information and privacy?",
+        answer:
+          "We design workflows to move only the information each step needs, keep it inside the systems you already trust where possible, and document what goes where. Health information has extra obligations under Australian privacy law, so those are part of scoping, not an afterthought.",
+      },
+      {
+        question: "Can AI help with patient enquiries and missed calls?",
+        answer:
+          "It can answer routine questions, capture details and route enquiries to the right person. We scope where AI fits and where a person must stay involved, especially for anything clinical.",
+      },
+      {
+        question: "Do you work with clinics outside Melbourne?",
+        answer:
+          "Yes. We work remotely with allied health clinics across Australia and New Zealand.",
+      },
+    ],
     cta: {
       title: "Book an allied health discovery call",
       body:
@@ -530,6 +584,53 @@ export const industryPages: IndustryPage[] = [
         { icon: "integration", title: "CRM & Software Integrations", body: "Connect your CRM, property management software, website forms and reporting tools." },
       ],
     },
+    proof: {
+      eyebrow: "Proof",
+      title: "Published proof: ",
+      highlight: "an Australian real estate office",
+      paragraphs: [
+        [
+          { text: "One Australian real estate office needed enquiries to reach the right person and the right property record without someone remembering the next step. " },
+          { text: "The case study", href: "/case-studies/real-estate-workflow-automation" },
+          { text: " covers that work: website improvements, plus a workflow that connects incoming enquiries with property records and notifies the person who needs to act." },
+        ],
+        "The office kept the systems it already used. The result was less manual follow-up, clearer tracking of enquiries and actions, and more consistent internal handoffs.",
+      ],
+      links: [
+        {
+          href: "/case-studies/real-estate-workflow-automation",
+          label: "Real estate workflow automation case study",
+          body: "Website improvements and enquiry-to-property-record automation for one Australian office.",
+        },
+      ],
+    },
+    faq: [
+      {
+        question: "Can you automate property enquiry follow-up?",
+        answer:
+          "Yes. Enquiries from your website and portals can trigger an instant response, update the right record and notify the agent who needs to act, so follow-up does not depend on someone remembering. Our published real estate case study covers this kind of workflow.",
+      },
+      {
+        question: "Do we need to replace our CRM or property management software?",
+        answer:
+          "No. We start with the systems the office already uses and connect or automate around them. Replacing software is only worth discussing if the current tools cannot hold the workflow.",
+      },
+      {
+        question: "What can be automated for property managers?",
+        answer:
+          "Maintenance request intake and routing, tenant and landlord updates, application and document collection, inspection reminders and owner reporting are the most common starting points.",
+      },
+      {
+        question: "Can an AI agent answer buyer and tenant questions?",
+        answer:
+          "Yes, for routine questions such as availability, inspection times and how to apply. The agent captures details and passes anything that needs judgement to a person on your team.",
+      },
+      {
+        question: "Do you work with agencies outside Melbourne?",
+        answer:
+          "Yes. 23Labs is based in Melbourne and works remotely with real estate offices across Australia and New Zealand.",
+      },
+    ],
     cta: {
       title: "Book a real estate discovery call",
       body:
@@ -623,6 +724,33 @@ export const industryPages: IndustryPage[] = [
         { icon: "integration", title: "CRM & System Integrations", body: "Connect your CRM, job management software, accounting and website forms." },
       ],
     },
+    faq: [
+      {
+        question: "Can you connect our job management software to accounting?",
+        answer:
+          "Usually. Platforms such as ServiceM8 offer integrations and APIs. We check what your tools allow, then connect jobs, quotes and invoices so details are entered once.",
+      },
+      {
+        question: "What can trades businesses automate first?",
+        answer:
+          "Enquiry responses, quote follow-ups, booking confirmations, job reminders and review requests after a job is complete. These happen on every job, so automating them gives back time every week.",
+      },
+      {
+        question: "Can you help us respond to leads faster?",
+        answer:
+          "Yes. New enquiries can trigger an immediate reply, create the job or lead record and alert the right person, so you do not lose work to whoever answered first.",
+      },
+      {
+        question: "Is this only for larger trades businesses?",
+        answer:
+          "No. Small teams often feel admin the most because the people doing the work are also doing the paperwork. We scope to the size of the problem.",
+      },
+      {
+        question: "Do you work with trades businesses outside Melbourne?",
+        answer:
+          "Yes. We work remotely with trades and field service businesses across Australia and New Zealand.",
+      },
+    ],
     cta: {
       title: "Book a trades & field services discovery call",
       body:

@@ -5,6 +5,7 @@ import { industryProjectCostAnswer } from "@/lib/industryPricing";
 import { absoluteUrl } from "@/lib/seo";
 import { serviceLandingPages } from "@/lib/services";
 import { siteConfig } from "@/lib/site";
+import { solutionPages, solutionPath } from "@/lib/solutions";
 
 /**
  * /llms.txt: a plain-text map of the site for AI assistants and answer engines
@@ -41,6 +42,20 @@ function buildLlmsTxt() {
       ...serviceLandingPages.map((service) => line(service.navLabel, service.href, service.description)),
     ].join("\n"),
     [
+      "## Solutions by problem",
+      line("All solutions", "/solutions", "Automation and AI solutions organised by the business problem they solve."),
+      ...solutionPages
+        .filter((page) => page.category === "operations")
+        .map((page) => line(page.navLabel, solutionPath(page.slug), page.description)),
+    ].join("\n"),
+    [
+      "## Security, AI governance and privacy",
+      line("Security and data handling", "/security", "How 23Labs handles access, credentials, personal information and AI services on client projects."),
+      ...solutionPages
+        .filter((page) => page.category === "governance")
+        .map((page) => line(page.navLabel, solutionPath(page.slug), page.description)),
+    ].join("\n"),
+    [
       "## Industries",
       ...industryLinks.map((industry) => line(industry.label, industry.href, industry.description)),
     ].join("\n"),
@@ -57,6 +72,7 @@ function buildLlmsTxt() {
       line("About 23Labs", "/about"),
       line("New Zealand", "/new-zealand", "How 23Labs works with New Zealand businesses."),
       line("All work", "/work"),
+      line("Full content for AI assistants", "/llms-full.txt", "Complete text of services, solutions and guides in one file."),
       line("Contact", "/contact"),
     ].join("\n"),
   ];

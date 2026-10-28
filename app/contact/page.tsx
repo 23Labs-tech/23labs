@@ -15,6 +15,11 @@ export const metadata: Metadata = createMetadata({
 export default function ContactPage() {
   return (
     <>
+      <link rel="preconnect" href="https://assets.calendly.com" />
+      <link rel="preconnect" href="https://calendly.com" />
+      <link rel="dns-prefetch" href="//assets.calendly.com" />
+      <link rel="dns-prefetch" href="//calendly.com" />
+
       <PageHero
         eyebrow="Get in touch"
         title="Let's talk about "

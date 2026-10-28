@@ -2620,6 +2620,7 @@ a.proof-link .work-link {
 }
 
 .contact-calendly {
+  position: relative;
   width: 100%;
   min-width: 0;
 }
@@ -2627,7 +2628,67 @@ a.proof-link .work-link {
 .contact-calendly .calendly-inline-widget {
   width: 100%;
   min-width: 320px;
-  height: clamp(640px, 68vh, 760px);
+  height: clamp(700px, 72vh, 820px);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.calendly-skeleton {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper);
+  padding: 32px;
+  pointer-events: none;
+}
+
+.cal-sk-bar {
+  border-radius: 6px;
+  background: var(--line-soft);
+}
+
+.cal-sk-header {
+  width: 42%;
+  height: 13px;
+}
+
+.cal-sk-title {
+  width: 68%;
+  height: 20px;
+}
+
+.cal-sk-row {
+  width: 52%;
+  height: 11px;
+  background: var(--paper-2);
+}
+
+.cal-sk-row.short {
+  width: 36%;
+}
+
+.cal-sk-cal-heading {
+  width: 30%;
+  height: 15px;
+  margin-top: 8px;
+}
+
+.cal-sk-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  flex: 1;
+  min-height: 0;
+}
+
+.cal-sk-grid span {
+  border-radius: 6px;
+  background: var(--paper-2);
 }
 
 .contact-form {
@@ -3541,6 +3602,15 @@ a.proof-link .work-link {
 
   .location-intro-sec {
     padding-bottom: 56px;
+  }
+
+  .contact-calendly .calendly-inline-widget {
+    height: clamp(640px, 80vh, 720px);
+  }
+
+  .calendly-skeleton {
+    padding: 22px;
+    gap: 12px;
   }
 
   .capability-grid {

@@ -25,10 +25,10 @@ export default function ContactPage() {
       <ContactSection
         variant="page"
         eyebrow="Why reach out"
-        title="Helping businesses scale with confidence"
+        title="Let's fix what's slowing your business down."
         body={[
-          "Whether you're looking to improve operations, automate manual processes, build custom software, or create a better digital experience for your customers, we're here to help.",
-          "Pick a time that works for you below and we'll talk it through on a call.",
+          "Whether you're looking to improve operations, automate manual processes, connect disconnected systems or build custom software, we can help you work out the right next step.",
+          "Pick a time that works for you and we'll talk through what's slowing things down, what you're currently using and where automation or software could make the biggest difference.",
         ]}
       />
       <BreadcrumbJsonLd

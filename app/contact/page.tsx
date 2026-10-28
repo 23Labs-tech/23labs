@@ -28,7 +28,7 @@ export default function ContactPage() {
         title="Helping businesses scale with confidence"
         body={[
           "Whether you're looking to improve operations, automate manual processes, build custom software, or create a better digital experience for your customers, we're here to help.",
-          "Share a few details below and a member of our team will follow up to set up a time to chat.",
+          "Pick a time that works for you below and we'll talk it through on a call.",
         ]}
       />
       <BreadcrumbJsonLd

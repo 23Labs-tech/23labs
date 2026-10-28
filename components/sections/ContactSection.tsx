@@ -1,4 +1,4 @@
-import { ContactForm } from "@/components/contact/ContactForm";
+import { CalendlyWidget } from "@/components/contact/CalendlyWidget";
 
 type ContactSectionProps = {
   id?: string;
@@ -32,7 +32,7 @@ export function ContactSection({
               </p>
             ))}
           </div>
-          <ContactForm />
+          <CalendlyWidget />
         </div>
       </div>
     </section>

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
+import { PracticalByDesign } from "@/components/sections/PracticalByDesign";
 import { CheckIcon } from "@/components/industries/IndustryIcon";
 import { JsonLd } from "@/components/site/JsonLd";
 import { breadcrumbList, faqPageJsonLd, serviceJsonLd } from "@/lib/schema";
@@ -146,27 +147,7 @@ function LocationSuccessStories() {
 }
 
 function LocationTrust() {
-  return (
-    <section className="sec">
-      <div className="wrap">
-        <div className="sec-head sec-head-center reveal">
-          <h2 className="sec-title">{locationPractical.heading}</h2>
-          <p className="lead">{locationPractical.intro}</p>
-        </div>
-        <div className="text-block reveal" style={{ marginInline: "auto", textAlign: "center" }}>
-          <p>{locationPractical.body2}</p>
-        </div>
-        <div className="svc-checklist reveal">
-          {locationPractical.checklist.map((item) => (
-            <div className="svc-check" key={item}>
-              <CheckIcon />
-              {item}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  return <PracticalByDesign data={locationPractical} />;
 }
 
 function LocationFAQ({ location }: { location: LocationPage }) {

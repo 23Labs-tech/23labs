@@ -127,11 +127,14 @@ export function getLocationSuccessStories() {
 }
 
 export const locationPractical = {
+  eyebrow: "Built for real operations",
   heading: "Practical by design",
-  intro:
-    "Automation only helps when it is reliable, understandable and fits the people using it. We design around existing processes, permissions and systems so the result is easier to operate and maintain.",
-  body2:
+  paragraphs: [
+    "Automation only helps when it is reliable, understandable and fits the people using it.",
+    "We design around existing processes, permissions and systems so the result is easier to operate and maintain.",
     "That means clear scope, sensible handoffs, visibility when something needs attention and documentation your team can actually use.",
+  ],
+  panelEyebrow: "What we build in",
   checklist: [
     "Clear permissions and access",
     "Human approvals where needed",

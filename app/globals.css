@@ -1463,6 +1463,70 @@ a.problem-card-link .work-link {
   stroke: var(--ink);
 }
 
+/* ---------- Practical by design ---------- */
+
+.practical-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: center;
+  gap: 56px;
+}
+
+.practical-copy .mono {
+  display: block;
+  margin-bottom: 16px;
+  color: var(--accent-dark);
+}
+
+.practical-copy .sec-title {
+  margin-bottom: 20px;
+}
+
+.practical-copy p {
+  margin-bottom: 14px;
+  color: var(--ink-soft);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.practical-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.practical-panel {
+  border-radius: 20px;
+  background: var(--dark-bg);
+  padding: 44px 40px;
+}
+
+.practical-panel .mono {
+  display: block;
+  margin-bottom: 22px;
+  color: var(--accent-on-dark);
+}
+
+.practical-checklist {
+  display: grid;
+  gap: 16px;
+}
+
+.practical-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--dark-ink);
+  font-size: 15.5px;
+  line-height: 1.5;
+}
+
+.practical-check svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  stroke: var(--accent-on-dark);
+}
+
 /* ---------- Metrics ---------- */
 
 .stats-section {
@@ -3236,6 +3300,15 @@ a.proof-link .work-link {
 
   .proc-lead {
     max-width: 100%;
+  }
+
+  .practical-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .practical-panel {
+    padding: 36px 30px;
   }
 
   .hero {

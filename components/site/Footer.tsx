@@ -6,7 +6,7 @@ import { serviceLandingPages } from "@/lib/services";
 import { siteConfig } from "@/lib/site";
 import { Logo } from "@/components/site/Logo";
 
-const studioLinks = navItems.filter((item) => item.href !== "/services");
+const studioLinks = navItems.filter((item) => item.href !== "/services" && item.href !== "/industries");
 const contactIndex = studioLinks.findIndex((item) => item.href === "/contact");
 const studioFooterLinks =
   contactIndex === -1

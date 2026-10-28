@@ -8,6 +8,8 @@ export type ServiceLandingPageData = {
   navLabel: string;
   metadataTitle: string;
   description: string;
+  /** Short one-line copy for compact card grids (services hub, location pages). */
+  cardDescription: string;
   hero: {
     eyebrow: string;
     title: string;
@@ -110,6 +112,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     metadataTitle: "Business Process Automation Services Australia | 23Labs",
     description:
       "Automate quoting, onboarding, reporting, job allocation and data entry. We map the process first, then automate the steps your team repeats every day.",
+    cardDescription: "Remove repetitive admin, approvals, follow-ups and manual handoffs from everyday operations.",
     hero: {
       eyebrow: "Services / Business Process Automation",
       title: "Business process automation for quoting, onboarding and admin",
@@ -348,6 +351,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     metadataTitle: "AI Workflow Automation for Business Processes | 23Labs",
     description:
       "Add AI to the steps where it actually helps: document processing, data extraction and classification inside workflows your team already runs.",
+    cardDescription: "Use AI to process documents, emails and unstructured information inside real business workflows.",
     hero: {
       eyebrow: "Services / AI Workflow Automation",
       title: "AI workflow automation for documents, extraction and classification",
@@ -581,6 +585,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     metadataTitle: "Custom Software Development Australia | 23Labs",
     description:
       "Custom business software, internal platforms, client portals and dashboards, built around how your team works. Replace spreadsheets and outdated systems.",
+    cardDescription: "Build internal tools, portals and applications around processes that off-the-shelf software cannot handle.",
     hero: {
       eyebrow: "Services / Custom Software Development",
       title: "Custom software development for internal systems and portals",
@@ -811,6 +816,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     metadataTitle: "AI Agent Development for Business Operations | 23Labs",
     description:
       "Custom AI agents that work inside your systems for support, sales and admin tasks, with clear limits and a person approving the steps that matter.",
+    cardDescription: "Build business agents that retrieve information, interact with systems and complete approved tasks.",
     hero: {
       eyebrow: "Services / AI Agents",
       title: "AI agents for support, sales and internal operations",
@@ -1049,6 +1055,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     metadataTitle: "System Integration & API Development | 23Labs",
     description:
       "Connect your CRM, accounting, job and website systems so data moves automatically. API integrations and custom connectors that end double entry.",
+    cardDescription: "Connect CRM, accounting, operational and other business tools so information moves automatically.",
     hero: {
       eyebrow: "Services / System Integrations",
       title: "System integrations and API development",
@@ -1291,6 +1298,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     metadataTitle: "Ongoing Software Development & Support | 23Labs",
     description:
       "Maintenance, feature development and improvements for your existing software, automations and integrations, so they keep working as the business changes.",
+    cardDescription: "Keep the solution reliable after launch with ongoing refinement, support and improvements.",
     hero: {
       eyebrow: "Services / Ongoing Support",
       title: "Ongoing software development and support",

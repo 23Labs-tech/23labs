@@ -4,13 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { navItems } from "@/lib/data";
-import { industryLinks, industryRoutePaths } from "@/lib/industries";
-import { serviceLandingPages } from "@/lib/services";
+import { industryRoutePaths } from "@/lib/industries";
+import { industriesMegaMenu, servicesMegaMenu, type MegaMenuData } from "@/lib/navigation";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { IndustryIcon } from "@/components/industries/IndustryIcon";
 import { Logo } from "@/components/site/Logo";
 
 const industryPathSet = new Set<string>(industryRoutePaths);
-const SERVICES_CLOSE_DELAY = 150;
+const CLOSE_DELAY = 150;
 
 function ChevronIcon() {
   return (
@@ -22,6 +23,11 @@ function ChevronIcon() {
 
 type DropdownKey = "services" | "industries";
 
+const megaMenus: Record<DropdownKey, MegaMenuData> = {
+  services: servicesMegaMenu,
+  industries: industriesMegaMenu,
+};
+
 export function Navbar() {
   const [menuState, setMenuState] = useState({ open: false, pathname: "" });
   const [dropdownState, setDropdownState] = useState<{ key: DropdownKey | null; pathname: string }>({
@@ -31,9 +37,9 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const isIndustryPath = industryPathSet.has(pathname);
+  const isServicesPath = pathname === "/services" || pathname.startsWith("/services/");
   const open = menuState.pathname === pathname ? menuState.open : false;
   const openDropdown = dropdownState.pathname === pathname ? dropdownState.key : null;
-  const isServicesPath = pathname === "/services" || pathname.startsWith("/services/");
 
   const servicesRef = useRef<HTMLDivElement>(null);
   const industriesRef = useRef<HTMLDivElement>(null);
@@ -63,13 +69,17 @@ export function Navbar() {
     clearCloseTimeout();
     closeTimeoutRef.current = setTimeout(() => {
       setDropdownState({ key: null, pathname });
-    }, SERVICES_CLOSE_DELAY);
+    }, CLOSE_DELAY);
   };
 
-  const isHoverCapable = () =>
-    typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches;
+  const isHoverCapable = () => typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches;
 
   const dropdownRef = (key: DropdownKey) => (key === "services" ? servicesRef : industriesRef);
+
+  const closeAll = useCallback(() => {
+    setMenuState({ open: false, pathname });
+    closeDropdown();
+  }, [pathname, closeDropdown]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -82,7 +92,7 @@ export function Navbar() {
 
   useEffect(() => {
     if (!openDropdown) return;
-    const ref = openDropdown === "services" ? servicesRef : industriesRef;
+    const ref = dropdownRef(openDropdown);
     const onPointerDown = (event: PointerEvent) => {
       if (ref.current && !ref.current.contains(event.target as Node)) {
         closeDropdown();
@@ -96,13 +106,12 @@ export function Navbar() {
     if (!open && !openDropdown) return;
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setMenuState({ open: false, pathname });
-        closeDropdown();
+        closeAll();
       }
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [open, openDropdown, pathname, closeDropdown]);
+  }, [open, openDropdown, closeAll]);
 
   return (
     <nav className={`nav${scrolled ? " scrolled" : ""}`} id="nav">
@@ -111,138 +120,108 @@ export function Navbar() {
         <div className="nav-group">
           <div className={`nav-links${open ? " is-open" : ""}`} id="site-nav-links">
             {navItems.map((item) => {
+              if (item.href === "/contact") return null;
+
+              const megaKey: DropdownKey | null =
+                item.href === "/services" ? "services" : item.href === "/industries" ? "industries" : null;
+
+              if (megaKey) {
+                const menu = megaMenus[megaKey];
+                const isOpen = openDropdown === megaKey;
+                const isActivePath = megaKey === "services" ? isServicesPath : isIndustryPath;
+                const allMobileItems = menu.columns.flatMap((column) => column.items);
+
+                return (
+                  <div
+                    className={`nav-dropdown${isOpen ? " is-open" : ""}`}
+                    key={megaKey}
+                    ref={dropdownRef(megaKey)}
+                    onMouseEnter={() => {
+                      if (!isHoverCapable()) return;
+                      showDropdown(megaKey);
+                    }}
+                    onMouseLeave={() => {
+                      if (!isHoverCapable()) return;
+                      scheduleCloseDropdown();
+                    }}
+                    onBlur={(event) => {
+                      const ref = dropdownRef(megaKey).current;
+                      if (ref && ref.contains(event.relatedTarget as Node)) return;
+                      closeDropdown();
+                    }}
+                  >
+                    <div className={`nav-service-trigger${isActivePath ? " active" : ""}`}>
+                      <Link
+                        href={menu.href}
+                        className={isActivePath ? "active" : undefined}
+                        aria-current={pathname === menu.href ? "page" : undefined}
+                        onClick={closeAll}
+                      >
+                        {menu.label}
+                      </Link>
+                      <button
+                        type="button"
+                        className="nav-service-chevron"
+                        aria-expanded={isOpen}
+                        aria-haspopup="true"
+                        aria-label={isOpen ? `Hide ${menu.label.toLowerCase()} menu` : `Show ${menu.label.toLowerCase()} menu`}
+                        onClick={() => {
+                          clearCloseTimeout();
+                          setDropdownState({ key: isOpen ? null : megaKey, pathname });
+                        }}
+                        onFocus={() => {
+                          if (!isHoverCapable()) return;
+                          showDropdown(megaKey);
+                        }}
+                      >
+                        <ChevronIcon />
+                      </button>
+                    </div>
+
+                    <div className="mega-menu">
+                      <div className="mega-menu-inner">
+                        <div className="mega-feature">
+                          <span className="mono">{menu.panel.eyebrow}</span>
+                          <h3>{menu.panel.heading}</h3>
+                          <p>{menu.panel.body}</p>
+                          <Link href={menu.href} className="mega-feature-link" onClick={closeAll}>
+                            {menu.panel.linkLabel}
+                          </Link>
+                        </div>
+                        <div className="mega-content">
+                          {menu.columns.map((column) => (
+                            <div key={column.heading}>
+                              <span className="mega-col-title">{column.heading}</span>
+                              {column.items.map((menuItem) => (
+                                <Link href={menuItem.href} className="mega-item" key={menuItem.href} onClick={closeAll}>
+                                  <IndustryIcon icon={menuItem.icon} className="mega-item-icon" />
+                                  <div className="mega-item-body">
+                                    <h4>{menuItem.title}</h4>
+                                    <p>{menuItem.description}</p>
+                                  </div>
+                                </Link>
+                              ))}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="mega-mobile-list">
+                      {allMobileItems.map((menuItem) => (
+                        <Link href={menuItem.href} key={menuItem.href} onClick={closeAll}>
+                          {menuItem.title}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+
               const isHashLink = item.href.includes("#");
               const active =
                 !isHashLink &&
                 (pathname === item.href || (item.href !== "/" && pathname.startsWith(`${item.href}/`)));
-
-              if (item.href === "/services") {
-                const menus: {
-                  key: DropdownKey;
-                  label: string;
-                  href?: string;
-                  active: boolean;
-                  items: { href: string; label: string }[];
-                }[] = [
-                  {
-                    key: "services",
-                    label: item.label,
-                    href: "/services",
-                    active: isServicesPath,
-                    items: [
-                      { href: "/services", label: "All services" },
-                      ...serviceLandingPages.map((service) => ({
-                        href: service.href,
-                        label: service.navLabel,
-                      })),
-                    ],
-                  },
-                  {
-                    key: "industries",
-                    label: "Industries",
-                    active: isIndustryPath,
-                    items: industryLinks.map((industry) => ({
-                      href: industry.href,
-                      label: industry.label,
-                    })),
-                  },
-                ];
-
-                return (
-                  <div className="nav-dropdown-group" key="services-and-industries">
-                    {menus.map((menu) => {
-                      const isOpen = openDropdown === menu.key;
-                      return (
-                        <div
-                          className={`nav-dropdown${isOpen ? " is-open" : ""}`}
-                          key={menu.key}
-                          ref={dropdownRef(menu.key)}
-                          onMouseEnter={() => {
-                            if (!isHoverCapable()) return;
-                            showDropdown(menu.key);
-                          }}
-                          onMouseLeave={() => {
-                            if (!isHoverCapable()) return;
-                            scheduleCloseDropdown();
-                          }}
-                          onBlur={(event) => {
-                            const ref = dropdownRef(menu.key).current;
-                            if (ref && ref.contains(event.relatedTarget as Node)) return;
-                            closeDropdown();
-                          }}
-                        >
-                          {menu.href ? (
-                            <div className={`nav-service-trigger${menu.active ? " active" : ""}`}>
-                              <Link
-                                href={menu.href}
-                                className={menu.active ? "active" : undefined}
-                                aria-current={pathname === menu.href ? "page" : undefined}
-                                onClick={() => {
-                                  setMenuState({ open: false, pathname });
-                                  closeDropdown();
-                                }}
-                              >
-                                {menu.label}
-                              </Link>
-                              <button
-                                type="button"
-                                className="nav-service-chevron"
-                                aria-expanded={isOpen}
-                                aria-haspopup="true"
-                                aria-label={isOpen ? "Hide services menu" : "Show services menu"}
-                                onClick={() => {
-                                  clearCloseTimeout();
-                                  setDropdownState({ key: isOpen ? null : menu.key, pathname });
-                                }}
-                                onFocus={() => {
-                                  if (!isHoverCapable()) return;
-                                  showDropdown(menu.key);
-                                }}
-                              >
-                                <ChevronIcon />
-                              </button>
-                            </div>
-                          ) : (
-                            <button
-                              type="button"
-                              className={`nav-dropdown-trigger${menu.active ? " active" : ""}`}
-                              aria-expanded={isOpen}
-                              aria-haspopup="true"
-                              onClick={() => {
-                                clearCloseTimeout();
-                                setDropdownState({ key: isOpen ? null : menu.key, pathname });
-                              }}
-                              onFocus={() => {
-                                if (!isHoverCapable()) return;
-                                showDropdown(menu.key);
-                              }}
-                            >
-                              {menu.label}
-                              <ChevronIcon />
-                            </button>
-                          )}
-                          <div className="nav-dropdown-panel">
-                            {menu.items.map((entry) => (
-                              <Link
-                                href={entry.href}
-                                key={entry.href}
-                                className={pathname === entry.href ? "active" : undefined}
-                                aria-current={pathname === entry.href ? "page" : undefined}
-                                onClick={() => {
-                                  setMenuState({ open: false, pathname });
-                                  closeDropdown();
-                                }}
-                              >
-                                {entry.label}
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                );
-              }
 
               return (
                 <Link
@@ -250,16 +229,19 @@ export function Navbar() {
                   key={item.href}
                   className={active ? "active" : undefined}
                   aria-current={active ? "page" : undefined}
-                  onClick={() => setMenuState({ open: false, pathname })}
+                  onClick={closeAll}
                 >
                   {item.label}
                 </Link>
               );
             })}
+            <Link href="/contact" className="btn btn-primary nav-mobile-cta" onClick={closeAll}>
+              Start a conversation
+            </Link>
           </div>
           <div className="nav-right">
             <ButtonLink href="/contact" className="nav-cta" arrow={false}>
-              Talk to us
+              Start a conversation
             </ButtonLink>
             <button
               className={`nav-toggle${open ? " is-open" : ""}`}

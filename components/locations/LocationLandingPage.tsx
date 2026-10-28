@@ -3,19 +3,28 @@ import Link from "next/link";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { PracticalByDesign } from "@/components/sections/PracticalByDesign";
-import { CheckIcon } from "@/components/industries/IndustryIcon";
+import { ServiceCardsGrid } from "@/components/sections/ServiceCardsGrid";
+import { CheckIcon, IndustryIcon } from "@/components/industries/IndustryIcon";
 import { JsonLd } from "@/components/site/JsonLd";
 import { breadcrumbList, faqPageJsonLd, serviceJsonLd } from "@/lib/schema";
+import { serviceLandingPages } from "@/lib/services";
 import {
   buildLocationFaqs,
   getLocationSuccessStories,
-  locationBenefitsBase,
+  locationCapabilityIntroColumn,
+  locationCapabilityPanel,
   locationCtaExpect,
   locationPractical,
-  locationServices,
   locationsHub,
   type LocationPage,
 } from "@/lib/locations";
+
+const locationServiceCards = serviceLandingPages.map((service) => ({
+  slug: service.slug,
+  href: service.href,
+  title: service.navLabel,
+  description: service.cardDescription,
+}));
 
 function LocationHero({ location }: { location: LocationPage }) {
   return (
@@ -49,7 +58,7 @@ function LocationHero({ location }: { location: LocationPage }) {
 
 function LocationIntro({ location }: { location: LocationPage }) {
   return (
-    <section className="sec no-top">
+    <section className="sec no-top location-intro-sec">
       <div className="wrap">
         <div className="sec-head sec-head-center reveal">
           <h2 className="sec-title">{location.introHeading}</h2>
@@ -61,24 +70,26 @@ function LocationIntro({ location }: { location: LocationPage }) {
 }
 
 function LocationBenefits({ location }: { location: LocationPage }) {
-  const items = [
-    ...locationBenefitsBase,
-    { title: "Flexible delivery", body: location.deliveryBody },
-  ];
+  const columns = [locationCapabilityIntroColumn(location), ...locationCapabilityPanel.columns];
 
   return (
-    <section className="sec">
+    <section className="sec no-top">
       <div className="wrap">
-        <div className="sec-head sec-head-center reveal">
-          <h2 className="sec-title">Why businesses work with 23Labs</h2>
+        <div className="sec-head sec-head-center capability-head reveal">
+          <span className="mono">{locationCapabilityPanel.eyebrow}</span>
+          <h2 className="sec-title">{locationCapabilityPanel.heading}</h2>
+          <p className="lead">{locationCapabilityPanel.intro}</p>
         </div>
-        <div className="problem-grid reveal">
-          {items.map((item) => (
-            <div className="problem-card" key={item.title}>
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
-            </div>
-          ))}
+        <div className="capability-panel reveal">
+          <div className="capability-grid">
+            {columns.map((column) => (
+              <div className="capability-col" key={column.heading}>
+                <IndustryIcon icon={column.icon} className="capability-icon" />
+                <h3>{column.heading}</h3>
+                <p>{column.body}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -96,17 +107,7 @@ function LocationServices() {
             larger operational improvement.
           </p>
         </div>
-        <div className="industry-grid reveal">
-          {locationServices.map((service) => (
-            <Link href={service.href} className="industry-card industry-card-link" key={service.href}>
-              <h3>{service.title}</h3>
-              <p>{service.body}</p>
-              <span className="industry-link">
-                Learn more <span className="btn-arrow" aria-hidden="true">{"→"}</span>
-              </span>
-            </Link>
-          ))}
-        </div>
+        <ServiceCardsGrid items={locationServiceCards} />
       </div>
     </section>
   );

@@ -18,7 +18,6 @@ export type LocationPage = {
   heroLead: string;
   introHeading: string;
   introBody: string;
-  deliveryBody: string;
   cardDescription: string;
   image: { src: string; alt: string };
 };
@@ -37,53 +36,41 @@ export const locationsHub = {
   },
 };
 
-export const locationBenefitsBase = [
-  {
-    title: "Built around your systems",
-    body: "We start with the tools and workflows you already use before recommending anything new.",
-  },
-  {
-    title: "Automation where it matters",
-    body: "We focus on repetitive admin, handoffs and data movement that consume time without adding value.",
-  },
-  {
-    title: "Custom when needed",
-    body: "If off-the-shelf software does not fit the process, we can build the missing system around it.",
-  },
-] as const;
+export const locationCapabilityPanel = {
+  eyebrow: "Why businesses work with 23Labs",
+  heading: "Better systems, built around how your business works",
+  intro:
+    "23Labs works with the systems and workflows your business already uses, then improves them through automation, integrations and custom software.",
+  columns: [
+    {
+      icon: "integration",
+      heading: "Your systems first",
+      body: "We connect and improve the tools you already use before suggesting unnecessary replacements.",
+    },
+    {
+      icon: "team",
+      heading: "Practical delivery",
+      body: "You work directly with people who understand the problem, not layers of handoffs or unnecessary complexity.",
+    },
+    {
+      icon: "clock",
+      heading: "Quick to start",
+      body: "Most projects begin with a focused discovery process so we can identify the right next step quickly.",
+    },
+  ],
+} as const;
 
-export const locationServices = [
-  {
-    title: "Business Process Automation",
-    body: "Remove repetitive admin, approvals, follow-ups and manual handoffs from everyday operations.",
-    href: "/services/business-process-automation",
-  },
-  {
-    title: "System Integrations",
-    body: "Connect CRM, accounting, operational and other business tools so information moves automatically.",
-    href: "/services/system-integrations",
-  },
-  {
-    title: "Custom Software Development",
-    body: "Build internal tools, portals and applications around processes that off-the-shelf software cannot handle.",
-    href: "/services/custom-software-development",
-  },
-  {
-    title: "AI Workflow Automation",
-    body: "Use AI to process documents, emails and unstructured information inside real business workflows.",
-    href: "/services/ai-workflow-automation",
-  },
-  {
-    title: "AI Agents",
-    body: "Build business agents that retrieve information, interact with systems and complete approved tasks.",
-    href: "/services/ai-agents",
-  },
-  {
-    title: "Ongoing Support",
-    body: "Keep the solution reliable after launch with ongoing refinement, support and improvements.",
-    href: "/services/ongoing-support",
-  },
-] as const;
+export function locationCapabilityIntroColumn(location: LocationPage) {
+  const body = location.onSiteAvailable
+    ? `We work with businesses across ${location.regionLabel}, remotely or on-site where appropriate.`
+    : `We work with businesses across ${location.regionLabel}, delivered remotely from Melbourne in New Zealand business hours.`;
+
+  return {
+    icon: "pin",
+    heading: "Built around your business",
+    body,
+  };
+}
 
 const successStoryDefinitions = [
   {
@@ -212,8 +199,6 @@ export const locationPages: LocationPage[] = [
     introHeading: "Practical automation and software for Melbourne teams",
     introBody:
       "23Labs is based in Melbourne. We work day to day with Melbourne and Victorian businesses that are ready to move past spreadsheets, manual admin and tools that do not talk to each other, and build systems that fit how their team actually works.",
-    deliveryBody:
-      "Melbourne-based delivery, with remote working sessions and on-site collaboration available when a project calls for it.",
     cardDescription:
       "23Labs is based in Melbourne, building automation, integrations and custom software for Melbourne and Victorian businesses.",
     image: {
@@ -238,8 +223,6 @@ export const locationPages: LocationPage[] = [
     introHeading: "Better systems for growing Brisbane businesses",
     introBody:
       "23Labs works remotely with Brisbane and Queensland businesses that are scaling past the point where spreadsheets and manual handoffs still work, building automation, integrations and software around the systems they already run.",
-    deliveryBody:
-      "Remote delivery for Brisbane and Queensland businesses, with on-site collaboration arranged for workshops or process mapping where it adds value.",
     cardDescription:
       "Automation, integrations and custom software for Brisbane and Queensland businesses, delivered remotely with on-site collaboration by arrangement.",
     image: {
@@ -264,7 +247,6 @@ export const locationPages: LocationPage[] = [
     introHeading: "Practical automation and software for Sydney teams",
     introBody:
       "23Labs helps Sydney businesses simplify manual operations, connect business systems and build practical software that supports growth without unnecessary complexity.",
-    deliveryBody: "Remote delivery across Sydney and New South Wales, with on-site collaboration available by arrangement.",
     cardDescription:
       "Automation, integrations and custom software for Sydney and New South Wales businesses, with on-site collaboration available by arrangement.",
     image: {
@@ -289,7 +271,6 @@ export const locationPages: LocationPage[] = [
     introHeading: "Better systems for growing Adelaide businesses",
     introBody:
       "23Labs works remotely with Adelaide and South Australian businesses to reduce manual admin, connect the tools they already rely on and build software around processes that off-the-shelf platforms cannot handle.",
-    deliveryBody: "Remote delivery across Adelaide and South Australia, with on-site collaboration arranged when a project benefits from it.",
     cardDescription:
       "Automation, integrations and custom software for Adelaide and South Australian businesses, delivered remotely with on-site collaboration by arrangement.",
     image: {
@@ -314,7 +295,6 @@ export const locationPages: LocationPage[] = [
     introHeading: "Practical automation and software for Perth teams",
     introBody:
       "23Labs supports Perth and Western Australian businesses with automation, system integrations and custom software built around existing operations, rather than asking a team to change the way it works.",
-    deliveryBody: "Remote delivery across Perth and Western Australia, with on-site collaboration available by arrangement.",
     cardDescription:
       "Automation, system integrations and custom software for Perth and Western Australian businesses, with on-site collaboration available by arrangement.",
     image: {
@@ -339,8 +319,6 @@ export const locationPages: LocationPage[] = [
     introHeading: "Better systems for growing Auckland businesses",
     introBody:
       "23Labs supports Auckland businesses with business automation, system integrations, AI workflows and custom software built around real operational needs. Work is delivered remotely from Melbourne, with calls booked in New Zealand business hours.",
-    deliveryBody:
-      "Remote delivery from Melbourne for Auckland and the wider Auckland region, with calls booked during the New Zealand working day.",
     cardDescription:
       "Automation, integrations and custom software for Auckland businesses, delivered remotely from Melbourne in New Zealand business hours.",
     image: {
@@ -365,8 +343,6 @@ export const locationPages: LocationPage[] = [
     introHeading: "Business automation Wellington businesses can rely on",
     introBody:
       "23Labs works with Wellington and wider-region businesses that need automation, integrations or custom software built around how their teams already operate. Discovery and delivery happen on video calls booked in New Zealand business hours.",
-    deliveryBody:
-      "Remote delivery from Melbourne for Wellington and the wider Wellington region, with calls booked during the New Zealand working day.",
     cardDescription:
       "Automation, integrations and custom software for Wellington businesses, delivered remotely from Melbourne in New Zealand business hours.",
     image: {
@@ -391,7 +367,6 @@ export const locationPages: LocationPage[] = [
     introHeading: "Software development Christchurch businesses can build on",
     introBody:
       "23Labs works with Christchurch and Canterbury businesses to automate repetitive admin, connect existing systems and build custom software where off-the-shelf tools fall short, delivered remotely from Melbourne.",
-    deliveryBody: "Remote delivery from Melbourne for Christchurch and Canterbury, with calls booked during the New Zealand working day.",
     cardDescription:
       "Automation, integrations and custom software for Christchurch and Canterbury businesses, delivered remotely from Melbourne in New Zealand business hours.",
     image: {

@@ -194,6 +194,64 @@ function IconSvg({ icon }: { icon: string }) {
     );
   }
 
+  if (icon === "code") {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m9 7-5 5 5 5" />
+        <path d="m15 7 5 5-5 5" />
+      </svg>
+    );
+  }
+
+  if (icon === "spark") {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 3v4M12 17v4M3 12h4M17 12h4" />
+        <path d="m6.5 6.5 2 2M15.5 15.5l2 2M17.5 6.5l-2 2M8.5 15.5l-2 2" />
+      </svg>
+    );
+  }
+
+  if (icon === "support") {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 14v-2a8 8 0 0 1 16 0v2" />
+        <rect x="2" y="14" width="5" height="6" rx="1.5" />
+        <rect x="17" y="14" width="5" height="6" rx="1.5" />
+        <path d="M20 20a4 4 0 0 1-4 2" />
+      </svg>
+    );
+  }
+
+  if (icon === "pin") {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z" />
+        <circle cx="12" cy="9.5" r="2.4" />
+      </svg>
+    );
+  }
+
+  if (icon === "clock") {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v5l3.5 2" />
+      </svg>
+    );
+  }
+
+  if (icon === "team") {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="9" cy="8" r="2.4" />
+        <circle cx="16" cy="9" r="1.8" />
+        <path d="M3.8 19a5.2 5.2 0 0 1 10.4 0" />
+        <path d="M14.2 19a4 4 0 0 1 6-3.2" />
+      </svg>
+    );
+  }
+
   return (
     <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M21 12a9 9 0 1 1-3-6.7" />

@@ -1,9 +1,17 @@
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { ServiceCardsGrid } from "@/components/sections/ServiceCardsGrid";
 import { JsonLd } from "@/components/site/JsonLd";
 import { absoluteUrl } from "@/lib/seo";
 import { breadcrumbList, organizationId, websiteId } from "@/lib/schema";
 import { serviceLandingPages, servicesHub } from "@/lib/services";
+
+const serviceCards = serviceLandingPages.map((service) => ({
+  slug: service.slug,
+  href: service.href,
+  title: service.navLabel,
+  description: service.cardDescription,
+}));
 
 export function ServicesHubPage() {
   return (
@@ -25,17 +33,7 @@ export function ServicesHubPage() {
           <div className="sec-head industry-sec-head reveal">
             <h2 className="sec-title">Six services</h2>
           </div>
-          <div className="industry-grid reveal">
-            {serviceLandingPages.map((service) => (
-              <Link href={service.href} className="industry-card industry-card-link" key={service.slug}>
-                <h3>{service.navLabel}</h3>
-                <p>{service.description}</p>
-                <span className="industry-link">
-                  Learn more <span className="btn-arrow" aria-hidden="true">{"→"}</span>
-                </span>
-              </Link>
-            ))}
-          </div>
+          <ServiceCardsGrid items={serviceCards} />
         </div>
       </section>
 

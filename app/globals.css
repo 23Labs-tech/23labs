@@ -684,49 +684,8 @@ textarea:focus-visible {
   text-transform: uppercase;
 }
 
-.hero + .sec,
-.hero + .marquee + .sec {
+.hero + .sec {
   padding-top: 64px;
-}
-
-/* ---------- Industry marquee ---------- */
-
-.marquee {
-  border-block: 1px solid var(--line);
-  background: var(--paper-2);
-  overflow: hidden;
-  padding-block: 20px;
-}
-
-.marquee-track {
-  display: flex;
-  width: max-content;
-  gap: 56px;
-  animation: marquee-slide 36s linear infinite;
-}
-
-.marquee-track span {
-  display: inline-flex;
-  align-items: center;
-  gap: 56px;
-  font-size: clamp(18px, 2vw, 22px);
-  font-weight: 500;
-  color: var(--ink-soft);
-  white-space: nowrap;
-}
-
-.marquee-track span::after {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-}
-
-@keyframes marquee-slide {
-  to {
-    transform: translateX(-50%);
-  }
 }
 
 .page-hero {

@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BlogCard } from "@/components/blog/BlogCard";
-import { AboutIntro } from "@/components/sections/AboutIntro";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { HomeHero } from "@/components/sections/HomeHero";
 import { HowWeThink } from "@/components/sections/HowWeThink";
 import { HowWeWork } from "@/components/sections/HowWeWork";
-import { IndustryMarquee } from "@/components/sections/IndustryMarquee";
 import { OutcomeBand } from "@/components/sections/OutcomeBand";
 import { ServiceShowcase } from "@/components/sections/ServiceShowcase";
 import { StatsBand } from "@/components/sections/StatsBand";
@@ -39,10 +37,6 @@ export default function Home() {
   return (
     <>
       <HomeHero />
-
-      <IndustryMarquee />
-
-      <AboutIntro />
 
       <StatsBand />
 

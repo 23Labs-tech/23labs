@@ -80,6 +80,11 @@ const nextConfig: NextConfig = {
         destination: "/case-studies/real-estate-workflow-automation",
         statusCode: 301,
       },
+      {
+        source: "/locations/new-zealand",
+        destination: "/new-zealand",
+        permanent: true,
+      },
     ];
   },
   async headers() {

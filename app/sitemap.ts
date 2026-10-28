@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/blog";
 import { getAllCaseStudies } from "@/lib/caseStudies";
 import { industryRoutePaths } from "@/lib/industries";
+import { locationPages, locationsHub } from "@/lib/locations";
 import { serviceLandingPages } from "@/lib/services";
 import { solutionPages, solutionPath } from "@/lib/solutions";
 import { getBaseUrl } from "@/lib/site";
@@ -17,6 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...solutionPages.map((page) => solutionPath(page.slug)),
     "/security",
     "/new-zealand",
+    locationsHub.path,
+    ...locationPages.map((location) => location.path),
     "/work",
     "/contact",
     "/privacy-policy",

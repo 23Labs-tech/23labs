@@ -45,6 +45,7 @@ function ogEyebrow(path: string) {
   if (path.startsWith("/blog")) return "Guides";
   if (path.startsWith("/case-studies") || path.startsWith("/work")) return "Case studies";
   if (path.startsWith("/new-zealand")) return "New Zealand";
+  if (path.startsWith("/locations")) return "Locations";
   if (path.startsWith("/solutions")) return "Solutions";
   if (path.startsWith("/security")) return "Security and governance";
   return "23Labs";

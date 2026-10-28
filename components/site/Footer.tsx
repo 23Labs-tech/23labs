@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { navItems } from "@/lib/data";
 import { industryLinks } from "@/lib/industries";
+import { getLocationPage } from "@/lib/locations";
 import { serviceLandingPages } from "@/lib/services";
 import { siteConfig } from "@/lib/site";
 import { Logo } from "@/components/site/Logo";
@@ -24,6 +25,16 @@ const footerServiceLinks = [
   "system-integrations",
   "ongoing-support",
 ].map((slug) => serviceLandingPages.find((service) => service.slug === slug)!);
+
+const footerLocationLinks = [
+  ...["brisbane", "sydney", "melbourne", "adelaide", "perth", "auckland", "wellington", "christchurch"].map(
+    (slug) => {
+      const location = getLocationPage(slug)!;
+      return { label: location.city, href: location.path };
+    },
+  ),
+  { label: "New Zealand", href: "/new-zealand" },
+];
 
 export function Footer() {
   return (
@@ -66,6 +77,16 @@ export function Footer() {
               {industryLinks.map((industry) => (
                 <li key={industry.href}>
                   <Link href={industry.href}>{industry.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="foot-col">
+            <p className="foot-label">Locations</p>
+            <ul>
+              {footerLocationLinks.map((location) => (
+                <li key={location.href}>
+                  <Link href={location.href}>{location.label}</Link>
                 </li>
               ))}
             </ul>

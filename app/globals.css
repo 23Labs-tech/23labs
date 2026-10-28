@@ -1253,6 +1253,18 @@ a.problem-card-link .work-link {
   line-height: 1.6;
 }
 
+.usecase-card ul {
+  margin: 4px 0 16px;
+  padding-left: 18px;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.usecase-card li {
+  margin-bottom: 4px;
+}
+
 .fit-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -3035,7 +3047,7 @@ a.proof-link .work-link {
 
 .foot-in {
   display: grid;
-  grid-template-columns: 1.3fr 0.8fr 1fr 0.9fr 0.8fr;
+  grid-template-columns: 1.1fr 0.75fr 0.95fr 0.85fr 0.85fr 0.7fr;
   gap: 32px;
 }
 

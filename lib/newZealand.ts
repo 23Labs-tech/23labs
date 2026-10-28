@@ -20,8 +20,8 @@ export const newZealandPage = {
     ctaLabel: "Talk to 23Labs",
     secondaryLabel: "See the services",
     image: {
-      src: "/site-images/photos/team-meeting-discussion.png",
-      alt: "A team discussing a project together around a meeting table",
+      src: "/site-images/locations/new-zealand-landscape.jpg",
+      alt: "Snow-capped mountains reflected in a lake in New Zealand",
     },
   },
   remote: {

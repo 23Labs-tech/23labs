@@ -82,7 +82,12 @@ export function articleJsonLd(article: {
   };
 }
 
-export function serviceJsonLd(service: { name: string; description: string; path: string }) {
+export function serviceJsonLd(service: {
+  name: string;
+  description: string;
+  path: string;
+  areaServed?: { "@type": string; name: string }[];
+}) {
   return {
     "@type": "Service",
     "@id": `${absoluteUrl(service.path)}#service`,
@@ -91,7 +96,7 @@ export function serviceJsonLd(service: { name: string; description: string; path
     description: service.description,
     url: absoluteUrl(service.path),
     provider: { "@id": organizationId() },
-    areaServed,
+    areaServed: service.areaServed ?? areaServed,
   };
 }
 

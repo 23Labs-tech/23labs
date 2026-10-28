@@ -174,7 +174,7 @@ function NarrativeBody({ caseStudy }: { caseStudy: CaseStudy }) {
           </div>
           <div className="hero-actions reveal">
             <Link href="/contact" className="btn btn-primary">
-              {cta.label ?? caseStudiesCta.label} <span className="btn-arrow" aria-hidden="true">{"→"}</span>
+              {cta.label ?? caseStudiesCta.label}
             </Link>
           </div>
         </div>
@@ -296,7 +296,7 @@ function LegacyBody({ caseStudy }: { caseStudy: CaseStudy }) {
           <p>{caseStudiesCta.body}</p>
           <div className="hero-actions">
             <Link href="/contact" className="btn btn-primary">
-              {caseStudiesCta.label} <span className="btn-arrow" aria-hidden="true">{"→"}</span>
+              {caseStudiesCta.label}
             </Link>
           </div>
         </div>

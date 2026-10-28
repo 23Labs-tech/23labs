@@ -237,7 +237,7 @@ export function Navbar() {
             })}
           </div>
           <div className="nav-right">
-            <ButtonLink href="/contact" className="nav-cta" arrow={false}>
+            <ButtonLink href="/contact" className="nav-cta">
               Start a conversation
             </ButtonLink>
             <button

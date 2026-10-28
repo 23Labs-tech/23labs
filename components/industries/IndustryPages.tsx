@@ -131,7 +131,7 @@ function ConsultationCta({ title, body, label = "Book a discovery call" }: { tit
         <p>{body}</p>
         <div className="hero-actions">
           <Link href="/contact" className="btn btn-primary">
-            {label} <span className="btn-arrow" aria-hidden="true">{"→"}</span>
+            {label}
           </Link>
         </div>
       </div>
@@ -151,7 +151,7 @@ function SomethingElseCta() {
           </p>
           <div className="hero-actions">
             <Link href="/contact" className="btn btn-primary">
-              {industrySomethingElseCta.cta} <span className="btn-arrow" aria-hidden="true">{"→"}</span>
+              {industrySomethingElseCta.cta}
             </Link>
           </div>
         </div>
@@ -183,9 +183,7 @@ export function IndustriesOverviewPage() {
                 <IndustryIcon icon={industry.icon} />
                 <h3>{industry.label}</h3>
                 <p>{industry.description}</p>
-                <span className="industry-link">
-                  Learn more <span className="btn-arrow" aria-hidden="true">{"→"}</span>
-                </span>
+                <span className="industry-link">Learn more</span>
               </Link>
             ))}
           </div>
@@ -283,8 +281,7 @@ export function IndustryDetailPage({ industry }: { industry: IndustryPageData })
             <p className="lead">{industry.hero.lead}</p>
             <div className="hero-actions">
               <Link href="/contact" className="btn btn-primary">
-                {industry.hero.ctaLabel ?? "Book a discovery call"}{" "}
-                <span className="btn-arrow" aria-hidden="true">{"→"}</span>
+                {industry.hero.ctaLabel ?? "Book a discovery call"}
               </Link>
               <Link href="#build" className="btn btn-ghost">
                 See what we can automate
@@ -378,9 +375,7 @@ export function IndustryDetailPage({ industry }: { industry: IndustryPageData })
                   <Link href={link.href} className="workflow-card proof-link" key={link.href}>
                     <h3>{link.label}</h3>
                     <p>{link.body}</p>
-                    <span className="work-link">
-                      Read the case study <span aria-hidden="true">{"→"}</span>
-                    </span>
+                    <span className="work-link">Read the case study</span>
                   </Link>
                 ))}
               </div>
@@ -403,9 +398,7 @@ export function IndustryDetailPage({ industry }: { industry: IndustryPageData })
                 <IndustryIcon icon={service.icon} className="svc-ico" />
                 <h3>{service.name}</h3>
                 <p>{service.body}</p>
-                <span className="work-link">
-                  Learn more <span aria-hidden="true">{"→"}</span>
-                </span>
+                <span className="work-link">Learn more</span>
               </Link>
             ))}
           </div>
@@ -424,9 +417,7 @@ export function IndustryDetailPage({ industry }: { industry: IndustryPageData })
                   <h3>{item.title}</h3>
                   <p>{item.body}</p>
                   {href ? (
-                    <span className="work-link">
-                      Learn more <span aria-hidden="true">{"→"}</span>
-                    </span>
+                    <span className="work-link">Learn more</span>
                   ) : null}
                 </>
               );

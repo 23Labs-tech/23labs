@@ -144,7 +144,6 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
                     {item.links.map((link) => (
                       <Link href={link.href} className="work-link" key={link.href}>
                         {link.label}
-                        <span aria-hidden="true">{"→"}</span>
                       </Link>
                     ))}
                   </div>
@@ -174,7 +173,6 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
                   <p>{item.summary}</p>
                   <Link href={item.href} className="work-link">
                     Read the project
-                    <span aria-hidden="true">{"→"}</span>
                   </Link>
                 </div>
               ))}
@@ -196,9 +194,6 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
                     <h3>{item.navLabel}</h3>
                     <p>{item.description}</p>
                   </div>
-                  <span className="btn-arrow" aria-hidden="true">
-                    {"→"}
-                  </span>
                 </Link>
               ))}
             </div>

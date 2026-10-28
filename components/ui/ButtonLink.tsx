@@ -7,7 +7,6 @@ type ButtonLinkProps = {
   variant?: "primary" | "secondary" | "light";
   className?: string;
   ariaLabel?: string;
-  arrow?: boolean;
 };
 
 export function ButtonLink({
@@ -16,23 +15,16 @@ export function ButtonLink({
   variant = "primary",
   className = "",
   ariaLabel,
-  arrow: showArrow = variant !== "light",
 }: ButtonLinkProps) {
   const variantClass =
     variant === "primary" ? "btn-primary" : variant === "secondary" ? "btn-ghost" : "btn-light";
   const classes = `btn ${variantClass} ${className}`.trim();
   const isExternal = href.startsWith("http") || href.startsWith("mailto:");
-  const arrow = showArrow ? (
-    <span className="btn-arrow" aria-hidden="true">
-      {"\u2192"}
-    </span>
-  ) : null;
 
   if (isExternal) {
     return (
       <a className={classes} href={href} aria-label={ariaLabel} rel="noreferrer">
         {children}
-        {arrow}
       </a>
     );
   }
@@ -40,7 +32,6 @@ export function ButtonLink({
   return (
     <Link className={classes} href={href} aria-label={ariaLabel}>
       {children}
-      {arrow}
     </Link>
   );
 }

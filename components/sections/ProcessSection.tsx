@@ -64,9 +64,6 @@ export function ProcessSection({
             {cta ? (
               <Link href={cta.href} className="proc-cta">
                 {cta.label}
-                <span className="proc-cta-arrow" aria-hidden="true">
-                  {"↗"}
-                </span>
               </Link>
             ) : null}
           </div>

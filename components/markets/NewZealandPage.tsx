@@ -87,14 +87,12 @@ export function NewZealandPage() {
               <Link href={service.href} className="industry-card industry-card-link" key={service.slug}>
                 <h3>{service.navLabel}</h3>
                 <p>{service.description}</p>
-                <span className="industry-link">
-                  Learn more <span className="btn-arrow" aria-hidden="true">{"→"}</span>
-                </span>
+                <span className="industry-link">Learn more</span>
               </Link>
             ))}
           </div>
           <Link href="/services" className="work-link full-services-link reveal">
-            All services <span aria-hidden="true">{"→"}</span>
+            All services
           </Link>
         </div>
       </section>
@@ -110,9 +108,7 @@ export function NewZealandPage() {
               <Link href={industry.href} className="industry-card industry-card-link" key={industry.slug}>
                 <h3>{industry.label}</h3>
                 <p>{industry.description}</p>
-                <span className="industry-link">
-                  Learn more <span className="btn-arrow" aria-hidden="true">{"→"}</span>
-                </span>
+                <span className="industry-link">Learn more</span>
               </Link>
             ))}
           </div>
@@ -133,9 +129,7 @@ export function NewZealandPage() {
             <Link href={newZealandPage.proof.study.href} className="workflow-card proof-link">
               <h3>{newZealandPage.proof.study.label}</h3>
               <p>{newZealandPage.proof.study.body}</p>
-              <span className="work-link">
-                Read the case study <span aria-hidden="true">{"→"}</span>
-              </span>
+              <span className="work-link">Read the case study</span>
             </Link>
           </div>
         </div>

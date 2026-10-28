@@ -127,7 +127,6 @@ export function SolutionLandingPage({ solution }: { solution: SolutionPage }) {
                   <p>{item.summary}</p>
                   <Link href={item.href} className="work-link">
                     Read the project
-                    <span aria-hidden="true">{"→"}</span>
                   </Link>
                 </div>
               ))}
@@ -152,7 +151,6 @@ export function SolutionLandingPage({ solution }: { solution: SolutionPage }) {
                   <p>{post.description}</p>
                   <Link href={`/blog/${post.slug}`} className="work-link">
                     Read the guide
-                    <span aria-hidden="true">{"→"}</span>
                   </Link>
                 </div>
               ))}
@@ -174,9 +172,6 @@ export function SolutionLandingPage({ solution }: { solution: SolutionPage }) {
                     <h3>{item.navLabel}</h3>
                     <p>{item.description}</p>
                   </div>
-                  <span className="btn-arrow" aria-hidden="true">
-                    {"→"}
-                  </span>
                 </Link>
               ))}
             </div>

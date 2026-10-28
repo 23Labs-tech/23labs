@@ -204,9 +204,6 @@ export function ContactForm() {
 
       <button className="btn btn-primary form-submit" type="submit" disabled={status === "loading"}>
         {status === "loading" ? "Sending..." : "Talk to us"}
-        <span className="btn-arrow" aria-hidden="true">
-          {"\u2192"}
-        </span>
       </button>
       <Link className="form-privacy" href="/privacy-policy">
         See our Privacy Policy

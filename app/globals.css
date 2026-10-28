@@ -402,13 +402,6 @@ textarea:focus-visible {
   background: rgba(255, 255, 255, 0.1);
 }
 
-.btn-arrow {
-  transition: transform 0.2s;
-}
-
-.btn:hover .btn-arrow {
-  transform: translateX(3px);
-}
 
 .btn:disabled {
   cursor: progress;
@@ -861,14 +854,6 @@ textarea:focus-visible {
   color: var(--ink);
   font-size: 13.5px;
   font-weight: 600;
-}
-
-.industry-link .btn-arrow {
-  transition: transform 0.2s;
-}
-
-.industry-card-link:hover .industry-link .btn-arrow {
-  transform: translateX(3px);
 }
 
 /* ---------- Service cards (individual, not a connected grid) ---------- */
@@ -1459,17 +1444,6 @@ a.problem-card-link .work-link {
   white-space: nowrap;
 }
 
-.related-link .btn-arrow {
-  align-self: flex-end;
-  margin-top: auto;
-  padding-top: 18px;
-  transition: transform 0.2s;
-}
-
-.related-link:hover .btn-arrow {
-  transform: translateX(3px);
-}
-
 .svc {
   background: var(--paper);
   padding: 40px 30px;
@@ -1987,14 +1961,6 @@ a.problem-card-link .work-link {
 .proc-cta:focus-visible {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.45);
-}
-
-.proc-cta-arrow {
-  transition: transform 0.2s;
-}
-
-.proc-cta:hover .proc-cta-arrow {
-  transform: translate(2px, -2px);
 }
 
 .proc-intro-center {

@@ -15,7 +15,7 @@ export function HomeHero() {
           work, improve operations and help growing businesses scale.
         </p>
         <div className="hero-cta-row">
-          <ButtonLink href="/contact" className="hero-cta" arrow>
+          <ButtonLink href="/contact" className="hero-cta">
             Start a conversation
           </ButtonLink>
         </div>

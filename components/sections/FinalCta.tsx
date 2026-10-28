@@ -11,7 +11,7 @@ export function FinalCta() {
           Have something worth fixing? Let&apos;s build the system{" "}
           <span className="em">your business actually needs</span>
         </h2>
-        <ButtonLink href="/contact" variant="light" arrow>
+        <ButtonLink href="/contact" variant="light">
           Start a conversation
         </ButtonLink>
       </div>

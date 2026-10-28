@@ -31,7 +31,7 @@ export function WorkShowcase() {
               ))}
             </div>
             <Link href={`/case-studies/${item.slug}`} className="work-link">
-              View case study <span aria-hidden="true">{"→"}</span>
+              View case study
             </Link>
           </div>
         </article>

@@ -34,17 +34,13 @@ export function LocationsHubPage() {
               <Link href={location.path} className="industry-card industry-card-link" key={location.slug}>
                 <h3>{location.city}</h3>
                 <p>{location.cardDescription}</p>
-                <span className="industry-link">
-                  Learn more <span className="btn-arrow" aria-hidden="true">{"→"}</span>
-                </span>
+                <span className="industry-link">Learn more</span>
               </Link>
             ))}
             <Link href={newZealandCard.href} className="industry-card industry-card-link">
               <h3>{newZealandCard.label}</h3>
               <p>{newZealandCard.description}</p>
-              <span className="industry-link">
-                Learn more <span className="btn-arrow" aria-hidden="true">{"→"}</span>
-              </span>
+              <span className="industry-link">Learn more</span>
             </Link>
           </div>
         </div>

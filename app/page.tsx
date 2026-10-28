@@ -56,7 +56,7 @@ export default function Home() {
             connect the tools they already use.
           </p>
           <Link href="/services" className="work-link full-services-link">
-            See all services <span aria-hidden="true">{"→"}</span>
+            See all services
           </Link>
         </div>
         <div className="wrap">
@@ -74,7 +74,7 @@ export default function Home() {
             </h2>
             <p className="lead">A few of the products, platforms, and rebuilds we&apos;ve shipped recently.</p>
             <Link href="/work" className="work-link full-services-link">
-              See all case studies <span aria-hidden="true">{"→"}</span>
+              See all case studies
             </Link>
           </div>
           <WorkShowcase />
@@ -94,7 +94,7 @@ export default function Home() {
               Ideas from inside <span className="em">the work</span>
             </h2>
             <Link href="/blog" className="work-link full-services-link">
-              View all insights <span aria-hidden="true">{"→"}</span>
+              View all insights
             </Link>
           </div>
           <div className="blog-grid reveal">

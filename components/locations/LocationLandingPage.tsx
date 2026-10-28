@@ -35,10 +35,10 @@ function LocationHero({ location }: { location: LocationPage }) {
           <h1>Automation and Custom Software for {location.city} Businesses</h1>
           <p className="lead">{location.heroLead}</p>
           <div className="hero-actions">
-            <ButtonLink href="/contact" arrow={false}>
+            <ButtonLink href="/contact">
               Start a conversation
             </ButtonLink>
-            <ButtonLink href="#what-we-do" variant="secondary" arrow={false}>
+            <ButtonLink href="#what-we-do" variant="secondary">
               See what we do
             </ButtonLink>
           </div>
@@ -137,7 +137,6 @@ function LocationSuccessStories() {
               </ul>
               <Link href={story.href} className="work-link">
                 Read the case study
-                <span aria-hidden="true">{"→"}</span>
               </Link>
             </div>
           ))}
@@ -165,7 +164,7 @@ function LocationCTA({ location }: { location: LocationPage }) {
         <h2>Have something worth fixing in {location.city}?</h2>
         <p>Bring the workflow, system or process that is creating friction. We will help you work out the most practical next step.</p>
         <div className="hero-actions">
-          <ButtonLink href="/contact" arrow={false}>
+          <ButtonLink href="/contact">
             Start a conversation
           </ButtonLink>
         </div>

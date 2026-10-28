@@ -32,18 +32,14 @@ export function SolutionsHubPage() {
                   <Link href={solutionPath(page.slug)} className="industry-card industry-card-link" key={page.slug}>
                     <h3>{page.navLabel}</h3>
                     <p>{page.hero.lead}</p>
-                    <span className="industry-link">
-                      Learn more <span className="btn-arrow" aria-hidden="true">{"→"}</span>
-                    </span>
+                    <span className="industry-link">Learn more</span>
                   </Link>
                 ))}
               {group.category === "governance" ? (
                 <Link href="/security" className="industry-card industry-card-link">
                   <h3>Security and data handling</h3>
                   <p>How 23Labs handles access, credentials, personal information and AI services on client projects.</p>
-                  <span className="industry-link">
-                    Learn more <span className="btn-arrow" aria-hidden="true">{"→"}</span>
-                  </span>
+                  <span className="industry-link">Learn more</span>
                 </Link>
               ) : null}
             </div>

@@ -57,7 +57,7 @@ export function ServiceShowcase() {
               <h3>{service.homeTitle}</h3>
               <p>{service.summary}</p>
               <Link href={`/services/${service.slug}`} className="build-link">
-                Learn More <span className="btn-arrow" aria-hidden="true">{"→"}</span>
+                Learn More
               </Link>
             </div>
           </article>

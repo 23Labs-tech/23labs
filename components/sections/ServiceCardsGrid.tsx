@@ -25,9 +25,7 @@ export function ServiceCardsGrid({ items }: { items: readonly ServiceCardItem[] 
           <IndustryIcon icon={SERVICE_ICON_BY_SLUG[item.slug] ?? "automation"} className="service-card-icon" />
           <h3>{item.title}</h3>
           <p>{item.description}</p>
-          <span className="industry-link">
-            Learn more <span className="btn-arrow" aria-hidden="true">{"→"}</span>
-          </span>
+          <span className="industry-link">Learn more</span>
         </Link>
       ))}
     </div>

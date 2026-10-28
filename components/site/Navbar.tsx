@@ -235,9 +235,6 @@ export function Navbar() {
                 </Link>
               );
             })}
-            <Link href="/contact" className="btn btn-primary nav-mobile-cta" onClick={closeAll}>
-              Start a conversation
-            </Link>
           </div>
           <div className="nav-right">
             <ButtonLink href="/contact" className="nav-cta" arrow={false}>

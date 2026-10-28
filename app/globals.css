@@ -342,10 +342,6 @@ textarea:focus-visible {
   font-size: 13.5px;
 }
 
-.nav-mobile-cta {
-  display: none;
-}
-
 /* ---------- Buttons ---------- */
 
 .hero-actions {
@@ -3749,14 +3745,13 @@ a.proof-link .work-link {
     border-radius: 10px;
   }
 
-  .nav-cta {
-    display: none;
+  .nav-right {
+    gap: 8px;
   }
 
-  .nav-mobile-cta {
-    display: flex;
-    width: 100%;
-    margin-top: 6px;
+  .nav-right .btn {
+    padding: 8px 13px;
+    font-size: 12.5px;
   }
 
   .hero {

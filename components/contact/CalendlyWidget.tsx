@@ -4,6 +4,8 @@ import Script from "next/script";
 import { useEffect, useRef, useState } from "react";
 
 const CALENDLY_URL = "https://calendly.com/23labs/30min";
+const MIN_HEIGHT = 540;
+const MAX_HEIGHT = 820;
 
 function CalendlySkeleton() {
   return (
@@ -23,7 +25,11 @@ function CalendlySkeleton() {
   );
 }
 
-export function CalendlyWidget() {
+type CalendlyWidgetProps = {
+  matchHeight?: number | null;
+};
+
+export function CalendlyWidget({ matchHeight }: CalendlyWidgetProps) {
   const [isReady, setIsReady] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -63,10 +69,17 @@ export function CalendlyWidget() {
     };
   }, []);
 
+  const height = matchHeight ? Math.min(Math.max(matchHeight, MIN_HEIGHT), MAX_HEIGHT) : undefined;
+
   return (
     <div className="contact-calendly">
       {!isReady ? <CalendlySkeleton /> : null}
-      <div ref={containerRef} className="calendly-inline-widget" data-url={CALENDLY_URL} />
+      <div
+        ref={containerRef}
+        className="calendly-inline-widget"
+        data-url={CALENDLY_URL}
+        style={height ? { height } : undefined}
+      />
       <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="afterInteractive" />
     </div>
   );

@@ -2592,22 +2592,27 @@ a.proof-link .work-link {
 /* ---------- Contact ---------- */
 
 .page-hero:has(+ .contact-page-section) {
-  padding-bottom: 48px;
+  padding-bottom: 72px;
 }
 
 .contact-page-section {
   padding-top: 0;
 }
 
-.contact-grid {
+.booking-grid {
   display: grid;
-  grid-template-columns: 0.82fr 1.18fr;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
   align-items: start;
-  gap: 64px;
+  gap: clamp(64px, 6vw, 80px);
+  max-width: 1150px;
+  margin: 0 auto;
 }
 
-.contact-copy h2 {
-  max-width: 16ch;
+.booking-copy {
+  max-width: 440px;
+}
+
+.booking-copy h2 {
   margin-top: 0;
   font-family: var(--font-sans), "Poppins", Arial, sans-serif;
   font-weight: 600;
@@ -2615,20 +2620,21 @@ a.proof-link .work-link {
   letter-spacing: -0.005em;
 }
 
-.contact-copy .lead + .lead {
+.booking-copy .lead + .lead {
   margin-top: 14px;
 }
 
-.contact-calendly {
+.booking-calendar {
   position: relative;
   width: 100%;
   min-width: 0;
 }
 
-.contact-calendly .calendly-inline-widget {
+.booking-calendar .calendly-inline-widget {
   width: 100%;
   min-width: 320px;
-  height: clamp(700px, 72vh, 820px);
+  min-height: 680px;
+  height: 700px;
   border-radius: 16px;
   overflow: hidden;
 }
@@ -3395,8 +3401,13 @@ a.proof-link .work-link {
   color: var(--accent-on-dark);
 }
 
+@media (max-width: 880px) {
+  .booking-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 1080px) {
-  .contact-grid,
   .story-grid,
   .svc-row,
   .insights-row,
@@ -3604,8 +3615,9 @@ a.proof-link .work-link {
     padding-bottom: 56px;
   }
 
-  .contact-calendly .calendly-inline-widget {
-    height: clamp(640px, 80vh, 720px);
+  .booking-calendar .calendly-inline-widget {
+    min-height: 600px;
+    height: clamp(600px, 80vh, 680px);
   }
 
   .calendly-skeleton {

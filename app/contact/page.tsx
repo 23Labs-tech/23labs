@@ -21,6 +21,7 @@ export default function ContactPage() {
       <link rel="dns-prefetch" href="//calendly.com" />
 
       <PageHero
+        className="contact-hero"
         eyebrow="Get in touch"
         title="Let's talk about "
         highlight="your business"

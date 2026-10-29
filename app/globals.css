@@ -2591,6 +2591,10 @@ a.proof-link .work-link {
 
 /* ---------- Contact ---------- */
 
+.contact-hero h1 {
+  font-size: clamp(48px, 4vw, 64px);
+}
+
 .page-hero:has(+ .contact-page-section) {
   padding-bottom: 72px;
 }
@@ -2601,7 +2605,7 @@ a.proof-link .work-link {
 
 .booking-grid {
   display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  grid-template-columns: minmax(0, 3.5fr) minmax(0, 8.5fr);
   align-items: start;
   gap: clamp(64px, 6vw, 80px);
   max-width: 1150px;
@@ -2609,12 +2613,13 @@ a.proof-link .work-link {
 }
 
 .booking-copy {
-  max-width: 440px;
+  max-width: 380px;
 }
 
 .booking-copy h2 {
   margin-top: 0;
   font-family: var(--font-sans), "Poppins", Arial, sans-serif;
+  font-size: clamp(34px, 3vw, 46px);
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.005em;

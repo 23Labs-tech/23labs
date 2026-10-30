@@ -16,9 +16,7 @@ export default function WorkPage() {
   return (
     <>
       <section className="sec cs-sec">
-        <div className="wrap">
-          <CaseStudyGrid />
-        </div>
+        <CaseStudyGrid />
       </section>
 
       <CtaSection

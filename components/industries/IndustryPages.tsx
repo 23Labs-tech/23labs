@@ -1,6 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import { CheckIcon, IndustryIcon } from "@/components/industries/IndustryIcon";
+import { IndustryProblemSection } from "@/components/industries/IndustryProblemSection";
+import { IndustrySolutionsGrid } from "@/components/industries/IndustrySolutionsGrid";
+import { IndustrySuccessStories } from "@/components/industries/IndustrySuccessStories";
 import { DetailPageHero } from "@/components/sections/DetailPageHero";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { JsonLd } from "@/components/site/JsonLd";
@@ -14,16 +16,7 @@ import {
 } from "@/lib/industries";
 import { industryCostFaq, industryCostQuestions } from "@/lib/industryPricing";
 import { breadcrumbList, faqPageJsonLd, serviceJsonLd } from "@/lib/schema";
-
-const buildIconServiceHref: Record<string, string> = {
-  automation: "/services/business-process-automation",
-  ai: "/services/ai-agents",
-  message: "/services/ai-agents",
-  software: "/services/custom-software-development",
-  dashboard: "/services/custom-software-development",
-  portal: "/services/custom-software-development",
-  integration: "/services/system-integrations",
-};
+import { resolveSuccessStories } from "@/lib/successStories";
 
 type SplitHeadingProps = {
   title: string;
@@ -264,6 +257,9 @@ export function IndustriesOverviewPage() {
 export function IndustryDetailPage({ industry }: { industry: IndustryPageData }) {
   const industryLabel = industry.hero.eyebrow.split(" / ")[1] || industry.hero.eyebrow;
   const faqs = visibleFaqs(industry);
+  const industryLink = industryLinks.find((item) => item.slug === industry.slug);
+  const problemEyebrow = `Built for ${(industryLink?.label ?? industryLabel).toLowerCase()}`;
+  const successStories = resolveSuccessStories(industry.slug);
 
   return (
     <>
@@ -273,146 +269,27 @@ export function IndustryDetailPage({ industry }: { industry: IndustryPageData })
         subheading={industry.hero.subheading}
         description={industry.hero.lead}
         primaryCta={{ label: "Start a conversation", href: "/contact" }}
-        secondaryCta={{ label: "See what we can automate", href: "#build" }}
+        secondaryCta={{ label: "See what we can automate", href: "#solutions" }}
         backgroundImage={industry.hero.image}
         backgroundPosition="center right"
       />
 
-      <section className="sec no-top">
-        <div className="wrap">
-          <TextBlock paragraphs={industry.intro.paragraphs} />
-        </div>
-      </section>
+      <IndustryProblemSection
+        eyebrow={problemEyebrow}
+        heading={industry.problemSection.heading}
+        paragraphs={industry.problemSection.paragraphs}
+        bullets={industry.problemSection.bullets}
+        image={industry.supportingImage}
+      />
 
-      <section className="sec">
-        <div className="wrap">
-          <SectionHeading
-            eyebrow={industry.problems.eyebrow}
-            title={industry.problems.title}
-            highlight={industry.problems.highlight}
-          />
-          <div className="problem-grid reveal">
-            {industry.problems.items.map((item) => (
-              <div className="problem-card" key={item.title}>
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <IndustrySolutionsGrid
+        id="solutions"
+        heading={industry.solutions.heading}
+        intro={industry.solutions.intro}
+        items={industry.solutions.items}
+      />
 
-      <section className="sec no-top">
-        <div className="wrap">
-          <div className="cs-supporting-image reveal">
-            <Image
-              src={industry.supportingImage.src}
-              alt={industry.supportingImage.alt}
-              fill
-              sizes="(max-width: 900px) 100vw, 1100px"
-            />
-          </div>
-        </div>
-      </section>
-
-      {industry.workflows ? (
-        <section className="sec">
-          <div className="wrap">
-            <SectionHeading
-              eyebrow={industry.workflows.eyebrow}
-              title={industry.workflows.title}
-              highlight={industry.workflows.highlight}
-            />
-            {industry.workflows.paragraphs ? <TextBlock paragraphs={industry.workflows.paragraphs} /> : null}
-            <div className="workflow-list reveal">
-              {industry.workflows.items.map((item) => (
-                <article className="workflow-card" key={item.title}>
-                  <h3>{item.title}</h3>
-                  {item.paragraphs.map((paragraph, index) => (
-                    <RichParagraph paragraph={paragraph} key={index} />
-                  ))}
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      ) : null}
-
-      {industry.proof ? (
-        <section className="sec">
-          <div className="wrap">
-            <SectionHeading
-              eyebrow={industry.proof.eyebrow}
-              title={industry.proof.title}
-              highlight={industry.proof.highlight}
-            />
-            <TextBlock paragraphs={industry.proof.paragraphs} />
-            {industry.proof.links?.length ? (
-              <div className="workflow-list reveal">
-                {industry.proof.links.map((link) => (
-                  <Link href={link.href} className="workflow-card proof-link" key={link.href}>
-                    <h3>{link.label}</h3>
-                    <p>{link.body}</p>
-                    <span className="work-link">Read the case study</span>
-                  </Link>
-                ))}
-              </div>
-            ) : null}
-          </div>
-        </section>
-      ) : null}
-
-      <section className="sec">
-        <div className="wrap">
-          <SectionHeading
-            eyebrow={industry.help.eyebrow}
-            title={industry.help.title}
-            highlight={industry.help.highlight}
-            body={industry.help.body}
-          />
-          <div className="svc-grid reveal">
-            {industry.help.services.map((service) => (
-              <Link href={service.href} className="svc" key={service.name}>
-                <IndustryIcon icon={service.icon} className="svc-ico" />
-                <h3>{service.name}</h3>
-                <p>{service.body}</p>
-                <span className="work-link">Learn more</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="sec" id="build">
-        <div className="wrap">
-          <SectionHeading eyebrow={industry.builds.eyebrow} title={industry.builds.title} highlight={industry.builds.highlight} />
-          <div className="svc-grid reveal">
-            {industry.builds.items.map((item) => {
-              const href = item.href || buildIconServiceHref[item.icon];
-              const content = (
-                <>
-                  <IndustryIcon icon={item.icon} className="svc-ico" />
-                  <h3>{item.title}</h3>
-                  <p>{item.body}</p>
-                  {href ? (
-                    <span className="work-link">Learn more</span>
-                  ) : null}
-                </>
-              );
-
-              return href ? (
-                <Link href={href} className="svc" key={item.title}>
-                  {content}
-                </Link>
-              ) : (
-                <div className="svc" key={item.title}>
-                  {content}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <IndustrySuccessStories stories={successStories} />
 
       <SomethingElseCta />
 

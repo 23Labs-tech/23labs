@@ -29,7 +29,17 @@ export type IndustryPage = {
     highlight: string;
     items: { title: string; body: string }[];
   };
+  problemSection: {
+    heading: string;
+    paragraphs: readonly [string, string];
+    bullets: readonly [string, string, string];
+  };
   supportingImage: { src: string; alt: string };
+  solutions: {
+    heading: string;
+    intro: string;
+    items: readonly { slug: string; description: string }[];
+  };
   help: {
     eyebrow: string;
     title: string;
@@ -296,9 +306,33 @@ export const industryPages: IndustryPage[] = [
         { title: "Duplicate data entry", body: "The same job information gets typed into estimating, accounting and project tools separately." },
       ],
     },
+    problemSection: {
+      heading: "The jobs, the paperwork, the approvals. Then the build.",
+      paragraphs: [
+        "A construction job runs on quotes, variations, compliance documents and client updates, usually spread across an estimating tool, a project system, email and a site folder. Chasing subcontractor paperwork and keeping clients updated competes with running the job itself.",
+        "Automation and integration can connect those systems and automate the recurring admin: quote follow-ups, compliance reminders, document collection and progress updates, so the office keeps pace with the site.",
+      ],
+      bullets: [
+        "Quotes and variations tracked automatically",
+        "Compliance documents that chase themselves",
+        "Clients updated without a phone call",
+      ],
+    },
     supportingImage: {
       src: "/site-images/photos/field-team-laptop-review.png",
       alt: "Two field team members reviewing project information together on a laptop",
+    },
+    solutions: {
+      heading: "Automation and software built around how your sites actually run",
+      intro: "Six ways 23Labs removes manual work from quoting, compliance and job administration.",
+      items: [
+        { slug: "business-process-automation", description: "Automate quote follow-ups, compliance reminders and job status updates." },
+        { slug: "system-integrations", description: "Connect estimating, accounting and project tools so job costs move automatically." },
+        { slug: "custom-software-development", description: "Job and project dashboards built around how your sites actually run." },
+        { slug: "ai-workflow-automation", description: "Route documents, variations and site information without manual handoffs." },
+        { slug: "ai-agents", description: "Agents that handle enquiries and capture job details during busy periods." },
+        { slug: "ongoing-support", description: "Keep compliance tracking and job systems working as projects change." },
+      ],
     },
     help: {
       eyebrow: "How we can help",
@@ -420,9 +454,33 @@ export const industryPages: IndustryPage[] = [
         { title: "Repetitive data entry", body: "The same patient details are entered more than once across intake forms and clinic systems." },
       ],
     },
+    problemSection: {
+      heading: "The bookings, the intake, the reminders. Then the appointment.",
+      paragraphs: [
+        "A clinic's week runs on bookings, intake forms, reminders and reschedules, usually split across a booking tool, a practice management system and a lot of phone calls. Every gap in that chain shows up as admin time or a missed appointment.",
+        "Automation and integration can connect scheduling, intake and the practice management system, so reminders, confirmations and reschedules happen without someone chasing them by hand.",
+      ],
+      bullets: [
+        "Bookings, reminders and reschedules automated",
+        "Intake details captured before the appointment",
+        "Less admin between patients",
+      ],
+    },
     supportingImage: {
       src: "/site-images/photos/dashboard-review-pair.png",
       alt: "Two colleagues reviewing a clinic scheduling dashboard together",
+    },
+    solutions: {
+      heading: "Automation and software built around how your clinic actually runs",
+      intro: "Six ways 23Labs removes manual work from scheduling, intake and patient admin.",
+      items: [
+        { slug: "business-process-automation", description: "Automate appointment reminders, confirmations and rescheduling." },
+        { slug: "system-integrations", description: "Connect booking tools, forms and your practice management system." },
+        { slug: "custom-software-development", description: "Clinic dashboards and tools built around how your team actually works." },
+        { slug: "ai-workflow-automation", description: "Turn intake forms and referral letters into structured patient records." },
+        { slug: "ai-agents", description: "Agents that answer common booking questions and capture patient details." },
+        { slug: "ongoing-support", description: "Keep scheduling and intake systems reliable as the clinic grows." },
+      ],
     },
     help: {
       eyebrow: "How we can help",
@@ -541,9 +599,33 @@ export const industryPages: IndustryPage[] = [
         { title: "Owner and management reporting", body: "Reports for owners are compiled manually from several different systems." },
       ],
     },
+    problemSection: {
+      heading: "The enquiries, the inspections, the maintenance requests. Then the follow-up.",
+      paragraphs: [
+        "An agency's day runs on enquiries, inspection bookings, maintenance requests and the follow-up that keeps landlords and tenants informed. Each one usually means checking a different system or chasing someone by phone.",
+        "Automation and integration can connect the CRM, the property management software and the website, so enquiries and maintenance requests are tracked and followed up without the office having to hold it all in their heads.",
+      ],
+      bullets: [
+        "Enquiries followed up automatically",
+        "Maintenance requests tracked end to end",
+        "Landlords and tenants kept in the loop",
+      ],
+    },
     supportingImage: {
       src: "/site-images/photos/team-standup-tablet.png",
       alt: "A real estate team member presenting enquiry data to colleagues around a table",
+    },
+    solutions: {
+      heading: "Automation and software built around how your agency actually works",
+      intro: "Six ways 23Labs removes manual work from enquiries, maintenance and tenant communication.",
+      items: [
+        { slug: "business-process-automation", description: "Automate enquiry responses, inspection reminders and follow-ups." },
+        { slug: "system-integrations", description: "Connect your CRM, property management software and website forms." },
+        { slug: "custom-software-development", description: "Portals and dashboards built around property and tenant workflows." },
+        { slug: "ai-workflow-automation", description: "Extract details from enquiries and maintenance requests automatically." },
+        { slug: "ai-agents", description: "Agents that answer buyer and tenant questions and route leads." },
+        { slug: "ongoing-support", description: "Keep enquiry and maintenance workflows reliable as listings change." },
+      ],
     },
     help: {
       eyebrow: "How we can help",
@@ -682,9 +764,33 @@ export const industryPages: IndustryPage[] = [
         { title: "Disconnected CRM and job tools", body: "Your CRM, scheduling and accounting software don't share information automatically." },
       ],
     },
+    problemSection: {
+      heading: "The quotes, the jobs, the invoices. Then the next job.",
+      paragraphs: [
+        "A trades business runs on quotes, scheduled jobs, updates from the field and an invoice at the end, usually spread across a CRM, a job management tool and a lot of text messages. Every handoff between office and field is a chance for something to get missed.",
+        "Automation and integration can connect the CRM, job management software and accounting, so a quote becomes a job, a job becomes an invoice, and the crew and the office are working from the same information.",
+      ],
+      bullets: [
+        "Quotes that turn into jobs automatically",
+        "Job updates without a phone call",
+        "Invoices that go out as soon as the job's done",
+      ],
+    },
     supportingImage: {
       src: "/site-images/photos/factory-automation-review.png",
       alt: "Two people reviewing field equipment and job automation on site",
+    },
+    solutions: {
+      heading: "Automation and software built around how your jobs actually get done",
+      intro: "Six ways 23Labs removes manual work from quoting, scheduling and job updates.",
+      items: [
+        { slug: "business-process-automation", description: "Automate quote follow-ups, job reminders and review requests." },
+        { slug: "system-integrations", description: "Connect your CRM, job management software and accounting." },
+        { slug: "custom-software-development", description: "Job tracking tools built around how your crew actually works." },
+        { slug: "ai-workflow-automation", description: "Turn enquiry details and job notes into structured records automatically." },
+        { slug: "ai-agents", description: "Agents that capture job details and answer routine customer questions." },
+        { slug: "ongoing-support", description: "Keep job and CRM integrations reliable as the business grows." },
+      ],
     },
     help: {
       eyebrow: "How we can help",

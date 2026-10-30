@@ -1,4 +1,4 @@
-import { resolveCaseStudy, caseStudyPath } from "@/lib/caseStudyMatch";
+import { resolveSuccessStories } from "@/lib/successStories";
 
 export type LocationFaq = { question: string; answer: string };
 
@@ -72,45 +72,8 @@ export function locationCapabilityIntroColumn(location: LocationPage) {
   };
 }
 
-const successStoryDefinitions = [
-  {
-    match: { name: "Huntress Recruitment" },
-    category: "System Integration",
-    body: "23Labs connected Bullhorn, SEEK and the Huntress website so vacancy information could move through a cleaner, more consistent publishing workflow.",
-    outcomes: [
-      "Less duplicate administration",
-      "More consistent publishing",
-      "Better control of public job information",
-    ],
-  },
-  {
-    match: { name: "CorIT Tech" },
-    category: "Onboarding Automation",
-    body: "23Labs automated client onboarding across CorIT Tech's CRM and project tools, removing repetitive copy-paste work as new clients came on board.",
-    outcomes: ["10+ hours saved each month", "Fewer manual errors", "A more scalable onboarding process"],
-  },
-  {
-    match: { name: "Real Estate Office | Australia" },
-    category: "Workflow Automation",
-    body: "23Labs improved an Australian real estate office's website and connected customer enquiries with property records so follow-up is easier to track.",
-    outcomes: ["Less manual follow-up", "Clearer tracking of enquiries", "Better visibility across the office workflow"],
-  },
-] as const;
-
 export function getLocationSuccessStories() {
-  return successStoryDefinitions.flatMap((item) => {
-    const study = resolveCaseStudy(item.match);
-    if (!study) return [];
-    return [
-      {
-        href: caseStudyPath(study),
-        label: study.name,
-        category: item.category,
-        body: item.body,
-        outcomes: item.outcomes,
-      },
-    ];
-  });
+  return resolveSuccessStories();
 }
 
 export const locationPractical = {

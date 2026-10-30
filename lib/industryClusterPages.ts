@@ -75,9 +75,33 @@ export const transportIndustryPage = {
       },
     ],
   },
+  problemSection: {
+    heading: "The jobs, the PODs, the invoicing. Then the customer updates.",
+    paragraphs: [
+      "A transport job has two lives: a quote, a rate and an invoice on one side, and an allocation, a dispatch and a proof of delivery on the other. In most freight and logistics businesses those two lives live in different systems, plus the phone, plus a spreadsheet someone trusts more than the screen.",
+      "Automation and integration can connect the commercial and operational sides of the job, so a delivered job becomes an invoice without anyone retyping it, and the TMS and accounting system agree with each other.",
+    ],
+    bullets: [
+      "Quotes, allocation and invoicing in one view",
+      "No retyping between the TMS and accounting",
+      "Proof of delivery that chases itself",
+    ],
+  },
   supportingImage: {
     src: "/site-images/photos/connected-tools-overlay.png",
     alt: "A diagram showing business tools connected through an automation hub",
+  },
+  solutions: {
+    heading: "Automation and software built around how freight actually moves",
+    intro: "Six ways 23Labs removes manual work from quoting, dispatch, delivery and invoicing.",
+    items: [
+      { slug: "business-process-automation", description: "Automate quote follow-ups, allocation reminders and proof-of-delivery chasing." },
+      { slug: "system-integrations", description: "Connect the TMS with accounting so a delivered job becomes an invoice automatically." },
+      { slug: "custom-software-development", description: "Dashboards and portals built around how dispatch and delivery actually run." },
+      { slug: "ai-workflow-automation", description: "Extract rate requests and delivery details from emails and PDFs automatically." },
+      { slug: "ai-agents", description: "Agents that answer status enquiries and chase missing paperwork." },
+      { slug: "ongoing-support", description: "Keep the TMS-to-accounting link working as carriers, rates and routes change." },
+    ],
   },
   workflows: {
     eyebrow: "Typical workflows",
@@ -292,9 +316,33 @@ export const recruitmentIndustryPage = {
       },
     ],
   },
+  problemSection: {
+    heading: "The candidates, the vacancies, the follow-ups. Then the placements.",
+    paragraphs: [
+      "A recruitment desk usually runs on an ATS, at least one job board, a website and a trail of email. The vacancy gets typed into each of them, and candidate details arrive in a different shape every time.",
+      "Automation and integration can keep the ATS, job boards and website in step with each other, so a vacancy or a candidate is only entered once and the admin around onboarding and reporting stops repeating itself.",
+    ],
+    bullets: [
+      "One place for candidate and job intake",
+      "ATS, job boards and website always in sync",
+      "Onboarding and reporting without the admin",
+    ],
+  },
   supportingImage: {
     src: "/site-images/photos/dashboard-laptop-review.png",
     alt: "A person reviewing a software dashboard on a laptop",
+  },
+  solutions: {
+    heading: "Automation and software built around how your desk actually works",
+    intro: "Six ways 23Labs removes manual work from candidate intake, job publishing and reporting.",
+    items: [
+      { slug: "business-process-automation", description: "Automate candidate intake, job board publishing and onboarding admin." },
+      { slug: "system-integrations", description: "Keep the ATS, job boards and website in step without retyping a vacancy." },
+      { slug: "custom-software-development", description: "Portals and dashboards built around your desk's actual workflow." },
+      { slug: "ai-workflow-automation", description: "Extract candidate details from CVs and applications automatically." },
+      { slug: "ai-agents", description: "Agents that screen enquiries and route candidates to the right consultant." },
+      { slug: "ongoing-support", description: "Keep ATS and job board integrations working as providers change." },
+    ],
   },
   workflows: {
     eyebrow: "The workflow",
@@ -522,9 +570,33 @@ export const professionalServicesIndustryPage = {
       },
     ],
   },
+  problemSection: {
+    heading: "The admin, the reporting, the handoffs. Then the client work.",
+    paragraphs: [
+      "Professional services firms sell time and judgement, but the admin around that work is a chain: a proposal, an acceptance, an onboarding pack, a project with tasks, then a report the client expects. Each step often starts by retyping the last one.",
+      "Automation and integration can connect that chain, so a won proposal creates the onboarding record and the project setup without anyone copying the same details into the next system.",
+    ],
+    bullets: [
+      "Proposals that flow straight into onboarding",
+      "Client and project details in one place",
+      "Reporting that pulls itself together",
+    ],
+  },
   supportingImage: {
     src: "/site-images/photos/team-meeting-discussion.png",
     alt: "A professional services team discussing client work around a meeting table",
+  },
+  solutions: {
+    heading: "Automation and software built around how your firm delivers work",
+    intro: "Six ways 23Labs removes manual work from proposals, onboarding and client reporting.",
+    items: [
+      { slug: "business-process-automation", description: "Automate proposal follow-ups, onboarding packs and recurring reporting." },
+      { slug: "system-integrations", description: "Connect your CRM, project and accounting tools so a client record moves itself." },
+      { slug: "custom-software-development", description: "Client and staff portals built around how your firm actually delivers work." },
+      { slug: "ai-workflow-automation", description: "Extract key details from engagement letters and client documents automatically." },
+      { slug: "ai-agents", description: "Agents that handle routine client questions and internal lookups." },
+      { slug: "ongoing-support", description: "Keep the systems behind client delivery reliable as the firm grows." },
+    ],
   },
   workflows: {
     eyebrow: "The client lifecycle",

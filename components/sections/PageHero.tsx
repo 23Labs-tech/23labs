@@ -11,7 +11,7 @@ export function PageHero({ eyebrow, title, highlight, body, className }: PageHer
 
   return (
     <header className={heroClassName}>
-      <div className="wrap reveal in">
+      <div className="hero-wide reveal in">
         <div className="hero-badge">{eyebrow}</div>
         <h1>
           {title}

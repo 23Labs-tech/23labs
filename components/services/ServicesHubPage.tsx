@@ -17,7 +17,7 @@ export function ServicesHubPage() {
   return (
     <>
       <header className="page-hero industry-hero">
-        <div className="wrap reveal in">
+        <div className="hero-wide reveal in">
           <div className="hero-badge">{servicesHub.hero.eyebrow}</div>
           <h1>
             {servicesHub.hero.title}

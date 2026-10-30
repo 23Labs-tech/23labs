@@ -164,7 +164,7 @@ export function IndustriesOverviewPage() {
   return (
     <>
       <header className="page-hero industry-hero">
-        <div className="wrap reveal in">
+        <div className="hero-wide reveal in">
           <div className="hero-badge">{industryOverview.hero.eyebrow}</div>
           <h1>
             <SplitHeading title={industryOverview.hero.title} highlight={industryOverview.hero.highlight} />

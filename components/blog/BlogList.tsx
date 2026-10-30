@@ -9,7 +9,7 @@ export function BlogList({ posts }: BlogListProps) {
   return (
     <>
       <header className="page-hero blog-hero">
-        <div className="wrap reveal in">
+        <div className="hero-wide reveal in">
           <div className="hero-badge">From the blog</div>
           <h1>
             Practical notes from inside our <span className="em">own projects</span>

@@ -8,7 +8,7 @@ export function SolutionsHubPage() {
   return (
     <>
       <header className="page-hero industry-hero">
-        <div className="wrap reveal in">
+        <div className="hero-wide reveal in">
           <div className="hero-badge">{solutionsHub.hero.eyebrow}</div>
           <h1>
             {solutionsHub.hero.title}

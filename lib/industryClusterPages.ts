@@ -22,6 +22,7 @@ export const transportIndustryPage = {
     eyebrow: "Industries / Transport & Logistics",
     title: "Transport and logistics automation for quoting, dispatch and invoicing",
     highlight: "",
+    subheading: "One job record, from the quote through to the invoice.",
     lead:
       "Move a job from the quote to allocation, proof of delivery and the invoice without typing it again, and connect the TMS with accounting.",
     ctaLabel: "Talk to us about your process",
@@ -240,12 +241,13 @@ export const recruitmentIndustryPage = {
     eyebrow: "Industries / Recruitment",
     title: "Recruitment automation for candidate intake, job publishing and reporting",
     highlight: "",
+    subheading: "Candidate and job data that moves with the role, not around it.",
     lead:
       "Bring candidate and job intake into the ATS, keep the job board and the website in step with it, and take the repeated admin out of onboarding and reporting.",
     ctaLabel: "Talk to us about your process",
     image: {
-      src: "/site-images/photos/team-dashboard-presentation.png",
-      alt: "A team reviewing operational information on a screen during a meeting",
+      src: "/site-images/photos/team-standup-tablet.png",
+      alt: "A team member presenting project updates to colleagues",
     },
   },
   intro: {
@@ -469,6 +471,7 @@ export const professionalServicesIndustryPage = {
     eyebrow: "Industries / Professional Services",
     title: "Professional services automation for onboarding, proposals and reporting",
     highlight: "",
+    subheading: "Client work that moves from proposal to delivery without retyping it.",
     lead:
       "Take a client from the proposal to onboarding, project setup and reporting without copying the same details into the next system.",
     ctaLabel: "Talk to us about your process",

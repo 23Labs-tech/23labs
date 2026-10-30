@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { HowWeHelpShowcase } from "@/components/services/HowWeHelpShowcase";
+import { DetailPageHero } from "@/components/sections/DetailPageHero";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { JsonLd } from "@/components/site/JsonLd";
@@ -39,28 +39,16 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
 
   return (
     <>
-      <header className="svc-hero">
-        <div className="hero-wide svc-hero-in">
-          <div className="reveal in svc-hero-copy">
-            <h1>{service.hero.title}</h1>
-            {service.hero.subheading ? <p className="hero-sub">{service.hero.subheading}</p> : null}
-            <p className="lead">{service.hero.lead}</p>
-            <div className="hero-actions">
-              <ButtonLink href="/contact">{service.hero.ctaLabel}</ButtonLink>
-            </div>
-          </div>
-          <div className="reveal in svc-hero-media">
-            <Image
-              src={service.hero.image.src}
-              alt={service.hero.image.alt}
-              fill
-              preload
-              fetchPriority="high"
-              sizes="(max-width: 900px) 100vw, 50vw"
-            />
-          </div>
-        </div>
-      </header>
+      <DetailPageHero
+        eyebrow="Services"
+        title={service.hero.title}
+        subheading={service.hero.subheading}
+        description={service.hero.lead}
+        primaryCta={{ label: "Start a conversation", href: "/contact" }}
+        secondaryCta={{ label: "How we approach it", href: "#approach" }}
+        backgroundImage={service.hero.image}
+        backgroundPosition="center right"
+      />
 
       <section className="sec no-top">
         <div className="wrap">
@@ -120,6 +108,7 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
       </section>
 
       <ProcessSection
+        id="approach"
         layout="split"
         eyebrow="How we work"
         heading={service.engagement.heading}

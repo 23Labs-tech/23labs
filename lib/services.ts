@@ -116,7 +116,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     hero: {
       eyebrow: "Services / Business Process Automation",
       title: "Business process automation for quoting, onboarding and admin",
-      subheading: "For teams who still quote, onboard, report or allocate jobs by hand.",
+      subheading: "Automation that fits the way work actually happens.",
       lead:
         "Business process automation takes a repeatable process and runs the handoffs without someone retyping the details or remembering the next step. We map how the work actually happens, then automate the parts that follow a rule.",
       ctaLabel: "Show us what you're doing manually",
@@ -355,7 +355,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     hero: {
       eyebrow: "Services / AI Workflow Automation",
       title: "AI workflow automation for documents, extraction and classification",
-      subheading: "For the step where someone still has to read before the process can move.",
+      subheading: "AI that reads and sorts the information your team currently handles by hand.",
       lead:
         "AI workflow automation puts a model inside one step of a process you already run: reading a document, extracting fields, or classifying an enquiry. The rest of the workflow stays ordinary, and a person keeps the checks that matter. We suggest it only when that step needs it.",
       ctaLabel: "Talk to us about that step",
@@ -589,7 +589,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     hero: {
       eyebrow: "Services / Custom Software Development",
       title: "Custom software development for internal systems and portals",
-      subheading: "For service businesses whose work no longer fits a spreadsheet or a standard product.",
+      subheading: "Software built around how your business actually operates.",
       lead:
         "We design and build software around the way a business actually operates: internal platforms, client and staff portals, operations tools and dashboards. It is the right path when the current tools cannot represent the work.",
       ctaLabel: "Talk to us about the process",
@@ -820,13 +820,13 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     hero: {
       eyebrow: "Services / AI Agents",
       title: "AI agents for support, sales and internal operations",
-      subheading: "For a defined task that needs a lookup and an action, with a person on the decisions that matter.",
+      subheading: "Agents that complete defined tasks inside your systems, with people on the decisions that matter.",
       lead:
         "An AI agent carries out a defined task inside your systems: answering a routine support question, preparing a sales summary, or completing an admin step it is allowed to take. It works within limits you set. It is not a general chatbot, and it is not a fixed workflow with a model attached.",
       ctaLabel: "Talk to us about the task",
       image: {
-        src: "/site-images/photos/ai-network-diagram.png",
-        alt: "A diagram showing an AI system connected to business documents and reporting",
+        src: "/site-images/photos/workers-system-monitors.png",
+        alt: "Two people reviewing system data across multiple monitors",
       },
     },
     audience: {
@@ -1059,13 +1059,13 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     hero: {
       eyebrow: "Services / System Integrations",
       title: "System integrations and API development",
-      subheading: "For businesses whose CRM, job system, accounting and website do not share records.",
+      subheading: "Systems that share the same records, automatically.",
       lead:
         "System integration connects the software you already rely on, so customer, job and invoice records move between them instead of being copied by hand. Where a product has no suitable connector, we build the API or the custom connection.",
       ctaLabel: "Discuss your current systems",
       image: {
-        src: "/site-images/photos/connected-tools-overlay.png",
-        alt: "A diagram showing business tools connected through an automation hub",
+        src: "/site-images/photos/office-analytics-overlay.png",
+        alt: "Hands reviewing printed charts and a tablet showing analytics",
       },
     },
     audience: {
@@ -1302,7 +1302,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     hero: {
       eyebrow: "Services / Ongoing Support",
       title: "Ongoing software development and support",
-      subheading: "For software, automations and integrations that are already in use.",
+      subheading: "Keeping what we've built reliable as your business changes.",
       lead:
         "Ongoing support keeps an existing system matched to the business after the first build: maintenance, fixes, further features, and a team that is not dependent on one person to change it.",
       ctaLabel: "Talk to us about the system you have",

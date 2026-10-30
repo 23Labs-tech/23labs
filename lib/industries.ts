@@ -17,6 +17,7 @@ export type IndustryPage = {
     eyebrow: string;
     title: string;
     highlight: string;
+    subheading?: string;
     lead: string;
     image: { src: string; alt: string };
     ctaLabel?: string;
@@ -265,6 +266,7 @@ export const industryPages: IndustryPage[] = [
       eyebrow: "Industries / Construction",
       title: "Software and automation built for ",
       highlight: "construction teams",
+      subheading: "Projects and compliance that stay on track without extra admin.",
       lead:
         "Automate repetitive admin, connect disconnected project systems and build software around the way your sites actually run.",
       image: {
@@ -388,6 +390,7 @@ export const industryPages: IndustryPage[] = [
       eyebrow: "Industries / Allied Health",
       title: "Software and automation built for ",
       highlight: "allied health clinics",
+      subheading: "Clinics that run on less admin and steadier scheduling.",
       lead:
         "Automate repetitive admin, simplify scheduling and connect the systems your clinic team already uses.",
       image: {
@@ -508,6 +511,7 @@ export const industryPages: IndustryPage[] = [
       eyebrow: "Industries / Real Estate",
       title: "Software and automation built for ",
       highlight: "real estate teams",
+      subheading: "Enquiries and maintenance requests that follow up themselves.",
       lead:
         "Automate repetitive admin, respond to enquiries faster and connect the systems your agency already relies on.",
       image: {
@@ -648,6 +652,7 @@ export const industryPages: IndustryPage[] = [
       eyebrow: "Industries / Trades & Field Services",
       title: "Software and automation built for ",
       highlight: "trades and field service businesses",
+      subheading: "Jobs that move from quote to invoice without the paperwork trailing behind.",
       lead:
         "Respond to leads faster, reduce admin and build software around the way your jobs actually get done.",
       image: {

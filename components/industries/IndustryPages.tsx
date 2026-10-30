@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CheckIcon, IndustryIcon } from "@/components/industries/IndustryIcon";
+import { DetailPageHero } from "@/components/sections/DetailPageHero";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { JsonLd } from "@/components/site/JsonLd";
 import {
@@ -266,39 +267,16 @@ export function IndustryDetailPage({ industry }: { industry: IndustryPageData })
 
   return (
     <>
-      <header className="svc-hero">
-        <div className="hero-wide svc-hero-in">
-          <div className="reveal in svc-hero-copy">
-            <div className="mono">
-              <Link href="/industries" style={{ color: "inherit" }}>
-                Industries
-              </Link>{" "}
-              / {industryLabel}
-            </div>
-            <h1>
-              <SplitHeading title={industry.hero.title} highlight={industry.hero.highlight} />
-            </h1>
-            <p className="lead">{industry.hero.lead}</p>
-            <div className="hero-actions">
-              <Link href="/contact" className="btn btn-primary">
-                {industry.hero.ctaLabel ?? "Book a discovery call"}
-              </Link>
-              <Link href="#build" className="btn btn-ghost">
-                See what we can automate
-              </Link>
-            </div>
-          </div>
-          <div className="reveal in svc-hero-media">
-            <Image
-              src={industry.hero.image.src}
-              alt={industry.hero.image.alt}
-              fill
-              preload
-              sizes="(max-width: 900px) 100vw, 50vw"
-            />
-          </div>
-        </div>
-      </header>
+      <DetailPageHero
+        eyebrow="Industries"
+        title={`${industry.hero.title}${industry.hero.highlight}`}
+        subheading={industry.hero.subheading}
+        description={industry.hero.lead}
+        primaryCta={{ label: "Start a conversation", href: "/contact" }}
+        secondaryCta={{ label: "See what we can automate", href: "#build" }}
+        backgroundImage={industry.hero.image}
+        backgroundPosition="center right"
+      />
 
       <section className="sec no-top">
         <div className="wrap">

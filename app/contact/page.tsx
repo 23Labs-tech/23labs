@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { ContactSection } from "@/components/sections/ContactSection";
-import { PageHero } from "@/components/sections/PageHero";
+import { BookingSection } from "@/components/contact/BookingSection";
+import { ContactHero } from "@/components/contact/ContactHero";
 import { BreadcrumbJsonLd } from "@/components/site/BreadcrumbJsonLd";
 import { createMetadata } from "@/lib/seo";
 
@@ -20,23 +20,9 @@ export default function ContactPage() {
       <link rel="dns-prefetch" href="//assets.calendly.com" />
       <link rel="dns-prefetch" href="//calendly.com" />
 
-      <PageHero
-        className="contact-hero"
-        eyebrow="Get in touch"
-        title="Let's talk about "
-        highlight="your business"
-        body="Tell us about your business, your goals, and the challenges you're looking to solve. We'll get back to you within one business day."
-      />
+      <ContactHero />
 
-      <ContactSection
-        variant="page"
-        eyebrow="Why reach out"
-        title="Let's fix what's slowing your business down."
-        body={[
-          "Whether you're looking to improve operations, automate manual processes, connect disconnected systems or build custom software, we can help you work out the right next step.",
-          "Pick a time that works for you and we'll talk through what's slowing things down, what you're currently using and where automation or software could make the biggest difference.",
-        ]}
-      />
+      <BookingSection />
       <BreadcrumbJsonLd
         items={[
           { name: "Home", path: "/" },

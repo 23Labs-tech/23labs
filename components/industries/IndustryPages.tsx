@@ -267,7 +267,7 @@ export function IndustryDetailPage({ industry }: { industry: IndustryPageData })
   return (
     <>
       <header className="svc-hero">
-        <div className="wrap svc-hero-in">
+        <div className="hero-wide svc-hero-in">
           <div className="reveal in svc-hero-copy">
             <div className="mono">
               <Link href="/industries" style={{ color: "inherit" }}>

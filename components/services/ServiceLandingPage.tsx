@@ -40,7 +40,7 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
   return (
     <>
       <header className="svc-hero">
-        <div className="wrap svc-hero-in">
+        <div className="hero-wide svc-hero-in">
           <div className="reveal in svc-hero-copy">
             <h1>{service.hero.title}</h1>
             {service.hero.subheading ? <p className="hero-sub">{service.hero.subheading}</p> : null}

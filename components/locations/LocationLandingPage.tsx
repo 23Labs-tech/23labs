@@ -29,7 +29,7 @@ const locationServiceCards = serviceLandingPages.map((service) => ({
 function LocationHero({ location }: { location: LocationPage }) {
   return (
     <header className="svc-hero">
-      <div className="wrap svc-hero-in">
+      <div className="hero-wide svc-hero-in">
         <div className="reveal in svc-hero-copy">
           <div className="hero-badge">{location.heroEyebrow}</div>
           <h1>Automation and Custom Software for {location.city} Businesses</h1>

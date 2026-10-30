@@ -1138,9 +1138,9 @@ textarea:focus-visible {
   max-width: 18em;
   margin-bottom: 12px;
   font-family: var(--font-sans), "Poppins", Arial, sans-serif;
-  font-size: clamp(28px, 3.6vw, 48px);
+  font-size: clamp(32px, 3.8vw, 54px);
   font-weight: 600;
-  line-height: 1.15;
+  line-height: 1.12;
   letter-spacing: -0.01em;
 }
 
@@ -1153,7 +1153,7 @@ textarea:focus-visible {
 }
 
 .svc-hero-copy .lead {
-  max-width: 50ch;
+  max-width: 56ch;
   margin-top: 12px;
   font-size: clamp(15px, 1.3vw, 17px);
   line-height: 1.5;

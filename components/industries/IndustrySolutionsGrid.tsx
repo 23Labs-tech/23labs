@@ -25,7 +25,7 @@ export function IndustrySolutionsGrid({ id, heading, intro, items }: IndustrySol
   return (
     <section className="sec" id={id}>
       <div className="wrap">
-        <div className="sec-head sec-head-center reveal">
+        <div className="sec-head sec-head-center detail-section-head reveal">
           <span className="mono">How we help</span>
           <h2 className="sec-title">{heading}</h2>
           <p className="lead">{intro}</p>

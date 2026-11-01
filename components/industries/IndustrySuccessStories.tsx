@@ -11,7 +11,7 @@ export function IndustrySuccessStories({ stories }: IndustrySuccessStoriesProps)
   return (
     <section className="sec">
       <div className="wrap">
-        <div className="sec-head sec-head-center reveal">
+        <div className="sec-head sec-head-center detail-section-head reveal">
           <span className="mono">Examples of our work</span>
           <h2 className="sec-title">What good looks like</h2>
           <p className="lead">A few examples of how 23Labs has reduced manual work and connected business systems.</p>

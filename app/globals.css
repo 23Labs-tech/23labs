@@ -239,6 +239,16 @@ textarea:focus-visible {
   text-align: center;
 }
 
+/* Scoped to the Service/Industry detail-page section heads only. */
+.detail-section-head .mono {
+  display: inline-block;
+  margin-bottom: 24px;
+}
+
+.detail-section-head .sec-title {
+  margin-bottom: 32px;
+}
+
 .sec-title {
   font-family: var(--font-sans), "Poppins", Arial, sans-serif;
   font-size: clamp(2rem, 3.5vw, 3rem);
@@ -1204,6 +1214,10 @@ textarea:focus-visible {
   margin-top: 28px;
 }
 
+.detail-hero + .sec {
+  padding-top: clamp(80px, 7vw, 120px);
+}
+
 .svc-hero {
   padding: 36px 0 48px;
 }
@@ -1293,16 +1307,16 @@ textarea:focus-visible {
 
 .industry-problem-copy .mono {
   display: inline-block;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   color: var(--accent);
 }
 
 .industry-problem-copy .sec-title {
-  margin-bottom: 20px;
+  margin-bottom: 32px;
 }
 
 .industry-problem-copy p.lead {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   font-size: 17px;
 }
 
@@ -1310,7 +1324,7 @@ textarea:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin: 24px 0 0;
+  margin: 32px 0 0;
   padding: 0;
   list-style: none;
 }
@@ -3857,6 +3871,10 @@ a.proof-link .work-link {
 
   .industry-solutions-grid .service-cards-grid {
     grid-template-columns: 1fr;
+  }
+
+  .detail-hero + .sec {
+    padding-top: 64px;
   }
 
   .contact-hero {

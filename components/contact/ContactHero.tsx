@@ -1,19 +1,7 @@
-import Image from "next/image";
-
 export function ContactHero() {
   return (
     <header className="contact-hero">
-      <div className="contact-hero-media">
-        <Image
-          src="/site-images/photos/team-dashboard-presentation.png"
-          alt="A team reviewing a performance dashboard during a meeting"
-          fill
-          priority
-          sizes="100vw"
-        />
-        <div className="contact-hero-overlay" aria-hidden="true" />
-      </div>
-      <div className="hero-wide contact-hero-shell">
+      <div className="wrap contact-hero-shell">
         <div className="contact-hero-content">
           <span className="mono">Contact</span>
           <h1>Let&apos;s talk about what your business needs next.</h1>

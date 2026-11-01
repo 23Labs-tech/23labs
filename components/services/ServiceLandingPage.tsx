@@ -46,8 +46,6 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
         description={service.hero.lead}
         primaryCta={{ label: "Start a conversation", href: "/contact" }}
         secondaryCta={{ label: "How we approach it", href: "#approach" }}
-        backgroundImage={service.hero.image}
-        backgroundPosition="center right"
       />
 
       <section className="sec no-top">

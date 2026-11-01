@@ -257,8 +257,6 @@ export function IndustryDetailPage({ industry }: { industry: IndustryPageData })
         description={industry.hero.lead}
         primaryCta={{ label: "Start a conversation", href: "/contact" }}
         secondaryCta={{ label: "See what we can automate", href: "#solutions" }}
-        backgroundImage={industry.hero.image}
-        backgroundPosition="center right"
       />
 
       <IndustryProblemSection

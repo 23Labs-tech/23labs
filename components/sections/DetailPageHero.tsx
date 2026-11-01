@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 
 type DetailPageHeroCta = {
@@ -13,8 +12,6 @@ type DetailPageHeroProps = {
   description: string;
   primaryCta: DetailPageHeroCta;
   secondaryCta?: DetailPageHeroCta;
-  backgroundImage: { src: string; alt: string };
-  backgroundPosition?: string;
 };
 
 export function DetailPageHero({
@@ -24,23 +21,10 @@ export function DetailPageHero({
   description,
   primaryCta,
   secondaryCta,
-  backgroundImage,
-  backgroundPosition,
 }: DetailPageHeroProps) {
   return (
     <header className="detail-hero">
-      <div className="detail-hero-media">
-        <Image
-          src={backgroundImage.src}
-          alt={backgroundImage.alt}
-          fill
-          priority
-          sizes="100vw"
-          style={backgroundPosition ? { objectPosition: backgroundPosition } : undefined}
-        />
-        <div className="detail-hero-overlay" aria-hidden="true" />
-      </div>
-      <div className="hero-wide detail-hero-shell">
+      <div className="wrap detail-hero-shell">
         <div className="detail-hero-content">
           <span className="mono">{eyebrow}</span>
           <h1>{title}</h1>
@@ -49,7 +33,7 @@ export function DetailPageHero({
           <div className="hero-actions">
             <ButtonLink href={primaryCta.href}>{primaryCta.label}</ButtonLink>
             {secondaryCta ? (
-              <ButtonLink href={secondaryCta.href} variant="light">
+              <ButtonLink href={secondaryCta.href} variant="secondary">
                 {secondaryCta.label}
               </ButtonLink>
             ) : null}

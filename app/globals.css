@@ -1835,14 +1835,19 @@ a.problem-card-link .work-link {
   padding-block: clamp(64px, 9vw, 120px);
 }
 
-.stats-band {
+.stats-panel {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  max-width: 1080px;
+  margin: 0 auto;
+  border-radius: 20px;
+  background: var(--paper-2);
+  padding: clamp(40px, 5vw, 64px) clamp(24px, 4vw, 48px);
 }
 
 .stat {
-  border-left: 1px solid var(--dark-line);
-  padding: 0 40px;
+  border-left: 1px solid var(--line);
+  padding: 0 32px;
   text-align: center;
 }
 
@@ -1854,20 +1859,20 @@ a.problem-card-link .work-link {
   display: flex;
   align-items: baseline;
   justify-content: center;
-  color: var(--dark-ink);
-  font-size: clamp(3.25rem, 6vw, 5.5rem);
+  color: var(--ink);
+  font-size: clamp(2.75rem, 5vw, 4.25rem);
   font-weight: 600;
   letter-spacing: -0.03em;
   font-variant-numeric: tabular-nums;
 }
 
 .stat .n .plus {
-  color: var(--accent-on-dark);
+  color: var(--accent);
 }
 
 .stat .l {
   margin-top: 14px;
-  color: var(--dark-ink-soft);
+  color: var(--ink-soft);
   font-size: 16px;
 }
 
@@ -3675,20 +3680,16 @@ a.proof-link .work-link {
     grid-column: span 1;
   }
 
-  .stats-band,
   .work-grid {
     grid-template-columns: 1fr;
   }
 
-  .stat {
-    border-top: 1px solid var(--dark-line);
-    border-left: 0;
-    padding: 40px 0 0;
+  .stats-panel {
+    padding: 40px 24px;
   }
 
-  .stat:first-child {
-    border-top: 0;
-    padding-top: 0;
+  .stat {
+    padding: 0 20px;
   }
 
   .foot-in {
@@ -3867,6 +3868,23 @@ a.proof-link .work-link {
 
   .location-intro-sec {
     padding-bottom: 56px;
+  }
+
+  .stats-panel {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 36px 24px;
+  }
+
+  .stat {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding: 28px 0 0;
+  }
+
+  .stat:first-child {
+    border-top: 0;
+    padding-top: 0;
   }
 
   .industry-solutions-grid .service-cards-grid {

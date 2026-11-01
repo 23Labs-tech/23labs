@@ -17,17 +17,19 @@ type StatsBandProps = {
  */
 export function StatsBand({ stats = defaultStats, noTop = false }: StatsBandProps) {
   return (
-    <section className={`sec sec-dark stats-section${noTop ? " no-top" : ""}`}>
-      <div className="wrap stats-band" aria-label="23Labs project statistics">
-        {stats.map((stat) => (
-          <div className="stat" key={stat.label}>
-            <div className="n">
-              {stat.value.replace(/\+$/, "")}
-              {stat.value.endsWith("+") ? <span className="plus">+</span> : null}
+    <section className={`sec stats-section${noTop ? " no-top" : ""}`}>
+      <div className="wrap">
+        <div className="stats-panel" aria-label="23Labs project statistics">
+          {stats.map((stat) => (
+            <div className="stat" key={stat.label}>
+              <div className="n">
+                {stat.value.replace(/\+$/, "")}
+                {stat.value.endsWith("+") ? <span className="plus">+</span> : null}
+              </div>
+              <div className="l">{stat.label}</div>
             </div>
-            <div className="l">{stat.label}</div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

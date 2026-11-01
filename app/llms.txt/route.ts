@@ -34,7 +34,7 @@ function buildLlmsTxt() {
     `> ${SUMMARY}`,
     [
       `- Location: ${siteConfig.location} (remote delivery across Australia and New Zealand)`,
-      `- Contact: ${siteConfig.email} or ${absoluteUrl("/contact")}`,
+      `- Contact: ${absoluteUrl("/contact")}`,
       `- Pricing: ${industryProjectCostAnswer}`,
     ].join("\n"),
     [

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageHero } from "@/components/sections/PageHero";
 import { BreadcrumbJsonLd } from "@/components/site/BreadcrumbJsonLd";
 import { createMetadata } from "@/lib/seo";
-import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = createMetadata({
   absoluteTitle: "Privacy Policy | 23Labs",
@@ -41,8 +41,7 @@ export default function PrivacyPolicyPage() {
               privacy principles in the New Zealand <em>Privacy Act 2020</em>.
             </p>
             <p>
-              You can contact us about privacy at any time at{" "}
-              <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.
+              You can contact us about privacy at any time via our <Link href="/contact">contact page</Link>.
             </p>
 
             <h2>2. What we collect</h2>
@@ -99,8 +98,8 @@ export default function PrivacyPolicyPage() {
                 IP address, which Google processes to provide the service
               </li>
               <li>
-                certain actions, such as a contact form that sends successfully, or a click on our email address.
-                Those events do not include your name, email address or message.
+                certain actions, such as a booking being completed. Those events do not include your name, email
+                address or message.
               </li>
             </ul>
             <p>
@@ -156,7 +155,7 @@ export default function PrivacyPolicyPage() {
                 email contains the form fields above. It does not include your IP address.
               </li>
               <li>
-                <strong>Zoho Mail</strong> hosts our business email, {siteConfig.email}.
+                <strong>Zoho Mail</strong> hosts our business email.
               </li>
               <li>
                 <strong>Google Analytics</strong> (Google LLC) provides website usage statistics.
@@ -283,9 +282,8 @@ export default function PrivacyPolicyPage() {
             <h2>10. Accessing and correcting your information</h2>
             <p>
               You can ask to see the personal information we hold about you, or ask us to correct it if it is
-              wrong, out of date or incomplete. Email{" "}
-              <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>. We may need to confirm who you are
-              first. We will acknowledge your request promptly, and we aim to respond within 20 working days. If
+              wrong, out of date or incomplete. Contact us via our <Link href="/contact">contact page</Link>. We
+              may need to confirm who you are first. We will acknowledge your request promptly, and we aim to respond within 20 working days. If
               a complex request needs reasonably longer, we will tell you. There is no charge to make a request,
               and we will only charge for providing access if we have told you about the cost first and it is
               reasonable. If we cannot
@@ -295,8 +293,8 @@ export default function PrivacyPolicyPage() {
 
             <h2>11. Questions and complaints</h2>
             <p>
-              If you have a concern about how we have handled your personal information, please email{" "}
-              <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a> with the details. We will acknowledge
+              If you have a concern about how we have handled your personal information, please contact us via
+              our <Link href="/contact">contact page</Link> with the details. We will acknowledge
               complaints promptly and aim to respond within 20 working days, and will let you know if we
               need more time for complex matters.
             </p>
@@ -328,11 +326,11 @@ export default function PrivacyPolicyPage() {
             <p>
               <strong>23Labs</strong>
               <br />
-              Email: <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
-              <br />
               Melbourne, Victoria, Australia
               <br />
               Website: <a href="https://www.23labs.co">www.23labs.co</a>
+              <br />
+              Contact: <Link href="/contact">www.23labs.co/contact</Link>
             </p>
           </div>
         </div>

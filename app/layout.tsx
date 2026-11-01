@@ -3,7 +3,6 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/site/Footer";
 import { GoogleAnalytics } from "@/components/site/GoogleAnalytics";
-import { MailtoClickTracker } from "@/components/site/MailtoClickTracker";
 import { JsonLd } from "@/components/site/JsonLd";
 import { Navbar } from "@/components/site/Navbar";
 import { RevealObserver } from "@/components/site/RevealObserver";
@@ -41,7 +40,6 @@ export default function RootLayout({
         <Footer />
         <RevealObserver />
         <GoogleAnalytics />
-        <MailtoClickTracker />
         <JsonLd
           data={{
             "@context": "https://schema.org",

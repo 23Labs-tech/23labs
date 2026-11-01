@@ -1,5 +1,5 @@
-import Link from "next/link";
 import type { ReactNode } from "react";
+import { ButtonLink } from "@/components/ui/ButtonLink";
 
 export type ProcessStepData = {
   label?: string;
@@ -18,71 +18,39 @@ type ProcessSectionProps = {
   id?: string;
 };
 
-function ProcessTimeline({
-  steps,
-  label,
-}: {
-  steps: readonly ProcessStepData[];
-  label?: string;
-}) {
-  return (
-    <div>
-      {label ? <div className="proc-timeline-label">{label}</div> : null}
-      <div className="proc-timeline reveal">
-        {steps.map((step, index) => (
-          <div className="proc-step" key={step.title}>
-            <div className="proc-step-number">{String(index + 1).padStart(2, "0")}</div>
-            <div className="proc-step-dot" aria-hidden="true" />
-            <div className="proc-step-body">
-              <span className="proc-step-label">{step.label ?? `Step ${index + 1}`}</span>
-              <h3>{step.title}</h3>
-              <p>{step.body}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 export function ProcessSection({
+  eyebrow,
   heading,
   intro,
   timelineLabel,
   cta,
   steps,
-  layout = "stacked",
   id,
 }: ProcessSectionProps) {
-  if (layout === "split") {
-    return (
-      <section className="proc-sec sec sec-dark" id={id}>
-        <div className="wrap proc-grid">
-          <div className="proc-intro reveal">
-            <h2 className="proc-title">{heading}</h2>
-            {intro ? <p className="proc-lead">{intro}</p> : null}
-            {cta ? (
-              <Link href={cta.href} className="proc-cta">
-                {cta.label}
-              </Link>
-            ) : null}
-          </div>
-          <ProcessTimeline steps={steps} label={timelineLabel} />
-        </div>
-      </section>
-    );
-  }
-
   return (
-    <section className="proc-sec sec sec-dark" id={id}>
-      <div className="wrap proc-intro-center reveal">
-        <h2 className="proc-title">{heading}</h2>
-        {intro ? <p className="proc-lead proc-lead-center">{intro}</p> : null}
-      </div>
+    <section className="sec proc-sec" id={id}>
       <div className="wrap">
-        <div className="proc-timeline-wrap">
-          <ProcessTimeline steps={steps} label={timelineLabel} />
+        <div className="sec-head sec-head-center reveal">
+          {eyebrow ? <span className="mono">{eyebrow}</span> : null}
+          <h2 className="sec-title">{heading}</h2>
+          {intro ? <p className="lead">{intro}</p> : null}
         </div>
+        {timelineLabel ? <p className="proc-timeline-label">{timelineLabel}</p> : null}
+        <div className="proc-grid reveal">
+          {steps.map((step, index) => (
+            <div className="proc-card" key={step.title}>
+              <div className="proc-step-number">{String(index + 1).padStart(2, "0")}</div>
+              {step.label ? <span className="proc-step-label">{step.label}</span> : null}
+              <h3>{step.title}</h3>
+              <p>{step.body}</p>
+            </div>
+          ))}
+        </div>
+        {cta ? (
+          <div className="proc-cta-row reveal">
+            <ButtonLink href={cta.href}>{cta.label}</ButtonLink>
+          </div>
+        ) : null}
       </div>
     </section>
   );

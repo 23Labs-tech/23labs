@@ -2,7 +2,6 @@ export const siteConfig = {
   name: "23Labs",
   legalName: "23Labs",
   url: "https://www.23labs.co",
-  email: "hello@23labs.co",
   description:
     "23Labs serves clients across Australia and New Zealand remotely from Melbourne, building custom software, automation and system integrations.",
   tagline: "Automation, software and connected systems for growing businesses.",

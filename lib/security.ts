@@ -1,5 +1,3 @@
-import { siteConfig } from "@/lib/site";
-
 export const securityPractices = [
   {
     title: "Least-privilege access",
@@ -74,6 +72,6 @@ export const securityFaqs = [
   },
   {
     question: "How do we report a security concern?",
-    answer: `Email ${siteConfig.email} with the details. We will acknowledge it and follow up as quickly as we can.`,
+    answer: "Contact us via our contact page with the details. We will acknowledge it and follow up as quickly as we can.",
   },
 ];

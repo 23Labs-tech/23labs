@@ -30,7 +30,7 @@ function faqs(list: readonly QA[]) {
 function buildFullText() {
   const parts: string[] = [
     `# ${siteConfig.name}: full content`,
-    `> ${siteConfig.description} Pricing: ${industryProjectCostAnswer} Contact: ${siteConfig.email}. Index of pages: ${absoluteUrl("/llms.txt")}`,
+    `> ${siteConfig.description} Pricing: ${industryProjectCostAnswer} Contact: ${absoluteUrl("/contact")}. Index of pages: ${absoluteUrl("/llms.txt")}`,
   ];
 
   parts.push("# Services");

@@ -42,11 +42,8 @@ export function Footer() {
       <div className="wrap">
         <div className="foot-in">
           <div>
-            <Logo href="/#top" tone="light" />
+            <Logo href="/#top" className="foot-logo" />
             <p>Automation, software and connected systems for growing businesses.</p>
-            <a href={`mailto:${siteConfig.email}`} className="foot-email">
-              {siteConfig.email}
-            </a>
           </div>
           <div className="foot-col">
             <p className="foot-label">Studio</p>

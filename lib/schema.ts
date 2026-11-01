@@ -22,7 +22,6 @@ export function organizationJsonLd() {
     legalName: siteConfig.legalName,
     url: `${getBaseUrl()}/`,
     logo: absoluteUrl("/23labs-logo-dark.png"),
-    email: siteConfig.email,
     description: siteConfig.description,
     areaServed,
     sameAs: [siteConfig.socials.linkedin, siteConfig.socials.instagram],

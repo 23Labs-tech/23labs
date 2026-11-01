@@ -8,7 +8,6 @@ import { HowWeThink } from "@/components/sections/HowWeThink";
 import { HowWeWork } from "@/components/sections/HowWeWork";
 import { OutcomeBand } from "@/components/sections/OutcomeBand";
 import { ServiceShowcase } from "@/components/sections/ServiceShowcase";
-import { StatsBand } from "@/components/sections/StatsBand";
 import { JsonLd } from "@/components/site/JsonLd";
 import { WorkShowcase } from "@/components/work/WorkShowcase";
 import { getAllPosts } from "@/lib/blog";
@@ -38,8 +37,6 @@ export default function Home() {
     <>
       <HomeHero />
 
-      <StatsBand />
-
       <section className="sec sec-alt" id="services">
         <div className="wrap intro-copy">
           <h2 className="sec-title">
@@ -60,9 +57,9 @@ export default function Home() {
 
       <OutcomeBand />
 
-      <section className="sec" id="work">
+      <section className="sec sec-alt" id="work">
         <div className="wrap">
-          <div className="sec-head reveal">
+          <div className="sec-head sec-head-center reveal">
             <h2 className="sec-title">
               Systems built for <span className="em">real businesses</span>
             </h2>
@@ -81,9 +78,9 @@ export default function Home() {
 
       <FaqAccordion />
 
-      <section className="sec">
+      <section className="sec sec-alt">
         <div className="wrap">
-          <div className="sec-head reveal">
+          <div className="sec-head sec-head-center reveal">
             <h2 className="sec-title">
               Ideas from inside <span className="em">the work</span>
             </h2>

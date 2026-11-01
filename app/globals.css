@@ -517,41 +517,35 @@ textarea:focus-visible {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 96px 0 108px;
+  padding: clamp(64px, 8vw, 108px) 0;
   text-align: center;
 }
 
 .hero-in {
-  max-width: 1160px;
+  max-width: 820px;
   margin: 0 auto;
 }
 
 .hero h1 {
-  max-width: 960px;
+  max-width: 18ch;
   margin-inline: auto;
-  font-family: var(--font-sans), "Poppins", Arial, sans-serif;
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
-  font-weight: 600;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
-  color: var(--ink);
 }
 
 .hero-kicker {
-  max-width: 880px;
+  max-width: 640px;
   margin: 18px auto 0;
   color: var(--ink-soft);
-  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  font-size: 17px;
   font-weight: 600;
   line-height: 1.4;
 }
 
 .hero-lead {
-  max-width: 880px;
-  margin: 22px auto 0;
+  max-width: 640px;
+  margin: 14px auto 0;
   color: var(--ink-soft);
-  font-size: clamp(1rem, 1.4vw, 1.1875rem);
-  line-height: 1.5;
+  font-size: clamp(16px, 0.4vw + 14px, 18px);
+  line-height: 1.6;
 }
 
 .hero-cta-row {
@@ -559,18 +553,35 @@ textarea:focus-visible {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 28px;
-  margin-top: 42px;
+  gap: 16px;
+  margin-top: 32px;
 }
 
-.btn.hero-cta {
-  height: 52px;
-  border-radius: 9px;
-  padding: 0 24px;
-  font-size: 13px;
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 36px;
+  margin-top: 56px;
+}
+
+.hero-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.hero-stat-value {
+  color: var(--ink);
+  font-size: 22px;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+
+.hero-stat-label {
+  color: var(--ink-faint);
+  font-size: 14px;
 }
 
 .hero + .sec {
@@ -3420,11 +3431,6 @@ a.proof-link .work-link {
     border-top: 1px solid var(--line-soft);
   }
 
-  .hero {
-    min-height: auto;
-    padding: 64px 0;
-  }
-
   .hero-lead {
     max-width: 100%;
   }
@@ -3568,18 +3574,17 @@ a.proof-link .work-link {
   }
 
   .hero {
-    min-height: auto;
     padding: 40px 0 56px;
   }
 
-  .hero h1 {
-    font-size: clamp(2.25rem, 10vw, 2.75rem);
-    letter-spacing: -0.01em;
+  .hero-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
   }
 
-  .btn.hero-cta {
-    width: 100%;
-    justify-content: center;
+  .hero-stats {
+    gap: 24px;
   }
 
   .hero-actions,

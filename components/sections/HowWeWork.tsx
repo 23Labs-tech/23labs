@@ -6,13 +6,7 @@ export function HowWeWork() {
     <ProcessSection
       layout="split"
       eyebrow="How we work"
-      heading={
-        <>
-          Understand first.
-          <br />
-          Then we build.
-        </>
-      }
+      heading="Understand first. Then we build."
       intro="We start by understanding how your business actually works, then design and build the systems around it. Clear scope, practical delivery and no unnecessary complexity."
       cta={{ href: "/contact", label: "Start a conversation" }}
       steps={serviceApproachSteps}

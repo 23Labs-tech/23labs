@@ -5,7 +5,7 @@ const principles = coreValues.slice(0, 3);
 
 export function HowWeThink() {
   return (
-    <section className="think-sec sec">
+    <section className="think-sec sec sec-alt">
       <div className="wrap">
         <div className="think-intro reveal">
           <h2 className="think-title">

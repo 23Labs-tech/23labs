@@ -1,9 +1,24 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { faqs as defaultFaqs } from "@/lib/data";
 
 type FaqItem = { question: string; answer: string };
+
+function FaqAnswer({ answer }: { answer: string }) {
+  const marker = "initial consultation";
+  const index = answer.indexOf(marker);
+  if (index === -1) return <p>{answer}</p>;
+
+  return (
+    <p>
+      {answer.slice(0, index)}
+      <Link href="/contact">{marker}</Link>
+      {answer.slice(index + marker.length)}
+    </p>
+  );
+}
 
 export function FaqAccordion({
   items,
@@ -42,7 +57,7 @@ export function FaqAccordion({
                   </span>
                 </button>
                 <div className="faq-panel" id={panelId} role="region" hidden={!isOpen}>
-                  <p>{faq.answer}</p>
+                  <FaqAnswer answer={faq.answer} />
                 </div>
               </div>
             );

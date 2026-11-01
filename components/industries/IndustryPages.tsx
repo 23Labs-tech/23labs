@@ -4,6 +4,7 @@ import { IndustryProblemSection } from "@/components/industries/IndustryProblemS
 import { IndustrySolutionsGrid } from "@/components/industries/IndustrySolutionsGrid";
 import { IndustrySuccessStories } from "@/components/industries/IndustrySuccessStories";
 import { DetailPageHero } from "@/components/sections/DetailPageHero";
+import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { JsonLd } from "@/components/site/JsonLd";
 import {
@@ -87,20 +88,6 @@ function TextBlock({ paragraphs }: { paragraphs: readonly CopyBlock[] }) {
         <RichParagraph paragraph={paragraph} key={index} />
       ))}
     </div>
-  );
-}
-
-function FaqAnswer({ answer }: { answer: string }) {
-  const marker = "initial consultation";
-  const index = answer.indexOf(marker);
-  if (index === -1) return <p>{answer}</p>;
-
-  return (
-    <p>
-      {answer.slice(0, index)}
-      <Link href="/contact">{marker}</Link>
-      {answer.slice(index + marker.length)}
-    </p>
   );
 }
 
@@ -304,21 +291,7 @@ export function IndustryDetailPage({ industry }: { industry: IndustryPageData })
         steps={industryProcess.steps}
       />
 
-      <section className="sec" id="faq">
-        <div className="wrap">
-          <div className="sec-head reveal">
-            <h2 className="sec-title">Common questions</h2>
-          </div>
-          <div className="faq-list">
-            {faqs.map((item) => (
-              <article className="faq-item faq-static" key={item.question}>
-                <h3>{item.question}</h3>
-                <FaqAnswer answer={item.answer} />
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FaqAccordion items={faqs} idPrefix={`faq-${industry.slug}`} heading="Common questions" />
 
       <ConsultationCta title={industry.cta.title} body={industry.cta.body} label={industry.cta.label} />
 

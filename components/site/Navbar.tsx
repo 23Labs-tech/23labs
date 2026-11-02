@@ -12,10 +12,12 @@ const linkItems = navItems.filter((item) => item.href !== "/contact");
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const [openedForPathname, setOpenedForPathname] = useState(pathname);
 
-  useEffect(() => {
+  if (pathname !== openedForPathname) {
+    setOpenedForPathname(pathname);
     setOpen(false);
-  }, [pathname]);
+  }
 
   useEffect(() => {
     if (!open) return;

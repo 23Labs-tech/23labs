@@ -37,20 +37,27 @@ export default function Home() {
     <>
       <HomeHero />
 
-      <section className="sec sec-alt" id="services">
-        <div className="wrap intro-copy">
-          <h2 className="sec-title">
-            Technology that removes <span className="em">operational friction</span>
-          </h2>
-          <p className="lead">
-            Four ways we help growing businesses remove manual work, build the right software and
-            connect the tools they already use.
-          </p>
-          <Link href="/services" className="work-link full-services-link">
-            See all services
-          </Link>
-        </div>
-        <div className="wrap">
+      <section className="sec sec-roomy" id="services">
+        <div className="wrap-xl svc-showcase-sec">
+          <div className="svc-showcase-head reveal">
+            <div className="svc-showcase-head-copy">
+              <span className="mono">What we do</span>
+              <h2 className="sec-title">Software and automation built around your business</h2>
+            </div>
+            <div className="svc-showcase-head-intro">
+              <p className="lead">
+                23Labs helps businesses simplify operations, connect disconnected systems and remove
+                repetitive manual work.
+              </p>
+              <p className="lead">
+                From integrations and workflow automation to AI and custom software, we build
+                practical solutions around the way your business actually operates.
+              </p>
+              <Link href="/services" className="work-link full-services-link">
+                See all services
+              </Link>
+            </div>
+          </div>
           <ServiceShowcase />
         </div>
       </section>
@@ -78,13 +85,13 @@ export default function Home() {
 
       <FaqAccordion />
 
-      <section className="sec sec-alt">
-        <div className="wrap">
-          <div className="sec-head sec-head-center reveal">
+      <section className="sec sec-alt sec-roomy">
+        <div className="wrap-xl">
+          <div className="blog-head reveal">
             <h2 className="sec-title">
-              Ideas from inside <span className="em">the work</span>
+              Latest <span className="em">insights</span> and resources
             </h2>
-            <Link href="/blog" className="work-link full-services-link">
+            <Link href="/blog" className="work-link">
               View all insights
             </Link>
           </div>

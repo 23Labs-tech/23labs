@@ -1,65 +1,54 @@
 import Image from "next/image";
-import Link from "next/link";
-import { services } from "@/lib/data";
+import { ButtonLink } from "@/components/ui/ButtonLink";
+import { serviceLandingPages } from "@/lib/services";
 
 const images: Record<string, { src: string; alt: string }> = {
   "business-process-automation": {
-    src: "/site-images/photos/team-dashboard-presentation.png",
-    alt: "A team reviewing a performance dashboard presented on a screen during a meeting",
+    src: "/site-images/photos/factory-automation-review.png",
+    alt: "Two people reviewing automated equipment on a production floor",
+  },
+  "system-integrations": {
+    src: "/site-images/industries/trades-field-services.jpg",
+    alt: "A field technician wiring a control panel",
   },
   "ai-workflow-automation": {
-    src: "/site-images/photos/office-analytics-overlay.png",
-    alt: "Business analytics charts displayed in an office setting",
+    src: "/site-images/photos/workers-system-monitors.png",
+    alt: "Two engineers reviewing system data across multiple monitors",
   },
   "custom-software-development": {
+    src: "/site-images/photos/field-team-laptop-review.png",
+    alt: "Two team members reviewing information together on a laptop",
+  },
+  "ai-agents": {
+    src: "/site-images/industries/construction.jpg",
+    alt: "Workers securing reinforcement bar on a construction site",
+  },
+  "ongoing-support": {
     src: "/site-images/photos/dashboard-laptop-review.png",
     alt: "A person reviewing a software dashboard on a laptop",
   },
-  "ai-agents": {
-    src: "/site-images/photos/ai-network-diagram.png",
-    alt: "A diagram showing an AI system connected to business documents and reporting",
-  },
-};
-
-const sizeBySlug: Record<string, string> = {
-  "business-process-automation": "xl",
-  "ai-workflow-automation": "sm",
-  "custom-software-development": "lg",
-  "ai-agents": "lg",
-};
-
-const toneBySlug: Record<string, string> = {
-  "business-process-automation": "tone-sky",
-  "ai-workflow-automation": "tone-lilac",
-  "custom-software-development": "tone-plain",
-  "ai-agents": "tone-mint",
 };
 
 export function ServiceShowcase() {
   return (
-    <div className="build-grid">
-      {services.map((service) => {
+    <div className="svc-showcase-grid">
+      {serviceLandingPages.map((service) => {
         const image = images[service.slug];
         return (
-          <article
-            className={`build-card ${sizeBySlug[service.slug]} ${toneBySlug[service.slug]} reveal`}
-            key={service.slug}
-          >
-            <div className="build-visual">
+          <article className="svc-showcase-card reveal" key={service.slug}>
+            <div className="svc-showcase-media">
               <Image
                 src={image.src}
                 alt={image.alt}
                 fill
-                sizes="(max-width: 1080px) 100vw, 50vw"
+                sizes="(max-width: 680px) 100vw, (max-width: 1080px) 50vw, 33vw"
               />
             </div>
-            <div className="build-body">
-              <h3>{service.homeTitle}</h3>
-              <p>{service.summary}</p>
-              <Link href={`/services/${service.slug}`} className="build-link">
-                Learn More
-              </Link>
-            </div>
+            <h3>{service.navLabel}</h3>
+            <p>{service.cardDescription}</p>
+            <ButtonLink href={service.href} variant="secondary" className="svc-showcase-btn">
+              Explore service
+            </ButtonLink>
           </article>
         );
       })}

@@ -165,36 +165,117 @@ export const faqs = [
   {
     question: "What does 23Labs actually build?",
     answer:
-      "Business automation, custom software and the integrations that connect them, plus the occasional website or web app when a project needs one. We tend to be judged on whether it saved time or made money, not on how it looks in a demo.",
+      "Business automation, custom software and the integrations that connect them, plus the occasional website or web app when a project needs one. We would rather be judged on whether it saved time or made money than on how it looks in a demo.",
   },
   {
-    question: "What kinds of businesses does 23Labs work with?",
+    question: "What kinds of businesses do you work with?",
     answer:
-      "We work with growing service businesses, professional teams, and operators who need better systems, automation, software, or web platforms.",
+      "Mostly operational businesses in Australia and New Zealand: transport and logistics, construction, trades and field services, and recruitment, along with professional services, real estate and allied health.",
   },
   {
-    question: "Can 23Labs improve existing tools instead of replacing them?",
+    question: "Can you improve our existing tools instead of replacing them?",
     answer:
-      "Yes. Many projects start by connecting and improving the tools a business already uses before introducing new software.",
+      "Usually, yes. Most of our work connects and automates the tools you already use. We only suggest new software when the existing setup genuinely can't do the job.",
   },
   {
-    question: "Can you automate our current processes without a full rebuild?",
+    question: "Do you build full applications, or just automations?",
     answer:
-      "Usually, yes. Most automation projects sit on top of the tools you already run, we map the process first and only recommend replacing something if it's genuinely holding you back.",
-  },
-  {
-    question: "Do you build full custom applications, or just automations?",
-    answer:
-      "Both. Some projects are a focused automation between two tools, others are a complete internal platform or customer-facing application. We scope it around the problem, not a fixed package.",
+      "Both. Some projects are a single automation between two systems; others are internal tools, portals or SaaS platforms built from scratch.",
   },
   {
     question: "Do you provide support after launch?",
     answer:
-      "Yes. Launch is the start, not the end, we stay involved to refine the workflow, fix what needs fixing, and help the system keep up as the business grows.",
+      "Yes. Ongoing support keeps systems reliable as tools update and volumes grow, and covers improvements once your team is using what we built.",
   },
   {
-    question: "How do we start a project?",
+    question: "How do we start?",
     answer:
-      "The first step is a short discovery conversation to understand the workflow, goal, timeline, and best next move.",
+      "Start a conversation and tell us what is slowing the team down. We will look at your current setup and come back with a scoped recommendation.",
   },
 ];
+
+/** Homepage-only: "Where the manual hours usually go" use-case rows. */
+export const manualWorkAreas = [
+  {
+    title: "Quoting and estimating",
+    body: "Quotes built by hand from price lists, then chased for approval.",
+  },
+  {
+    title: "Client onboarding",
+    body: "A signed client means re-entering the same details in three systems.",
+  },
+  {
+    title: "Document processing",
+    body: "Invoices, forms and PDFs read and typed up by someone on the team.",
+  },
+  {
+    title: "Manual data entry",
+    body: "The same record keyed into the CRM, the job system and a spreadsheet.",
+  },
+  {
+    title: "Slow lead response",
+    body: "New enquiries sit waiting until someone has time to follow up.",
+  },
+  {
+    title: "CRM and accounting out of sync",
+    body: "Customer and invoice records entered twice and never quite matching.",
+  },
+] as const;
+
+/** Homepage-only: "What we build" overview cards (the 6 services grouped into 4). */
+export const homeBuildItems = [
+  {
+    title: "Business process automation",
+    body: "Approvals, handoffs and repetitive admin run on their own, and people handle the exceptions.",
+    href: "/services/business-process-automation",
+  },
+  {
+    title: "System integrations",
+    body: "Your CRM, job system, accounting and website connected, so nobody retypes information.",
+    href: "/services/system-integrations",
+  },
+  {
+    title: "Custom software",
+    body: "Internal tools, portals and web apps built around how you actually operate.",
+    href: "/services/custom-software-development",
+  },
+  {
+    title: "AI workflows and agents",
+    body: "AI that reads documents and completes approved tasks in your systems, with a person in the loop.",
+    href: "/services/ai-workflow-automation",
+  },
+] as const;
+
+/** Homepage-only: 3 featured case studies, shorter card copy than the full case study pages. */
+export const homeCaseStudies = [
+  {
+    slug: "huntress-recruitment",
+    company: "Huntress Recruitment",
+    headline: "Bullhorn, SEEK and the website, kept in sync",
+    summary: "Job information now moves between three systems instead of being entered in each one.",
+  },
+  {
+    slug: "corit-tech",
+    company: "CorIT Tech",
+    headline: "Client onboarding that sets itself up",
+    summary:
+      "A signed client creates project records and tasks automatically. 10+ hours a month of admin saved, as reported by the client.",
+  },
+  {
+    slug: "real-estate-workflow-automation",
+    company: "Real estate office, Australia",
+    headline: "Enquiries linked to listings and follow-up",
+    summary: "Website enquiries connected to property records, so fewer leads slip through.",
+  },
+] as const;
+
+/** Homepage-only: plain industry link row, in the order and wording shown on the homepage. */
+export const homeIndustryLinks = [
+  { label: "Transport and logistics", href: "/freight-logistics" },
+  { label: "Construction", href: "/construction" },
+  { label: "Trades and field services", href: "/trades-field-services" },
+  { label: "Recruitment", href: "/recruitment" },
+  { label: "Professional services", href: "/professional-services" },
+  { label: "Real estate", href: "/real-estate" },
+  { label: "Allied health", href: "/allied-health" },
+] as const;

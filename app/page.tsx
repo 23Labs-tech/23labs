@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BlogCard } from "@/components/blog/BlogCard";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { HomeHero } from "@/components/sections/HomeHero";
-import { HowWeThink } from "@/components/sections/HowWeThink";
 import { HowWeWork } from "@/components/sections/HowWeWork";
-import { OutcomeBand } from "@/components/sections/OutcomeBand";
 import { ServiceShowcase } from "@/components/sections/ServiceShowcase";
 import { JsonLd } from "@/components/site/JsonLd";
-import { WorkShowcase } from "@/components/work/WorkShowcase";
 import { getAllPosts } from "@/lib/blog";
-import { faqs } from "@/lib/data";
+import { faqs, homeCaseStudies, homeIndustryLinks, manualWorkAreas } from "@/lib/data";
 import { createMetadata } from "@/lib/seo";
+
+const postDateFormatter = new Intl.DateTimeFormat("en-AU", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
 
 export const metadata: Metadata = createMetadata({
   absoluteTitle: "Custom Software & Business Automation | 23Labs",
@@ -31,73 +33,104 @@ export const metadata: Metadata = createMetadata({
 });
 
 export default function Home() {
-  const posts = getAllPosts();
+  const posts = getAllPosts().slice(0, 3);
 
   return (
     <>
       <HomeHero />
 
-      <section className="sec sec-roomy" id="services">
-        <div className="wrap-xl svc-showcase-sec">
-          <div className="svc-showcase-head reveal">
-            <div className="svc-showcase-head-copy">
-              <span className="mono">What we do</span>
-              <h2 className="sec-title">Software and automation built around your business</h2>
-            </div>
-            <div className="svc-showcase-head-intro">
-              <p className="lead">
-                23Labs helps businesses simplify operations, connect disconnected systems and remove
-                repetitive manual work.
-              </p>
-              <p className="lead">
-                From integrations and workflow automation to AI and custom software, we build
-                practical solutions around the way your business actually operates.
-              </p>
-              <Link href="/services" className="work-link full-services-link">
-                See all services
-              </Link>
-            </div>
+      <section className="sec sec-alt">
+        <div className="wrap">
+          <div className="sec-head sec-head-center reveal">
+            <h2 className="sec-title">Where the manual hours usually go</h2>
+            <p className="lead">If one of these sounds familiar, it is usually the right place to start.</p>
           </div>
+          <div className="hours-list reveal">
+            {manualWorkAreas.map((item) => (
+              <div className="hours-row" key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" id="services">
+        <div className="wrap intro-copy">
+          <h2 className="sec-title">What we build</h2>
+          <p className="lead">
+            Four kinds of work, all covered by{" "}
+            <Link href="/services/ongoing-support" className="text-link">
+              ongoing support
+            </Link>{" "}
+            after launch.
+          </p>
+        </div>
+        <div className="wrap">
           <ServiceShowcase />
         </div>
       </section>
 
-      <OutcomeBand />
-
       <section className="sec sec-alt" id="work">
         <div className="wrap">
           <div className="sec-head sec-head-center reveal">
-            <h2 className="sec-title">
-              Systems built for <span className="em">real businesses</span>
-            </h2>
-            <p className="lead">A few of the products, platforms, and rebuilds we&apos;ve shipped recently.</p>
-            <Link href="/work" className="work-link full-services-link">
-              See all case studies
+            <h2 className="sec-title">Systems running in real businesses</h2>
+            <Link href="/work" className="text-link">
+              All case studies
             </Link>
           </div>
-          <WorkShowcase />
+          <div className="panel-grid reveal">
+            {homeCaseStudies.map((item) => (
+              <article className="panel-card" key={item.slug}>
+                <span className="mono">{item.company}</span>
+                <h3>{item.headline}</h3>
+                <p>{item.summary}</p>
+                <Link href={`/case-studies/${item.slug}`} className="text-link">
+                  Read the case study
+                </Link>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
       <HowWeWork />
 
-      <HowWeThink />
+      <section className="sec sec-alt">
+        <div className="wrap">
+          <div className="sec-head sec-head-center reveal">
+            <h2 className="sec-title">Built for operational businesses</h2>
+            <p className="lead">
+              Where jobs, people and paperwork move between disconnected systems every day.
+            </p>
+          </div>
+          <div className="industry-link-row reveal">
+            {homeIndustryLinks.map((item) => (
+              <Link href={item.href} key={item.href}>
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      <FaqAccordion />
+      <FaqAccordion heading="Common questions" />
 
-      <section className="sec sec-alt sec-roomy">
-        <div className="wrap-xl">
-          <div className="blog-head reveal">
-            <h2 className="sec-title">
-              Latest <span className="em">insights</span> and resources
-            </h2>
-            <Link href="/blog" className="work-link">
-              View all insights
+      <section className="sec sec-alt">
+        <div className="wrap">
+          <div className="sec-head sec-head-center reveal">
+            <h2 className="sec-title">From the work</h2>
+            <Link href="/blog" className="text-link">
+              All insights
             </Link>
           </div>
-          <div className="blog-grid reveal">
-            {posts.slice(0, 3).map((post) => (
-              <BlogCard post={post} key={post.slug} />
+          <div className="panel-grid reveal">
+            {posts.map((post) => (
+              <Link href={`/blog/${post.slug}`} className="panel-card home-blog-card" key={post.slug}>
+                <time dateTime={post.date}>{postDateFormatter.format(new Date(post.date))}</time>
+                <h3>{post.title}</h3>
+              </Link>
             ))}
           </div>
         </div>

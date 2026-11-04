@@ -1,20 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BlogCard } from "@/components/blog/BlogCard";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { HomeHero } from "@/components/sections/HomeHero";
 import { HowWeWork } from "@/components/sections/HowWeWork";
 import { ServiceShowcase } from "@/components/sections/ServiceShowcase";
 import { JsonLd } from "@/components/site/JsonLd";
+import { IndustryIcon } from "@/components/industries/IndustryIcon";
 import { getAllPosts } from "@/lib/blog";
-import { faqs, homeCaseStudies, homeIndustryLinks, manualWorkAreas } from "@/lib/data";
+import { faqs, homeCaseStudies, manualWorkAreas } from "@/lib/data";
+import { industryLinks } from "@/lib/industries";
 import { createMetadata } from "@/lib/seo";
-
-const postDateFormatter = new Intl.DateTimeFormat("en-AU", {
-  day: "numeric",
-  month: "long",
-  year: "numeric",
-});
 
 export const metadata: Metadata = createMetadata({
   absoluteTitle: "Custom Software & Business Automation | 23Labs",
@@ -105,10 +102,13 @@ export default function Home() {
               Where jobs, people and paperwork move between disconnected systems every day.
             </p>
           </div>
-          <div className="industry-link-row reveal">
-            {homeIndustryLinks.map((item) => (
-              <Link href={item.href} key={item.href}>
-                {item.label}
+          <div className="industry-grid reveal">
+            {industryLinks.map((item) => (
+              <Link href={item.href} className="industry-card industry-card-link" key={item.slug}>
+                <IndustryIcon icon={item.icon} />
+                <h3>{item.label}</h3>
+                <p>{item.description}</p>
+                <span className="industry-link">Learn more</span>
               </Link>
             ))}
           </div>
@@ -125,12 +125,9 @@ export default function Home() {
               All insights
             </Link>
           </div>
-          <div className="panel-grid reveal">
+          <div className="blog-grid reveal">
             {posts.map((post) => (
-              <Link href={`/blog/${post.slug}`} className="panel-card home-blog-card" key={post.slug}>
-                <time dateTime={post.date}>{postDateFormatter.format(new Date(post.date))}</time>
-                <h3>{post.title}</h3>
-              </Link>
+              <BlogCard post={post} key={post.slug} />
             ))}
           </div>
         </div>

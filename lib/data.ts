@@ -225,21 +225,25 @@ export const manualWorkAreas = [
 /** Homepage-only: "What we build" overview cards (the 6 services grouped into 4). */
 export const homeBuildItems = [
   {
+    slug: "business-process-automation",
     title: "Business process automation",
     body: "Approvals, handoffs and repetitive admin run on their own, and people handle the exceptions.",
     href: "/services/business-process-automation",
   },
   {
+    slug: "system-integrations",
     title: "System integrations",
     body: "Your CRM, job system, accounting and website connected, so nobody retypes information.",
     href: "/services/system-integrations",
   },
   {
+    slug: "custom-software-development",
     title: "Custom software",
     body: "Internal tools, portals and web apps built around how you actually operate.",
     href: "/services/custom-software-development",
   },
   {
+    slug: "ai-workflow-automation",
     title: "AI workflows and agents",
     body: "AI that reads documents and completes approved tasks in your systems, with a person in the loop.",
     href: "/services/ai-workflow-automation",

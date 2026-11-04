@@ -32,7 +32,7 @@ export function FaqAccordion({
     <section className="sec" id={idPrefix}>
       <div className="wrap">
         <div className="sec-head reveal sec-head-center">
-          <h2 className="sec-title">{heading}</h2>
+          <h2 className="sec-title sec-title-accent">{heading}</h2>
         </div>
         <div className="faq-list reveal">
           {faqs.map((faq, index) => (

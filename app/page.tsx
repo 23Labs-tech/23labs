@@ -6,12 +6,36 @@ import { FinalCta } from "@/components/sections/FinalCta";
 import { HomeHero } from "@/components/sections/HomeHero";
 import { HowWeWork } from "@/components/sections/HowWeWork";
 import { ServiceShowcase } from "@/components/sections/ServiceShowcase";
+import { StatsBand } from "@/components/sections/StatsBand";
 import { JsonLd } from "@/components/site/JsonLd";
 import { IndustryIcon } from "@/components/industries/IndustryIcon";
 import { getAllPosts } from "@/lib/blog";
-import { faqs, homeCaseStudies, manualWorkAreas } from "@/lib/data";
+import { faqs, homeBuildItems, homeCaseStudies, manualWorkAreas } from "@/lib/data";
 import { industryLinks } from "@/lib/industries";
 import { createMetadata } from "@/lib/seo";
+
+const INTRO_HIGHLIGHT_ICON: Record<string, string> = {
+  "business-process-automation": "automation",
+  "system-integrations": "integration",
+  "ai-workflow-automation": "spark",
+};
+
+function ArrowRightIcon() {
+  return (
+    <svg
+      className="highlight-row-arrow"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M5 12h14" />
+      <path d="M13 6l6 6-6 6" />
+    </svg>
+  );
+}
 
 export const metadata: Metadata = createMetadata({
   absoluteTitle: "Custom Software & Business Automation | 23Labs",
@@ -35,6 +59,29 @@ export default function Home() {
   return (
     <>
       <HomeHero />
+
+      <section className="sec">
+        <div className="wrap intro-highlights reveal">
+          <div className="intro-highlights-copy">
+            <h2 className="sec-title">Bringing real automation to your technology mission</h2>
+            <p>
+              Wherever you are in the journey, from one broken workflow to a full system rebuild,
+              we bring the same hands-on, customer-first approach to getting it working properly.
+            </p>
+          </div>
+          <div className="highlight-rows">
+            {homeBuildItems
+              .filter((item) => INTRO_HIGHLIGHT_ICON[item.slug])
+              .map((item) => (
+                <Link href={item.href} className="highlight-row" key={item.slug}>
+                  <IndustryIcon icon={INTRO_HIGHLIGHT_ICON[item.slug]} className="highlight-row-ico" />
+                  <h3>{item.title}</h3>
+                  <ArrowRightIcon />
+                </Link>
+              ))}
+          </div>
+        </div>
+      </section>
 
       <section className="sec sec-alt">
         <div className="wrap">
@@ -115,12 +162,14 @@ export default function Home() {
         </div>
       </section>
 
+      <StatsBand />
+
       <FaqAccordion heading="Common questions" />
 
       <section className="sec sec-alt">
         <div className="wrap">
           <div className="sec-head sec-head-center reveal">
-            <h2 className="sec-title">From the work</h2>
+            <h2 className="sec-title sec-title-accent">From the work</h2>
             <Link href="/blog" className="text-link">
               All insights
             </Link>

@@ -20,6 +20,15 @@ const INTRO_HIGHLIGHT_ICON: Record<string, string> = {
   "ai-workflow-automation": "spark",
 };
 
+const MANUAL_WORK_ICON: Record<string, string> = {
+  "Quoting and estimating": "chart",
+  "Client onboarding": "user",
+  "Document processing": "document",
+  "Manual data entry": "code",
+  "Slow lead response": "bell",
+  "CRM and accounting out of sync": "integration",
+};
+
 function ArrowRightIcon() {
   return (
     <svg
@@ -63,6 +72,7 @@ export default function Home() {
       <section className="sec">
         <div className="wrap intro-highlights reveal">
           <div className="intro-highlights-copy">
+            <p className="mono">How we work</p>
             <h2 className="sec-title">Bringing real automation to your technology mission</h2>
             <p>
               Wherever you are in the journey, from one broken workflow to a full system rebuild,
@@ -86,12 +96,14 @@ export default function Home() {
       <section className="sec sec-alt">
         <div className="wrap">
           <div className="sec-head sec-head-center reveal">
+            <p className="mono">Where time goes</p>
             <h2 className="sec-title">Where the manual hours usually go</h2>
             <p className="lead">If one of these sounds familiar, it is usually the right place to start.</p>
           </div>
-          <div className="hours-list reveal">
+          <div className="service-cards-grid reveal">
             {manualWorkAreas.map((item) => (
-              <div className="hours-row" key={item.title}>
+              <div className="service-card" key={item.title}>
+                <IndustryIcon icon={MANUAL_WORK_ICON[item.title] ?? "document"} className="service-card-icon" />
                 <h3>{item.title}</h3>
                 <p>{item.body}</p>
               </div>
@@ -102,6 +114,7 @@ export default function Home() {
 
       <section className="sec" id="services">
         <div className="wrap intro-copy">
+          <p className="mono">Our services</p>
           <h2 className="sec-title">What we build</h2>
           <p className="lead">
             Four kinds of work, all covered by{" "}
@@ -119,6 +132,7 @@ export default function Home() {
       <section className="sec sec-alt" id="work">
         <div className="wrap">
           <div className="sec-head sec-head-center reveal">
+            <p className="mono">Proof it works</p>
             <h2 className="sec-title">Systems running in real businesses</h2>
             <Link href="/work" className="text-link">
               All case studies
@@ -144,6 +158,7 @@ export default function Home() {
       <section className="sec sec-alt">
         <div className="wrap">
           <div className="sec-head sec-head-center reveal">
+            <p className="mono">Who we serve</p>
             <h2 className="sec-title">Built for operational businesses</h2>
             <p className="lead">
               Where jobs, people and paperwork move between disconnected systems every day.
@@ -164,12 +179,13 @@ export default function Home() {
 
       <StatsBand />
 
-      <FaqAccordion heading="Common questions" />
+      <FaqAccordion heading="Common questions" eyebrow="Questions" />
 
       <section className="sec sec-alt">
         <div className="wrap">
           <div className="sec-head sec-head-center reveal">
-            <h2 className="sec-title sec-title-accent">From the work</h2>
+            <p className="mono">Insights</p>
+            <h2 className="sec-title">From the work</h2>
             <Link href="/blog" className="text-link">
               All insights
             </Link>

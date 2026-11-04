@@ -22,6 +22,7 @@ const homeProcessSteps = [
 export function HowWeWork() {
   return (
     <ProcessSection
+      eyebrow="Our process"
       heading="Understand first. Then build."
       intro="A clear scope and price before development starts, and no more complexity than the problem needs."
       steps={homeProcessSteps}

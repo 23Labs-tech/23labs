@@ -3,24 +3,24 @@
   --ink-soft: #52525b;
   --ink-faint: #71717a;
   --paper: #ffffff;
-  --paper-2: #ecf0ee;
+  --paper-2: #f5f6f8;
   --card: #ffffff;
-  --accent: #ff6329;
-  --accent-dark: #e2501b;
-  --accent-soft: #ffe3d2;
-  --accent-on-dark: #ff9466;
-  --secondary: #394b69;
+  --accent: #2563eb;
+  --accent-dark: #1d4ed8;
+  --accent-soft: #e8f0fe;
+  --accent-on-dark: #60a5fa;
+  --secondary: #52525b;
   --line: #e7e7e4;
   --line-soft: #efefec;
-  --card-border-tint: #e3e8e6;
-  --card-border-hover: #ffc9a8;
+  --card-border-tint: #e5e7eb;
+  --card-border-hover: #bfdbfe;
   --btn-secondary-border: #d4d4d8;
-  --dark-bg: #394b69;
-  --dark-bg-2: #2c3c56;
-  --dark-ink: #f3f7fc;
-  --dark-ink-soft: rgba(243, 247, 252, 0.64);
-  --dark-line: rgba(255, 255, 255, 0.14);
-  --foot-bg: #2c3c56;
+  --dark-bg: #0a0a0d;
+  --dark-bg-2: #141418;
+  --dark-ink: #f5f6f8;
+  --dark-ink-soft: rgba(245, 246, 248, 0.64);
+  --dark-line: rgba(255, 255, 255, 0.12);
+  --foot-bg: #0a0a0d;
   --foot-ink: #f3f7fc;
   --foot-faint: rgba(243, 247, 252, 0.54);
   --mint: #cdeee0;
@@ -166,10 +166,16 @@ textarea:focus-visible {
 .mono {
   font-family: var(--font-sans), "Poppins", Arial, sans-serif;
   font-size: 13px;
-  font-weight: 500;
-  color: var(--ink-faint);
-  letter-spacing: 0;
-  text-transform: none;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sec-dark .mono,
+.hero .mono,
+.final-cta .mono {
+  color: var(--accent-on-dark);
 }
 
 .sec {
@@ -237,6 +243,13 @@ textarea:focus-visible {
 .sec-head-center {
   margin-inline: auto;
   text-align: center;
+}
+
+.sec-head .mono,
+.intro-copy .mono,
+.intro-highlights-copy .mono {
+  display: block;
+  margin-bottom: 14px;
 }
 
 /* Scoped to the Service/Industry detail-page section heads only. */
@@ -465,15 +478,16 @@ textarea:focus-visible {
 }
 
 .btn-primary {
-  border: 1.5px solid var(--ink);
-  background: var(--paper);
-  color: var(--ink);
+  border: 1.5px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
 }
 
 .btn-primary:hover,
 .btn-primary:focus-visible {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+  color: #fff;
 }
 
 .btn-ghost {
@@ -620,37 +634,53 @@ textarea:focus-visible {
 /* ---------- Hero ---------- */
 
 .hero {
-  padding: clamp(48px, 6vw, 88px) 0 clamp(64px, 8vw, 96px);
-  background: linear-gradient(120deg, #fff 0%, #fff 58%, var(--accent-soft) 100%);
-  text-align: left;
+  position: relative;
+  padding: clamp(100px, 14vw, 168px) 0 clamp(72px, 9vw, 112px);
+  background: var(--dark-bg);
+  color: var(--dark-ink);
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(60% 50% at 50% 0%, rgba(37, 99, 235, 0.3), transparent 70%);
+  pointer-events: none;
 }
 
 .hero-in {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  position: relative;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: clamp(32px, 5vw, 72px);
-  max-width: none;
-  margin: 0;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.hero-eyebrow {
+  margin-bottom: 20px;
 }
 
 .hero-copy {
-  max-width: 520px;
+  max-width: 100%;
 }
 
 .hero h1 {
-  max-width: none;
-  margin-inline: 0;
+  max-width: 17ch;
+  margin-inline: auto;
+  color: var(--dark-ink);
 }
 
 .hero-accent {
-  color: var(--accent);
+  color: var(--accent-on-dark);
 }
 
 .hero-lead {
-  max-width: 480px;
-  margin: 20px 0 0;
-  color: var(--ink-soft);
+  max-width: 52ch;
+  margin: 20px auto 0;
+  color: var(--dark-ink-soft);
   font-size: clamp(16px, 0.4vw + 14px, 18px);
   line-height: 1.6;
 }
@@ -659,66 +689,43 @@ textarea:focus-visible {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 16px;
-  margin-top: 32px;
-}
-
-.hero-media {
-  position: relative;
-  aspect-ratio: 4 / 3;
-  border-radius: 24px 24px 140px 24px;
-  overflow: hidden;
-}
-
-.hero-media img {
-  object-fit: cover;
+  margin-top: 36px;
 }
 
 .hero-stats {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: flex-start;
-  gap: 36px;
-  margin-top: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid var(--dark-line);
 }
 
 .hero-stat {
   display: flex;
-  align-items: baseline;
-  gap: 8px;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
 }
 
 .hero-stat-value {
-  color: var(--ink);
-  font-size: 22px;
-  font-weight: 700;
+  color: var(--dark-ink);
+  font-size: 26px;
+  font-weight: 800;
   font-variant-numeric: tabular-nums;
 }
 
 .hero-stat-label {
-  color: var(--ink-faint);
-  font-size: 14px;
+  color: var(--dark-ink-soft);
+  font-size: 13px;
 }
 
 .hero + .sec {
   padding-top: 64px;
-}
-
-@media (max-width: 900px) {
-  .hero-in {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-copy {
-    max-width: 100%;
-  }
-
-  .hero-media {
-    aspect-ratio: 16 / 10;
-    order: -1;
-  }
 }
 
 @media (max-width: 680px) {
@@ -823,8 +830,8 @@ textarea:focus-visible {
   justify-content: center;
   margin-bottom: 24px;
   border: 0;
-  border-radius: 50%;
-  background: var(--dark-bg);
+  border-radius: 14px;
+  background: var(--accent);
 }
 
 .industry-ico svg {
@@ -889,8 +896,8 @@ textarea:focus-visible {
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  border-radius: 50%;
-  background: var(--dark-bg);
+  border-radius: 14px;
+  background: var(--accent);
 }
 
 .service-card-icon svg {
@@ -1052,8 +1059,8 @@ textarea:focus-visible {
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  background: var(--dark-bg);
+  border-radius: 14px;
+  background: var(--accent);
 }
 
 .highlight-row-ico svg {
@@ -1954,40 +1961,6 @@ a.problem-card-link .work-link {
   color: var(--accent-dark);
 }
 
-/* ---------- Manual-work use-case rows (homepage only) ---------- */
-
-.hours-list {
-  max-width: 900px;
-  margin: 48px auto 0;
-  border-top: 1px solid var(--line);
-}
-
-.hours-row {
-  display: grid;
-  grid-template-columns: minmax(0, 280px) 1fr;
-  gap: 8px 32px;
-  padding: 22px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.hours-row h3 {
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.hours-row p {
-  color: var(--ink-soft);
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-@media (max-width: 680px) {
-  .hours-row {
-    grid-template-columns: 1fr;
-    gap: 6px;
-  }
-}
-
 /* ---------- Boxed panel cards (case studies / insights, homepage only) ---------- */
 
 .panel-grid {
@@ -2184,16 +2157,28 @@ a.problem-card-link .work-link {
   display: flex;
   flex-direction: column;
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: 14px;
   background: var(--card);
   padding: clamp(20px, 2.5vw, 28px);
+  transition: border-color 0.2s;
+}
+
+.proc-card:hover {
+  border-color: var(--card-border-hover);
 }
 
 .proc-step-number {
-  margin-bottom: 8px;
-  color: var(--accent);
-  font-size: 15px;
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  font-size: 14px;
+  font-weight: 700;
   font-variant-numeric: tabular-nums;
 }
 
@@ -2272,17 +2257,39 @@ a.problem-card-link .work-link {
 }
 
 .final-cta {
-  background: linear-gradient(135deg, #fff 0%, #fff 45%, var(--accent-soft) 100%);
+  position: relative;
+  background: var(--dark-bg);
+  color: var(--dark-ink);
   text-align: center;
+  overflow: hidden;
+}
+
+.final-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(55% 60% at 50% 100%, rgba(37, 99, 235, 0.26), transparent 70%);
+  pointer-events: none;
 }
 
 .final-cta-in {
+  position: relative;
   max-width: 680px;
   margin-inline: auto;
 }
 
+.final-cta-in .mono {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.final-cta-in h2 {
+  color: var(--dark-ink);
+}
+
 .final-cta-in .lead {
   margin-top: 16px;
+  color: var(--dark-ink-soft);
 }
 
 .final-cta-in .btn {

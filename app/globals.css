@@ -660,7 +660,7 @@ textarea:focus-visible {
   max-width: 19ch;
   margin: 0;
   color: var(--ink);
-  font-size: clamp(32px, 2.6vw + 28px, 58px);
+  font-size: clamp(26px, 2.1vw + 22px, 46px);
   font-weight: 400;
   line-height: 1.15;
   letter-spacing: -0.015em;
@@ -1160,9 +1160,9 @@ textarea:focus-visible {
 }
 
 .home-about-copy h2 {
-  max-width: 14ch;
+  max-width: 22ch;
   color: var(--ink);
-  font-size: clamp(26px, 2.2vw + 14px, 38px);
+  font-size: clamp(22px, 1.9vw + 12px, 32px);
   font-weight: 400;
   line-height: 1.15;
   letter-spacing: -0.02em;
@@ -2336,7 +2336,7 @@ a.problem-card-link .work-link {
 }
 
 .final-cta-in {
-  max-width: 720px;
+  max-width: 864px;
   margin-inline: auto;
   border: 1px solid var(--home-line);
   padding: clamp(48px, 7vw, 80px) clamp(24px, 5vw, 56px);

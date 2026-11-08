@@ -1,45 +1,21 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { HomeHero } from "@/components/sections/HomeHero";
-import { HowWeWork } from "@/components/sections/HowWeWork";
-import { ServiceShowcase } from "@/components/sections/ServiceShowcase";
 import { StatsBand } from "@/components/sections/StatsBand";
 import { JsonLd } from "@/components/site/JsonLd";
-import { IndustryIcon } from "@/components/industries/IndustryIcon";
 import { getAllPosts } from "@/lib/blog";
-import { faqs, homeBuildItems, homeCaseStudies, manualWorkAreas } from "@/lib/data";
+import { getCaseStudy } from "@/lib/caseStudies";
+import { faqs, homeBuildItems, homeCaseStudies, processSteps } from "@/lib/data";
 import { industryLinks } from "@/lib/industries";
 import { createMetadata } from "@/lib/seo";
 
-const INTRO_HIGHLIGHT_ICON: Record<string, string> = {
-  "business-process-automation": "automation",
-  "system-integrations": "integration",
-  "ai-workflow-automation": "spark",
-};
-
-const MANUAL_WORK_ICON: Record<string, string> = {
-  "Quoting and estimating": "chart",
-  "Client onboarding": "user",
-  "Document processing": "document",
-  "Manual data entry": "code",
-  "Slow lead response": "bell",
-  "CRM and accounting out of sync": "integration",
-};
-
 function ArrowRightIcon() {
   return (
-    <svg
-      className="highlight-row-arrow"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M5 12h14" />
       <path d="M13 6l6 6-6 6" />
     </svg>
@@ -64,113 +40,130 @@ export const metadata: Metadata = createMetadata({
 
 export default function Home() {
   const posts = getAllPosts().slice(0, 3);
+  const workItems = homeCaseStudies
+    .map((item) => ({ ...item, full: getCaseStudy(item.slug) }))
+    .filter((item) => item.full);
 
   return (
     <>
       <HomeHero />
 
-      <section className="sec">
-        <div className="wrap intro-highlights reveal">
-          <div className="intro-highlights-copy">
-            <p className="mono">How we work</p>
-            <h2 className="sec-title">Bringing real automation to your technology mission</h2>
-            <p>
-              Wherever you are in the journey, from one broken workflow to a full system rebuild,
-              we bring the same hands-on, customer-first approach to getting it working properly.
+      {/* What we build */}
+      <section className="home-sec" id="services">
+        <div className="wrap home-wrap">
+          <div className="home-sec-head reveal">
+            <h2>What we build</h2>
+            <p className="lead">
+              Four kinds of work, all covered by{" "}
+              <Link href="/services/ongoing-support" className="text-link">
+                ongoing support
+              </Link>{" "}
+              after launch.
             </p>
           </div>
-          <div className="highlight-rows">
-            {homeBuildItems
-              .filter((item) => INTRO_HIGHLIGHT_ICON[item.slug])
-              .map((item) => (
-                <Link href={item.href} className="highlight-row" key={item.slug}>
-                  <IndustryIcon icon={INTRO_HIGHLIGHT_ICON[item.slug]} className="highlight-row-ico" />
-                  <h3>{item.title}</h3>
-                  <ArrowRightIcon />
-                </Link>
-              ))}
+          <div className="home-cell-grid cols-4 reveal">
+            {homeBuildItems.map((item, index) => (
+              <Link href={item.href} className="home-cell" key={item.slug}>
+                <span className="home-cell-num">{String(index + 1).padStart(2, "0")}</span>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="sec sec-alt">
-        <div className="wrap">
-          <div className="sec-head sec-head-center reveal">
-            <p className="mono">Where time goes</p>
-            <h2 className="sec-title">Where the manual hours usually go</h2>
-            <p className="lead">If one of these sounds familiar, it is usually the right place to start.</p>
+      {/* Selected work */}
+      <section className="home-sec" id="work">
+        <div className="wrap home-wrap">
+          <div className="home-sec-head reveal">
+            <h2>Systems running in real businesses</h2>
+            <Link href="/work" className="text-link">
+              All case studies
+            </Link>
           </div>
-          <div className="service-cards-grid reveal">
-            {manualWorkAreas.map((item) => (
-              <div className="service-card" key={item.title}>
-                <IndustryIcon icon={MANUAL_WORK_ICON[item.title] ?? "document"} className="service-card-icon" />
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
+          <div className="home-cell-grid cols-3 reveal">
+            {workItems.map((item) => (
+              <Link href={`/case-studies/${item.slug}`} className="home-cell home-work-cell" key={item.slug}>
+                <div className="home-work-media">
+                  <Image
+                    src={item.full!.heroImage.src}
+                    alt={item.full!.heroImage.alt}
+                    fill
+                    sizes="(max-width: 760px) 100vw, 33vw"
+                  />
+                </div>
+                <div className="home-work-body">
+                  <h3>{item.headline}</h3>
+                  <p className="home-work-meta">{item.full!.industry ?? item.full!.category}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About / Why 23Labs */}
+      <section className="home-sec">
+        <div className="wrap home-wrap">
+          <div className="home-about reveal">
+            <div className="home-about-media">
+              <Image
+                src="/home-hero-header.jpeg"
+                alt="23Labs team reviewing an automated workflow"
+                fill
+                sizes="(max-width: 900px) 100vw, 50vw"
+              />
+            </div>
+            <div className="home-about-copy">
+              <p className="mono">About 23Labs</p>
+              <h2>
+                Practical technology, built around <span className="em">your business</span>
+              </h2>
+              <p>
+                23Labs started with a simple belief: most businesses do not need more software, they
+                need the right systems working together. We work with businesses that have outgrown
+                spreadsheets, manual processes and disconnected software, replacing unnecessary
+                complexity with systems designed around how they actually operate.
+              </p>
+              <Link href="/about" className="text-link">
+                Learn more about 23Labs
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How we work */}
+      <section className="home-sec">
+        <div className="wrap home-wrap">
+          <div className="home-sec-head reveal">
+            <h2>How we work</h2>
+          </div>
+          <div className="home-cell-grid cols-3 reveal">
+            {processSteps.map((step, index) => (
+              <div className="home-cell" key={step.title}>
+                <span className="home-cell-num">{String(index + 1).padStart(2, "0")}</span>
+                <h3>{step.title}</h3>
+                <p>{step.lead}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="sec" id="services">
-        <div className="wrap intro-copy">
-          <p className="mono">Our services</p>
-          <h2 className="sec-title">What we build</h2>
-          <p className="lead">
-            Four kinds of work, all covered by{" "}
-            <Link href="/services/ongoing-support" className="text-link">
-              ongoing support
-            </Link>{" "}
-            after launch.
-          </p>
-        </div>
-        <div className="wrap">
-          <ServiceShowcase />
-        </div>
-      </section>
-
-      <section className="sec sec-alt" id="work">
-        <div className="wrap">
-          <div className="sec-head sec-head-center reveal">
-            <p className="mono">Proof it works</p>
-            <h2 className="sec-title">Systems running in real businesses</h2>
-            <Link href="/work" className="text-link">
-              All case studies
-            </Link>
+      {/* Industries */}
+      <section className="home-sec">
+        <div className="wrap home-wrap">
+          <div className="home-sec-head reveal">
+            <h2>Built for operational businesses</h2>
+            <p className="lead">Where jobs, people and paperwork move between disconnected systems every day.</p>
           </div>
-          <div className="panel-grid reveal">
-            {homeCaseStudies.map((item) => (
-              <article className="panel-card" key={item.slug}>
-                <span className="mono">{item.company}</span>
-                <h3>{item.headline}</h3>
-                <p>{item.summary}</p>
-                <Link href={`/case-studies/${item.slug}`} className="text-link">
-                  Read the case study
-                </Link>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <HowWeWork />
-
-      <section className="sec sec-alt">
-        <div className="wrap">
-          <div className="sec-head sec-head-center reveal">
-            <p className="mono">Who we serve</p>
-            <h2 className="sec-title">Built for operational businesses</h2>
-            <p className="lead">
-              Where jobs, people and paperwork move between disconnected systems every day.
-            </p>
-          </div>
-          <div className="industry-grid reveal">
+          <div className="home-industry-list reveal">
             {industryLinks.map((item) => (
-              <Link href={item.href} className="industry-card industry-card-link" key={item.slug}>
-                <IndustryIcon icon={item.icon} />
+              <Link href={item.href} className="home-industry-row" key={item.slug}>
                 <h3>{item.label}</h3>
-                <p>{item.description}</p>
-                <span className="industry-link">Learn more</span>
+                <ArrowRightIcon />
               </Link>
             ))}
           </div>

@@ -14,6 +14,8 @@
   --line-soft: #efefec;
   --card-border-tint: #e5e7eb;
   --card-border-hover: #bfdbfe;
+  --home-bg: #f3f1ee;
+  --home-line: rgba(0, 0, 0, 0.82);
   --btn-secondary-border: #d4d4d8;
   --dark-bg: #f8f9fa;
   --dark-bg-2: #f1f3f5;
@@ -320,6 +322,7 @@ textarea:focus-visible {
   align-items: center;
   justify-content: space-between;
   height: 76px;
+  padding-inline: clamp(20px, 4vw, 60px);
 }
 
 .logo,
@@ -517,6 +520,7 @@ textarea:focus-visible {
 .nav-cta {
   min-height: 44px;
   padding: 10px 20px;
+  border-radius: 4px;
 }
 
 .nav-toggle {
@@ -628,51 +632,77 @@ textarea:focus-visible {
 /* ---------- Hero ---------- */
 
 .hero {
-  padding: clamp(64px, 9vw, 130px) 0 clamp(64px, 9vw, 130px);
-  background: var(--dark-bg);
-  text-align: center;
+  padding: clamp(56px, 9vw, 120px) 0 clamp(56px, 8vw, 96px);
+  background: var(--home-bg);
+  text-align: left;
+}
+
+.home-wrap {
+  max-width: 1400px;
+  padding-inline: clamp(20px, 4vw, 60px);
 }
 
 .hero-in {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 900px;
   margin: 0 auto;
 }
 
-.hero-copy {
-  max-width: 100%;
+.hero-intro {
+  max-width: 560px;
+  margin: 0 0 28px;
+  color: var(--ink-soft);
+  font-size: clamp(15px, 0.3vw + 14px, 17px);
+  line-height: 1.6;
 }
 
 .hero h1 {
-  max-width: 850px;
-  margin-inline: auto;
+  max-width: 16ch;
+  margin: 0;
   color: var(--ink);
-  font-size: clamp(32px, 4.2vw + 12px, 60px);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font-size: clamp(40px, 6vw + 8px, 96px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
 }
 
 .hero-accent {
   color: var(--accent);
 }
 
-.hero-lead {
-  max-width: 600px;
-  margin: 28px auto 0;
-  color: var(--ink-soft);
-  font-size: clamp(16px, 0.4vw + 15px, 19px);
-  line-height: 1.6;
-}
-
 .hero-cta-row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 28px;
+  gap: 28px;
+  margin-top: 40px;
+}
+
+.hero-cta-row .btn {
+  border-radius: 4px;
+}
+
+.hero-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.hero-text-link:hover,
+.hero-text-link:focus-visible {
+  color: var(--accent);
+}
+
+.hero-text-link svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s;
+}
+
+.hero-text-link:hover svg {
+  transform: translateX(3px);
 }
 
 .hero + .sec {
@@ -680,7 +710,7 @@ textarea:focus-visible {
 }
 
 @media (max-width: 680px) {
-  .hero-lead {
+  .hero-intro {
     max-width: 100%;
   }
 }
@@ -965,76 +995,221 @@ textarea:focus-visible {
   justify-content: center;
 }
 
-/* ---------- Intro highlights (headline + icon-row list) ---------- */
+/* ---------- Homepage editorial sections (Halden & Rue reference) ----------
+   Scoped to the homepage only via .home-* classes, so these never touch the
+   shared .service-card / .industry-card / .panel-card classes other pages use. */
 
-.intro-highlights {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  align-items: start;
-  gap: clamp(32px, 6vw, 80px);
+.home-sec {
+  background: var(--home-bg);
+  border-bottom: 1px solid var(--home-line);
+  padding-block: clamp(56px, 8vw, 100px);
 }
 
-.intro-highlights-copy h2 {
-  max-width: 16ch;
-}
-
-.intro-highlights-copy p {
-  margin-top: 18px;
-  max-width: 44ch;
-  color: var(--ink-soft);
-  font-size: 17px;
-  line-height: 1.6;
-}
-
-.highlight-rows {
-  border-top: 1px solid var(--line);
-}
-
-.highlight-row {
+.home-sec-head {
   display: flex;
-  align-items: center;
-  gap: 20px;
-  border-bottom: 1px solid var(--line);
-  padding: 22px 0;
-  transition: gap 0.2s;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: clamp(32px, 5vw, 56px);
 }
 
-.highlight-row:hover {
-  gap: 26px;
+.home-sec-head h2 {
+  max-width: 20ch;
+  color: var(--ink);
+  font-size: clamp(26px, 2.2vw + 14px, 42px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
-.highlight-row-ico {
-  display: flex;
-  width: 48px;
-  height: 48px;
+.home-sec-head .text-link {
   flex: 0 0 auto;
-  align-items: center;
-  justify-content: center;
-  border-radius: 14px;
-  background: var(--accent);
+  white-space: nowrap;
 }
 
-.highlight-row-ico svg {
-  width: 21px;
-  height: 21px;
-  stroke: #fff;
+.home-cell-grid {
+  display: grid;
+  border-top: 1px solid var(--home-line);
+  border-left: 1px solid var(--home-line);
 }
 
-.highlight-row h3 {
-  flex: 1;
+.home-cell-grid.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.home-cell-grid.cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.home-cell {
+  border-right: 1px solid var(--home-line);
+  border-bottom: 1px solid var(--home-line);
+  padding: clamp(24px, 2.6vw, 32px) clamp(20px, 2.2vw, 28px);
+}
+
+.home-cell-num {
+  margin-bottom: 16px;
+  color: var(--ink-faint);
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.home-cell h3 {
+  margin-bottom: 10px;
+  color: var(--ink);
   font-size: 19px;
   font-weight: 700;
 }
 
-.highlight-row-arrow {
+.home-cell p {
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Selected work: image-topped cells inside the same bordered grid */
+
+.home-work-cell {
+  display: block;
+  padding: 0;
+}
+
+.home-work-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--paper-2);
+}
+
+.home-work-media img {
+  object-fit: cover;
+}
+
+.home-work-body {
+  padding: 20px 24px 28px;
+}
+
+.home-work-body h3 {
+  margin-bottom: 6px;
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.home-work-meta {
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+/* About / Why 23Labs */
+
+.home-about {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 80px);
+}
+
+.home-about-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+}
+
+.home-about-media img {
+  object-fit: cover;
+}
+
+.home-about-copy .mono {
+  display: block;
+  margin-bottom: 18px;
+}
+
+.home-about-copy h2 {
+  max-width: 14ch;
+  color: var(--ink);
+  font-size: clamp(26px, 2.2vw + 14px, 38px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.home-about-copy p {
+  margin-top: 20px;
+  max-width: 44ch;
+  color: var(--ink-soft);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.home-about-copy .text-link {
+  display: inline-block;
+  margin-top: 22px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Industries: minimal divider list */
+
+.home-industry-list {
+  border-top: 1px solid var(--home-line);
+}
+
+.home-industry-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--home-line);
+  padding: 22px 2px;
+  transition: gap 0.2s;
+}
+
+.home-industry-row:hover {
+  gap: 24px;
+}
+
+.home-industry-row h3 {
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.home-industry-row svg {
   flex: 0 0 auto;
   width: 18px;
   height: 18px;
   color: var(--ink-faint);
+  transition: transform 0.2s, color 0.2s;
+}
+
+.home-industry-row:hover svg {
+  color: var(--accent);
+  transform: translateX(3px);
+}
+
+@media (max-width: 900px) {
+  .home-cell-grid.cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .home-about {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 760px) {
-  .intro-highlights {
+  .home-cell-grid.cols-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .home-sec-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 560px) {
+  .home-cell-grid.cols-4 {
     grid-template-columns: 1fr;
   }
 }
@@ -1912,49 +2087,6 @@ a.problem-card-link .work-link {
   color: var(--accent-dark);
 }
 
-/* ---------- Boxed panel cards (case studies / insights, homepage only) ---------- */
-
-.panel-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.panel-card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: clamp(20px, 2.5vw, 28px);
-  transition: border-color 0.2s;
-}
-
-.panel-card:hover {
-  border-color: var(--card-border-hover);
-}
-
-.panel-card .mono {
-  margin-bottom: 4px;
-}
-
-.panel-card h3 {
-  font-size: 17px;
-  line-height: 1.3;
-}
-
-.panel-card p {
-  margin-top: 10px;
-  color: var(--ink-soft);
-  font-size: 14.5px;
-  line-height: 1.6;
-}
-
-.panel-card .text-link {
-  margin-top: auto;
-  padding-top: 18px;
-}
-
 .home-blog-card time {
   display: block;
   font-size: 13px;
@@ -2208,22 +2340,20 @@ a.problem-card-link .work-link {
 }
 
 .final-cta {
-  background: var(--dark-bg);
+  background: var(--home-bg);
   text-align: center;
 }
 
 .final-cta-in {
-  max-width: 680px;
+  max-width: 720px;
   margin-inline: auto;
-}
-
-.final-cta-in .mono {
-  display: block;
-  margin-bottom: 16px;
+  border: 1px solid var(--home-line);
+  padding: clamp(48px, 7vw, 80px) clamp(24px, 5vw, 56px);
 }
 
 .final-cta-in h2 {
   color: var(--ink);
+  font-size: clamp(28px, 2.6vw + 14px, 44px);
 }
 
 .final-cta-in .lead {
@@ -2233,6 +2363,7 @@ a.problem-card-link .work-link {
 
 .final-cta-in .btn {
   margin-top: 36px;
+  border-radius: 4px;
 }
 
 .faq-list {

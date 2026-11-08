@@ -5,22 +5,11 @@ import { BlogCard } from "@/components/blog/BlogCard";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { HomeHero } from "@/components/sections/HomeHero";
-import { StatsBand } from "@/components/sections/StatsBand";
 import { JsonLd } from "@/components/site/JsonLd";
 import { getAllPosts } from "@/lib/blog";
 import { getCaseStudy } from "@/lib/caseStudies";
 import { faqs, homeBuildItems, homeCaseStudies, processSteps } from "@/lib/data";
-import { industryLinks } from "@/lib/industries";
 import { createMetadata } from "@/lib/seo";
-
-function ArrowRightIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M5 12h14" />
-      <path d="M13 6l6 6-6 6" />
-    </svg>
-  );
-}
 
 export const metadata: Metadata = createMetadata({
   absoluteTitle: "Custom Software & Business Automation | 23Labs",
@@ -48,6 +37,37 @@ export default function Home() {
     <>
       <HomeHero />
 
+      {/* About 23Labs */}
+      <section className="home-sec">
+        <div className="wrap home-wrap">
+          <div className="home-about reveal">
+            <div className="home-about-media">
+              <Image
+                src="/home-hero-header.jpeg"
+                alt="23Labs team reviewing an automated workflow"
+                fill
+                sizes="(max-width: 900px) 100vw, 50vw"
+              />
+            </div>
+            <div className="home-about-copy">
+              <p className="mono">About 23Labs</p>
+              <h2>
+                Practical technology, built around <span className="em">your business</span>
+              </h2>
+              <p>
+                23Labs started with a simple belief: most businesses do not need more software, they
+                need the right systems working together. We work with businesses that have outgrown
+                spreadsheets, manual processes and disconnected software, replacing unnecessary
+                complexity with systems designed around how they actually operate.
+              </p>
+              <Link href="/about" className="text-link">
+                Learn more about 23Labs
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* What we build */}
       <section className="home-sec" id="services">
         <div className="wrap home-wrap">
@@ -68,6 +88,24 @@ export default function Home() {
                 <h3>{item.title}</h3>
                 <p>{item.body}</p>
               </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How we work */}
+      <section className="home-sec">
+        <div className="wrap home-wrap">
+          <div className="home-sec-head reveal">
+            <h2>How we work</h2>
+          </div>
+          <div className="home-cell-grid cols-3 reveal">
+            {processSteps.map((step, index) => (
+              <div className="home-cell" key={step.title}>
+                <span className="home-cell-num">{String(index + 1).padStart(2, "0")}</span>
+                <h3>{step.title}</h3>
+                <p>{step.lead}</p>
+              </div>
             ))}
           </div>
         </div>
@@ -102,75 +140,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* About / Why 23Labs */}
-      <section className="home-sec">
-        <div className="wrap home-wrap">
-          <div className="home-about reveal">
-            <div className="home-about-media">
-              <Image
-                src="/home-hero-header.jpeg"
-                alt="23Labs team reviewing an automated workflow"
-                fill
-                sizes="(max-width: 900px) 100vw, 50vw"
-              />
-            </div>
-            <div className="home-about-copy">
-              <p className="mono">About 23Labs</p>
-              <h2>
-                Practical technology, built around <span className="em">your business</span>
-              </h2>
-              <p>
-                23Labs started with a simple belief: most businesses do not need more software, they
-                need the right systems working together. We work with businesses that have outgrown
-                spreadsheets, manual processes and disconnected software, replacing unnecessary
-                complexity with systems designed around how they actually operate.
-              </p>
-              <Link href="/about" className="text-link">
-                Learn more about 23Labs
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How we work */}
-      <section className="home-sec">
-        <div className="wrap home-wrap">
-          <div className="home-sec-head reveal">
-            <h2>How we work</h2>
-          </div>
-          <div className="home-cell-grid cols-3 reveal">
-            {processSteps.map((step, index) => (
-              <div className="home-cell" key={step.title}>
-                <span className="home-cell-num">{String(index + 1).padStart(2, "0")}</span>
-                <h3>{step.title}</h3>
-                <p>{step.lead}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Industries */}
-      <section className="home-sec">
-        <div className="wrap home-wrap">
-          <div className="home-sec-head reveal">
-            <h2>Built for operational businesses</h2>
-            <p className="lead">Where jobs, people and paperwork move between disconnected systems every day.</p>
-          </div>
-          <div className="home-industry-list reveal">
-            {industryLinks.map((item) => (
-              <Link href={item.href} className="home-industry-row" key={item.slug}>
-                <h3>{item.label}</h3>
-                <ArrowRightIcon />
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <StatsBand />
 
       <FaqAccordion heading="Common questions" eyebrow="Questions" />
 

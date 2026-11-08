@@ -73,19 +73,19 @@ h3 {
   margin: 0;
   color: var(--ink);
   font-family: var(--font-sans), "Poppins", Arial, sans-serif;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 h1 {
   font-size: clamp(34px, 4.2vw + 10px, 64px);
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.04;
   letter-spacing: -0.025em;
 }
 
 h2 {
   font-size: clamp(26px, 1.6vw + 18px, 36px);
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.12;
   letter-spacing: -0.025em;
 }
@@ -168,7 +168,7 @@ textarea:focus-visible {
 .mono {
   font-family: var(--font-sans), "Poppins", Arial, sans-serif;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 400;
   color: var(--accent);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -213,7 +213,7 @@ textarea:focus-visible {
   margin-bottom: 22px;
   color: var(--ink-faint);
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .hero-badge::before {
@@ -260,7 +260,7 @@ textarea:focus-visible {
 
 .sec-title {
   font-size: clamp(26px, 1.6vw + 18px, 36px);
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.14;
   letter-spacing: -0.025em;
 }
@@ -346,7 +346,7 @@ textarea:focus-visible {
 .nav-links a {
   color: var(--ink-soft);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   transition: color 0.2s;
 }
 
@@ -371,7 +371,7 @@ textarea:focus-visible {
   padding: 0;
   color: var(--ink-soft);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   font-family: inherit;
   cursor: pointer;
   transition: color 0.2s;
@@ -413,7 +413,7 @@ textarea:focus-visible {
 .nav-mega-all {
   color: var(--accent);
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .nav-mega-all:hover,
@@ -463,10 +463,10 @@ textarea:focus-visible {
   gap: 8px;
   min-height: 48px;
   border: 0;
-  border-radius: 999px;
+  border-radius: 0;
   padding: 14px 26px;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 400;
   cursor: pointer;
   transition:
     background 0.2s,
@@ -520,7 +520,6 @@ textarea:focus-visible {
 .nav-cta {
   min-height: 44px;
   padding: 10px 20px;
-  border-radius: 4px;
 }
 
 .nav-toggle {
@@ -536,7 +535,7 @@ textarea:focus-visible {
   cursor: pointer;
   padding: 10px 16px;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .nav-toggle:hover,
@@ -585,7 +584,7 @@ textarea:focus-visible {
   padding: 12px 4px;
   color: var(--ink-soft);
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .nav-menu-in > a:hover,
@@ -624,7 +623,7 @@ textarea:focus-visible {
 .intro-copy .lead a,
 .story-copy a {
   color: var(--ink);
-  font-weight: 600;
+  font-weight: 400;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -650,17 +649,18 @@ textarea:focus-visible {
   max-width: 560px;
   margin: 0 0 28px;
   color: var(--ink-soft);
-  font-size: clamp(15px, 0.3vw + 14px, 17px);
+  font-size: 18px;
   line-height: 1.6;
 }
 
 .hero h1 {
-  max-width: 16ch;
+  max-width: 19ch;
   margin: 0;
   color: var(--ink);
-  font-size: clamp(40px, 6vw + 8px, 96px);
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  font-size: clamp(32px, 2.6vw + 28px, 58px);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
 }
 
 .hero-accent {
@@ -675,17 +675,13 @@ textarea:focus-visible {
   margin-top: 40px;
 }
 
-.hero-cta-row .btn {
-  border-radius: 4px;
-}
-
 .hero-text-link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   color: var(--ink);
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 400;
   text-decoration: underline;
   text-underline-offset: 4px;
 }
@@ -739,7 +735,7 @@ textarea:focus-visible {
   max-width: 22ch;
   margin-bottom: 22px;
   font-size: clamp(40px, 4.4vw, 68px);
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.04;
   letter-spacing: -0.025em;
 }
@@ -824,7 +820,7 @@ textarea:focus-visible {
 .industry-card h3 {
   margin-bottom: 10px;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .industry-card p {
@@ -839,7 +835,7 @@ textarea:focus-visible {
   margin-top: 18px;
   color: var(--ink);
   font-size: 13.5px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 /* ---------- Service cards (individual, not a connected grid) ---------- */
@@ -891,7 +887,7 @@ textarea:focus-visible {
   margin-bottom: 10px;
   color: var(--ink);
   font-size: 19px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .service-card p {
@@ -940,7 +936,7 @@ textarea:focus-visible {
 
 .case-detail .text-block li strong {
   color: var(--ink);
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .cs-closing .hero-actions {
@@ -976,7 +972,7 @@ textarea:focus-visible {
 }
 
 .intro-copy h2 {
-  font-weight: 800;
+  font-weight: 400;
   letter-spacing: -0.025em;
   font-size: clamp(28px, 3.4vw, 40px);
   line-height: 1.15;
@@ -1017,7 +1013,7 @@ textarea:focus-visible {
   max-width: 20ch;
   color: var(--ink);
   font-size: clamp(26px, 2.2vw + 14px, 42px);
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
@@ -1051,7 +1047,7 @@ textarea:focus-visible {
   margin-bottom: 16px;
   color: var(--ink-faint);
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 400;
   font-variant-numeric: tabular-nums;
 }
 
@@ -1059,7 +1055,7 @@ textarea:focus-visible {
   margin-bottom: 10px;
   color: var(--ink);
   font-size: 19px;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .home-cell p {
@@ -1093,7 +1089,7 @@ textarea:focus-visible {
   margin-bottom: 6px;
   color: var(--ink);
   font-size: 17px;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .home-work-meta {
@@ -1128,7 +1124,7 @@ textarea:focus-visible {
   max-width: 14ch;
   color: var(--ink);
   font-size: clamp(26px, 2.2vw + 14px, 38px);
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.15;
   letter-spacing: -0.02em;
 }
@@ -1146,45 +1142,6 @@ textarea:focus-visible {
   margin-top: 22px;
   text-decoration: underline;
   text-underline-offset: 3px;
-}
-
-/* Industries: minimal divider list */
-
-.home-industry-list {
-  border-top: 1px solid var(--home-line);
-}
-
-.home-industry-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  border-bottom: 1px solid var(--home-line);
-  padding: 22px 2px;
-  transition: gap 0.2s;
-}
-
-.home-industry-row:hover {
-  gap: 24px;
-}
-
-.home-industry-row h3 {
-  color: var(--ink);
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.home-industry-row svg {
-  flex: 0 0 auto;
-  width: 18px;
-  height: 18px;
-  color: var(--ink-faint);
-  transition: transform 0.2s, color 0.2s;
-}
-
-.home-industry-row:hover svg {
-  color: var(--accent);
-  transform: translateX(3px);
 }
 
 @media (max-width: 900px) {
@@ -1284,7 +1241,7 @@ textarea:focus-visible {
 .svc-secondary-body h4 {
   margin: 4px 0 4px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .svc-secondary-body p {
@@ -1324,7 +1281,7 @@ textarea:focus-visible {
   margin: 0 0 16px;
   color: var(--accent);
   font-size: clamp(22px, 1.6vw + 14px, 28px);
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.3;
 }
 
@@ -1357,7 +1314,7 @@ textarea:focus-visible {
   max-width: 18em;
   margin-bottom: 12px;
   font-size: clamp(32px, 3.8vw, 54px);
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.06;
   letter-spacing: -0.025em;
 }
@@ -1366,7 +1323,7 @@ textarea:focus-visible {
   margin: 0 0 4px;
   color: var(--ink-soft);
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.4;
 }
 
@@ -1409,7 +1366,7 @@ textarea:focus-visible {
 .problem-card h3 {
   margin-bottom: 10px;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.35;
 }
 
@@ -1457,7 +1414,7 @@ textarea:focus-visible {
   align-items: flex-start;
   gap: 10px;
   color: var(--ink);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .industry-problem-checklist svg {
@@ -1567,7 +1524,7 @@ a.problem-card-link .work-link {
 .howwehelp-item h3 {
   margin-bottom: 8px;
   font-size: 17px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.35;
   transition: color 0.2s;
 }
@@ -1604,7 +1561,7 @@ a.problem-card-link .work-link {
 .usecase-card h3 {
   margin: 0 0 10px;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.35;
 }
 
@@ -1690,7 +1647,7 @@ a.problem-card-link .work-link {
 .related-link-body h3 {
   margin: 0 0 8px;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.3;
 }
 
@@ -1743,7 +1700,7 @@ a.problem-card-link .work-link {
 .svc h3 {
   margin-bottom: 10px;
   font-size: 19px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .svc p {
@@ -1943,7 +1900,7 @@ a.problem-card-link .work-link {
   margin-bottom: 10px;
   color: var(--ink);
   font-size: 16.5px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .capability-col p {
@@ -1984,7 +1941,7 @@ a.problem-card-link .work-link {
   justify-content: center;
   color: var(--dark-ink);
   font-size: clamp(2.75rem, 5vw, 4.25rem);
-  font-weight: 800;
+  font-weight: 400;
   letter-spacing: -0.03em;
   font-variant-numeric: tabular-nums;
 }
@@ -2057,7 +2014,7 @@ a.problem-card-link .work-link {
   margin-top: 14px;
   color: var(--ink);
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .full-services-link {
@@ -2067,7 +2024,7 @@ a.problem-card-link .work-link {
 .text-link {
   color: var(--accent);
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .text-link:hover,
@@ -2078,7 +2035,7 @@ a.problem-card-link .work-link {
 .intro-copy .lead .text-link {
   color: var(--accent);
   font-size: inherit;
-  font-weight: 600;
+  font-weight: 400;
   text-decoration: none;
 }
 
@@ -2110,7 +2067,7 @@ a.problem-card-link .work-link {
 .industry-link-row a {
   color: var(--ink);
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .industry-link-row a:hover {
@@ -2187,7 +2144,7 @@ a.problem-card-link .work-link {
 .standfor-title {
   color: var(--ink);
   font-size: clamp(32px, 3.2vw, 46px);
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.025em;
 }
@@ -2209,7 +2166,7 @@ a.problem-card-link .work-link {
   margin-bottom: 12px;
   color: var(--ink);
   font-size: 19px;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: -0.005em;
 }
 
@@ -2226,7 +2183,7 @@ a.problem-card-link .work-link {
   margin: 0 auto 32px;
   color: var(--ink-faint);
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 400;
   text-align: center;
 }
 
@@ -2261,7 +2218,7 @@ a.problem-card-link .work-link {
   background: var(--accent-soft);
   color: var(--accent-dark);
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 400;
   font-variant-numeric: tabular-nums;
 }
 
@@ -2270,7 +2227,7 @@ a.problem-card-link .work-link {
   margin-bottom: 6px;
   color: var(--ink-faint);
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .proc-card h3 {
@@ -2299,7 +2256,7 @@ a.problem-card-link .work-link {
   margin-bottom: 20px;
   color: var(--ink);
   font-size: clamp(32px, 3.2vw, 46px);
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.025em;
 }
@@ -2328,7 +2285,7 @@ a.problem-card-link .work-link {
   margin-bottom: 12px;
   color: var(--ink);
   font-size: 21px;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: -0.005em;
 }
 
@@ -2363,7 +2320,6 @@ a.problem-card-link .work-link {
 
 .final-cta-in .btn {
   margin-top: 36px;
-  border-radius: 4px;
 }
 
 .faq-list {
@@ -2386,7 +2342,7 @@ a.problem-card-link .work-link {
   padding: 20px 4px;
   color: var(--ink);
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 400;
   list-style: none;
 }
 
@@ -2442,7 +2398,7 @@ a.problem-card-link .work-link {
   margin: 0;
   padding: 20px 26px 0;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0;
   line-height: 1.4;
 }
@@ -2478,7 +2434,7 @@ a.problem-card-link .work-link {
 .workflow-card h3 {
   margin-bottom: 12px;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.35;
 }
 
@@ -2549,7 +2505,7 @@ a.proof-link .work-link {
   margin: 18px 0 12px;
   color: var(--ink);
   font-size: 21px;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: -0.01em;
 }
 
@@ -2599,7 +2555,7 @@ a.proof-link .work-link {
   display: block;
   color: var(--ink);
   font-size: 14.5px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.4;
 }
 
@@ -2614,7 +2570,7 @@ a.proof-link .work-link {
   display: block;
   color: var(--ink);
   font-size: 14.5px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.4;
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -2635,7 +2591,7 @@ a.proof-link .work-link {
 .case-section-title {
   max-width: 34ch;
   margin-bottom: 14px;
-  font-weight: 800;
+  font-weight: 400;
   letter-spacing: -0.025em;
   font-size: clamp(24px, 2.8vw, 34px);
   line-height: 1.15;
@@ -2673,7 +2629,7 @@ a.proof-link .work-link {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   font-family: var(--font-sans), "Poppins", Arial, sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 16px;
   letter-spacing: -0.005em;
 }
@@ -2698,7 +2654,7 @@ a.proof-link .work-link {
 
 .cs-flow-item h3 {
   margin-bottom: 8px;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 18px;
   letter-spacing: -0.005em;
 }
@@ -2732,7 +2688,7 @@ a.proof-link .work-link {
 
 .cs-outcome-item h3 {
   margin-bottom: 10px;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 18px;
   letter-spacing: -0.005em;
 }
@@ -2760,7 +2716,7 @@ a.proof-link .work-link {
   background: var(--paper);
   color: var(--ink);
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .system-badge .svc-ico {
@@ -2786,7 +2742,7 @@ a.proof-link .work-link {
 }
 
 .cta-band h2 {
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.025em;
   font-size: clamp(30px, 3.6vw, 44px);
@@ -2815,7 +2771,7 @@ a.proof-link .work-link {
 
 .inline-cta h2 {
   font-family: var(--font-sans), "Poppins", Arial, sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.25;
   letter-spacing: -0.005em;
   font-size: clamp(24px, 2.6vw, 32px);
@@ -2982,7 +2938,7 @@ a.proof-link .work-link {
   gap: 9px;
   color: var(--ink-soft);
   font-size: 13.5px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .contact-form .req {
@@ -3039,7 +2995,7 @@ a.proof-link .work-link {
   margin-top: -8px;
   color: var(--ink-soft);
   font-size: 13.5px;
-  font-weight: 500;
+  font-weight: 400;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -3069,7 +3025,7 @@ a.proof-link .work-link {
 
 .form-success strong {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .form-success span {
@@ -3111,7 +3067,7 @@ a.proof-link .work-link {
 }
 
 .story-grid h2 {
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.025em;
   font-size: clamp(32px, 3.6vw, 46px);
@@ -3355,13 +3311,13 @@ a.proof-link .work-link {
   margin: 14px 0 0;
   color: var(--ink-soft);
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .cs-head h1 {
   margin-top: 14px;
   font-family: var(--font-sans), "Poppins", Arial, sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: -0.01em;
   font-size: clamp(40px, 5vw, 64px);
   line-height: 1.08;
@@ -3378,7 +3334,7 @@ a.proof-link .work-link {
   color: var(--ink-faint);
   font-family: var(--font-sans), "Poppins", Arial, sans-serif;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   white-space: nowrap;
@@ -3437,7 +3393,7 @@ a.proof-link .work-link {
 .cs-card-category {
   font-family: var(--font-sans), "Poppins", Arial, sans-serif;
   font-size: 11.5px;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent-dark);
@@ -3447,13 +3403,13 @@ a.proof-link .work-link {
   margin-top: 10px;
   color: var(--ink);
   font-size: 13.5px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.4;
 }
 
 .cs-card-headline {
   margin-top: 12px;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: -0.005em;
   font-size: 19px;
   line-height: 1.32;
@@ -3484,7 +3440,7 @@ a.proof-link .work-link {
 
 .cs-card-result-value {
   font-size: 14.5px;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: -0.005em;
   color: var(--ink);
 }
@@ -3562,7 +3518,7 @@ a.proof-link .work-link {
 .insights-compact h3 {
   font-size: 18px;
   line-height: 1.32;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 /* ---------- Footer ---------- */
@@ -3598,7 +3554,7 @@ a.proof-link .work-link {
   color: var(--ink-faint);
   font-family: var(--font-sans), "Poppins", Arial, sans-serif;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .foot-col ul {

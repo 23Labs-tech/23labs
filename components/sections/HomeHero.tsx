@@ -14,14 +14,14 @@ export function HomeHero() {
   return (
     <header className="hero" id="top">
       <div className="wrap home-wrap hero-in reveal in">
-        <p className="hero-intro">
-          Business automation, custom software and system integrations for Australian and New
-          Zealand businesses still running on spreadsheets and manual handoffs.
-        </p>
         <h1>
           Custom software and automation for businesses that have{" "}
           <span className="hero-accent">outgrown manual work</span>
         </h1>
+        <p className="hero-intro">
+          Business automation, custom software and system integrations for Australian and New
+          Zealand businesses still running on spreadsheets and manual handoffs.
+        </p>
         <div className="hero-cta-row">
           <ButtonLink href="/contact" variant="secondary" className="hero-cta">
             Start a conversation

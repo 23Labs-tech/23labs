@@ -100,15 +100,17 @@ export function Navbar() {
                   </button>
                   {isMenuOpen && (
                     <div className="nav-mega">
-                      <Link href={item.href} className="nav-mega-all" onClick={() => setOpenMenu(null)}>
-                        All {item.label.toLowerCase()}
-                      </Link>
-                      <div className="nav-mega-grid">
-                        {menu.map((sub) => (
-                          <Link href={sub.href} key={sub.href} onClick={() => setOpenMenu(null)}>
-                            {sub.label}
-                          </Link>
-                        ))}
+                      <div className="nav-mega-panel">
+                        <Link href={item.href} className="nav-mega-all" onClick={() => setOpenMenu(null)}>
+                          All {item.label.toLowerCase()}
+                        </Link>
+                        <div className="nav-mega-grid">
+                          {menu.map((sub) => (
+                            <Link href={sub.href} key={sub.href} onClick={() => setOpenMenu(null)}>
+                              {sub.label}
+                            </Link>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   )}

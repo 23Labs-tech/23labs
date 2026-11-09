@@ -258,6 +258,46 @@ main > section.sec:last-of-type::after {
   padding-top: 0;
 }
 
+/*
+ * .no-top was written for a pre-divider layout, to avoid doubling the
+ * gap between two sections meant to sit close together. Now that every
+ * .sec gets a divider (.sec::after) at its own bottom edge, a .sec.no-top
+ * immediately after another .sec has that divider landing with zero
+ * space before its own heading - measured at 14px in practice, against
+ * ~114px above the same line. This targets only that exact pairing
+ * (a .no-top section whose previous sibling is itself a .sec, so a
+ * divider is actually present between them); a .no-top section that
+ * instead follows a hero/header is untouched and keeps padding-top: 0,
+ * since there is no divider there to clear.
+ */
+.sec:has(+ .sec.no-top) {
+  padding-bottom: 80px;
+}
+
+.sec + .sec.no-top {
+  padding-top: 80px;
+}
+
+@media (max-width: 900px) {
+  .sec:has(+ .sec.no-top) {
+    padding-bottom: 64px;
+  }
+
+  .sec + .sec.no-top {
+    padding-top: 64px;
+  }
+}
+
+@media (max-width: 680px) {
+  .sec:has(+ .sec.no-top) {
+    padding-bottom: 40px;
+  }
+
+  .sec + .sec.no-top {
+    padding-top: 40px;
+  }
+}
+
 .sec.tight {
   padding: 96px 0;
 }

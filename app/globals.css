@@ -362,6 +362,26 @@ main > section.sec:last-of-type::after {
   margin-inline: auto;
 }
 
+/*
+ * Some sections use a sibling .text-block div (not nested in .sec-head)
+ * as their supporting description - e.g. ServiceLandingPage's "boundary"
+ * section, which is how "When this is the right service" is built. Only
+ * centre it when it's acting as that section's description, i.e. an
+ * immediate sibling right after .sec-head. .text-block is also reused
+ * for genuine long-form content (case-study narrative sections, the
+ * industries hub's multi-paragraph intro) that must stay left-aligned,
+ * so this is scoped to the adjacency, not the class itself.
+ */
+.sec-head:has(+ .text-block) {
+  margin-bottom: 20px;
+}
+
+.sec-head + .text-block {
+  max-width: 720px;
+  margin-inline: auto;
+  text-align: center;
+}
+
 /* Kept as a harmless no-op alias: every .sec-head is centred by default now. */
 .sec-head-center {
   margin-inline: auto;

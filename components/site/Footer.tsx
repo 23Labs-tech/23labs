@@ -110,6 +110,8 @@ export function Footer() {
             <Link href="/security">Security</Link>
             {" · "}
             <Link href="/privacy-policy">Privacy Policy</Link>
+            {" · "}
+            <span>ABN: {siteConfig.abn}</span>
           </span>
         </div>
       </div>

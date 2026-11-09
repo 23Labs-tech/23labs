@@ -1,6 +1,7 @@
 export const siteConfig = {
   name: "23Labs",
   legalName: "23Labs",
+  abn: "61 703 704 992",
   url: "https://www.23labs.co",
   description:
     "23Labs serves clients across Australia and New Zealand remotely from Melbourne, building custom software, automation and system integrations.",

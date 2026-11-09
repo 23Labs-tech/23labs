@@ -1288,17 +1288,25 @@ textarea:focus-visible {
 .home-process-grid {
   display: grid;
   grid-template-columns: minmax(0, 0.45fr) minmax(0, 0.55fr);
+  grid-template-rows: auto 1fr;
   align-items: start;
-  gap: clamp(40px, 6vw, 96px);
+  column-gap: clamp(40px, 6vw, 96px);
+  row-gap: 0;
 }
 
-.home-process-copy .mono {
-  display: block;
+.home-process-eyebrow {
+  grid-column: 1;
+  grid-row: 1;
   margin-bottom: 18px;
 }
 
+.home-process-copy {
+  grid-column: 1;
+  grid-row: 2;
+}
+
 .home-process-copy h2 {
-  max-width: 16ch;
+  max-width: 20ch;
   color: var(--ink);
   font-size: clamp(24px, 1.9vw + 13px, 34px);
   font-weight: 400;
@@ -1315,18 +1323,8 @@ textarea:focus-visible {
 }
 
 .home-process-steps {
-  position: relative;
-}
-
-.home-process-steps::before {
-  content: "";
-  position: absolute;
-  top: 20px;
-  bottom: 20px;
-  left: 19px;
-  width: 1px;
-  background: var(--accent);
-  opacity: 0.3;
+  grid-column: 2;
+  grid-row: 2;
 }
 
 .home-process-step {
@@ -1376,6 +1374,18 @@ textarea:focus-visible {
 @media (max-width: 900px) {
   .home-process-grid {
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .home-process-eyebrow,
+  .home-process-copy,
+  .home-process-steps {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .home-process-steps {
+    margin-top: 32px;
   }
 
   .home-cell-grid.cols-4 {

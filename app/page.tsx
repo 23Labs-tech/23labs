@@ -122,8 +122,8 @@ export default function Home() {
       <section className="home-sec">
         <div className="wrap home-wrap">
           <div className="home-process-grid reveal">
+            <p className="mono home-process-eyebrow">How we work</p>
             <div className="home-process-copy">
-              <p className="mono">How we work</p>
               <h2>We start with the business, not the technology.</h2>
               <p>
                 Most businesses don&apos;t set out to create complicated processes. Over time, systems

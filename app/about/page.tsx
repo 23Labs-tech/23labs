@@ -3,7 +3,6 @@ import Link from "next/link";
 import { CtaSection } from "@/components/sections/CtaSection";
 import { PageHero } from "@/components/sections/PageHero";
 import { ProcessSection } from "@/components/sections/ProcessSection";
-import { StatsBand } from "@/components/sections/StatsBand";
 import { WhatWeStandFor } from "@/components/sections/WhatWeStandFor";
 import { BreadcrumbJsonLd } from "@/components/site/BreadcrumbJsonLd";
 import { workflowFramework } from "@/lib/data";
@@ -26,8 +25,6 @@ export default function AboutPage() {
         highlight="your business"
         body="23Labs serves clients across Australia and New Zealand remotely from Melbourne. We design and build business automation, custom software and connected systems for those clients."
       />
-
-      <StatsBand noTop />
 
       <section className="sec">
         <div className="wrap">
@@ -77,7 +74,7 @@ export default function AboutPage() {
         }
         intro="We find the manual work slowing the business down, then build practical systems that save time, connect tools, and improve how work gets done."
         timelineLabel="The 23Labs Client Workflow Framework"
-        steps={workflowFramework.map((item) => ({ label: item.step, title: item.title, body: item.body }))}
+        steps={workflowFramework.map((item) => ({ title: item.title, body: item.body }))}
       />
 
       <CtaSection

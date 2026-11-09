@@ -2357,53 +2357,6 @@ a.problem-card-link .work-link {
   line-height: 1.6;
 }
 
-/* ---------- Metrics ---------- */
-
-.stats-section {
-  padding-block: clamp(48px, 7vw, 88px);
-  background: var(--dark-bg);
-  color: var(--dark-ink);
-}
-
-.stats-panel {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 0 clamp(16px, 4vw, 48px);
-}
-
-.stat {
-  border-left: 1px solid var(--dark-line);
-  padding: 0 32px;
-  text-align: center;
-}
-
-.stat:first-child {
-  border-left: 0;
-}
-
-.stat .n {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  color: var(--dark-ink);
-  font-size: clamp(2.75rem, 5vw, 4.25rem);
-  font-weight: 400;
-  letter-spacing: -0.03em;
-  font-variant-numeric: tabular-nums;
-}
-
-.stat .n .plus {
-  color: var(--accent);
-}
-
-.stat .l {
-  margin-top: 14px;
-  color: var(--dark-ink-soft);
-  font-size: 16px;
-}
-
 .work-grid {
   display: grid;
   gap: 24px;
@@ -4152,14 +4105,6 @@ a.proof-link .work-link {
   .work-grid {
     grid-template-columns: 1fr;
   }
-
-  .stats-panel {
-    padding: 40px 24px;
-  }
-
-  .stat {
-    padding: 0 20px;
-  }
 }
 
 @media (max-width: 900px) {
@@ -4304,23 +4249,6 @@ a.proof-link .work-link {
 
   .location-intro-sec {
     padding-bottom: 56px;
-  }
-
-  .stats-panel {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    padding: 36px 24px;
-  }
-
-  .stat {
-    border-left: 0;
-    border-top: 1px solid var(--dark-line);
-    padding: 28px 0 0;
-  }
-
-  .stat:first-child {
-    border-top: 0;
-    padding-top: 0;
   }
 
   .industry-solutions-grid .service-cards-grid {

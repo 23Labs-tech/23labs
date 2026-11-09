@@ -74,16 +74,6 @@ export const services = [
   },
 ];
 
-/**
- * Homepage and About figures. Unverified: the owner must confirm 60+, 100+ and 12+
- * before these are treated as public claims. This is the only place they are defined.
- */
-export const stats = [
-  { value: "60+", label: "Projects shipped end to end" },
-  { value: "100+", label: "Custom automations in production" },
-  { value: "12+", label: "Years of experience" },
-];
-
 export const processSteps = [
   {
     title: "Discover",

@@ -23,6 +23,7 @@ export type BlogPost = {
   readingTime: string;
   content: string;
   html: string;
+  draft: boolean;
 };
 
 type Frontmatter = Record<string, string>;
@@ -175,13 +176,17 @@ function readPost(slug: string): BlogPost | null {
     readingTime: `${Math.max(1, Math.ceil(words / 220))} min read`,
     content,
     html: markdownToHtml(content),
+    draft: frontmatter.draft === "true",
   };
 }
 
 export function getAllPosts() {
+  const today = new Date().toISOString().slice(0, 10);
+
   return getSlugs()
     .map(readPost)
     .filter((post): post is BlogPost => Boolean(post))
+    .filter((post) => !post.draft && post.date <= today)
     .sort((a, b) => b.date.localeCompare(a.date));
 }
 

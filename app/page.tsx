@@ -1,11 +1,39 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { HomeHero } from "@/components/sections/HomeHero";
+import { JsonLd } from "@/components/site/JsonLd";
+import { getAllPosts } from "@/lib/blog";
 import { getCaseStudy } from "@/lib/caseStudies";
-import { homeBuildItems, homeCaseStudies, processSteps } from "@/lib/data";
+import { homeBuildItems, homeCaseStudies, homeFaqs } from "@/lib/data";
 import { createMetadata } from "@/lib/seo";
+
+const FALLBACK_BLOG_IMAGE = "/23labs-logo-dark.png";
+
+const homeProcessSteps = [
+  {
+    title: "Understand your business",
+    body: "We learn how your team works, what systems you use and where the biggest challenges are.",
+  },
+  {
+    title: "Map the opportunities",
+    body: "We review your existing processes to identify manual tasks, disconnected systems and opportunities to improve efficiency.",
+  },
+  {
+    title: "Design and build",
+    body: "We develop practical solutions around your existing workflows, whether that's automation, system integrations or custom software.",
+  },
+  {
+    title: "Launch and support",
+    body: "We test, implement and refine the solution with your team, providing ongoing support as your business evolves.",
+  },
+] as const;
+
+function formatBlogDate(iso: string) {
+  return new Date(iso).toLocaleDateString("en-AU", { day: "numeric", month: "long", year: "numeric" });
+}
 
 export const metadata: Metadata = createMetadata({
   absoluteTitle: "Custom Software & Business Automation | 23Labs",
@@ -27,6 +55,7 @@ export default function Home() {
   const workItems = homeCaseStudies
     .map((item) => ({ ...item, full: getCaseStudy(item.slug) }))
     .filter((item) => item.full);
+  const posts = getAllPosts().slice(0, 3);
 
   return (
     <>
@@ -91,17 +120,39 @@ export default function Home() {
       {/* How we work */}
       <section className="home-sec">
         <div className="wrap home-wrap">
-          <div className="home-sec-head reveal">
-            <h2>How we work</h2>
-          </div>
-          <div className="home-cell-grid cols-3 reveal">
-            {processSteps.map((step, index) => (
-              <div className="home-cell" key={step.title}>
-                <span className="home-cell-num">{String(index + 1).padStart(2, "0")}</span>
-                <h3>{step.title}</h3>
-                <p>{step.lead}</p>
-              </div>
-            ))}
+          <div className="home-process-grid reveal">
+            <div className="home-process-copy">
+              <p className="mono">How we work</p>
+              <h2>We start with the business, not the technology.</h2>
+              <p>
+                Most businesses don&apos;t set out to create complicated processes. Over time, systems
+                become disconnected, manual work builds up, and simple tasks start taking longer than
+                they should.
+              </p>
+              <p>
+                At 23Labs, we focus on understanding how your business actually operates before
+                recommending a solution.
+              </p>
+              <p>
+                We look at your existing workflows, identify where time is being lost, and work out
+                what can be improved through automation, integrations or custom software.
+              </p>
+              <p>
+                The goal isn&apos;t to introduce more technology for the sake of it. It&apos;s to build
+                practical solutions that make your business easier to run.
+              </p>
+            </div>
+            <div className="home-process-steps">
+              {homeProcessSteps.map((step, index) => (
+                <div className="home-process-step" key={step.title}>
+                  <span className="home-process-num">{String(index + 1).padStart(2, "0")}</span>
+                  <div>
+                    <h3>{step.title}</h3>
+                    <p>{step.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -138,7 +189,73 @@ export default function Home() {
         </div>
       </section>
 
+      <FaqAccordion items={homeFaqs} heading="Common questions" className="home-sec" />
+
+      {/* From the blog */}
+      <section className="home-sec">
+        <div className="wrap home-wrap">
+          <div className="home-sec-head reveal">
+            <div className="home-sec-head-row">
+              <h2>From the blog</h2>
+              <Link href="/blog" className="text-link">
+                View all articles
+              </Link>
+            </div>
+            <p className="lead">
+              Practical insights on business automation, software and making everyday operations run
+              better.
+            </p>
+          </div>
+          <div className="home-cell-grid cols-3 reveal">
+            {posts.map((post) => {
+              const hasImage = post.featuredImage !== FALLBACK_BLOG_IMAGE;
+              return (
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className={`home-cell home-blog-cell${hasImage ? "" : " no-image"}`}
+                  key={post.slug}
+                >
+                  {hasImage ? (
+                    <div className="home-work-media">
+                      <Image
+                        src={post.featuredImage}
+                        alt={post.imageAlt}
+                        fill
+                        sizes="(max-width: 760px) 100vw, 33vw"
+                      />
+                    </div>
+                  ) : null}
+                  <div className="home-blog-body">
+                    <time className="home-blog-date" dateTime={post.date}>
+                      {formatBlogDate(post.date)}
+                    </time>
+                    <h3>{post.title}</h3>
+                    <p>{post.description}</p>
+                    <span className="text-link">Read article</span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       <FinalCta />
+
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: homeFaqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: faq.answer,
+            },
+          })),
+        }}
+      />
     </>
   );
 }

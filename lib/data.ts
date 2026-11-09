@@ -194,6 +194,40 @@ export const faqs = [
   },
 ];
 
+/** Homepage-only: the "Common questions" FAQ section. */
+export const homeFaqs = [
+  {
+    question: "What does 23Labs actually do?",
+    answer:
+      "We help businesses simplify how they operate through process automation, system integrations and custom software. That might mean connecting existing tools, removing repetitive admin or building something tailored to how your business works.",
+  },
+  {
+    question: "Do we need to replace our existing software?",
+    answer:
+      "Not necessarily. We usually start by looking at the systems you're already using. In many cases, we can connect or automate existing tools without replacing them.",
+  },
+  {
+    question: "Can you automate processes that currently run through spreadsheets?",
+    answer:
+      "Yes. We work with businesses that rely on spreadsheets, emails and manual processes to manage everyday operations. We can automate parts of those workflows or build a more connected solution where needed.",
+  },
+  {
+    question: "How much does a project typically cost?",
+    answer:
+      "It depends on the complexity of the problem and what needs to be built. Smaller automation and integration projects may be relatively straightforward, while custom software requires more planning and development. We discuss the scope and provide a clear quote before starting.",
+  },
+  {
+    question: "How long does a typical project take?",
+    answer:
+      "Timelines depend on the scope and complexity. Smaller integrations and automations may take a few weeks, while larger custom software projects can take longer. We'll outline realistic timelines before development begins.",
+  },
+  {
+    question: "Do you provide support after launch?",
+    answer:
+      "Yes. We provide ongoing support, maintenance and improvements to help ensure your solution continues working as your business evolves.",
+  },
+] as const;
+
 /** Homepage-only: "Where the manual hours usually go" use-case rows. */
 export const manualWorkAreas = [
   {

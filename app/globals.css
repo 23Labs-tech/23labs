@@ -33,7 +33,7 @@
   --sky-ink: #1c3550;
   --maxw: 1400px;
   --pad: clamp(20px, 4vw, 60px);
-  --sec-pad: clamp(56px, 9vw, 104px);
+  --sec-pad: clamp(48px, 7vw, 88px);
 
   /* ---------- Homepage typography system ---------- */
   --h1-size: clamp(34px, 3.4vw + 20px, 52px);
@@ -267,7 +267,7 @@ main > section.sec:last-of-type::after {
 }
 
 .sec-alt {
-  background: var(--paper-2);
+  background: var(--paper);
 }
 
 /* Page-hero badge: used once per page, at the very top only */
@@ -298,7 +298,7 @@ main > section.sec:last-of-type::after {
 
 .sec-head {
   max-width: 620px;
-  margin-bottom: 64px;
+  margin-bottom: var(--type-desc-content-gap);
 }
 
 .sec-head-center {
@@ -1078,7 +1078,7 @@ main > section.sec:last-of-type::after {
 .home-sec {
   position: relative;
   background: var(--home-bg);
-  padding-block: clamp(56px, 8vw, 100px);
+  padding-block: var(--sec-pad);
 }
 
 .home-sec::after {
@@ -1346,7 +1346,6 @@ main > section.sec:last-of-type::after {
 .home-why-media {
   position: relative;
   aspect-ratio: 4 / 3;
-  clip-path: polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%);
 }
 
 .home-why-media img {
@@ -1356,10 +1355,6 @@ main > section.sec:last-of-type::after {
 @media (max-width: 900px) {
   .home-why {
     grid-template-columns: 1fr;
-  }
-
-  .home-why-media {
-    clip-path: none;
   }
 }
 
@@ -2654,27 +2649,13 @@ a.problem-card-link .work-link {
   border-top: 1px solid var(--line);
 }
 
-/* Homepage FAQ instance: match the home-wrap container and left-align, like the rest of the home-sec sections. */
-.home-sec > .wrap {
-  max-width: 1400px;
-  padding-inline: clamp(20px, 4vw, 60px);
-}
-
-.home-sec .sec-head-center {
-  margin-inline: 0;
-  text-align: left;
-}
-
+/* Homepage FAQ instance: same centred layout as every other page's FAQ. */
 .home-sec .sec-title {
   color: var(--h2-color);
   font-size: var(--h2-size);
   font-weight: var(--h2-weight);
   line-height: var(--h2-line-height);
   letter-spacing: var(--h2-letter-spacing);
-}
-
-.home-sec .faq-list {
-  margin-inline: 0;
 }
 
 .faq-item {

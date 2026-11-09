@@ -124,9 +124,13 @@ to restructure every page into the homepage's specific section shapes.
   the bolder `--home-line` used for homepage section dividers — internal pages'
   card/list borders are intentionally lighter-weight than the homepage's major
   section dividers.
-- No browser/screenshot tooling is available in this environment, so every
-  change in this project has been verified structurally (compiled CSS output,
-  computed clamp() values at specific viewport widths, HTTP status across
-  every route) rather than visually. A real visual pass across
-  375/430/768/1024/1366/1440/1920px, on both the homepage and a representative
-  page from each route group, is recommended before approving for production.
+- Playwright is now set up (`npm run qa:screenshots`, see the script's header
+  comment) and a full mobile/tablet/laptop/desktop sweep across one
+  representative page per template has been visually reviewed. It surfaced
+  and fixed two real issues: several page-specific eyebrow labels still
+  using the old blue accent colour, and `.cta-band` (the closing CTA on
+  service/solution/location pages) missing the bordered-box treatment the
+  homepage and `.inline-cta` already use. Not every one of the 92 routes was
+  individually screenshotted — only one page per distinct template — so a
+  few long-tail pages may still carry small inconsistencies this pass didn't
+  surface.

@@ -1675,7 +1675,7 @@ textarea:focus-visible {
 .industry-problem-copy .mono {
   display: inline-block;
   margin-bottom: 24px;
-  color: var(--accent);
+  color: var(--eyebrow-color);
 }
 
 .industry-problem-copy .sec-title {
@@ -1842,7 +1842,7 @@ a.problem-card-link .work-link {
 .usecase-card .mono {
   display: block;
   margin-bottom: 10px;
-  color: var(--accent-dark);
+  color: var(--eyebrow-color);
 }
 
 .usecase-card h3 {
@@ -2080,7 +2080,7 @@ a.problem-card-link .work-link {
 .practical-copy .mono {
   display: block;
   margin-bottom: 16px;
-  color: var(--accent-dark);
+  color: var(--eyebrow-color);
 }
 
 .practical-copy .sec-title {
@@ -2107,7 +2107,7 @@ a.problem-card-link .work-link {
 .practical-panel .mono {
   display: block;
   margin-bottom: 22px;
-  color: var(--accent-on-dark);
+  color: var(--eyebrow-color);
 }
 
 .practical-checklist {
@@ -2141,7 +2141,7 @@ a.problem-card-link .work-link {
 .capability-head .mono {
   display: block;
   margin-bottom: 14px;
-  color: var(--accent-dark);
+  color: var(--eyebrow-color);
 }
 
 .capability-panel {
@@ -2818,7 +2818,7 @@ a.proof-link .work-link {
 }
 
 .outcome-block .mono {
-  color: var(--accent-dark);
+  color: var(--eyebrow-color);
 }
 
 .outcome-block h3 {
@@ -3058,6 +3058,8 @@ a.proof-link .work-link {
 .cta-band {
   max-width: 640px;
   margin: 0 auto;
+  border: 1px solid var(--home-line);
+  padding: clamp(40px, 6vw, 64px) clamp(24px, 4vw, 48px);
   text-align: center;
 }
 
@@ -3082,7 +3084,7 @@ a.proof-link .work-link {
 .inline-cta {
   max-width: 760px;
   margin: 0 auto;
-  border: 1px solid var(--line);
+  border: 1px solid var(--home-line);
   border-radius: 0;
   background: var(--paper-2);
   padding: 48px 44px;
@@ -3154,7 +3156,7 @@ a.proof-link .work-link {
 .booking-head .mono {
   display: inline-block;
   margin-bottom: 16px;
-  color: var(--accent);
+  color: var(--eyebrow-color);
 }
 
 .booking-head h2 {

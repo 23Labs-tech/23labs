@@ -30,7 +30,7 @@ export function RelatedArticles({ posts }: RelatedArticlesProps) {
             better.
           </p>
         </div>
-        <div className="home-cell-grid cols-3 related-articles-grid reveal">
+        <div className="home-cell-grid cols-3 related-content-grid reveal">
           {posts.map((post) => {
             const hasImage = post.featuredImage !== FALLBACK_BLOG_IMAGE;
             return (

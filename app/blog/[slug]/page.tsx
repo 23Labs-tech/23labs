@@ -2,6 +2,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { RelatedArticles } from "@/components/blog/RelatedArticles";
+import { FinalCta } from "@/components/sections/FinalCta";
 import { JsonLd } from "@/components/site/JsonLd";
 import { blogAuthor, getAllPosts, getPostBySlug, getRelatedPosts } from "@/lib/blog";
 import { absoluteUrl, createMetadata } from "@/lib/seo";
@@ -55,17 +56,17 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <>
       <article className="blog-post">
-        <header className="blog-post-hero">
+        <header className="article-hero">
           <div className="container narrow">
             <h1>{post.title}</h1>
-            <p className="blog-subheading">{post.description}</p>
-            <div className="blog-meta">
+            <p className="article-subheading">{post.description}</p>
+            <div className="article-meta">
               <time dateTime={post.date}>{formattedDate}</time>
-              <span className="blog-meta-sep" aria-hidden="true">
+              <span className="article-meta-sep" aria-hidden="true">
                 ·
               </span>
               <span>{post.readingTime}</span>
-              <span className="blog-meta-sep" aria-hidden="true">
+              <span className="article-meta-sep" aria-hidden="true">
                 ·
               </span>
               <span>{post.author}</span>
@@ -76,7 +77,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               ))}
             </div>
           </div>
-          <div className="container blog-post-image-wrap">
+          <div className="container article-image-wrap">
             <Image
               src={post.featuredImage}
               alt={post.imageAlt}
@@ -84,7 +85,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               height={640}
               preload
               sizes="(max-width: 900px) 100vw, 860px"
-              className="blog-post-image"
+              className="article-image"
             />
           </div>
         </header>
@@ -98,6 +99,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
       </article>
       <RelatedArticles posts={relatedPosts} />
+      <FinalCta />
       <JsonLd
         data={{
           "@context": "https://schema.org",

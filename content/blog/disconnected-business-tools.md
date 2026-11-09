@@ -286,7 +286,7 @@ When your systems are connected properly, your business becomes easier to run. I
 
 That is when software starts doing what it was meant to do.
 
-## CTA
+## Ready to connect your tools?
 
 The [Huntress Recruitment project](/case-studies/huntress-recruitment) is one place this showed up: job information moved between Bullhorn, SEEK and the website instead of being kept in three places.
 

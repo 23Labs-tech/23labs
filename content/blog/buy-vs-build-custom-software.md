@@ -281,7 +281,7 @@ The right software should not slow your business down.
 
 It should help it move faster.
 
-## CTA
+## Not sure whether to buy or build?
 
 23Labs helps growing businesses decide whether to buy, [build software around the workflow](/services/custom-software-development) or [automate the steps around the tools they already have](/services/business-process-automation).
 

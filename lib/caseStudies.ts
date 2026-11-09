@@ -100,7 +100,7 @@ export const caseStudies: CaseStudy[] = [
     description:
       "How 23Labs connected Bullhorn, SEEK and a WordPress site for NZ firm Huntress Recruitment, cutting duplicate job admin and keeping public job data consistent.",
     cta: {
-      title: "Closing CTA",
+      title: "Still retyping vacancy details by hand?",
       body: "If vacancy details are still being retyped between Bullhorn, SEEK and the website, tell us how that handoff works today.",
       label: "Talk to 23Labs",
     },
@@ -281,7 +281,7 @@ export const caseStudies: CaseStudy[] = [
     description:
       "CorIT Tech client onboarding now creates projects from CRM data. 23Labs connected the tools. Reported saving: more than 10 hours of admin per month.",
     cta: {
-      title: "Closing CTA",
+      title: "Still copying client details by hand?",
       body: "If a new client still means copying details into the next system, tell us how that handoff works today.",
       label: "Talk to 23Labs",
     },
@@ -467,7 +467,7 @@ export const caseStudies: CaseStudy[] = [
     description:
       "Real estate workflow automation for one Australian office. 23Labs improved the website and connected property enquiries so follow-up is easier to track.",
     cta: {
-      title: "Closing CTA",
+      title: "Still relying on someone to remember the next step?",
       body: "If enquiries and property records still depend on someone remembering the next step, we can look at that workflow with you.",
       label: "Talk to 23Labs",
     },
@@ -699,4 +699,23 @@ export function getCaseStudySlugs() {
 
 export function getCaseStudy(slug: string) {
   return caseStudies.find((item) => item.slug === slug);
+}
+
+export function getRelatedCaseStudies(current: CaseStudy, count = 3): CaseStudy[] {
+  const others = getAllCaseStudies().filter((item) => item.slug !== current.slug);
+
+  const sameIndustry = others.filter((item) => item.industry && item.industry === current.industry);
+  const sameService = others.filter((item) => item.services.some((service) => current.services.includes(service)));
+
+  const selected: CaseStudy[] = [];
+  const seen = new Set<string>();
+
+  for (const item of [...sameIndustry, ...sameService, ...others]) {
+    if (selected.length >= count) break;
+    if (seen.has(item.slug)) continue;
+    seen.add(item.slug);
+    selected.push(item);
+  }
+
+  return selected;
 }

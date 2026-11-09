@@ -118,7 +118,7 @@ By automating repeatable admin, improving client workflows and connecting busine
 
 The businesses that fix their admin bottlenecks early are usually the ones that scale more smoothly.
 
-## CTA
+## Ready to spend less time on admin?
 
 23Labs helps professional services firms [take onboarding and follow-up admin off the team](/services/business-process-automation) and [build software around how the firm actually works](/services/custom-software-development). The [CorIT Tech onboarding project](/case-studies/corit-tech) is one example of new-client details moving between tools without being retyped.
 

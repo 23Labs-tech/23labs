@@ -99,7 +99,7 @@ Workflow automation can help construction teams save time, reduce errors and sta
 
 If your team is still relying on spreadsheets, manual follow-ups and disconnected systems, it may be time to review where automation can make the biggest impact.
 
-## CTA
+## Ready to take the admin off your team?
 
 23Labs helps construction businesses [build software around how a job actually runs](/services/custom-software-development) and [take the repetitive admin off the team](/services/business-process-automation).
 

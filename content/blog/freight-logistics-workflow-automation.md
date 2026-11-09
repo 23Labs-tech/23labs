@@ -106,7 +106,7 @@ Manual processes may work at a small scale, but they quickly become a bottleneck
 
 Workflow automation, custom software and system integrations can help logistics businesses reduce admin, improve visibility and deliver a better customer experience.
 
-## CTA
+## Ready to simplify your operations?
 
 23Labs helps freight and logistics businesses [automate the repetitive jobs in the workflow](/services/business-process-automation) and [connect the systems that do not share data](/services/system-integrations). More of that context is on the [transport and logistics page](/freight-logistics).
 

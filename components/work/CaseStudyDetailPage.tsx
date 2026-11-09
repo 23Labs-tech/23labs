@@ -2,8 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { IndustryIcon } from "@/components/industries/IndustryIcon";
 import { JsonLd } from "@/components/site/JsonLd";
+import { RelatedSuccessStories } from "@/components/work/RelatedSuccessStories";
 import type { CaseStudy, CaseStudyCopyPart, CaseStudySection } from "@/lib/caseStudies";
-import { caseStudiesCta, caseStudyServiceHrefs } from "@/lib/caseStudies";
+import { caseStudiesCta, caseStudyServiceHrefs, getRelatedCaseStudies } from "@/lib/caseStudies";
 import { articleJsonLd, breadcrumbList } from "@/lib/schema";
 
 function SystemIcon({ icon }: { icon: string }) {
@@ -45,59 +46,59 @@ function CopyParagraph({ parts }: { parts: CaseStudyCopyPart[] }) {
 
 function CaseStudyHero({ caseStudy }: { caseStudy: CaseStudy }) {
   return (
-    <header className="svc-hero">
-      <div className="hero-wide svc-hero-in">
-        <div className="reveal in svc-hero-copy">
-          <div className="mono">
-            <Link href="/work" style={{ color: "inherit" }}>
-              Case Studies
-            </Link>{" "}
-            / {caseStudy.name}
+    <header className="article-hero">
+      <div className="container narrow">
+        <div className="mono case-breadcrumb">
+          <Link href="/work" style={{ color: "inherit" }}>
+            Case Studies
+          </Link>{" "}
+          / {caseStudy.name}
+        </div>
+        {caseStudy.logo?.contain ? (
+          <div className="case-hero-logo">
+            <Image src={caseStudy.logo.src} alt={caseStudy.logo.alt} fill sizes="150px" />
           </div>
-          {caseStudy.logo?.contain ? (
-            <div className="case-hero-logo">
-              <Image src={caseStudy.logo.src} alt={caseStudy.logo.alt} fill sizes="150px" />
+        ) : null}
+        <h1>{caseStudy.headline}</h1>
+        <p className="article-subheading">{caseStudy.summary}</p>
+        <div className="case-hero-meta">
+          {caseStudy.industry ? (
+            <div className="case-hero-meta-item">
+              <span className="mono">Industry</span>
+              <strong>{caseStudy.industry}</strong>
             </div>
           ) : null}
-          <h1>{caseStudy.headline}</h1>
-          <p className="lead">{caseStudy.summary}</p>
-          <div className="case-hero-meta">
-            {caseStudy.industry ? (
-              <div className="case-hero-meta-item">
-                <span className="mono">Industry</span>
-                <strong>{caseStudy.industry}</strong>
-              </div>
-            ) : null}
-            {caseStudy.location ? (
-              <div className="case-hero-meta-item">
-                <span className="mono">Location</span>
-                <strong>{caseStudy.location}</strong>
-              </div>
-            ) : null}
+          {caseStudy.location ? (
             <div className="case-hero-meta-item">
-              <span className="mono">Services Provided</span>
-              {caseStudy.services.map((service) => {
-                const href = caseStudyServiceHrefs[service];
-                return href ? (
-                  <Link href={href} className="case-service-link" key={service}>
-                    {service}
-                  </Link>
-                ) : (
-                  <strong key={service}>{service}</strong>
-                );
-              })}
+              <span className="mono">Location</span>
+              <strong>{caseStudy.location}</strong>
             </div>
+          ) : null}
+          <div className="case-hero-meta-item">
+            <span className="mono">Services Provided</span>
+            {caseStudy.services.map((service) => {
+              const href = caseStudyServiceHrefs[service];
+              return href ? (
+                <Link href={href} className="case-service-link" key={service}>
+                  {service}
+                </Link>
+              ) : (
+                <strong key={service}>{service}</strong>
+              );
+            })}
           </div>
         </div>
-        <div className="reveal in svc-hero-media">
-          <Image
-            src={caseStudy.heroImage.src}
-            alt={caseStudy.heroImage.alt}
-            fill
-            preload
-            sizes="(max-width: 900px) 100vw, 50vw"
-          />
-        </div>
+      </div>
+      <div className="container article-image-wrap">
+        <Image
+          src={caseStudy.heroImage.src}
+          alt={caseStudy.heroImage.alt}
+          width={1200}
+          height={640}
+          preload
+          sizes="(max-width: 900px) 100vw, 860px"
+          className="article-image"
+        />
       </div>
     </header>
   );
@@ -106,16 +107,14 @@ function CaseStudyHero({ caseStudy }: { caseStudy: CaseStudy }) {
 function NarrativeSection({
   section,
   caseStudy,
-  first = false,
 }: {
   section: CaseStudySection;
   caseStudy: CaseStudy;
-  first?: boolean;
 }) {
   const showSupportingImage = section.title === "The Solution" && caseStudy.supportingImage;
 
   return (
-    <section className={first ? "sec no-top" : "sec"}>
+    <section className="sec">
       <div className="wrap">
         <SectionIntro title={section.title} />
         <div className="text-block reveal">
@@ -156,23 +155,22 @@ function NarrativeSection({
 
 function NarrativeBody({ caseStudy }: { caseStudy: CaseStudy }) {
   const cta = caseStudy.cta ?? {
-    title: "Closing CTA",
+    title: caseStudiesCta.title,
     body: caseStudiesCta.body,
     label: caseStudiesCta.label,
   };
 
   return (
     <>
-      {caseStudy.sections?.map((section, index) => (
-        <NarrativeSection section={section} caseStudy={caseStudy} first={index === 0} key={section.title} />
+      {caseStudy.sections?.map((section) => (
+        <NarrativeSection section={section} caseStudy={caseStudy} key={section.title} />
       ))}
+      <RelatedSuccessStories caseStudies={getRelatedCaseStudies(caseStudy)} />
       <section className="sec" id="closing-cta">
-        <div className="wrap cs-closing">
-          <SectionIntro title={cta.title} />
-          <div className="text-block reveal">
-            <p>{cta.body}</p>
-          </div>
-          <div className="hero-actions reveal">
+        <div className="wrap cta-band reveal">
+          <h2>{cta.title}</h2>
+          <p>{cta.body}</p>
+          <div className="hero-actions">
             <Link href="/contact" className="btn btn-primary">
               {cta.label ?? caseStudiesCta.label}
             </Link>
@@ -186,7 +184,7 @@ function NarrativeBody({ caseStudy }: { caseStudy: CaseStudy }) {
 function LegacyBody({ caseStudy }: { caseStudy: CaseStudy }) {
   return (
     <>
-      <section className="sec no-top">
+      <section className="sec">
         <div className="wrap">
           <SectionIntro title="The problem before 23Labs" />
           <div className="text-block reveal">
@@ -289,6 +287,8 @@ function LegacyBody({ caseStudy }: { caseStudy: CaseStudy }) {
           </div>
         </section>
       ) : null}
+
+      <RelatedSuccessStories caseStudies={getRelatedCaseStudies(caseStudy)} />
 
       <section className="sec">
         <div className="wrap cta-band reveal">

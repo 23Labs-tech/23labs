@@ -1101,10 +1101,6 @@ main > section.sec:last-of-type::after {
   font-weight: 400;
 }
 
-.cs-closing .hero-actions {
-  margin-top: 28px;
-}
-
 .industry-detail .svc-row {
   align-items: start;
 }
@@ -1291,6 +1287,18 @@ main > section.sec:last-of-type::after {
 .home-work-meta {
   color: var(--label-color);
   font-size: var(--label-size);
+}
+
+.home-work-body p {
+  margin: 8px 0 0;
+  color: var(--body-color);
+  font-size: var(--body-size);
+  line-height: var(--body-line-height);
+}
+
+.home-work-body .text-link {
+  display: inline-block;
+  margin-top: 16px;
 }
 
 /* From the blog: same bordered-cell grid, text-first cell when no image */
@@ -2971,13 +2979,15 @@ a.proof-link .work-link {
   padding-top: 0;
 }
 
+.case-detail > .sec:first-of-type {
+  padding-top: clamp(48px, 5vw, 64px);
+}
+
 .case-hero-meta {
   display: flex;
   flex-wrap: wrap;
   gap: 28px;
-  margin-top: 32px;
-  padding-top: 28px;
-  border-top: 1px solid var(--line);
+  margin-top: 20px;
 }
 
 .case-hero-meta-item {
@@ -3013,6 +3023,10 @@ a.proof-link .work-link {
   line-height: 1.4;
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+.case-breadcrumb {
+  margin-bottom: 16px;
 }
 
 .case-hero-logo {
@@ -3502,18 +3516,21 @@ a.proof-link .work-link {
   margin-bottom: 0;
 }
 
-.blog-post-hero {
+.article-hero {
   padding: 150px 0 0;
 }
 
-.blog-post-hero h1 {
+.article-hero h1 {
   margin: 0 0 22px;
-  font-size: clamp(32px, 4vw, 48px);
-  line-height: 1.08;
-  letter-spacing: -0.02em;
+  max-width: 18em;
+  color: var(--ink);
+  font-size: var(--h1-size);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
 }
 
-.blog-subheading {
+.article-subheading {
   margin: 0 0 20px;
   max-width: 65ch;
   color: var(--ink-soft);
@@ -3521,7 +3538,7 @@ a.proof-link .work-link {
   line-height: 1.5;
 }
 
-.blog-meta {
+.article-meta {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -3531,7 +3548,7 @@ a.proof-link .work-link {
   font-size: 14px;
 }
 
-.blog-meta-sep {
+.article-meta-sep {
   color: var(--line);
 }
 
@@ -3589,12 +3606,12 @@ a.proof-link .work-link {
   font-size: 14px;
 }
 
-.blog-post-image-wrap {
+.article-image-wrap {
   max-width: 860px;
   margin: 56px auto 0;
 }
 
-.blog-post-image {
+.article-image {
   display: block;
   width: 100%;
   height: auto;
@@ -3676,20 +3693,21 @@ a.proof-link .work-link {
 }
 
 /*
- * Reuses the homepage's connected-grid "From the blog" markup/classes so
- * the related-articles section on every blog post matches it exactly.
- * This extra breakpoint is scoped to .related-articles-grid specifically
- * (not .home-cell-grid.cols-3 itself) so it doesn't touch the homepage's
- * own blog-preview/selected-work grids, which use the same base classes.
+ * Reuses the homepage's connected-grid "From the blog"/"Selected work"
+ * markup and classes so the related-articles and related-success-stories
+ * sections on every blog post and case study match them exactly. This
+ * extra breakpoint is scoped to .related-content-grid specifically (not
+ * .home-cell-grid.cols-3 itself) so it doesn't touch the homepage's own
+ * blog-preview/selected-work grids, which use the same base classes.
  */
 @media (max-width: 900px) {
-  .home-cell-grid.cols-3.related-articles-grid {
+  .home-cell-grid.cols-3.related-content-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 640px) {
-  .home-cell-grid.cols-3.related-articles-grid {
+  .home-cell-grid.cols-3.related-content-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -4421,10 +4439,6 @@ a.proof-link .work-link {
 @media (max-width: 430px) {
   .btn {
     padding-inline: 18px;
-  }
-
-  .blog-post-hero h1 {
-    font-size: 30px;
   }
 }
 

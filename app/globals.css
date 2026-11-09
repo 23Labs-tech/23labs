@@ -34,6 +34,45 @@
   --maxw: 1120px;
   --pad: clamp(20px, 4vw, 32px);
   --sec-pad: clamp(56px, 9vw, 104px);
+
+  /* ---------- Homepage typography system ---------- */
+  --h1-size: clamp(34px, 3.4vw + 20px, 52px);
+  --h2-size: clamp(28px, 1.9vw + 16px, 40px);
+  --h2-color: #171717;
+  --h2-weight: 400;
+  --h2-line-height: 1.15;
+  --h2-letter-spacing: -0.025em;
+
+  --eyebrow-size: clamp(12px, 0.2vw + 11.5px, 13px);
+  --eyebrow-color: #666666;
+  --eyebrow-weight: 400;
+  --eyebrow-letter-spacing: 0.1em;
+  --eyebrow-line-height: 1.4;
+
+  --desc-size: clamp(15px, 0.3vw + 14px, 17px);
+  --desc-color: #555555;
+  --desc-weight: 400;
+  --desc-line-height: 1.6;
+  --desc-max-width: 650px;
+
+  --h3-size: clamp(18px, 0.3vw + 17px, 20px);
+  --h3-color: #171717;
+  --h3-weight: 400;
+  --h3-line-height: 1.35;
+
+  --body-size: clamp(15px, 0.15vw + 14.5px, 16px);
+  --body-color: #444444;
+  --body-weight: 400;
+  --body-line-height: 1.7;
+
+  --label-size: 14px;
+  --label-color: #777777;
+  --label-weight: 400;
+
+  --type-eyebrow-gap: 20px;
+  --type-heading-desc-gap: 16px;
+  --type-desc-content-gap: clamp(28px, 4vw, 48px);
+  --type-para-gap: 20px;
 }
 
 * {
@@ -167,10 +206,11 @@ textarea:focus-visible {
 
 .mono {
   font-family: var(--font-sans), "Poppins", Arial, sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--accent);
-  letter-spacing: 0.08em;
+  font-size: var(--eyebrow-size);
+  font-weight: var(--eyebrow-weight);
+  line-height: var(--eyebrow-line-height);
+  color: var(--eyebrow-color);
+  letter-spacing: var(--eyebrow-letter-spacing);
   text-transform: uppercase;
 }
 
@@ -646,20 +686,20 @@ textarea:focus-visible {
 .hero h1 {
   max-width: 19ch;
   margin: 0;
-  color: var(--ink);
-  font-size: clamp(26px, 2.1vw + 22px, 46px);
+  color: var(--h2-color);
+  font-size: var(--h1-size);
   font-weight: 400;
   line-height: 1.15;
   letter-spacing: -0.015em;
 }
 
 .hero-intro {
-  max-width: 650px;
-  margin: 22px 0 0;
-  color: var(--ink-soft);
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.6;
+  max-width: var(--desc-max-width);
+  margin: var(--type-heading-desc-gap) 0 0;
+  color: var(--desc-color);
+  font-weight: var(--desc-weight);
+  font-size: var(--desc-size);
+  line-height: var(--desc-line-height);
 }
 
 .hero-accent {
@@ -1012,21 +1052,25 @@ textarea:focus-visible {
 
 /* Heading + optional description, always stacked (never side by side). */
 .home-sec-head {
-  margin-bottom: clamp(32px, 5vw, 56px);
+  margin-bottom: var(--type-desc-content-gap);
 }
 
 .home-sec-head h2 {
   max-width: 20ch;
-  color: var(--ink);
-  font-size: clamp(26px, 2.2vw + 14px, 42px);
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  color: var(--h2-color);
+  font-size: var(--h2-size);
+  font-weight: var(--h2-weight);
+  line-height: var(--h2-line-height);
+  letter-spacing: var(--h2-letter-spacing);
 }
 
 .home-sec-head .lead {
-  margin-top: 16px;
-  max-width: 60ch;
+  margin-top: var(--type-heading-desc-gap);
+  max-width: var(--desc-max-width);
+  color: var(--desc-color);
+  font-size: var(--desc-size);
+  font-weight: var(--desc-weight);
+  line-height: var(--desc-line-height);
 }
 
 /* Heading + a trailing link aligned to the right (Selected work). */
@@ -1071,23 +1115,24 @@ textarea:focus-visible {
 
 .home-cell-num {
   margin-bottom: 16px;
-  color: var(--ink-faint);
-  font-size: 13px;
-  font-weight: 400;
+  color: var(--label-color);
+  font-size: var(--label-size);
+  font-weight: var(--label-weight);
   font-variant-numeric: tabular-nums;
 }
 
 .home-cell h3 {
   margin-bottom: 10px;
-  color: var(--ink);
-  font-size: 19px;
-  font-weight: 400;
+  color: var(--h3-color);
+  font-size: var(--h3-size);
+  font-weight: var(--h3-weight);
+  line-height: var(--h3-line-height);
 }
 
 .home-cell p {
-  color: var(--ink-soft);
-  font-size: 15px;
-  line-height: 1.6;
+  color: var(--body-color);
+  font-size: var(--body-size);
+  line-height: var(--body-line-height);
 }
 
 /* Selected work: image-topped cells inside the same bordered grid */
@@ -1113,14 +1158,15 @@ textarea:focus-visible {
 
 .home-work-body h3 {
   margin-bottom: 6px;
-  color: var(--ink);
-  font-size: 17px;
-  font-weight: 400;
+  color: var(--h3-color);
+  font-size: var(--h3-size);
+  font-weight: var(--h3-weight);
+  line-height: var(--h3-line-height);
 }
 
 .home-work-meta {
-  color: var(--ink-soft);
-  font-size: 14px;
+  color: var(--label-color);
+  font-size: var(--label-size);
 }
 
 /* From the blog: same bordered-cell grid, text-first cell when no image */
@@ -1145,22 +1191,22 @@ textarea:focus-visible {
 .home-blog-date {
   display: block;
   margin-bottom: 10px;
-  color: var(--ink-faint);
-  font-size: 13px;
+  color: var(--label-color);
+  font-size: var(--label-size);
 }
 
 .home-blog-body h3 {
   margin-bottom: 8px;
-  color: var(--ink);
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.3;
+  color: var(--h3-color);
+  font-size: var(--h3-size);
+  font-weight: var(--h3-weight);
+  line-height: var(--h3-line-height);
 }
 
 .home-blog-body p {
-  color: var(--ink-soft);
-  font-size: 15px;
-  line-height: 1.6;
+  color: var(--body-color);
+  font-size: var(--body-size);
+  line-height: var(--body-line-height);
 }
 
 .home-blog-body .text-link {
@@ -1188,24 +1234,25 @@ textarea:focus-visible {
 
 .home-about-copy .mono {
   display: block;
-  margin-bottom: 18px;
+  margin-bottom: var(--type-eyebrow-gap);
 }
 
 .home-about-copy h2 {
   max-width: 22ch;
-  color: var(--ink);
-  font-size: clamp(22px, 1.9vw + 12px, 32px);
-  font-weight: 400;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  color: var(--h2-color);
+  font-size: var(--h2-size);
+  font-weight: var(--h2-weight);
+  line-height: var(--h2-line-height);
+  letter-spacing: var(--h2-letter-spacing);
 }
 
 .home-about-copy p {
-  margin-top: 20px;
-  max-width: 44ch;
-  color: var(--ink-soft);
-  font-size: 17px;
-  line-height: 1.65;
+  margin-top: var(--type-heading-desc-gap);
+  max-width: var(--desc-max-width);
+  color: var(--desc-color);
+  font-size: var(--desc-size);
+  font-weight: var(--desc-weight);
+  line-height: var(--desc-line-height);
 }
 
 .home-about-copy .text-link {
@@ -1226,24 +1273,28 @@ textarea:focus-visible {
 
 .home-why-copy .mono {
   display: block;
-  margin-bottom: 18px;
+  margin-bottom: var(--type-eyebrow-gap);
 }
 
 .home-why-copy h2 {
   max-width: 16ch;
-  color: var(--ink);
-  font-size: clamp(28px, 2vw + 18px, 46px);
-  font-weight: 400;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  color: var(--h2-color);
+  font-size: var(--h2-size);
+  font-weight: var(--h2-weight);
+  line-height: var(--h2-line-height);
+  letter-spacing: var(--h2-letter-spacing);
 }
 
 .home-why-copy p {
-  margin-top: 18px;
+  margin-top: var(--type-para-gap);
   max-width: 50ch;
-  color: var(--ink-soft);
-  font-size: 16px;
-  line-height: 1.7;
+  color: var(--body-color);
+  font-size: var(--body-size);
+  line-height: var(--body-line-height);
+}
+
+.home-why-copy h2 + p {
+  margin-top: var(--type-heading-desc-gap);
 }
 
 .home-why-copy .btn {
@@ -1284,7 +1335,7 @@ textarea:focus-visible {
 .home-process-eyebrow {
   grid-column: 1;
   grid-row: 1;
-  margin-bottom: 18px;
+  margin-bottom: var(--type-eyebrow-gap);
 }
 
 .home-process-copy {
@@ -1294,19 +1345,23 @@ textarea:focus-visible {
 
 .home-process-copy h2 {
   max-width: 20ch;
-  color: var(--ink);
-  font-size: clamp(24px, 1.9vw + 13px, 34px);
-  font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  color: var(--h2-color);
+  font-size: var(--h2-size);
+  font-weight: var(--h2-weight);
+  line-height: var(--h2-line-height);
+  letter-spacing: var(--h2-letter-spacing);
 }
 
 .home-process-copy p {
-  margin-top: 18px;
+  margin-top: var(--type-para-gap);
   max-width: 48ch;
-  color: var(--ink-soft);
-  font-size: 16px;
-  line-height: 1.7;
+  color: var(--body-color);
+  font-size: var(--body-size);
+  line-height: var(--body-line-height);
+}
+
+.home-process-copy h2 + p {
+  margin-top: var(--type-heading-desc-gap);
 }
 
 .home-process-steps {
@@ -1347,15 +1402,16 @@ textarea:focus-visible {
 .home-process-step h3 {
   margin-bottom: 8px;
   margin-top: 8px;
-  color: var(--ink);
-  font-size: 18px;
-  font-weight: 400;
+  color: var(--h3-color);
+  font-size: var(--h3-size);
+  font-weight: var(--h3-weight);
+  line-height: var(--h3-line-height);
 }
 
 .home-process-step p {
-  color: var(--ink-soft);
-  font-size: 15px;
-  line-height: 1.6;
+  color: var(--body-color);
+  font-size: var(--body-size);
+  line-height: var(--body-line-height);
 }
 
 @media (max-width: 900px) {
@@ -2534,13 +2590,21 @@ a.problem-card-link .work-link {
 }
 
 .final-cta-in h2 {
-  color: var(--ink);
-  font-size: clamp(28px, 2.6vw + 14px, 44px);
+  color: var(--h2-color);
+  font-size: var(--h2-size);
+  font-weight: var(--h2-weight);
+  line-height: var(--h2-line-height);
+  letter-spacing: var(--h2-letter-spacing);
 }
 
 .final-cta-in .lead {
-  margin-top: 16px;
-  color: var(--ink-soft);
+  margin-top: var(--type-heading-desc-gap);
+  max-width: var(--desc-max-width);
+  margin-inline: auto;
+  color: var(--desc-color);
+  font-size: var(--desc-size);
+  font-weight: var(--desc-weight);
+  line-height: var(--desc-line-height);
 }
 
 .final-cta-in .btn {
@@ -2562,6 +2626,14 @@ a.problem-card-link .work-link {
 .home-sec .sec-head-center {
   margin-inline: 0;
   text-align: left;
+}
+
+.home-sec .sec-title {
+  color: var(--h2-color);
+  font-size: var(--h2-size);
+  font-weight: var(--h2-weight);
+  line-height: var(--h2-line-height);
+  letter-spacing: var(--h2-letter-spacing);
 }
 
 .home-sec .faq-list {

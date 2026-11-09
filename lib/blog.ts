@@ -193,3 +193,23 @@ export function getAllPosts() {
 export function getPostBySlug(slug: string) {
   return readPost(slug);
 }
+
+export function getRelatedPosts(current: BlogPost, count = 3): BlogPost[] {
+  const others = getAllPosts().filter((post) => post.slug !== current.slug);
+
+  const sameCategory = others.filter((post) =>
+    post.categories.some((category) => current.categories.includes(category)),
+  );
+
+  const selected: BlogPost[] = [];
+  const seen = new Set<string>();
+
+  for (const post of [...sameCategory, ...others]) {
+    if (selected.length >= count) break;
+    if (seen.has(post.slug)) continue;
+    seen.add(post.slug);
+    selected.push(post);
+  }
+
+  return selected;
+}

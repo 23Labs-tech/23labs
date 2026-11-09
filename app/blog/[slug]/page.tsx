@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { RelatedArticles } from "@/components/blog/RelatedArticles";
 import { JsonLd } from "@/components/site/JsonLd";
-import { blogAuthor, getAllPosts, getPostBySlug } from "@/lib/blog";
+import { blogAuthor, getAllPosts, getPostBySlug, getRelatedPosts } from "@/lib/blog";
 import { absoluteUrl, createMetadata } from "@/lib/seo";
 import { breadcrumbList, organizationId } from "@/lib/schema";
 import { getBaseUrl } from "@/lib/site";
@@ -49,41 +50,54 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     year: "numeric",
   }).format(new Date(post.date));
 
+  const relatedPosts = getRelatedPosts(post);
+
   return (
     <>
       <article className="blog-post">
         <header className="blog-post-hero">
           <div className="container narrow">
+            <h1>{post.title}</h1>
+            <p className="blog-subheading">{post.description}</p>
             <div className="blog-meta">
               <time dateTime={post.date}>{formattedDate}</time>
+              <span className="blog-meta-sep" aria-hidden="true">
+                ·
+              </span>
               <span>{post.readingTime}</span>
+              <span className="blog-meta-sep" aria-hidden="true">
+                ·
+              </span>
               <span>{post.author}</span>
             </div>
-            <p className="blog-author-bio">{blogAuthor.bio}</p>
-            <h1>{post.title}</h1>
-            <p>{post.description}</p>
             <div className="tag-list">
               {post.categories.map((category) => (
                 <span key={category}>{category}</span>
               ))}
             </div>
           </div>
-          <div className="container">
+          <div className="container blog-post-image-wrap">
             <Image
               src={post.featuredImage}
               alt={post.imageAlt}
               width={1200}
               height={640}
               preload
-              sizes="(max-width: 900px) 100vw, 1100px"
+              sizes="(max-width: 900px) 100vw, 860px"
               className="blog-post-image"
             />
           </div>
         </header>
         <div className="container narrow">
           <div className="article-body" dangerouslySetInnerHTML={{ __html: post.html }} />
+          <footer className="blog-post-author">
+            <p className="mono">About the author</p>
+            <p className="blog-post-author-name">{post.author}</p>
+            <p className="blog-author-bio">{blogAuthor.bio}</p>
+          </footer>
         </div>
       </article>
+      <RelatedArticles posts={relatedPosts} />
       <JsonLd
         data={{
           "@context": "https://schema.org",

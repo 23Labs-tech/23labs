@@ -1966,6 +1966,33 @@ a.problem-card-link .work-link {
   margin-top: 28px;
 }
 
+/*
+ * Solution pages resolve a variable number of usecase cards (e.g. 4 or 5),
+ * which doesn't always divide evenly into this 3-column grid and leaves an
+ * incomplete final row with empty bordered cells. If the last row has only
+ * one item (count % 3 == 1), span it full-width. If it has two (count % 3
+ * == 2), span the second one across the remaining two columns so the row
+ * still fills edge-to-edge with no empty cell.
+ */
+.usecase-grid:not(.follow) .usecase-card:last-child:nth-child(3n + 1) {
+  grid-column: 1 / -1;
+}
+
+.usecase-grid:not(.follow) .usecase-card:last-child:nth-child(3n + 2) {
+  grid-column: span 2;
+}
+
+/*
+ * A service's resolved case-study count varies (ongoing-support has
+ * exactly one; system-integrations resolves to three) - without this,
+ * a lone trailing card in an odd position sits alone in its row next
+ * to an empty bordered cell. Span it across the full row instead,
+ * same fix already applied to .related-links.
+ */
+.usecase-grid.follow .usecase-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
 .usecase-card p {
   color: var(--body-color);
   font-size: var(--body-size);
@@ -3480,22 +3507,40 @@ a.proof-link .work-link {
 }
 
 .blog-post-hero h1 {
-  margin: 20px 0;
+  margin: 0 0 22px;
   font-size: clamp(32px, 4vw, 48px);
   line-height: 1.08;
   letter-spacing: -0.02em;
 }
 
-.blog-post-hero p {
+.blog-subheading {
+  margin: 0 0 20px;
+  max-width: 65ch;
   color: var(--ink-soft);
-  font-size: 18px;
+  font-size: clamp(17px, 2vw, 20px);
+  line-height: 1.5;
 }
 
-.blog-post-hero .blog-author-bio {
+.blog-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+.blog-meta-sep {
+  color: var(--line);
+}
+
+.blog-author-bio {
   max-width: 62ch;
-  margin: 0 0 4px;
+  margin: 0;
   font-size: 15px;
   line-height: 1.55;
+  color: var(--ink-soft);
 }
 
 .blog-image {
@@ -3544,23 +3589,23 @@ a.proof-link .work-link {
   font-size: 14px;
 }
 
+.blog-post-image-wrap {
+  max-width: 860px;
+  margin: 56px auto 0;
+}
+
 .blog-post-image {
+  display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 8;
-  object-fit: contain;
-  margin-top: 42px;
-  border: 1px solid var(--line);
   border-radius: 0;
-  background: var(--paper-2);
-  padding: 42px;
 }
 
 .tag-list {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 18px;
+  margin: 16px 0 0;
 }
 
 .tag-list span {
@@ -3612,6 +3657,41 @@ a.proof-link .work-link {
   padding: 2px 5px;
   font-family: var(--font-sans), "Poppins", Arial, sans-serif;
   font-size: 0.92em;
+}
+
+.blog-post-author {
+  margin-top: 0;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+
+.blog-post-author .mono {
+  margin-bottom: 8px;
+}
+
+.blog-post-author-name {
+  margin: 0 0 6px;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/*
+ * Reuses the homepage's connected-grid "From the blog" markup/classes so
+ * the related-articles section on every blog post matches it exactly.
+ * This extra breakpoint is scoped to .related-articles-grid specifically
+ * (not .home-cell-grid.cols-3 itself) so it doesn't touch the homepage's
+ * own blog-preview/selected-work grids, which use the same base classes.
+ */
+@media (max-width: 900px) {
+  .home-cell-grid.cols-3.related-articles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .home-cell-grid.cols-3.related-articles-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ---------- Selected work (alternating feature rows) ---------- */

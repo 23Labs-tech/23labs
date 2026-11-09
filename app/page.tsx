@@ -147,10 +147,8 @@ export default function Home() {
               {homeProcessSteps.map((step, index) => (
                 <div className="home-process-step" key={step.title}>
                   <span className="home-process-num">{String(index + 1).padStart(2, "0")}</span>
-                  <div>
-                    <h3>{step.title}</h3>
-                    <p>{step.body}</p>
-                  </div>
+                  <h3>{step.title}</h3>
+                  <p>{step.body}</p>
                 </div>
               ))}
             </div>

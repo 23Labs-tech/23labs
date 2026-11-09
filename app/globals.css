@@ -243,6 +243,16 @@ main > section.sec:last-of-type::after {
   display: none;
 }
 
+/*
+ * A section whose only content is a heading and a short text passage
+ * (no cards, grid or other dense content after it) doesn't need the
+ * same bottom padding as a content-heavy section - otherwise it reads
+ * as an oversized, half-empty block before the next divider.
+ */
+.sec:has(> .wrap > .text-block:last-child) {
+  padding-bottom: clamp(32px, 4vw, 56px);
+}
+
 .sec.no-top,
 .no-top {
   padding-top: 0;

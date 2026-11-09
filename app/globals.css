@@ -347,10 +347,22 @@ main > section.sec:last-of-type::after {
 }
 
 .sec-head {
-  max-width: 620px;
   margin-bottom: var(--type-desc-content-gap);
+  text-align: center;
 }
 
+.sec-head .sec-title {
+  max-width: 750px;
+  margin-inline: auto;
+}
+
+.sec-head .lead {
+  max-width: 650px;
+  margin-top: 20px;
+  margin-inline: auto;
+}
+
+/* Kept as a harmless no-op alias: every .sec-head is centred by default now. */
 .sec-head-center {
   margin-inline: auto;
   text-align: center;

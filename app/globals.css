@@ -1101,6 +1101,26 @@ main > section.sec:last-of-type::after {
   font-weight: 400;
 }
 
+.case-detail .text-block .cs-steps {
+  list-style: none;
+  margin: 16px 0;
+  padding-left: 0;
+  counter-reset: cs-step;
+}
+
+.case-detail .text-block .cs-steps li {
+  counter-increment: cs-step;
+}
+
+.case-detail .text-block .cs-steps li::before {
+  content: counter(cs-step, decimal-leading-zero) "\2014";
+  display: block;
+  margin-bottom: 6px;
+  color: var(--ink);
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+
 .industry-detail .svc-row {
   align-items: start;
 }

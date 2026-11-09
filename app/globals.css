@@ -312,7 +312,6 @@ textarea:focus-visible {
   align-items: center;
   justify-content: space-between;
   height: 76px;
-  padding-inline: clamp(20px, 4vw, 60px);
 }
 
 .logo,

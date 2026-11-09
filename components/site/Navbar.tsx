@@ -52,7 +52,7 @@ export function Navbar() {
 
   return (
     <nav className={`nav${open ? " is-open" : ""}`} id="nav" ref={navRef}>
-      <div className="wrap nav-in">
+      <div className="wrap home-wrap nav-in">
         <Logo href="/#top" priority />
 
         <div className="nav-right">

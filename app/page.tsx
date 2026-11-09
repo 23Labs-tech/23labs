@@ -5,6 +5,7 @@ import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { HomeHero } from "@/components/sections/HomeHero";
 import { JsonLd } from "@/components/site/JsonLd";
+import { ButtonLink } from "@/components/ui/ButtonLink";
 import { getAllPosts } from "@/lib/blog";
 import { getCaseStudy } from "@/lib/caseStudies";
 import { homeBuildItems, homeCaseStudies, homeFaqs } from "@/lib/data";
@@ -185,6 +186,42 @@ export default function Home() {
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why 23Labs */}
+      <section className="home-sec">
+        <div className="wrap home-wrap">
+          <div className="home-why reveal">
+            <div className="home-why-copy">
+              <p className="mono">Why 23Labs</p>
+              <h2>Technology built around how your business works.</h2>
+              <p>
+                Most businesses don&apos;t need more software. They need their existing systems, people
+                and processes to work better together.
+              </p>
+              <p>
+                At 23Labs, we build practical automation, integrations and custom software that remove
+                repetitive work, connect disconnected tools and make everyday operations easier to
+                manage.
+              </p>
+              <p>
+                We take the time to understand how your business operates before recommending what to
+                build. Whether it&apos;s a small integration or a complete custom system, the goal is
+                always the same: less manual work, fewer complications and more time to focus on
+                running your business.
+              </p>
+              <ButtonLink href="/contact">Let&apos;s talk</ButtonLink>
+            </div>
+            <div className="home-why-media">
+              <Image
+                src="/site-images/photos/team-dashboard-presentation.png"
+                alt="A team reviewing automated workflow data together on a dashboard"
+                fill
+                sizes="(max-width: 900px) 100vw, 45vw"
+              />
+            </div>
           </div>
         </div>
       </section>

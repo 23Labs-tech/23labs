@@ -1228,6 +1228,61 @@ textarea:focus-visible {
   text-underline-offset: 3px;
 }
 
+/* Why 23Labs: text + diagonal-edged image */
+
+.home-why {
+  display: grid;
+  grid-template-columns: minmax(0, 0.55fr) minmax(0, 0.45fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 80px);
+}
+
+.home-why-copy .mono {
+  display: block;
+  margin-bottom: 18px;
+}
+
+.home-why-copy h2 {
+  max-width: 16ch;
+  color: var(--ink);
+  font-size: clamp(28px, 2vw + 18px, 46px);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.home-why-copy p {
+  margin-top: 18px;
+  max-width: 50ch;
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.home-why-copy .btn {
+  margin-top: 28px;
+}
+
+.home-why-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  clip-path: polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%);
+}
+
+.home-why-media img {
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .home-why {
+    grid-template-columns: 1fr;
+  }
+
+  .home-why-media {
+    clip-path: none;
+  }
+}
+
 /* How we work: two-column copy + numbered vertical timeline */
 
 .home-process-grid {

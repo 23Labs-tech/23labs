@@ -1189,6 +1189,28 @@ main > section.sec:last-of-type::after {
   transform: translateX(-50%);
 }
 
+/*
+ * Neutral proof strip directly under the hero. No client logos or
+ * testimonials exist to show here yet, so this is honest service-category
+ * microcopy, not implied social proof - see docs/WEBSITE_GROWTH_AUDIT.md.
+ */
+.home-proof-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 28px;
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  color: var(--eyebrow-color);
+  font-size: var(--eyebrow-size);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--eyebrow-letter-spacing);
+  line-height: var(--eyebrow-line-height);
+  text-align: center;
+  text-transform: uppercase;
+}
+
 /* Heading + optional description, always stacked (never side by side). */
 .home-sec-head {
   margin-bottom: var(--type-desc-content-gap);
@@ -3225,6 +3247,22 @@ a.proof-link .work-link {
 .contact-hero .lead {
   max-width: 640px;
   margin: 0 auto;
+}
+
+.contact-hero-note {
+  max-width: 640px;
+  margin: 16px auto 0;
+  color: var(--ink-faint);
+  font-size: 14px;
+}
+
+.contact-hero-note a {
+  color: var(--accent);
+}
+
+.contact-hero-note a:hover,
+.contact-hero-note a:focus-visible {
+  color: var(--accent-dark);
 }
 
 .booking-section {

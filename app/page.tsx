@@ -6,28 +6,50 @@ import { FinalCta } from "@/components/sections/FinalCta";
 import { HomeHero } from "@/components/sections/HomeHero";
 import { JsonLd } from "@/components/site/JsonLd";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { IndustryIcon } from "@/components/industries/IndustryIcon";
 import { getAllPosts } from "@/lib/blog";
 import { getCaseStudy } from "@/lib/caseStudies";
-import { homeBuildItems, homeCaseStudies, homeFaqs } from "@/lib/data";
+import { homeBuildItems, homeCaseStudies, homeFaqs, homeProblems } from "@/lib/data";
+import { industryLinks } from "@/lib/industries";
 import { createMetadata } from "@/lib/seo";
+
+/**
+ * Priority industries for the homepage, in the order requested. Only two of
+ * the four requested sectors have a live page ("Transport & Logistics" ->
+ * freight-logistics, "Trades & Field Services" -> trades-field-services) -
+ * "Manufacturing & Fabrication" and "Property Maintenance" don't exist as
+ * pages anywhere in the site, so they are not linked here (see
+ * docs/WEBSITE_GROWTH_AUDIT.md). Construction and Real Estate fill the
+ * remaining two slots as the closest existing, genuinely live pages.
+ */
+const homePriorityIndustryBlurbs: Record<string, string> = {
+  "freight-logistics": "Quoting, allocation, proof of delivery and invoicing that stay connected to your TMS.",
+  "trades-field-services": "Enquiries, quotes, scheduling and job updates, without the back-and-forth.",
+  construction: "Project, compliance and client communication systems that keep pace with the job.",
+  "real-estate": "Enquiries, inspections and maintenance requests linked to the right property record.",
+};
+const homePriorityIndustries = Object.keys(homePriorityIndustryBlurbs).map((slug) => {
+  const industry = industryLinks.find((item) => item.slug === slug)!;
+  return { ...industry, body: homePriorityIndustryBlurbs[slug] };
+});
 
 const FALLBACK_BLOG_IMAGE = "/23labs-logo-dark.png";
 
 const homeProcessSteps = [
   {
-    title: "Understand your business",
+    title: "Understand the workflow",
     body: "We learn how your team works, what systems you use and where the biggest challenges are.",
   },
   {
-    title: "Map the opportunities",
+    title: "Agree a practical approach",
     body: "We review your existing processes to identify manual tasks, disconnected systems and opportunities to improve efficiency.",
   },
   {
-    title: "Design and build",
+    title: "Build and integrate",
     body: "We develop practical solutions around your existing workflows, whether that's automation, system integrations or custom software.",
   },
   {
-    title: "Launch and support",
+    title: "Support and improve",
     body: "We test, implement and refine the solution with your team, providing ongoing support as your business evolves.",
   },
 ] as const;
@@ -61,6 +83,37 @@ export default function Home() {
   return (
     <>
       <HomeHero />
+
+      {/* Neutral proof strip: no client logos/testimonials exist to show yet */}
+      <div className="wrap home-wrap">
+        <div className="home-proof-strip">
+          <span>Business process automation</span>
+          <span>System integrations</span>
+          <span>Custom software</span>
+          <span>AI workflows and agents</span>
+        </div>
+      </div>
+
+      {/* The problems we solve */}
+      <section className="home-sec">
+        <div className="wrap home-wrap">
+          <div className="home-sec-head reveal">
+            <h2>The problems we solve</h2>
+            <p className="lead">
+              Different businesses, the same underlying pattern: work that should move on its own is
+              still moving through people.
+            </p>
+          </div>
+          <div className="problem-grid reveal">
+            {homeProblems.map((item) => (
+              <div className="problem-card" key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* About 23Labs */}
       <section className="home-sec">
@@ -112,6 +165,29 @@ export default function Home() {
                 <span className="home-cell-num">{String(index + 1).padStart(2, "0")}</span>
                 <h3>{item.title}</h3>
                 <p>{item.body}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Priority industries */}
+      <section className="home-sec">
+        <div className="wrap home-wrap">
+          <div className="home-sec-head reveal">
+            <div className="home-sec-head-row">
+              <h2>Built for businesses that are growing</h2>
+              <Link href="/industries" className="text-link">
+                All industries
+              </Link>
+            </div>
+          </div>
+          <div className="home-cell-grid cols-4 reveal">
+            {homePriorityIndustries.map((industry) => (
+              <Link href={industry.href} className="home-cell" key={industry.slug}>
+                <IndustryIcon icon={industry.icon} />
+                <h3>{industry.label}</h3>
+                <p>{industry.body}</p>
               </Link>
             ))}
           </div>

@@ -141,6 +141,21 @@ function SomethingElseCta() {
   );
 }
 
+/**
+ * Display-only priority order for the industries hub: the two priority
+ * sectors that have a live page (freight-logistics = "Transport &
+ * Logistics", trades-field-services = "Trades & Field Services") shown
+ * first, everything else in its existing order after. Computed here rather
+ * than reordering the shared industryLinks export itself, since that array
+ * also drives the nav mega-menu and footer link order, which should stay
+ * unchanged.
+ */
+const priorityIndustrySlugs = new Set(["freight-logistics", "trades-field-services"]);
+const industryLinksForHub = [
+  ...industryLinks.filter((industry) => priorityIndustrySlugs.has(industry.slug)),
+  ...industryLinks.filter((industry) => !priorityIndustrySlugs.has(industry.slug)),
+];
+
 export function IndustriesOverviewPage() {
   return (
     <>
@@ -159,7 +174,7 @@ export function IndustriesOverviewPage() {
         <div className="wrap">
           <SectionHeading eyebrow="Who we work with" title="Industries We " highlight="Work With" />
           <div className="industry-grid reveal">
-            {industryLinks.map((industry) => (
+            {industryLinksForHub.map((industry) => (
               <Link href={industry.href} className="industry-card industry-card-link" key={industry.slug}>
                 <IndustryIcon icon={industry.icon} />
                 <h3>{industry.label}</h3>

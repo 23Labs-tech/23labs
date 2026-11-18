@@ -1521,15 +1521,15 @@ export function getServiceLandingPage(slug: string) {
 
 export const servicesHub = {
   path: "/services",
-  metadataTitle: "Software, Automation & Integration Services | 23Labs",
+  metadataTitle: "Business Automation, Integrations & Software Services | 23Labs",
   description:
-    "Business process automation, AI workflows, custom software, AI agents, system integrations and ongoing support for service businesses in Australia and New Zealand.",
+    "Explore business process automation, system integrations, custom software, AI workflows and ongoing support from 23Labs.",
   hero: {
     eyebrow: "Services",
-    title: "Software, automation and integrations for ",
-    highlight: "how the work actually runs",
+    title: "Better business systems, without the unnecessary complexity.",
+    highlight: "",
     lead:
-      "Six services for growing service businesses. We map the process first, then automate a repeatable step, connect the systems you already use, or build software when the current tools cannot hold the work.",
+      "Whether you need a repetitive task automated, two systems connected or a platform built around your team, we start with how your business actually works.",
     lead2:
       "23Labs is based in Melbourne and delivers this work remotely for businesses in Australia and New Zealand.",
   },

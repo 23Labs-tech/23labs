@@ -138,8 +138,8 @@ export const industryOverview = {
     "Software, automation and integrations for transport and logistics, recruitment, professional services and other service businesses in Australia and NZ.",
   hero: {
     eyebrow: "Industries",
-    title: "Software, automation & AI built around ",
-    highlight: "your industry",
+    title: "Built around your operations, not a generic template.",
+    highlight: "",
     lead:
       "Every industry has its own messy workflows, admin bottlenecks and disconnected systems. We build practical software and automation solutions that fit the way your business actually works.",
     lead2:

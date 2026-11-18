@@ -8,7 +8,7 @@ export const metadata: Metadata = createMetadata({
   absoluteTitle: "Contact 23Labs | Talk to Us About Your Current Process",
   path: "/contact",
   description:
-    "Tell us what your team is doing manually, or which systems do not talk to each other. We reply within one business day with a practical next step.",
+    "Tell us what your team is doing manually, or which systems do not talk to each other, and we'll help work out a practical next step.",
   keywords: ["contact 23Labs", "book automation discovery call", "software project enquiry"],
 });
 

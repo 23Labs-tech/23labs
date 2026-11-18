@@ -7,6 +7,7 @@ type ButtonLinkProps = {
   variant?: "primary" | "secondary" | "light";
   className?: string;
   ariaLabel?: string;
+  onClick?: () => void;
 };
 
 export function ButtonLink({
@@ -15,6 +16,7 @@ export function ButtonLink({
   variant = "primary",
   className = "",
   ariaLabel,
+  onClick,
 }: ButtonLinkProps) {
   const variantClass =
     variant === "primary" ? "btn-primary" : variant === "secondary" ? "btn-ghost" : "btn-light";
@@ -23,14 +25,14 @@ export function ButtonLink({
 
   if (isExternal) {
     return (
-      <a className={classes} href={href} aria-label={ariaLabel} rel="noreferrer">
+      <a className={classes} href={href} aria-label={ariaLabel} rel="noreferrer" onClick={onClick}>
         {children}
       </a>
     );
   }
 
   return (
-    <Link className={classes} href={href} aria-label={ariaLabel}>
+    <Link className={classes} href={href} aria-label={ariaLabel} onClick={onClick}>
       {children}
     </Link>
   );

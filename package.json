@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "qa:screenshots": "node scripts/qa-screenshots.mjs"
+    "qa:screenshots": "node scripts/qa-screenshots.mjs",
+    "test:lib": "node --experimental-strip-types scripts/test-lib-utils.mjs"
   },
   "dependencies": {
     "next": "16.2.9",

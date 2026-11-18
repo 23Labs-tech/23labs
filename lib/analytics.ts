@@ -46,3 +46,30 @@ export function trackEmailClick(linkUrl: string) {
     link_url: linkUrl,
   });
 }
+
+/**
+ * Conversion-funnel events for the growth/SEO workstream (see
+ * docs/WEBSITE_GROWTH_AUDIT.md). Each is a thin wrapper around the existing
+ * trackEvent() above, so they inherit its SSR/no-gtag no-op safety - no new
+ * tracking mechanism is introduced. None of these are called from any page
+ * yet; wiring them into real CTAs/forms is follow-up work, not this change.
+ */
+export function trackCtaClick(ctaId: string, params?: EventParams) {
+  trackEvent("cta_click", { cta_id: ctaId, ...params });
+}
+
+export function trackFormStart(formId: string, params?: EventParams) {
+  trackEvent("form_start", { form_id: formId, ...params });
+}
+
+export function trackLeadSubmit(formId: string, params?: EventParams) {
+  trackEvent("lead_submit", { form_id: formId, ...params });
+}
+
+export function trackBookingComplete(params?: EventParams) {
+  trackEvent("booking_complete", { method: "calendly", ...params });
+}
+
+export function trackCaseStudyClick(caseStudySlug: string, params?: EventParams) {
+  trackEvent("case_study_click", { case_study_slug: caseStudySlug, ...params });
+}

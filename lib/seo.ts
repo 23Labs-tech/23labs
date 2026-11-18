@@ -17,6 +17,15 @@ type SeoInput = {
   publishedTime?: string;
   modifiedTime?: string;
   authors?: string[];
+  /**
+   * Release-gating for pages that exist in the repo but aren't approved to
+   * appear in search yet. Keeps the page reachable (for internal review) and
+   * excluded from robots.txt (unaffected) while stopping it being indexed or
+   * having its links followed for discovery. Still keep it out of
+   * app/sitemap.ts's staticPaths and out of nav/footer links until approved -
+   * this flag is a safety net, not a substitute for that.
+   */
+  noindex?: boolean;
 };
 
 export function absoluteUrl(path = "/") {
@@ -73,6 +82,7 @@ export function createMetadata({
   publishedTime,
   modifiedTime,
   authors,
+  noindex = false,
 }: SeoInput = {}): Metadata {
   const fullTitle = absoluteTitle
     ? absoluteTitle
@@ -92,6 +102,7 @@ export function createMetadata({
     alternates: {
       canonical: url,
     },
+    ...(noindex ? { robots: { index: false, follow: false } } : {}),
     openGraph: {
       title: ogTitle || fullTitle,
       description: ogDescription || description,

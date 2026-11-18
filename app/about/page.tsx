@@ -9,10 +9,10 @@ import { workflowFramework } from "@/lib/data";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
-  absoluteTitle: "About 23Labs | Software & Automation Studio, Melbourne",
+  absoluteTitle: "About 23Labs | Practical Business Automation & Software",
   path: "/about",
   description:
-    "23Labs serves clients across Australia and New Zealand remotely from Melbourne, building custom software, automation and system integrations.",
+    "Meet the software and automation studio behind 23Labs. Learn how we approach business problems, build systems and support clients after launch.",
   keywords: ["23Labs", "automation and software studio", "business automation Melbourne", "custom software development"],
 });
 

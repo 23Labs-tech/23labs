@@ -36,7 +36,7 @@ export function NewZealandPage() {
             <div className="mono">{newZealandPage.hero.eyebrow}</div>
             <h1>
               {newZealandPage.hero.title}
-              <span className="em">{newZealandPage.hero.highlight}</span>
+              {newZealandPage.hero.highlight ? <span className="em">{newZealandPage.hero.highlight}</span> : null}
             </h1>
             <p className="hero-sub">{newZealandPage.hero.subheading}</p>
             <p className="lead">{newZealandPage.hero.lead}</p>

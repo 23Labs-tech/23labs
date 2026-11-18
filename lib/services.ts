@@ -1023,7 +1023,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       {
         question: "What oversight does the agent have?",
         answer:
-          "It only reaches the systems and actions agreed up front. Routine replies can be handled directly. Anything that changes a record, makes a commitment, or sits outside the defined task is handed to a person. That line is set in the design.",
+          "It only reaches the systems and actions agreed up front. Routine replies can be handled directly. Anything that changes a record, makes a commitment, or sits outside the defined task is handed to a person. That line is set in the design. See our approach to access, data handling and AI oversight on the security page.",
       },
       {
         question: "Do you publish an AI agent case study?",

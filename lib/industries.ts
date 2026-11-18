@@ -604,7 +604,7 @@ export const industryPages: IndustryPage[] = [
       {
         question: "How do you handle patient information and privacy?",
         answer:
-          "We design workflows to move only the information each step needs, keep it inside the systems you already trust where possible, and document what goes where. Health information has extra obligations under Australian privacy law, so those are part of scoping, not an afterthought.",
+          "We design workflows to move only the information each step needs, keep it inside the systems you already trust where possible, and document what goes where. Health information has extra obligations under Australian privacy law, so those are part of scoping, not an afterthought. See our full approach on the security page.",
       },
       {
         question: "Can AI help with patient enquiries and missed calls?",

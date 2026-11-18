@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CalendlyWidget } from "@/components/contact/CalendlyWidget";
 
 export function BookingSection() {
@@ -13,6 +14,10 @@ export function BookingSection() {
           </p>
         </div>
         <CalendlyWidget />
+        <p className="contact-hero-note">
+          Have security or data-handling requirements to work through first? See how we handle{" "}
+          <Link href="/security">access, credentials and data</Link>.
+        </p>
       </div>
     </section>
   );

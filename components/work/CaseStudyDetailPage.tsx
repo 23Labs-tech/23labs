@@ -4,7 +4,7 @@ import { IndustryIcon } from "@/components/industries/IndustryIcon";
 import { JsonLd } from "@/components/site/JsonLd";
 import { RelatedSuccessStories } from "@/components/work/RelatedSuccessStories";
 import type { CaseStudy, CaseStudyCopyPart, CaseStudySection } from "@/lib/caseStudies";
-import { caseStudiesCta, caseStudyServiceHrefs, getRelatedCaseStudies } from "@/lib/caseStudies";
+import { caseStudiesCta, caseStudyIndustryHrefs, caseStudyServiceHrefs, getRelatedCaseStudies } from "@/lib/caseStudies";
 import { articleJsonLd, breadcrumbList } from "@/lib/schema";
 
 function SystemIcon({ icon }: { icon: string }) {
@@ -65,7 +65,13 @@ function CaseStudyHero({ caseStudy }: { caseStudy: CaseStudy }) {
           {caseStudy.industry ? (
             <div className="case-hero-meta-item">
               <span className="mono">Industry</span>
-              <strong>{caseStudy.industry}</strong>
+              {caseStudyIndustryHrefs[caseStudy.slug] ? (
+                <Link href={caseStudyIndustryHrefs[caseStudy.slug]} className="case-service-link">
+                  {caseStudy.industry}
+                </Link>
+              ) : (
+                <strong>{caseStudy.industry}</strong>
+              )}
             </div>
           ) : null}
           {caseStudy.location ? (
@@ -153,6 +159,37 @@ function NarrativeSection({
   );
 }
 
+function CaseStudyWorkflowSection({ caseStudy }: { caseStudy: CaseStudy }) {
+  if (!caseStudy.workflow?.length) return null;
+
+  return (
+    <section className="sec">
+      <div className="wrap">
+        <SectionIntro title="How information moves now" />
+        <div className="cs-flow-summary reveal">
+          {caseStudy.workflow.map((step, index) => (
+            <span key={step.label}>
+              {index > 0 ? <span className="cs-flow-arrow">{"→"} </span> : null}
+              {step.label}
+            </span>
+          ))}
+        </div>
+        <div className="cs-flow-list">
+          {caseStudy.workflow.map((step) =>
+            step.body ? (
+              <div className="cs-flow-item reveal" key={step.label}>
+                <h3>{step.label}</h3>
+                <p>{step.body}</p>
+              </div>
+            ) : null
+          )}
+        </div>
+        {caseStudy.workflowNote ? <p className="cs-note reveal">{caseStudy.workflowNote}</p> : null}
+      </div>
+    </section>
+  );
+}
+
 function NarrativeBody({ caseStudy }: { caseStudy: CaseStudy }) {
   const cta = caseStudy.cta ?? {
     title: caseStudiesCta.title,
@@ -165,6 +202,7 @@ function NarrativeBody({ caseStudy }: { caseStudy: CaseStudy }) {
       {caseStudy.sections?.map((section) => (
         <NarrativeSection section={section} caseStudy={caseStudy} key={section.title} />
       ))}
+      <CaseStudyWorkflowSection caseStudy={caseStudy} />
       <RelatedSuccessStories caseStudies={getRelatedCaseStudies(caseStudy)} />
       <section className="sec" id="closing-cta">
         <div className="wrap cta-band reveal">

@@ -6,6 +6,7 @@ type FaqItem = { question: string; answer: string };
 const ANSWER_LINK_MARKERS: { marker: string; href: string }[] = [
   { marker: "initial consultation", href: "/contact" },
   { marker: "ongoing support", href: "/services/ongoing-support" },
+  { marker: "security page", href: "/security" },
 ];
 
 function FaqAnswer({ answer }: { answer: string }) {

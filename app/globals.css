@@ -2251,6 +2251,128 @@ a.problem-card-link .work-link {
   stroke: var(--ink);
 }
 
+/* ---------- Automation savings calculator ---------- */
+
+.calc-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.calc-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.calc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.calc-field label {
+  color: var(--ink-soft);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.calc-field-hint {
+  color: var(--ink-faint);
+  font-size: 12.5px;
+}
+
+.calc-input {
+  border: 0;
+  border-bottom: 1.5px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-sans), "Poppins", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 10px 2px;
+  transition: border-color 0.2s;
+}
+
+.calc-input:focus {
+  border-color: var(--ink);
+}
+
+.calc-scenario-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.calc-scenario-btn {
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-family: var(--font-sans), "Poppins", Arial, sans-serif;
+  font-size: 14px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.calc-scenario-btn.active {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.calc-results {
+  border: 1px solid var(--home-line);
+  border-radius: 0;
+  padding: clamp(24px, 3vw, 36px);
+  background: var(--paper);
+}
+
+.calc-result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.calc-result-row:last-of-type {
+  border-bottom: 0;
+}
+
+.calc-result-label {
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+.calc-result-value {
+  color: var(--ink);
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.calc-result-value.emphasis {
+  color: var(--accent);
+}
+
+.calc-note {
+  margin-top: 20px;
+  color: var(--ink-faint);
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .calc-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
 /* ---------- Practical by design ---------- */
 
 .practical-grid {

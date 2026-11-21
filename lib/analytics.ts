@@ -73,3 +73,16 @@ export function trackBookingComplete(params?: EventParams) {
 export function trackCaseStudyClick(caseStudySlug: string, params?: EventParams) {
   trackEvent("case_study_click", { case_study_slug: caseStudySlug, ...params });
 }
+
+/**
+ * Automation savings calculator (/tools/automation-savings-calculator,
+ * Part 7). trackCalculatorInteraction is debounced by the caller (fired on
+ * blur/scenario-change, not per keystroke) so it doesn't flood GA4.
+ */
+export function trackCalculatorInteraction(params?: EventParams) {
+  trackEvent("calculator_interaction", params);
+}
+
+export function trackCalculatorEnquiry(params?: EventParams) {
+  trackEvent("calculator_enquiry", params);
+}

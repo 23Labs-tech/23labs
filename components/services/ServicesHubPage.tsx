@@ -21,7 +21,7 @@ export function ServicesHubPage() {
           <div className="hero-badge">{servicesHub.hero.eyebrow}</div>
           <h1>
             {servicesHub.hero.title}
-            <span className="em">{servicesHub.hero.highlight}</span>
+            {servicesHub.hero.highlight ? <span className="em">{servicesHub.hero.highlight}</span> : null}
           </h1>
           <p className="lead">{servicesHub.hero.lead}</p>
           <p className="lead-2">{servicesHub.hero.lead2}</p>

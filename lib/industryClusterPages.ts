@@ -20,12 +20,12 @@ export const transportIndustryPage = {
     "Transport and logistics automation for quoting, job allocation, dispatch, proof of delivery and TMS to accounting integration in Australia and New Zealand.",
   hero: {
     eyebrow: "Industries / Transport & Logistics",
-    title: "Transport and logistics automation for quoting, dispatch and invoicing",
+    title: "Keep freight moving without the admin getting in the way.",
     highlight: "",
     subheading: "One job record, from the quote through to the invoice.",
     lead:
       "Move a job from the quote to allocation, proof of delivery and the invoice without typing it again, and connect the TMS with accounting.",
-    ctaLabel: "Talk to us about your process",
+    ctaLabel: "Discuss your transport workflow",
     image: {
       src: "/site-images/industries/freight-logistics.jpg",
       alt: "Freight truck travelling on a highway at sunset",
@@ -250,7 +250,7 @@ export const transportIndustryPage = {
   cta: {
     title: "Talk to us about the job cycle",
     body: "Show us how one job moves from the quote to the allocation, the proof of delivery and the invoice. We will tell you which handoffs can be connected and which should stay with a person.",
-    label: "Talk to us about your process",
+    label: "Discuss your transport workflow",
   },
 } satisfies IndustryPage;
 
@@ -263,12 +263,12 @@ export const recruitmentIndustryPage = {
     "Recruitment automation for candidate and job intake, ATS to job board and website sync, onboarding and reporting. For agencies in Australia and New Zealand.",
   hero: {
     eyebrow: "Industries / Recruitment",
-    title: "Recruitment automation for candidate intake, job publishing and reporting",
+    title: "Less admin between your ATS, job boards and recruitment team.",
     highlight: "",
     subheading: "Candidate and job data that moves with the role, not around it.",
     lead:
       "Bring candidate and job intake into the ATS, keep the job board and the website in step with it, and take the repeated admin out of onboarding and reporting.",
-    ctaLabel: "Talk to us about your process",
+    ctaLabel: "Discuss your recruitment workflow",
     image: {
       src: "/site-images/photos/team-standup-tablet.png",
       alt: "A team member presenting project updates to colleagues",
@@ -504,7 +504,7 @@ export const recruitmentIndustryPage = {
   cta: {
     title: "Talk to us about the recruitment workflow",
     body: "Show us how a vacancy moves from the client to the ATS, the job board and the website, and where someone is still copying it. We will tell you what can be connected and what should stay manual.",
-    label: "Talk to us about your process",
+    label: "Discuss your recruitment workflow",
   },
 } satisfies IndustryPage;
 
@@ -517,12 +517,12 @@ export const professionalServicesIndustryPage = {
     "Professional services automation for client onboarding, proposals, project setup and reporting. For firms working across Australia and New Zealand.",
   hero: {
     eyebrow: "Industries / Professional Services",
-    title: "Professional services automation for onboarding, proposals and reporting",
+    title: "Spend more time serving clients, less time moving information.",
     highlight: "",
     subheading: "Client work that moves from proposal to delivery without retyping it.",
     lead:
       "Take a client from the proposal to onboarding, project setup and reporting without copying the same details into the next system.",
-    ctaLabel: "Talk to us about your process",
+    ctaLabel: "Discuss an admin bottleneck",
     image: {
       src: "/site-images/industries/professional-services.jpg",
       alt: "Professional services team working in a modern open-plan office",
@@ -762,6 +762,6 @@ export const professionalServicesIndustryPage = {
   cta: {
     title: "Talk to us about the client handoff",
     body: "Show us what happens between a signed proposal and the first project task, and where the same client details are typed in again. We will look at that path before suggesting any new software.",
-    label: "Talk to us about your process",
+    label: "Discuss an admin bottleneck",
   },
 } satisfies IndustryPage;

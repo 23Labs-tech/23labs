@@ -25,6 +25,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/privacy-policy",
     "/blog",
     ...industryRoutePaths,
+    "/pricing",
+    "/workflow-review",
+    "/partners",
+    "/technologies",
+    "/tools/automation-savings-calculator",
   ];
 
   const staticRoutes = staticPaths.map((path) => ({

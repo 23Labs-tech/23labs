@@ -32,7 +32,7 @@ function LocationHero({ location }: { location: LocationPage }) {
       <div className="hero-wide svc-hero-in">
         <div className="reveal in svc-hero-copy">
           <div className="hero-badge">{location.heroEyebrow}</div>
-          <h1>Automation and Custom Software for {location.city} Businesses</h1>
+          <h1>{location.heroTitle}</h1>
           <p className="lead">{location.heroLead}</p>
           <div className="hero-actions">
             <ButtonLink href="/contact">
@@ -113,8 +113,8 @@ function LocationServices() {
   );
 }
 
-function LocationSuccessStories() {
-  const stories = getLocationSuccessStories();
+function LocationSuccessStories({ location }: { location: LocationPage }) {
+  const stories = getLocationSuccessStories(location);
   if (!stories.length) return null;
 
   return (
@@ -200,7 +200,7 @@ export function LocationLandingPage({ location }: { location: LocationPage }) {
       <LocationIntro location={location} />
       <LocationBenefits location={location} />
       <LocationServices />
-      <LocationSuccessStories />
+      <LocationSuccessStories location={location} />
       <LocationTrust />
       <LocationFAQ location={location} />
       <LocationCTA location={location} />

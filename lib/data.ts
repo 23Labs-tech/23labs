@@ -274,6 +274,22 @@ export const homeBuildItems = [
   },
 ] as const;
 
+/** Homepage-only: "The problems we solve" section, three common operational patterns. */
+export const homeProblems = [
+  {
+    title: "Too many manual handoffs",
+    body: "A job moves from quote to job to invoice, and someone has to remember to update three different systems along the way.",
+  },
+  {
+    title: "Disconnected business systems",
+    body: "Your CRM, accounting platform and job system all hold the same information, typed in by hand more than once.",
+  },
+  {
+    title: "Lack of suitable internal tools",
+    body: "Off-the-shelf software covers most of the job, but your team is still working around the gap with spreadsheets and side processes.",
+  },
+] as const;
+
 /** Homepage-only: 3 featured case studies, shorter card copy than the full case study pages. */
 export const homeCaseStudies = [
   {

@@ -26,6 +26,17 @@ const footerServiceLinks = [
   "ongoing-support",
 ].map((slug) => serviceLandingPages.find((service) => service.slug === slug)!);
 
+const footerMoreServiceLinks = [
+  { label: "Pricing", href: "/pricing" },
+  { label: "Technologies", href: "/technologies" },
+  { label: "Savings Calculator", href: "/tools/automation-savings-calculator" },
+];
+
+const footerStudioExtraLinks = [
+  { label: "Workflow Review", href: "/workflow-review" },
+  { label: "Partners", href: "/partners" },
+];
+
 const footerLocationLinks = [
   ...["brisbane", "sydney", "melbourne", "adelaide", "perth", "auckland", "wellington", "christchurch"].map(
     (slug) => {
@@ -53,6 +64,11 @@ export function Footer() {
                   <Link href={item.href}>{item.label}</Link>
                 </li>
               ))}
+              {footerStudioExtraLinks.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href}>{item.label}</Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="foot-col">
@@ -64,6 +80,11 @@ export function Footer() {
               {footerServiceLinks.map((service) => (
                 <li key={service.href}>
                   <Link href={service.href}>{service.navLabel}</Link>
+                </li>
+              ))}
+              {footerMoreServiceLinks.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href}>{item.label}</Link>
                 </li>
               ))}
             </ul>

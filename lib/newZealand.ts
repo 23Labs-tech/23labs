@@ -12,8 +12,8 @@ export const newZealandPage = {
     "23Labs works with New Zealand service businesses remotely from Melbourne: video calls in New Zealand business hours, for automation, custom software and system integrations.",
   hero: {
     eyebrow: "New Zealand",
-    title: "Software and automation for ",
-    highlight: "New Zealand businesses",
+    title: "Practical software and automation for New Zealand businesses.",
+    highlight: "",
     subheading: "Remote delivery from Melbourne, in New Zealand business hours.",
     lead:
       "23Labs is a Melbourne software and automation studio. We work with growing service businesses in New Zealand remotely: video calls, booked during the New Zealand working day, for the same services we offer in Australia.",

@@ -60,10 +60,23 @@ export const caseStudyServiceHrefs: Record<string, string> = {
   Automation: "/services/business-process-automation",
 };
 
+/**
+ * Maps a case study's `industry` label to the matching live industry page,
+ * by slug, where one genuinely exists. lily-olsen-counselling is
+ * deliberately absent: it's a website/UX delivery, not evidence for the
+ * allied-health page's clinical-adjacent automation work, so it should not
+ * be cross-linked there.
+ */
+export const caseStudyIndustryHrefs: Record<string, string> = {
+  "huntress-recruitment": "/recruitment",
+  "corit-tech": "/professional-services",
+  "real-estate-workflow-automation": "/real-estate",
+};
+
 export const caseStudiesCta = {
   title: "Got systems that should be working together?",
   body: "We help businesses connect existing platforms, remove repetitive admin and build better workflows around the way their teams already work.",
-  label: "Talk to 23Labs",
+  label: "Discuss a similar workflow",
 } as const;
 
 export const caseStudies: CaseStudy[] = [
@@ -96,13 +109,19 @@ export const caseStudies: CaseStudy[] = [
       src: "/site-images/photos/team-meeting-discussion.png",
       alt: "A team discussing the Huntress Recruitment project around a meeting table",
     },
+    workflow: [
+      { label: "Bullhorn", body: "The team manages the vacancy and internal recruitment information in Bullhorn." },
+      { label: "Public job fields", body: "Candidate-facing titles, locations and other public details are held in their own fields." },
+      { label: "SEEK", body: "The relevant vacancy information is prepared for SEEK from that structure." },
+      { label: "Website", body: "The WordPress site uses the same structured vacancy data." },
+    ],
     metadataTitle: "Huntress: Bullhorn, SEEK and Website Integration | 23Labs",
     description:
       "How 23Labs connected Bullhorn, SEEK and a WordPress site for NZ firm Huntress Recruitment, cutting duplicate job admin and keeping public job data consistent.",
     cta: {
       title: "Still retyping vacancy details by hand?",
       body: "If vacancy details are still being retyped between Bullhorn, SEEK and the website, tell us how that handoff works today.",
-      label: "Talk to 23Labs",
+      label: "Discuss a similar workflow",
     },
     sections: [
       {
@@ -277,13 +296,19 @@ export const caseStudies: CaseStudy[] = [
       { value: "120+ hours", label: "If maintained across a year" },
       { value: "White-label", label: "Ongoing partnership" },
     ],
+    workflow: [
+      { label: "Capture once", body: "Customer and onboarding information is recorded once, in the system the team already treats as the source of those details." },
+      { label: "Create the work", body: "That information creates the relevant project and the tasks that belong to it." },
+      { label: "Start delivery", body: "The people doing the work use those records, rather than a second copy of the same details." },
+      { label: "Same handoff each time", body: "Moving from a new client to operational work follows the same path." },
+    ],
     metadataTitle: "Client Onboarding Automation for CorIT Tech | 23Labs",
     description:
       "CorIT Tech client onboarding now creates projects from CRM data. 23Labs connected the tools. Reported saving: more than 10 hours of admin per month.",
     cta: {
       title: "Still copying client details by hand?",
       body: "If a new client still means copying details into the next system, tell us how that handoff works today.",
-      label: "Talk to 23Labs",
+      label: "Discuss a similar workflow",
     },
     sections: [
       {
@@ -463,13 +488,19 @@ export const caseStudies: CaseStudy[] = [
       { value: "Clearer tracking", label: "Of actions and enquiries" },
       { value: "Better visibility", label: "Across the office workflow" },
     ],
+    workflow: [
+      { label: "An enquiry comes in", body: "The details arrive through the office's existing enquiry path." },
+      { label: "The property record is updated", body: "The details that belong on the property record are added without a separate re-entry step." },
+      { label: "The right person is told", body: "The person who needs to act is notified at that stage." },
+      { label: "The next action stays visible", body: "Outstanding enquiries and actions stay visible, so follow-up sits inside the workflow." },
+    ],
     metadataTitle: "Workflow Automation for a Real Estate Office | 23Labs",
     description:
       "Real estate workflow automation for one Australian office. 23Labs improved the website and connected property enquiries so follow-up is easier to track.",
     cta: {
       title: "Still relying on someone to remember the next step?",
       body: "If enquiries and property records still depend on someone remembering the next step, we can look at that workflow with you.",
-      label: "Talk to 23Labs",
+      label: "Discuss a similar workflow",
     },
     sections: [
       {
@@ -668,6 +699,12 @@ export const caseStudies: CaseStudy[] = [
     },
     solution:
       "We rebuilt the site across four pages, home, about, services, and contact, with a consistent sage and ivory palette, soft scroll-triggered animation, and a single typeface throughout to keep the whole experience calm and unhurried.",
+    workflow: [
+      { label: "Home", body: "Introduces the practice and its calm, considered tone." },
+      { label: "About", body: "Builds trust before a visitor commits to booking." },
+      { label: "Services", body: "Sets out what's on offer, clearly enough to act on." },
+      { label: "Contact", body: "Every page leads here, with a clear path to booking a session." },
+    ],
     result:
       "A cohesive, considered site where every page leads naturally toward booking a session, with a layout that's easy for a non-technical owner to keep updated.",
     outcomes: [

@@ -400,7 +400,7 @@ export const solutionPages: SolutionPage[] = [
       "Use AI to read invoices, forms, PDFs and emails and turn them into structured data, with human review where it matters. Built by 23Labs for Australian and NZ businesses.",
     hero: {
       eyebrow: "Solutions / Documents",
-      title: "AI document processing",
+      title: "Stop retyping information from every document.",
       lead:
         "AI reads the invoices, forms, PDFs and emails your team processes by hand, extracts the details and sends them to the right system, with a person checking anything uncertain.",
       image: { src: "/site-images/photos/ai-analytics-overlay.png", alt: "AI analytics interface over business data" },
@@ -443,7 +443,7 @@ export const solutionPages: SolutionPage[] = [
       { question: "Do we still need people involved?", answer: "Yes, for review of uncertain results and any decision that needs judgement. The aim is to remove the retyping, not the oversight." },
       { question: "What about privacy obligations?", answer: "Documents often contain personal information. We design the workflow to limit what is stored and where, and to support your privacy obligations." },
     ],
-    cta: { title: "Send us a few sample documents", body: "Share the documents your team processes most. We will show you what AI can reliably extract.", label: "Talk to us about documents" },
+    cta: { title: "Send us a few sample documents", body: "Share the documents your team processes most. We will show you what AI can reliably extract.", label: "Discuss document automation" },
   },
   {
     slug: "ai-governance",
@@ -454,7 +454,7 @@ export const solutionPages: SolutionPage[] = [
       "Use AI and automation safely. 23Labs builds AI agents and automations with clear limits, least-privilege access, audit logs and human approval, for businesses in Australia and NZ.",
     hero: {
       eyebrow: "Solutions / AI governance",
-      title: "AI safety and governance",
+      title: "Use AI with the right controls in place.",
       lead:
         "AI is only useful if you can trust it. We help businesses use AI agents and automation with clear rules, limited access, a record of what ran and a person in charge of the decisions that matter.",
       image: { src: "/site-images/photos/ai-network-diagram.png", alt: "An AI system connected to business documents and reporting" },
@@ -498,7 +498,7 @@ export const solutionPages: SolutionPage[] = [
       { question: "Does the Privacy Act apply to our automations?", answer: "It can. From 10 December 2026, organisations covered by the Australian Privacy Principles must explain certain automated decisions in their privacy policy. Our guide explains the change. This is general information, not legal advice." },
       { question: "Can you review automations we already have?", answer: "Yes. We can review existing automations and AI tools for access, logging and ownership, and recommend changes." },
     ],
-    cta: { title: "Use AI with the right controls in place", body: "Tell us how your team uses AI today. We will show you the simplest controls that make it safe to keep going.", label: "Talk to us about AI governance" },
+    cta: { title: "Use AI with the right controls in place", body: "Tell us how your team uses AI today. We will show you the simplest controls that make it safe to keep going.", label: "Discuss a controlled AI workflow" },
   },
   {
     slug: "automated-decisions-privacy",

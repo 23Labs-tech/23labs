@@ -2,6 +2,7 @@
 
 import Script from "next/script";
 import { useEffect, useRef, useState } from "react";
+import { trackBookingComplete } from "@/lib/analytics";
 
 const CALENDLY_URL = "https://calendly.com/23labs/30min";
 
@@ -39,6 +40,9 @@ export function CalendlyWidget() {
         data.event.indexOf("calendly.") === 0
       ) {
         markReady();
+        if (data.event === "calendly.event_scheduled") {
+          trackBookingComplete();
+        }
       }
     }
     window.addEventListener("message", onMessage);

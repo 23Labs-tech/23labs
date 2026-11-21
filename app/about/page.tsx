@@ -9,10 +9,10 @@ import { workflowFramework } from "@/lib/data";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
-  absoluteTitle: "About 23Labs | Software & Automation Studio, Melbourne",
+  absoluteTitle: "About 23Labs | Practical Business Automation & Software",
   path: "/about",
   description:
-    "23Labs serves clients across Australia and New Zealand remotely from Melbourne, building custom software, automation and system integrations.",
+    "Meet the software and automation studio behind 23Labs. Learn how we approach business problems, build systems and support clients after launch.",
   keywords: ["23Labs", "automation and software studio", "business automation Melbourne", "custom software development"],
 });
 
@@ -21,8 +21,7 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About 23Labs"
-        title="Practical technology, built around "
-        highlight="your business"
+        title="A practical technology partner for the way your business actually works."
         body="23Labs serves clients across Australia and New Zealand remotely from Melbourne. We design and build business automation, custom software and connected systems for those clients."
       />
 
@@ -50,12 +49,20 @@ export default function AboutPage() {
                 software and connected systems that are built to last.
               </p>
               <p>
+                We keep the software you already use where it is doing its job, explain what we are
+                proposing without jargon, and scope the smallest change that actually solves the problem
+                rather than the biggest one we could sell. See the kind of work this leads to on{" "}
+                <Link href="/work">real client projects</Link>, or browse{" "}
+                <Link href="/services">the services we offer</Link>.
+              </p>
+              <p>
                 Whatever the project, the goal is always the same: smarter systems that save time, reduce
                 errors, and give your team confidence to grow.
               </p>
               <p>
                 For businesses in New Zealand, that work is delivered remotely from Melbourne.{" "}
-                <Link href="/new-zealand">How we work with New Zealand businesses</Link>.
+                <Link href="/new-zealand">How we work with New Zealand businesses</Link>. For how we handle
+                data and access, see our <Link href="/security">security and governance approach</Link>.
               </p>
             </div>
           </div>

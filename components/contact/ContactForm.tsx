@@ -4,7 +4,6 @@ import Link from "next/link";
 import { cloneElement, useRef, useState } from "react";
 import { CONTACT_SERVICE_OPTIONS, validateContactPayload, type ContactErrors, type ContactPayload } from "@/lib/contact";
 import { trackFormStart, trackGenerateLead, trackLeadSubmit } from "@/lib/analytics";
-import { siteConfig } from "@/lib/site";
 
 const FORM_ID = "enquiry";
 
@@ -214,11 +213,7 @@ export function ContactForm({ defaultService = "" }: { defaultService?: string }
       {status === "error" ? (
         <div className="form-status form-status-error" role="alert">
           {serverMessage ||
-            <>
-              Something went wrong sending your enquiry. Please email{" "}
-              <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a> directly.
-            </>
-          }
+            "Something went wrong sending your enquiry. Please try again, or book a time with us instead."}
         </div>
       ) : null}
 

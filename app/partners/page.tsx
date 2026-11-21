@@ -7,10 +7,9 @@ import { breadcrumbList, faqPageJsonLd } from "@/lib/schema";
 import { createMetadata } from "@/lib/seo";
 
 /**
- * Draft growth page, Part 7. Not linked from nav, footer or
- * app/sitemap.ts - see docs/RELEASE_READINESS.md. No partner logos,
- * commission figures, legal guarantees or certifications are named,
- * since none are approved or verifiable from this repository.
+ * No partner logos, commission figures, legal guarantees or
+ * certifications are named, since none are approved or verifiable from
+ * this repository.
  */
 const path = "/partners";
 const description =
@@ -20,7 +19,6 @@ export const metadata: Metadata = createMetadata({
   absoluteTitle: "Partners | 23Labs",
   description,
   path,
-  noindex: true,
 });
 
 const partnerOptions = [

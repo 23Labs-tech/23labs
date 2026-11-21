@@ -9,12 +9,10 @@ import { industryProjectCostAnswer } from "@/lib/industryPricing";
 import { createMetadata } from "@/lib/seo";
 
 /**
- * Draft growth page, Part 7. Not linked from nav, footer or
- * app/sitemap.ts - see docs/RELEASE_READINESS.md. Uses only the single
- * pricing figure already approved and published sitewide
- * (lib/industryPricing.ts's industryProjectCostAnswer, already shown on
- * every service/industry/location FAQ and the NZ hub). No retainer
- * figures or package tiers are introduced - none are approved.
+ * Uses only the single pricing figure already approved and published
+ * sitewide (lib/industryPricing.ts's industryProjectCostAnswer, already
+ * shown on every service/industry/location FAQ and the NZ hub). No
+ * retainer figures or package tiers are introduced - none are approved.
  */
 const path = "/pricing";
 const description =
@@ -24,7 +22,6 @@ export const metadata: Metadata = createMetadata({
   absoluteTitle: "Pricing | 23Labs",
   description,
   path,
-  noindex: true,
 });
 
 const costDrivers = [

@@ -128,6 +128,22 @@ export const industryLinks = [
     description:
       "Automation and software for electricians, plumbers, HVAC businesses, cleaners, landscapers and mobile service teams managing enquiries, quotes, scheduling and job updates.",
   },
+  {
+    slug: "manufacturing",
+    href: "/manufacturing",
+    label: "Manufacturing & Fabrication",
+    icon: "automation",
+    description:
+      "23Labs helps manufacturing and fabrication businesses connect quoting, production, purchasing and accounting, and automate the admin around the job.",
+  },
+  {
+    slug: "property-maintenance",
+    href: "/property-maintenance",
+    label: "Property Maintenance",
+    icon: "pin",
+    description:
+      "23Labs helps property maintenance managers and contractors connect request intake, job assignment, completion evidence and invoicing.",
+  },
 ] as const;
 
 export const industryRoutePaths = ["/industries", ...industryLinks.map((industry) => industry.href)] as const;
@@ -993,18 +1009,6 @@ export const industryPages: IndustryPage[] = [
       label: "Discuss your job workflow",
     },
   },
-  /**
-   * Draft growth pages, Part 4 of the growth/SEO workstream. Neither has an
-   * approved sector case study or confirmed business sign-off yet, so per
-   * that part's publication controls they are deliberately NOT added to
-   * industryLinks (the array that drives the industries hub grid, the nav
-   * mega-menu, the footer and app/sitemap.ts's staticPaths). They are only
-   * reachable by direct URL, and their page metadata sets noindex so they
-   * are excluded from search even if the URL is found. See
-   * docs/WEBSITE_GROWTH_AUDIT.md and the Part 4 summary for the full
-   * reasoning. Remove this comment and add the slug to industryLinks in
-   * lib/industries.ts once the page is approved for publication.
-   */
   {
     slug: "manufacturing",
     href: "/manufacturing",

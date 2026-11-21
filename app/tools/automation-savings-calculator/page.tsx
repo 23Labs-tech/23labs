@@ -8,12 +8,8 @@ import { breadcrumbList, faqPageJsonLd } from "@/lib/schema";
 import { createMetadata } from "@/lib/seo";
 
 /**
- * Draft growth page, Part 7. Not linked from nav, footer or
- * app/sitemap.ts - see docs/RELEASE_READINESS.md. noindex below is a
- * safety net in case the URL is found directly before this page is
- * approved for publication. The calculator itself is fully real and
- * working (lib/calculator.ts, unit-tested via npm run test:calculator) -
- * only its public visibility is gated, not its functionality.
+ * The calculator is fully real and working (lib/calculator.ts,
+ * unit-tested via npm run test:calculator) - not a mock-up.
  */
 const path = "/tools/automation-savings-calculator";
 const description =
@@ -23,7 +19,6 @@ export const metadata: Metadata = createMetadata({
   absoluteTitle: "Automation Savings Calculator | 23Labs",
   description,
   path,
-  noindex: true,
 });
 
 const faqs = [

@@ -8,9 +8,6 @@ import { breadcrumbList, faqPageJsonLd } from "@/lib/schema";
 import { createMetadata } from "@/lib/seo";
 
 /**
- * Draft growth page, Part 7. Not linked from nav, footer or
- * app/sitemap.ts - see docs/RELEASE_READINESS.md.
- *
  * Bullhorn and SEEK are the only platforms named as an actual delivered
  * integration (the Huntress Recruitment case study). Every other named
  * platform (Xero, MYOB, Simpro, ServiceM8, CartonCloud, Transvirtual,
@@ -27,7 +24,6 @@ export const metadata: Metadata = createMetadata({
   absoluteTitle: "Technologies We Evaluate | 23Labs",
   description,
   path,
-  noindex: true,
 });
 
 const evaluationFactors = [

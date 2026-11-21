@@ -8,17 +8,11 @@ import { getCaseStudy } from "@/lib/caseStudies";
 import { createMetadata } from "@/lib/seo";
 
 /**
- * Draft growth page, Part 7. Not linked from nav, footer or
- * app/sitemap.ts - see docs/RELEASE_READINESS.md.
- *
- * No new form/backend was built here. The brief asks to "preserve
- * existing form delivery" and "not add a new external backend without
- * approval" - but there is no separate contact form anywhere in this
- * codebase to preserve (confirmed repeatedly across Parts 1, 2 and 5);
- * the real enquiry mechanism sitewide is the Calendly booking widget. This
- * page explains what to bring to that conversation and reuses the same
- * BookingSection/CalendlyWidget used on /contact, rather than fabricating
- * a second, parallel lead-capture mechanism.
+ * Reuses the same CalendlyWidget used on /contact rather than building a
+ * second, parallel booking mechanism. /contact also has a full enquiry
+ * form (components/contact/ContactForm.tsx) as of the enquiry-form
+ * rebuild - this page is specifically about booking a live conversation,
+ * so it keeps to Calendly only.
  */
 const path = "/workflow-review";
 const description =
@@ -28,7 +22,6 @@ export const metadata: Metadata = createMetadata({
   absoluteTitle: "Workflow Review | 23Labs",
   description,
   path,
-  noindex: true,
 });
 
 const whatToBring = [

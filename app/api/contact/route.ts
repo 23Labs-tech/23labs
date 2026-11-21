@@ -313,7 +313,7 @@ export async function POST(request: NextRequest) {
   );
 
   return NextResponse.json(
-    { error: `We could not send your enquiry. Please email ${siteConfig.email} directly.` },
+    { error: "We could not send your enquiry. Please try again shortly, or book a time with us instead." },
     { status: 500 }
   );
 }

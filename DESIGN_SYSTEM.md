@@ -110,14 +110,37 @@ These were intentionally not forced onto every other page's layout — the brief
 was to standardise the *visual language* (type, colour, spacing, corners), not
 to restructure every page into the homepage's specific section shapes.
 
+## Tool and form components (added via the growth/SEO workstream)
+
+These were built after the pass above, inside the existing token system —
+no new colours, radii, shadows or fonts were introduced for them:
+
+- **Automation savings calculator** (`/tools/automation-savings-calculator`,
+  `.calc-*` classes in `app/globals.css`): inputs, scenario buttons and the
+  results panel all use the same `--line`/`--ink`/`--paper-2` tokens and
+  `border-radius: 0` as every other card and input on the site.
+- **Contact form** (`.contact-form` and related classes): a real working
+  enquiry form again (see `docs/RELEASE_READINESS.md` for the history —
+  it existed, was removed in a redesign pass, and has been rebuilt). Its
+  input/textarea styling already matched this design system's underlined,
+  no-border-radius field treatment before and after the rebuild. The one
+  genuine fix made while reviving it: its `:focus` rule was setting
+  `outline: none` with no replacement, silently defeating this system's
+  global `:focus-visible` outline (§ above the Typography section in
+  `globals.css`) for every field inside a `.contact-form` — including the
+  new service `<select>`, which that global rule didn't cover at all
+  before this fix. Both are now fixed; `select` styling otherwise follows
+  the same input treatment, with a small CSS-only dropdown arrow (no new
+  asset).
+
 ## Outstanding / not covered in this pass
 
-- A long tail of page-specific component classes (contact form fields, the
-  Calendly booking section, location-page and solution-page specific cards,
-  case-study outcome/workflow blocks) still use `--ink-soft`/`--ink-faint`
-  directly rather than the new `--body-color`/`--label-color` tokens. They
-  already inherited the corner-squaring, container-width, and background
-  changes (all token-level), and their font sizes already matched 400-weight
+- A long tail of page-specific component classes (the Calendly booking
+  section, location-page and solution-page specific cards, case-study
+  outcome/workflow blocks) still use `--ink-soft`/`--ink-faint` directly
+  rather than the new `--body-color`/`--label-color` tokens. They already
+  inherited the corner-squaring, container-width, and background changes
+  (all token-level), and their font sizes already matched 400-weight
   Poppins from an earlier pass — but their exact colour values weren't
   individually swapped to the new hex tokens in this round.
 - `--line` (subtle component borders) was left as-is rather than unified with
@@ -130,7 +153,10 @@ to restructure every page into the homepage's specific section shapes.
   and fixed two real issues: several page-specific eyebrow labels still
   using the old blue accent colour, and `.cta-band` (the closing CTA on
   service/solution/location pages) missing the bordered-box treatment the
-  homepage and `.inline-cta` already use. Not every one of the 92 routes was
-  individually screenshotted — only one page per distinct template — so a
-  few long-tail pages may still carry small inconsistencies this pass didn't
+  homepage and `.inline-cta` already use. The site has since grown to 100
+  routes (new service/solution page copy, five gated growth pages, the
+  calculator, and the restored contact form — see
+  `docs/RELEASE_READINESS.md` for the full list); not every route has been
+  individually screenshotted, only one page per distinct template, so a few
+  long-tail pages may still carry small inconsistencies this pass didn't
   surface.

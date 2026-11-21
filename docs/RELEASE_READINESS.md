@@ -1,227 +1,290 @@
-# Release Readiness — Growth/SEO Workstream (Parts 1-7)
+# Release Readiness — Growth/SEO Workstream (Parts 1-7, integrated)
 
-This document covers the complete 7-part growth/SEO workstream: repo audit
-and foundation, homepage/nav/core pages, industry landing pages, case
-studies and trust pages, location pages and legacy redirects, and five new
-commercial growth pages plus a working calculator. **Nothing in this
-workstream has been deployed, merged to `main`, or pushed to origin.**
-Completing the code is explicitly not authorisation to publish — this
-document is the handoff for a human decision on what to approve.
+This document covers the complete growth/SEO workstream: repo audit and
+foundation, homepage/nav/core pages, six service and two solution page
+rewrites, industry landing pages, case studies and trust pages, location
+pages and legacy redirects, five new growth pages plus a working savings
+calculator, and a rebuilt enquiry form. All seven parts (Part 3 included,
+done out of sequence after the rest) have been merged into one integration
+branch, tested together, and are described here as a single current state.
+**Nothing in this workstream has been deployed, merged to `main`, or pushed
+to origin.** Completing the code is not authorisation to publish — this is
+the handoff for the owner's review and sign-off.
 
 ## Branches
 
-Each part is its own branch, stacked sequentially off the previous one, all
-off `main` (the live production branch, untouched):
-
 ```
-main
- └─ seo-growth-part1   (audit, SEO/analytics foundation)
-     └─ seo-growth-part2   (homepage, nav/footer, About, Contact, hub pages)
-         └─ seo-growth-part4   (industry pages — Part 3 was not requested)
-             └─ seo-growth-part5   (case studies, security, privacy audit)
-                 └─ seo-growth-part6   (location pages, legacy redirects)
-                     └─ seo-growth-part7   (growth pages, calculator, this doc)
+main                        <- untouched, still the live production branch
+ ├─ seo-growth-part1 → part2 → part4 → part5 → part6 → part7   (stacked)
+ └─ seo-growth-part3                                            (off part2)
+      └─ seo-growth-integrated  <- merges part7's tip + part3, plus the
+                                    enquiry form and documentation work
+                                    described below
 ```
 
-`seo-growth-part7` is the current tip and contains everything. To review
-the whole workstream as one diff: `git diff main seo-growth-part7`.
+Part 3 ("six service pages and two AI solution pages") was done last, out
+of its original numbered order, after Parts 1-2 and 4-7 were already
+built — so it sits as its own branch off `seo-growth-part2`, independent of
+the 4→5→6→7 stack. Per the owner's instruction, this was not left as seven
+separate branches: `seo-growth-integrated` merges `seo-growth-part7`
+(which carries Parts 1, 2, 4, 5, 6, 7 as linear history) and
+`seo-growth-part3` into one branch, verified by an actual merge — not
+assumed. The only real overlap was `lib/services.ts`, where Part 3's H1/CTA
+rewrites and Part 5's one-sentence FAQ addition (a link to the security
+page) sit on different lines; git auto-merged it cleanly and both changes
+were confirmed present afterwards by direct inspection, not just a clean
+exit code. The enquiry form, privacy policy sync and `DESIGN_SYSTEM.md`
+update (below) were then built directly on `seo-growth-integrated`, since
+they touch files from multiple parts (the contact page from Part 2, the
+service pages from Part 3) and have no reason to exist on a single part's
+branch.
+
+To review the whole thing as one diff: `git diff main seo-growth-integrated`.
 
 ## 1. Page-by-page status
 
 ### Core pages (Part 2)
 
-| Page | Status | Notes |
-|---|---|---|
-| `/` | **Live, updated** | New exact H1/copy, problems section, priority-industries section, proof strip. No fabricated logos/testimonials (none exist). |
-| `/about` | **Live, updated** | New H1, added real internal links. |
-| `/contact` | **Live, updated** | New H1/copy. **No new form was built** — see "Open questions" below. |
-| `/services` (hub) | **Live, updated** | New H1. |
-| `/industries` (hub) | **Live, updated** | New H1, priority sectors reordered for display only. |
-| `/work` (hub) | **Live, updated** | New H1. |
+| Page | Status |
+|---|---|
+| `/`, `/about`, `/contact`, `/services`, `/industries`, `/work` | **Live, updated.** New H1s/copy, problems section, priority-industries section, proof strip. `/contact` now also carries the rebuilt enquiry form (see Section 2). |
+
+### Service and solution pages (Part 3)
+
+| Page | Status |
+|---|---|
+| `/services/business-process-automation`, `/system-integrations`, `/custom-software-development`, `/ai-workflow-automation`, `/ai-agents`, `/ongoing-support` | **Live, updated.** Exact H1 and CTA label rewrites; the existing problem-led body content (audience, boundary-vs-other-services, process steps, real proof from CorIT Tech/Huntress Recruitment, FAQ) was already strong and is unchanged. CTAs now carry `?service=<slug>#enquiry` into the new form. |
+| `/solutions/ai-document-processing`, `/solutions/ai-governance` | **Live, updated.** Same H1/CTA treatment; CTAs anchor to `/contact#enquiry` (no single service applies to a solution page). |
+| The other 7 `/solutions/*` pages | **Unchanged** — out of scope for Part 3, not touched. |
+| **Awaiting your review** (per your instruction #4): copy, links and CTAs on all 8 pages above. A link/CTA audit was run (Section 3) and found no broken links or incorrect CTA targets, but the copy itself hasn't had a human read yet. |
 
 ### Industry pages (Part 4)
 
-| Page | Status | Notes |
-|---|---|---|
-| `/freight-logistics`, `/recruitment`, `/professional-services`, `/construction`, `/allied-health`, `/real-estate`, `/trades-field-services` | **Live, updated** | Exact H1s, workflow diagrams added/wired up, CTA labels fixed, one overclaiming fix (ServiceM8 wording softened). |
-| `/manufacturing` | **Gated draft** | Full content built, real working page if visited directly. `noindex`, not in nav/footer/sitemap. **Missing for approval**: any real client evidence in this sector (none exists); explicit business sign-off that the positioning is accurate. |
-| `/property-maintenance` | **Gated draft** | Same status as Manufacturing. **Missing for approval**: same — no real client evidence in this sector yet. |
+| Page | Status |
+|---|---|
+| `/freight-logistics`, `/recruitment`, `/professional-services`, `/construction`, `/allied-health`, `/real-estate`, `/trades-field-services` | **Live, updated.** Exact H1s, workflow diagrams, CTA fixes. |
+| `/manufacturing`, `/property-maintenance` | **Gated draft**, `noindex`, absent from nav/footer/sitemap. **Per your decision #2**: these can go live without sector-specific case studies, provided the copy is useful and doesn't imply delivered projects that don't exist — they still need **your copy approval** before ungating, which hasn't happened. |
 
 ### Case studies and trust pages (Part 5)
 
-| Page | Status | Notes |
-|---|---|---|
-| `/case-studies/huntress-recruitment`, `/corit-tech`, `/real-estate-workflow-automation`, `/lily-olsen-counselling` | **Live, updated** | Workflow diagrams added, CTA relabelled, industry cross-links added. "First National Real Estate" investigated — doesn't exist, no duplicate, no action needed (a redirect from that exact path to the real case study already existed in `next.config.ts` before this workstream). |
-| `/security` | **Unchanged** | Already comprehensive; only added *inbound* links to it from AI Agents/Allied Health FAQs and Contact. ISO 27001/SOC 2 "not certified" disclaimer preserved as-is. |
-| `/privacy-policy` | **Unchanged** | Zero edits — it's a legal document. **See `docs/PRIVACY_POLICY_AMENDMENTS.md`**: found the page describes a contact form (Resend, honeypot spam field, IP rate limiting) that doesn't exist anywhere in the codebase. Needs owner/legal decision. |
+| Page | Status |
+|---|---|
+| `/case-studies/huntress-recruitment`, `/corit-tech`, `/real-estate-workflow-automation`, `/lily-olsen-counselling` | **Live, updated.** Workflow diagrams, CTA relabelling, industry cross-links. |
+| `/security` | **Unchanged** — only gained inbound links from other pages. |
+| `/privacy-policy` | **Updated this round** — see Section 2. No other section touched. |
 
 ### Location pages (Part 6)
 
-| Page | Status | Notes |
-|---|---|---|
-| `/locations/melbourne` | **Live, updated** | Priority 1. Fixed a city-swap H1 template that predated this workstream. |
-| `/new-zealand` | **Live, updated** | Priority 2. H1 corrected; content was already strong. |
-| `/locations/sydney`, `/brisbane`, `/adelaide`, `/perth`, `/auckland`, `/wellington`, `/christchurch` | **Live, updated** | All 7 given genuinely distinct H1s/content (see `docs/LOCATION_PAGES_INDEXATION.md` for the full before/after and keep/indexable rationale per page). No fabricated local offices or clients. |
+| Page | Status |
+|---|---|
+| `/locations/melbourne`, `/new-zealand`, `/locations/auckland` | **Live, updated.** **Per your decision #5, these three are the priority** — reviewed first if you only have time for some. |
+| `/locations/sydney`, `/brisbane`, `/adelaide`, `/perth`, `/wellington`, `/christchurch` | **Live, updated**, but **lower priority per your decision #5** — hold any further decision on these until Search Console data exists (see `docs/LOCATION_PAGES_INDEXATION.md`). |
 
-### New growth pages (Part 7)
+### Growth pages and calculator (Part 7)
 
-| Page | Status | Notes |
-|---|---|---|
-| `/pricing` | **Gated draft** | Reuses the one already-approved pricing figure (`lib/industryPricing.ts`, already live sitewide). No retainer/package pricing added — none approved. |
-| `/workflow-review` | **Gated draft** | No new form/backend built — reuses the existing Calendly widget, since that's the only real enquiry mechanism in this codebase. |
-| `/partners` | **Gated draft** | No partner logos, commission rates or certifications named — none exist/approved. |
-| `/technologies` | **Gated draft** | Bullhorn/SEEK named as real (Huntress case study); Xero/MYOB/Simpro/ServiceM8/CartonCloud/Transvirtual/Cliniko explicitly labelled "platforms we can assess," not proven integrations. |
-| `/tools/automation-savings-calculator` | **Gated draft, fully functional** | Real interactive calculator, not a mock. Formulas unit-tested (9/9 pass, `npm run test:calculator`). Gating affects only discoverability, not functionality. |
+| Page | Status |
+|---|---|
+| `/pricing`, `/workflow-review`, `/partners`, `/technologies`, `/tools/automation-savings-calculator` | **Gated draft**, `noindex`, absent from nav/footer/sitemap. **Per your decision #3, all five stay gated**; **`/workflow-review`, `/technologies` and `/partners` are the priority for your review**, ahead of `/pricing` and the calculator. |
 
-All five Part 7 pages, plus Manufacturing and Property Maintenance from
-Part 4 — **seven pages total** — are built, tested and reachable only by
-direct URL: `noindex` meta set, not in `lib/data.ts`'s `navItems`, not in
-any footer link list, not in `app/sitemap.ts`'s `staticPaths`. Confirmed
-via build output and a live sitemap/nav check that none of the seven
-appear anywhere discoverable.
+### Rebuilt enquiry form (this round, see Section 2)
 
-### Legacy service URL redirects (Part 6)
+| Item | Status |
+|---|---|
+| `/contact` enquiry form + Calendly | **Live** (not gated — `/contact` was already a live, indexed page; the form is new content on it, not a new route). Functionally complete and tested (Section 3). Email delivery itself is **unverified end-to-end** — no `RESEND_API_KEY` exists in this environment (see Section 2). |
 
-All three redirect pairs asked about, plus seven more, already existed in
-`next.config.ts` before this workstream (confirmed, not built new). Audited
-via `scripts/test-redirects.mjs` (`npm run test:redirects`): 44/44 checks
-pass — every redirect is a single permanent 301/308, no chains, no loops,
-query strings preserved.
+**Ten gated/draft items remain** pending your approval before they're
+discoverable: Manufacturing, Property Maintenance, Pricing, Workflow
+Review, Partners, Technologies, the calculator, plus the three lower-
+priority location-page decisions.
 
-## 2. What was NOT touched (by design)
+## 2. The rebuilt enquiry form
 
-- Every blog article, the blog index, blog preview rendering, blog routing.
-- `/privacy-policy`'s actual legal text.
-- `/security`'s existing content (only new inbound links added).
-- The shared `FinalCta` component's copy (renders on blog posts too —
-  out of scope).
-- `app/sitemap.ts`'s `staticPaths`, `lib/data.ts`'s `navItems`, and every
-  footer link list — none of the 7 gated pages were added to any of these.
-- DNS, hosting config, environment variables, dependencies (no new
-  packages added anywhere in this workstream).
+**What was found**: the privacy policy already described a real contact
+form — name/email/message fields, a honeypot, timing-based bot rejection,
+IP rate limiting, Resend email delivery — in accurate detail. It just
+didn't exist in the code. Git history showed why: `app/api/contact/
+route.ts` and `components/contact/ContactForm.tsx` were deleted in a prior
+redesign commit (`7e2b2754`, "remove email"), and the site had been
+Calendly-only since. `lib/contact.ts` (the validation logic) and
+`lib/site.ts`'s `getBaseUrl()` helper survived that deletion, unused — the
+form didn't need to be designed from scratch, just restored and extended.
 
-## 3. Validations run (this part; each prior part ran the same set and passed)
+**What's built now, per your decisions #1 and #7**:
+
+- A real form on `/contact`, alongside Calendly (not replacing it) — Name,
+  Business name, Work email, Service (a dropdown of the six service pages
+  plus "Not sure / something else"), and a message. Name, business, email,
+  service and message are all required; phone was dropped.
+- Server-side validation (`lib/contact.ts`), a honeypot field, a 2-second
+  minimum-fill-time bot check, per-IP rate limiting (5 submissions / 10
+  minutes), an origin check, and a 16KB body-size cap — all the same logic
+  the original form had, recovered rather than redesigned.
+- Email delivery via Resend's HTTP API (no new npm dependency — a plain
+  `fetch` call), with a fallback sender if the primary domain isn't
+  verified in Resend, and a last-resort console log of the full lead if
+  delivery fails outright, so an enquiry is never silently lost.
+- Every CTA on the six service pages now links to
+  `/contact?service=<slug>#enquiry`, so the form arrives with the right
+  service already selected. Solution-page CTAs anchor to `/contact#enquiry`
+  without presetting a service, since a solution maps to more than one.
+- `trackFormStart`/`trackLeadSubmit` (defined in Part 1, never wired to
+  anything since no form existed) now fire alongside the existing
+  `trackGenerateLead`.
+- The privacy policy's field list (Section 2) was updated to match
+  exactly; `docs/PRIVACY_POLICY_AMENDMENTS.md` records the history and
+  flags the one thing worth a legal glance (see below).
+
+**What still needs real credentials before this is launch-ready**: there
+is no `RESEND_API_KEY` in this environment, so actual email delivery has
+**not** been verified end-to-end. The route's logic was fully tested
+(Section 3) including a dev-mode run where the no-key path is deliberately
+skipped — but nobody has sent a real email through it yet. Before this
+goes live: set `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, and `CONTACT_FROM_EMAIL`
+in Vercel (the exact variables `.env.example` has documented all along),
+verify the sending domain in Resend, and send one real test enquiry.
+
+**Legal flag**: the field-list change (business name now required,
+service added, phone dropped) is a factual sync, not a change in legal
+basis or retention — but a legal reviewer should confirm the new required
+"business name" field doesn't need separate justification. Full detail in
+`docs/PRIVACY_POLICY_AMENDMENTS.md`.
+
+## 3. Validation run on `seo-growth-integrated`
 
 ```
 npx tsc --noEmit        clean
 npm run lint             clean
-npm run build            99/99 routes generated, 0 errors
-npm run test:lib          9/9 pass   (createMetadata noindex gating, analytics SSR safety)
+npm run build            100/100 routes generated, 0 errors
+npm run test:lib          9/9 pass
+npm run test:calculator   9/9 pass
+npm run test:contact     11/11 pass  (new: validateContactPayload - required
+                                       fields, email format, service-slug
+                                       validity, honeypot spam flag)
 npm run test:redirects   44/44 pass  (no chains/loops, query strings preserved)
-npm run test:calculator   9/9 pass   (calculator formulas, clamping, currency formatting)
 ```
 
-Sitewide spot-check (Playwright, against `next start`, this part): 45
-representative routes across every page group — all 200, all exactly one
-`<h1>`, all unique canonical URLs, zero broken internal links found on the
-5 new pages, zero missing `alt` text, zero mobile horizontal overflow at
-375px. Nav dropdowns, the Calendly booking widget, and blog rendering
-re-verified unaffected at the end of every part, including this one.
+Sitewide sweep (Playwright, against `next start`), 53 representative
+routes across every page group: all 200, all exactly one `<h1>`, all
+unique canonicals, zero missing `alt` text, zero mobile horizontal
+overflow at 375px (home and `/contact`, the two most layout-sensitive
+pages, checked explicitly).
 
-**Not run, and explicitly flagged rather than guessed**: Lighthouse/
-PageSpeed scores (no credentials/production environment available to this
-session to produce a number worth trusting), Search Console or analytics
-traffic data (same reason), and live confirmation that GA4 is receiving
-events in the real property (code-level confirmation only — see below).
+Service/solution page audit (the 8 pages from Part 3, per your instruction
+#4): every CTA's `href` checked directly in a live browser — confirmed
+each of the 6 service pages' 3 CTAs carry its own `service=<slug>`, each
+solution page's 3 CTAs anchor to the form, and the global nav/footer CTA
+(same on every page, correctly *not* carrying a service) is unaffected.
+All 41 unique internal link targets found across those 8 pages resolve to
+200 — no broken links.
 
-## 4. GA4 / analytics summary (Section F.7)
+Enquiry form functional check (Playwright, live browser): service
+pre-selects correctly from `?service=` on page load; both the form and
+Calendly render on `/contact`; submitting empty shows inline field errors
+without navigating away; a complete, valid submission shows the success
+state (checked in dev mode, where email sending intentionally no-ops);
+the same submission in production mode — no `RESEND_API_KEY` configured —
+correctly shows the graceful "we could not send your enquiry, email us
+directly" fallback rather than crashing, exactly as designed; a
+honeypot-filled submission returns `200 {ok:true}` and is silently
+discarded rather than emailed; the new `<select>` shows a visible keyboard
+focus outline (confirming the accessibility fix in Section 2 worked).
 
-Events defined in `lib/analytics.ts`, all thin wrappers around the
-pre-existing `trackEvent()` (SSR-safe, no-ops without `gtag`):
+**Not run, and not claimed**: Lighthouse/PageSpeed scores, Search Console
+or GA4 traffic data, or real Resend email delivery — none of these can be
+verified from this environment.
 
-| Event name | Wired into | Added in |
-|---|---|---|
-| `generate_lead`, `email_click` | Pre-existing, unchanged | Before this workstream |
-| `cta_click` | Homepage hero CTAs, both nav CTAs | Part 1 (defined) / Part 2 (wired) |
-| `booking_complete` | `CalendlyWidget`'s real `calendly.event_scheduled` listener | Part 1 (defined) / Part 2 (wired) |
-| `form_start`, `lead_submit` | Defined, not wired — no form exists to wire them to | Part 1 |
-| `case_study_click` | Defined, not wired | Part 1 |
-| `calculator_interaction`, `calculator_enquiry` | The new calculator's scenario buttons / blur events, and its "Discuss this with 23Labs" CTA | Part 7 |
+## 4. Business decisions already made (recorded here, not re-litigated)
 
-GA4 pageview tracking is confirmed live in code (real measurement ID,
-loads on every page, pre-existing). **Not independently confirmed**: that
-any of these events are actually arriving in the GA4 property, since this
-session has no dashboard access. CRM lead attribution (HubSpot/Instantly,
-named in the privacy policy) has no corresponding code anywhere in this
-repository to verify either way — see
-`docs/PRIVACY_POLICY_AMENDMENTS.md` item 2.
+Per your message, these are settled; code and docs reflect them:
 
-## 5. Business approvals still needed before anything in this workstream goes live
+1. Real enquiry form alongside Calendly — **built** (Section 2).
+2. Manufacturing/Property Maintenance can launch without sector case
+   studies, once copy is approved — **still gated pending that approval**.
+3. All five Part 7 growth pages stay gated; Workflow Review, Technologies
+   and Partners are the review priority — **unchanged, noted above**.
+4. All 8 service/solution pages need a copy/link/CTA review before
+   merging — **link/CTA audit done (clean); copy review is yours**.
+5. Melbourne, NZ hub, Auckland are the location-page priority; the rest
+   wait on Search Console — **unchanged, noted above**.
+6. `DESIGN_SYSTEM.md` updated to reflect the current implementation —
+   **done**: added a section on the calculator's and contact form's
+   component classes (both already followed the existing token system; no
+   new colours/radii/shadows anywhere), corrected the stale route count,
+   and left the pre-existing "outstanding" notes that are still accurate.
+7. Service passthrough into the new enquiry form — **built** (Section 2).
+8. This document — **done**.
+9. Branch relationships and merge order — **verified by actually merging
+   and testing**, not assumed (Section "Branches" above).
+10. Single integration branch, `main` untouched, no deploy — **done**;
+    see "Branches" above.
 
-1. **Contact form / privacy policy discrepancy** (highest priority,
-   `docs/PRIVACY_POLICY_AMENDMENTS.md`) — decide whether the privacy
-   policy's contact-form description is outdated (and should be corrected
-   to describe the current Calendly-only flow) or whether a real form is
-   intended to be built. Either way, Calendly should be named as a data
-   processor somewhere in the policy.
-2. **Manufacturing and Property Maintenance** (`/manufacturing`,
-   `/property-maintenance`) — sign off on publishing without a sector-
-   specific case study, or wait until one exists.
-3. **The five Part 7 growth pages** — review content and explicitly
-   approve before removing their `noindex`/adding them to nav, footer and
-   sitemap. None contain fabricated facts, but none have been seen by a
-   human yet either.
-4. **Location pages** (`docs/LOCATION_PAGES_INDEXATION.md`) — the
-   satellite AU/NZ city pages (everywhere except Melbourne/NZ hub/
-   Auckland) have no city-specific proof. Recommended: connect Search
-   Console before deciding whether to keep them as standalone pages or
-   merge into `/locations`.
-5. **DESIGN_SYSTEM.md** (flagged in Part 1) is now further out of date
-   given six more parts of changes. Not corrected in this workstream
-   (documentation, not a page) — worth a refresh pass before onboarding
-   anyone else to the codebase.
+## 5. Still outstanding (not yet decided, or decided but not yet actioned)
 
-## 6. Deployment plan (NOT executed — for owner approval)
+- **Human copy review** of the 8 service/solution pages (your #4) and the
+  gated growth pages, prioritised per your #3.
+- **Manufacturing/Property Maintenance copy approval** (your #2) — the
+  copy exists; it hasn't been read and approved yet.
+- **Resend credentials** — the form is code-complete but has never sent a
+  real email (Section 2).
+- **Search Console connection** before deciding on the 6 lower-priority
+  location pages (your #5).
+- **HubSpot/Instantly confirmation** — named in the privacy policy as CRM/
+  outreach tools; no code in this repo touches them either way, so this
+  can only be confirmed by you, not by inspecting the codebase.
+- **Pre-existing privacy policy TODOs** (legal entity/ABN, overseas
+  country list for Zoho, security-measure wording, retention periods,
+  client-agreement wording) — unrelated to this round's form work, still
+  open from Part 5, listed in full in `docs/PRIVACY_POLICY_AMENDMENTS.md`.
+- **`DESIGN_SYSTEM.md`'s own pre-existing outstanding items** (a long tail
+  of page-specific classes still using `--ink-soft`/`--ink-faint` directly
+  rather than the newer tokens) — cosmetic, not a blocker, unchanged by
+  this round.
 
-This mirrors the pattern already used successfully for the November 2026
-design-system release (`v1.0.0-redesign` tag on `main`):
+## 6. Deployment plan (not executed — for your approval)
 
-1. Owner reviews this document and the three `docs/*.md` companions
-   (`WEBSITE_GROWTH_AUDIT.md`, `LOCATION_PAGES_INDEXATION.md`,
-   `PRIVACY_POLICY_AMENDMENTS.md`), and decides on each item in Section 5.
-2. For any of the 7 gated pages approved for publication: remove
-   `noindex: true` from that page's `createMetadata()` call, add its path
-   to `app/sitemap.ts`'s `staticPaths`, and add it to `lib/data.ts`'s
-   `navItems` or the relevant footer list, as appropriate for that page.
-   Rebuild and re-run the full validation suite above after any such
+1. You review this document, the copy/link items in Section 5, and the
+   three companion docs (`PRIVACY_POLICY_AMENDMENTS.md`,
+   `LOCATION_PAGES_INDEXATION.md`, `WEBSITE_GROWTH_AUDIT.md`).
+2. Set `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL` in
+   Vercel; verify the sending domain in Resend; send one real test
+   enquiry through the live form before relying on it.
+3. For any gated page you approve: remove its `noindex`, add it to
+   `app/sitemap.ts`'s `staticPaths`, and add it to the relevant nav/footer
+   list. Re-run the full validation suite (Section 3) after any such
    change.
-3. Merge the branch stack into `main` via a normal PR (fast-forward or
-   merge commit — no rebasing needed, commits are already linear) once
-   approved.
-4. Push `main` to `origin` — this is the step that triggers Vercel's
-   production deploy, per the existing GitHub-integration deployment
-   model (confirmed in earlier sessions this project).
-5. Post-deploy: re-run the sitewide sweep above against the live
-   `www.23labs.co` domain, and spot-check the calculator and any newly
-   unindexed/linked page live.
-6. Tag the release (e.g. `v1.1.0-growth`), matching the existing
-   `v1.0.0-redesign` convention, for a clean rollback point.
+4. Merge `seo-growth-integrated` into `main` via a normal PR.
+5. Push `main` to `origin` (triggers the existing Vercel deploy) — **only
+   after your explicit approval**.
+6. Post-deploy: re-run the sitewide sweep against the live domain, send a
+   second real test enquiry against production, and spot-check Calendly
+   and the calculator live.
+7. Tag the release (e.g. `v1.1.0-growth`).
 
 ## 7. Rollback approach
 
-Since nothing is deployed yet, there is nothing to roll back. Once
-deployed per the plan above: revert is `git revert` of the merge commit
-(or redeploy the prior tag, `v1.0.0-redesign`, via the same push-to-`main`
-mechanism) — no database, no migrations, no external state to unwind.
-The gated pages add zero risk to existing functionality even if merged
-before their content is approved, since they are unreachable except by
-direct URL; the risk surface to review before merging is entirely in the
-**already-live** page changes (Parts 2, 4, 5, 6) and the two
-already-live-industries' content changes, not the gated pages.
+Nothing is deployed, so there is nothing to roll back yet. Once deployed:
+`git revert` of the merge commit, or redeploy the prior tag
+(`v1.0.0-redesign`) via the same push-to-`main` mechanism — no database,
+migration or external state to unwind. The form's "failed delivery" path
+logs to Vercel's function logs rather than losing a lead outright, but
+that log is not a durable store — if Resend is misconfigured post-launch,
+leads during that window need recovering from logs before they rotate.
 
 ## 8. Final launch checklist
 
-- [ ] Resolve the privacy-policy/contact-form discrepancy (Section 5.1)
-- [ ] Decide Manufacturing/Property Maintenance publication (5.2)
-- [ ] Human review of all 5 Part 7 growth pages (5.3)
-- [ ] Decide location-page indexation strategy once Search Console is
-      connected (5.4)
-- [ ] Re-run full validation suite after any gating changes
-- [ ] Merge branch stack to `main` via PR
-- [ ] Push to `origin` (triggers Vercel deploy) — **only after explicit
-      approval**
-- [ ] Post-deploy smoke test against the live domain
+- [ ] Copy/link/CTA review of the 8 service/solution pages (Part 3)
+- [ ] Manufacturing/Property Maintenance copy approval
+- [ ] Review of Workflow Review, Technologies, Partners (priority), then
+      Pricing and the calculator
+- [ ] Resend credentials configured and one real enquiry sent end-to-end
+- [ ] Search Console connected; decide the 6 lower-priority location pages
+- [ ] HubSpot/Instantly usage confirmed (or the privacy policy corrected)
+- [ ] Re-run the full validation suite after any gating/content change
+- [ ] Merge `seo-growth-integrated` → `main` via PR
+- [ ] Push to `origin` — **only after explicit approval**
+- [ ] Post-deploy smoke test, including one live test enquiry
 - [ ] Tag the release
 
-**This workstream is feature-complete and validated. Nothing is published.
-Awaiting owner review of this document before any merge or deploy step.**
+**This workstream is feature-complete, integrated into a single branch,
+and validated end to end except for live email delivery. Nothing is
+published. Awaiting your review before any merge or deploy step.**

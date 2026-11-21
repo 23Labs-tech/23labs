@@ -138,8 +138,8 @@ export const industryOverview = {
     "Software, automation and integrations for transport and logistics, recruitment, professional services and other service businesses in Australia and NZ.",
   hero: {
     eyebrow: "Industries",
-    title: "Software, automation & AI built around ",
-    highlight: "your industry",
+    title: "Built around your operations, not a generic template.",
+    highlight: "",
     lead:
       "Every industry has its own messy workflows, admin bottlenecks and disconnected systems. We build practical software and automation solutions that fit the way your business actually works.",
     lead2:
@@ -274,11 +274,12 @@ export const industryPages: IndustryPage[] = [
       "23Labs helps construction businesses reduce admin, manage documentation, automate follow-ups and connect the systems a job already runs through.",
     hero: {
       eyebrow: "Industries / Construction",
-      title: "Software and automation built for ",
-      highlight: "construction teams",
+      title: "Keep construction projects moving when the paperwork piles up.",
+      highlight: "",
       subheading: "Projects and compliance that stay on track without extra admin.",
       lead:
         "Automate repetitive admin, connect disconnected project systems and build software around the way your sites actually run.",
+      ctaLabel: "Discuss a construction workflow",
       image: {
         src: "/site-images/industries/construction.jpg",
         alt: "Construction workers in hard hats and safety vests working on an active building site",
@@ -332,6 +333,37 @@ export const industryPages: IndustryPage[] = [
         { slug: "ai-workflow-automation", description: "Route documents, variations and site information without manual handoffs." },
         { slug: "ai-agents", description: "Agents that handle enquiries and capture job details during busy periods." },
         { slug: "ongoing-support", description: "Keep compliance tracking and job systems working as projects change." },
+      ],
+    },
+    workflows: {
+      eyebrow: "Typical workflows",
+      title: "An example of the ",
+      highlight: "quote-to-job handoff",
+      paragraphs: [
+        "This is a typical pattern we build for construction businesses, not a description of a specific client project.",
+      ],
+      items: [
+        {
+          title: "Quote to job",
+          paragraphs: [
+            "Before: a quote is approved over email or a phone call, and someone then sets the job up by hand in the project system, re-entering details that were already in the quote.",
+            "What we build: an approved quote creates the job record automatically, with the scope, client and site details carried across, so the office isn't retyping what was already agreed.",
+          ],
+        },
+        {
+          title: "Variations and change orders",
+          paragraphs: [
+            "Before: scope changes get approved over text or email and are easy to lose track of once the job is underway.",
+            "What we build: a tracked request-and-approval step, so a variation has a record instead of living in a message thread.",
+          ],
+        },
+        {
+          title: "Subcontractor compliance documents",
+          paragraphs: [
+            "Before: insurances, licences and SWMS are chased and checked by hand, and an expired document is often only found when it causes a problem.",
+            "What we build: a structured way to request and collect those documents, with expiry dates flagged automatically rather than tracked in a spreadsheet.",
+          ],
+        },
       ],
     },
     help: {
@@ -408,6 +440,7 @@ export const industryPages: IndustryPage[] = [
       title: "Book a construction discovery call",
       body:
         "Tell us how quotes, documents and job updates currently move through your business and we'll show you where automation can save your team the most time.",
+      label: "Discuss a construction workflow",
     },
   },
   transportIndustryPage,
@@ -422,11 +455,12 @@ export const industryPages: IndustryPage[] = [
       "23Labs helps allied health clinics reduce admin, simplify scheduling and connect practice systems with custom software, workflow automation and integrations.",
     hero: {
       eyebrow: "Industries / Allied Health",
-      title: "Software and automation built for ",
-      highlight: "allied health clinics",
+      title: "Less administration for practice teams. More time for patient care.",
+      highlight: "",
       subheading: "Clinics that run on less admin and steadier scheduling.",
       lead:
         "Automate repetitive admin, simplify scheduling and connect the systems your clinic team already uses.",
+      ctaLabel: "Discuss a practice workflow",
       image: {
         src: "/site-images/industries/allied-health.jpg",
         alt: "Allied health practitioner guiding a patient through a rehabilitation exercise",
@@ -480,6 +514,37 @@ export const industryPages: IndustryPage[] = [
         { slug: "ai-workflow-automation", description: "Turn intake forms and referral letters into structured patient records." },
         { slug: "ai-agents", description: "Agents that answer common booking questions and capture patient details." },
         { slug: "ongoing-support", description: "Keep scheduling and intake systems reliable as the clinic grows." },
+      ],
+    },
+    workflows: {
+      eyebrow: "Typical workflows",
+      title: "An example of the ",
+      highlight: "booking-to-appointment handoff",
+      paragraphs: [
+        "This is a typical pattern we build for allied health clinics, not a description of a specific client project. We scope every step to what the practice management system and the clinic's privacy obligations actually allow.",
+      ],
+      items: [
+        {
+          title: "Booking and reminders",
+          paragraphs: [
+            "Before: bookings are confirmed by phone or email, and reminders rely on someone remembering to send them, so no-shows still happen.",
+            "What we build: confirmations and reminders that go out automatically from the booking, with a person handling anything that needs judgement, such as a clinical question.",
+          ],
+        },
+        {
+          title: "New patient intake",
+          paragraphs: [
+            "Before: intake forms come back by email or paper, and the details are typed into the practice management system by hand before the first appointment.",
+            "What we build: an intake step that lands the administrative details, name, contact information, referral source, directly where the clinic team already works, without touching clinical records.",
+          ],
+        },
+        {
+          title: "Waitlist and rescheduling",
+          paragraphs: [
+            "Before: filling a cancelled slot from the waitlist, or handling a reschedule, is done manually and is often too slow to fill the gap.",
+            "What we build: a faster, more consistent way to offer a freed slot to the waitlist, so fewer gaps go unfilled.",
+          ],
+        },
       ],
     },
     help: {
@@ -539,7 +604,7 @@ export const industryPages: IndustryPage[] = [
       {
         question: "How do you handle patient information and privacy?",
         answer:
-          "We design workflows to move only the information each step needs, keep it inside the systems you already trust where possible, and document what goes where. Health information has extra obligations under Australian privacy law, so those are part of scoping, not an afterthought.",
+          "We design workflows to move only the information each step needs, keep it inside the systems you already trust where possible, and document what goes where. Health information has extra obligations under Australian privacy law, so those are part of scoping, not an afterthought. See our full approach on the security page.",
       },
       {
         question: "Can AI help with patient enquiries and missed calls?",
@@ -556,6 +621,7 @@ export const industryPages: IndustryPage[] = [
       title: "Book an allied health discovery call",
       body:
         "Tell us how bookings, intake and patient communication currently work and we'll show you where automation can save your team time.",
+      label: "Discuss a practice workflow",
     },
   },
   {
@@ -567,11 +633,12 @@ export const industryPages: IndustryPage[] = [
       "Automate enquiries, maintenance requests and tenant updates for agencies and property managers, and connect the systems the office already uses.",
     hero: {
       eyebrow: "Industries / Real Estate",
-      title: "Software and automation built for ",
-      highlight: "real estate teams",
+      title: "From property enquiry to the right person, without the chasing.",
+      highlight: "",
       subheading: "Enquiries and maintenance requests that follow up themselves.",
       lead:
         "Automate repetitive admin, respond to enquiries faster and connect the systems your agency already relies on.",
+      ctaLabel: "Discuss a property workflow",
       image: {
         src: "/site-images/industries/real-estate.jpg",
         alt: "Modern residential property exterior",
@@ -625,6 +692,30 @@ export const industryPages: IndustryPage[] = [
         { slug: "ai-workflow-automation", description: "Extract details from enquiries and maintenance requests automatically." },
         { slug: "ai-agents", description: "Agents that answer buyer and tenant questions and route leads." },
         { slug: "ongoing-support", description: "Keep enquiry and maintenance workflows reliable as listings change." },
+      ],
+    },
+    workflows: {
+      eyebrow: "Typical workflows",
+      title: "An example of ",
+      highlight: "maintenance request handling",
+      paragraphs: [
+        "This is a typical pattern we build for agencies and property managers, not a description of a specific client project. Our published proof below covers the enquiry-to-property-record work in detail.",
+      ],
+      items: [
+        {
+          title: "Maintenance request intake",
+          paragraphs: [
+            "Before: a tenant maintenance request comes in by phone, email or a form, and someone manually matches it to the right property and works out who should action it.",
+            "What we build: the request is matched to the property record automatically, and routed to the person or contractor who handles that type of job.",
+          ],
+        },
+        {
+          title: "Status updates",
+          paragraphs: [
+            "Before: landlords and tenants chase the office for an update because there's no visibility into where a request sits.",
+            "What we build: a status that updates automatically as the job moves, so fewer people need to call and ask.",
+          ],
+        },
       ],
     },
     help: {
@@ -721,6 +812,7 @@ export const industryPages: IndustryPage[] = [
       title: "Book a real estate discovery call",
       body:
         "Tell us how enquiries, inspections and maintenance currently move through your business and we'll show you where automation can help.",
+      label: "Discuss a property workflow",
     },
   },
   {
@@ -732,11 +824,12 @@ export const industryPages: IndustryPage[] = [
       "Automate enquiries, quotes, scheduling and job updates for trades and field service teams, and connect the systems the crew already uses each day.",
     hero: {
       eyebrow: "Industries / Trades & Field Services",
-      title: "Software and automation built for ",
-      highlight: "trades and field service businesses",
+      title: "More jobs completed. Less time chasing the paperwork.",
+      highlight: "",
       subheading: "Jobs that move from quote to invoice without the paperwork trailing behind.",
       lead:
         "Respond to leads faster, reduce admin and build software around the way your jobs actually get done.",
+      ctaLabel: "Discuss your job workflow",
       image: {
         src: "/site-images/industries/trades-field-services.jpg",
         alt: "Electrician installing and wiring an electrical panel on site",
@@ -792,6 +885,37 @@ export const industryPages: IndustryPage[] = [
         { slug: "ongoing-support", description: "Keep job and CRM integrations reliable as the business grows." },
       ],
     },
+    workflows: {
+      eyebrow: "Typical workflows",
+      title: "An example of the ",
+      highlight: "quote-to-invoice handoff",
+      paragraphs: [
+        "This is a typical pattern we build for trades and field service businesses, not a description of a specific client project.",
+      ],
+      items: [
+        {
+          title: "Quote to job",
+          paragraphs: [
+            "Before: a quote is accepted by text or email, and the job is set up by hand in the job management system, with the same details typed in again.",
+            "What we build: an accepted quote creates the job automatically, with the scope, customer and site details carried across.",
+          ],
+        },
+        {
+          title: "Completion to invoice",
+          paragraphs: [
+            "Before: the technician finishes the job, and the office waits for a call, a text or a paper job sheet before the invoice can be raised.",
+            "What we build: completion evidence, such as photos or a signed form, flows back to the office automatically, so the invoice can be prepared without waiting on a phone call.",
+          ],
+        },
+        {
+          title: "Customer notifications",
+          paragraphs: [
+            "Before: customers call to ask when the technician is coming, because the only update is the original booking.",
+            "What we build: automatic notifications as a job is scheduled, on the way and completed, so fewer customers need to call and check.",
+          ],
+        },
+      ],
+    },
     help: {
       eyebrow: "How we can help",
       title: "Automation and software built around ",
@@ -839,7 +963,7 @@ export const industryPages: IndustryPage[] = [
       {
         question: "Can you connect our job management software to accounting?",
         answer:
-          "Usually. Platforms such as ServiceM8 offer integrations and APIs. We check what your tools allow, then connect jobs, quotes and invoices so details are entered once.",
+          "Often, yes. Most job management platforms offer some form of integration or API. Tell us what you use and we'll check what it allows, then connect jobs, quotes and invoices so details are entered once.",
       },
       {
         question: "What can trades businesses automate first?",
@@ -866,6 +990,359 @@ export const industryPages: IndustryPage[] = [
       title: "Book a trades & field services discovery call",
       body:
         "Tell us how leads, quotes and jobs currently move through your business and we'll show you where automation can save your team time.",
+      label: "Discuss your job workflow",
+    },
+  },
+  /**
+   * Draft growth pages, Part 4 of the growth/SEO workstream. Neither has an
+   * approved sector case study or confirmed business sign-off yet, so per
+   * that part's publication controls they are deliberately NOT added to
+   * industryLinks (the array that drives the industries hub grid, the nav
+   * mega-menu, the footer and app/sitemap.ts's staticPaths). They are only
+   * reachable by direct URL, and their page metadata sets noindex so they
+   * are excluded from search even if the URL is found. See
+   * docs/WEBSITE_GROWTH_AUDIT.md and the Part 4 summary for the full
+   * reasoning. Remove this comment and add the slug to industryLinks in
+   * lib/industries.ts once the page is approved for publication.
+   */
+  {
+    slug: "manufacturing",
+    href: "/manufacturing",
+    serviceName: "Manufacturing and fabrication automation and software",
+    metadataTitle: "Manufacturing & Fabrication Automation | 23Labs",
+    description:
+      "23Labs helps manufacturing and fabrication businesses connect quoting, production, purchasing and accounting, and automate the admin around the job.",
+    hero: {
+      eyebrow: "Industries / Manufacturing & Fabrication",
+      title: "Less chasing across the workshop. Clearer production workflows.",
+      highlight: "",
+      subheading: "Jobs that move from quote to production without the paper trail going missing.",
+      lead:
+        "Automate repetitive admin, connect disconnected production and accounting systems, and build software around the way your workshop actually runs.",
+      ctaLabel: "Discuss your production workflow",
+      image: {
+        src: "/site-images/photos/factory-automation-review.png",
+        alt: "Team reviewing production and automation data together on a screen",
+      },
+    },
+    intro: {
+      paragraphs: [
+        "A manufacturing or fabrication job moves through several stages: a quote, a production schedule, materials and purchasing, the job itself, and the handoff to accounting once it ships. In many workshops, those stages sit in separate systems, a job board, a spreadsheet and the accounting package, so the same job gets typed up more than once.",
+        "We help manufacturing and fabrication businesses close that gap. Instead of replacing the systems your workshop already runs on, we connect them and automate the repetitive admin in between.",
+      ],
+    },
+    problems: {
+      eyebrow: "Common problems",
+      title: "Where ",
+      highlight: "manufacturing teams lose time",
+      items: [
+        { title: "Quote to production handoff", body: "A won quote has to be manually turned into a job and a production schedule." },
+        { title: "Job status not visible to the office", body: "The office doesn't have a clear, live view of where a job is up to on the floor." },
+        { title: "Purchasing and inventory tracking", body: "Materials are ordered and tracked by hand, separately from the job that needs them." },
+        { title: "ERP and accounting handoffs", body: "Job costs and completed work are re-entered into accounting instead of flowing through automatically." },
+        { title: "Production dashboards", body: "There's no single view of jobs in progress, materials needed and what's ready to ship." },
+        { title: "Duplicate data entry", body: "The same job and material details get typed into quoting, production and accounting tools separately." },
+      ],
+    },
+    problemSection: {
+      heading: "The quote, the schedule, the materials. Then the build.",
+      paragraphs: [
+        "A manufacturing job runs on a quote, a production schedule, materials and purchasing, usually spread across a quoting tool, a production system and accounting. Keeping all three in step, and giving the office a current view of the floor, competes with running the job itself.",
+        "Automation and integration can connect those systems: a won quote becomes a job, material requirements flow to purchasing, and completed work moves into accounting without someone retyping it.",
+      ],
+      bullets: [
+        "Quotes turned into jobs automatically",
+        "Job status visible without a walk to the floor",
+        "Completed jobs flowing into accounting",
+      ],
+    },
+    supportingImage: {
+      src: "/site-images/photos/workers-system-monitors.png",
+      alt: "Workshop team reviewing job status on monitors",
+    },
+    solutions: {
+      heading: "Automation and software built around how your workshop actually runs",
+      intro: "Ways 23Labs removes manual work from quoting, production and purchasing admin.",
+      items: [
+        { slug: "business-process-automation", description: "Automate quote-to-job handoffs, purchasing reminders and job status updates." },
+        { slug: "system-integrations", description: "Connect quoting, production and accounting tools so job costs move automatically." },
+        { slug: "custom-software-development", description: "Production dashboards built around how your workshop actually runs." },
+        { slug: "ai-workflow-automation", description: "Route purchase orders, job documents and production information without manual handoffs." },
+        { slug: "ai-agents", description: "Agents that handle enquiries and capture job details during busy periods." },
+        { slug: "ongoing-support", description: "Keep production and accounting integrations working as the business changes." },
+      ],
+    },
+    workflows: {
+      eyebrow: "Typical workflows",
+      title: "An example of the ",
+      highlight: "quote-to-production handoff",
+      paragraphs: [
+        "This is a typical pattern we build for manufacturing and fabrication businesses. We don't yet have a published case study in this sector, so treat this as an illustration of how we approach the problem, not a delivered result.",
+      ],
+      items: [
+        {
+          title: "Quote to job",
+          paragraphs: [
+            "Before: a quote is won, and someone manually creates the job and a production schedule, re-entering details that were already in the quote.",
+            "What we build: a won quote creates the job and an initial schedule automatically, with the scope and materials carried across.",
+          ],
+        },
+        {
+          title: "Purchasing and materials",
+          paragraphs: [
+            "Before: material requirements are worked out and ordered separately from the job, with no clear link between the two.",
+            "What we build: material requirements generated from the job, so purchasing knows what's needed and when without a separate manual check.",
+          ],
+        },
+        {
+          title: "Job completion to accounting",
+          paragraphs: [
+            "Before: a completed job is reported to the office by hand, and the costs are entered into accounting separately.",
+            "What we build: a completed job flows through to accounting with its actual costs, instead of being re-keyed.",
+          ],
+        },
+      ],
+    },
+    help: {
+      eyebrow: "How we can help",
+      title: "Automation and software built around ",
+      highlight: "how production runs",
+      body: "Most manufacturing businesses don't need a new ERP. They need their existing quoting, production and accounting tools connected, and the repetitive admin automated.",
+      services: [
+        {
+          icon: "automation",
+          name: "Business Process Automation",
+          href: serviceHrefs.automation,
+          body: "Automate quote-to-job handoffs, purchasing reminders and the internal admin that currently relies on someone remembering to do it.",
+        },
+        {
+          icon: "integration",
+          name: "System Integrations",
+          href: "/services/system-integrations",
+          body: "Connect your quoting, production and accounting tools so job costs move without re-entry.",
+        },
+        {
+          icon: "software",
+          name: "Custom Software Development",
+          href: serviceHrefs.software,
+          body: "Build production dashboards and internal tools designed around how your workshop actually operates.",
+        },
+        {
+          icon: "message",
+          name: "AI Agents",
+          href: serviceHrefs.aiAgents,
+          body: "Deploy AI agents that handle enquiries and capture job details during busy periods.",
+        },
+      ],
+    },
+    builds: {
+      eyebrow: "What we can build",
+      title: "What We Can ",
+      highlight: "Build",
+      items: [
+        { icon: "automation", title: "Production Workflow Automation", body: "Automate quote-to-job handoffs, purchasing reminders and internal task handoffs across active jobs." },
+        { icon: "software", title: "Production Dashboards", body: "Give your team a single, live view of job status, materials and what's ready to ship." },
+        { icon: "integration", title: "System Integrations", body: "Connect your quoting, production and accounting tools so information moves without re-entry." },
+        { icon: "ai", title: "AI Admin Agents", body: "Handle enquiries and document routing with AI agents built around your workflow." },
+      ],
+    },
+    faq: [
+      {
+        question: "Can you automate production admin without replacing our ERP or job system?",
+        answer:
+          "Usually, yes. We look at where quoting, production and accounting are being retyped or chased by hand, then automate or connect those steps around the software you already use. Replacing a core system is a different, larger project, and we would only suggest it if the current one genuinely can't carry the workflow.",
+      },
+      {
+        question: "What's a realistic first step for a manufacturing business?",
+        answer:
+          "Usually the quote-to-job handoff, since it happens on every job and the re-entry is easy to see. From there, purchasing and the accounting handoff tend to be the next highest-value steps.",
+      },
+      {
+        question: "Do you have a published manufacturing case study?",
+        answer:
+          "Not yet. This page describes the kind of work we do and how we approach it, not a specific delivered project. If a sector-specific example matters to you, ask us and we'll be upfront about what we have and haven't done in manufacturing.",
+      },
+      {
+        question: "Do you work with manufacturers outside Melbourne?",
+        answer:
+          "Yes. 23Labs is based in Melbourne and delivers remotely for manufacturing and fabrication businesses across Australia and New Zealand.",
+      },
+    ],
+    cta: {
+      title: "Book a manufacturing discovery call",
+      body:
+        "Tell us how quotes, production and purchasing currently move through your business and we'll show you where automation can save your team the most time.",
+      label: "Discuss your production workflow",
+    },
+  },
+  {
+    slug: "property-maintenance",
+    href: "/property-maintenance",
+    serviceName: "Property maintenance automation and software",
+    metadataTitle: "Property Maintenance Automation & Software | 23Labs",
+    description:
+      "23Labs helps property maintenance managers and contractors connect request intake, job assignment, completion evidence and invoicing.",
+    hero: {
+      eyebrow: "Industries / Property Maintenance",
+      title: "Keep maintenance jobs moving without constant follow-up.",
+      highlight: "",
+      subheading: "For maintenance managers and contractors, not property sales.",
+      lead:
+        "Automate repetitive admin, connect the systems your maintenance team already uses, and keep jobs moving from request to completion without someone chasing every step.",
+      ctaLabel: "Discuss a maintenance workflow",
+      image: {
+        src: "/site-images/photos/dashboard-laptop-review.png",
+        alt: "Team reviewing a maintenance job dashboard together",
+      },
+    },
+    intro: {
+      paragraphs: [
+        "Property maintenance runs on a chain of handoffs: a request comes in, it has to be matched to the right property, a contractor is assigned, completion needs to be confirmed, and an invoice has to be approved. Each handoff is a place where someone has to remember to follow up.",
+        "We help maintenance managers and contractors build systems around that chain, so fewer requests sit waiting for someone to notice them.",
+      ],
+    },
+    problems: {
+      eyebrow: "Common problems",
+      title: "Where ",
+      highlight: "maintenance requests stall",
+      items: [
+        { title: "Manual request intake", body: "Maintenance requests come in by phone, email or a form and are matched to a property by hand." },
+        { title: "Contractor assignment", body: "Finding and confirming an available contractor is done manually, job by job." },
+        { title: "Completion evidence", body: "Confirming a job is actually finished relies on a call or a message rather than a clear record." },
+        { title: "Invoice approval", body: "Contractor invoices are checked against the job manually before they can be approved." },
+        { title: "Status visibility", body: "Owners, tenants and contractors all chase updates because there's no shared view of where a request sits." },
+        { title: "Duplicate data entry", body: "The same request and property details get typed into more than one system." },
+      ],
+    },
+    problemSection: {
+      heading: "The request, the contractor, the evidence. Then the invoice.",
+      paragraphs: [
+        "A maintenance request has to be matched to the right property, assigned to a contractor, confirmed as complete, and turned into an approved invoice. Every one of those handoffs is a place where a request can sit waiting for someone to pick it up.",
+        "Automation and integration can connect that chain: a request is matched to its property automatically, routed to the right contractor, and tracked through to a completed, invoiced job.",
+      ],
+      bullets: [
+        "Requests matched to the right property automatically",
+        "Contractors assigned without a round of phone calls",
+        "Completion evidence linked to the invoice",
+      ],
+    },
+    supportingImage: {
+      src: "/site-images/photos/team-meeting-discussion.png",
+      alt: "Maintenance team discussing job assignments together",
+    },
+    solutions: {
+      heading: "Automation and software built around how maintenance requests actually move",
+      intro: "Ways 23Labs removes manual work from request intake, assignment and invoicing.",
+      items: [
+        { slug: "business-process-automation", description: "Automate request intake, contractor assignment and status updates." },
+        { slug: "system-integrations", description: "Connect your property system, contractor tools and accounting software." },
+        { slug: "custom-software-development", description: "Dashboards and portals built around how maintenance requests actually move." },
+        { slug: "ai-workflow-automation", description: "Extract details from maintenance requests and route them automatically." },
+        { slug: "ai-agents", description: "Agents that answer routine status questions and capture request details." },
+        { slug: "ongoing-support", description: "Keep request and invoicing workflows reliable as the portfolio grows." },
+      ],
+    },
+    workflows: {
+      eyebrow: "Typical workflows",
+      title: "An example of the ",
+      highlight: "request-to-invoice flow",
+      paragraphs: [
+        "This is a typical pattern we build for maintenance managers and contractors. We don't yet have a published case study in this sector, so treat this as an illustration of how we approach the problem, not a delivered result.",
+      ],
+      items: [
+        {
+          title: "Request intake and property match",
+          paragraphs: [
+            "Before: a request comes in by phone, email or a form, and someone manually works out which property it relates to.",
+            "What we build: the request is matched to the property record automatically, using the details already available from the request.",
+          ],
+        },
+        {
+          title: "Contractor assignment",
+          paragraphs: [
+            "Before: finding an available contractor for the job type and location means a round of calls or messages.",
+            "What we build: the request is routed to the right contractor based on job type and availability, with a person confirming anything that needs judgement.",
+          ],
+        },
+        {
+          title: "Completion evidence to invoice approval",
+          paragraphs: [
+            "Before: confirming a job is finished relies on a call, and the invoice is checked against it manually before approval.",
+            "What we build: completion evidence, such as photos or a signed form, is linked to the job, so the invoice can be checked against it and approved faster.",
+          ],
+        },
+      ],
+    },
+    help: {
+      eyebrow: "How we can help",
+      title: "Automation and software built around ",
+      highlight: "how requests actually move",
+      body: "Maintenance teams don't need more software. They need requests, contractors and invoicing connected, and the follow-up automated.",
+      services: [
+        {
+          icon: "automation",
+          name: "Business Process Automation",
+          href: serviceHrefs.automation,
+          body: "Automate request intake, contractor assignment and the follow-up that currently relies on someone remembering to chase it.",
+        },
+        {
+          icon: "integration",
+          name: "System Integrations",
+          href: "/services/system-integrations",
+          body: "Connect your property system, contractor tools and accounting software so job and invoice details move without re-entry.",
+        },
+        {
+          icon: "software",
+          name: "Custom Software Development",
+          href: serviceHrefs.software,
+          body: "Build dashboards and portals designed around how maintenance requests actually move through your business.",
+        },
+        {
+          icon: "message",
+          name: "AI Agents",
+          href: serviceHrefs.aiAgents,
+          body: "Deploy AI agents that answer routine status questions and capture request details.",
+        },
+      ],
+    },
+    builds: {
+      eyebrow: "What we can build",
+      title: "What We Can ",
+      highlight: "Build",
+      items: [
+        { icon: "automation", title: "Request Workflow Automation", body: "Automate request intake, contractor assignment, reminders and status updates." },
+        { icon: "software", title: "Maintenance Dashboards", body: "Give your team a single, live view of open requests, assigned contractors and completion status." },
+        { icon: "integration", title: "System Integrations", body: "Connect your property system, contractor tools and accounting software so information moves without re-entry." },
+        { icon: "ai", title: "AI Admin Agents", body: "Handle routine status questions and request intake with AI agents built around your workflow." },
+      ],
+    },
+    faq: [
+      {
+        question: "Is this for property managers or for maintenance contractors?",
+        answer:
+          "Both. We build for maintenance managers coordinating requests across a portfolio, and for contractors who need a clearer way to receive, confirm and invoice jobs. Tell us which side of the request you're on and we'll scope accordingly.",
+      },
+      {
+        question: "Is this the same as real estate sales or leasing software?",
+        answer:
+          "No. This page is about maintenance request handling specifically, not property sales, leasing or tenant screening. If your main need is enquiry and listing management, our real estate page covers that instead.",
+      },
+      {
+        question: "Do you have a published property maintenance case study?",
+        answer:
+          "Not yet. This page describes the kind of work we do and how we approach it, not a specific delivered project. Our published real estate case study covers a related enquiry-to-property-record workflow, if that's useful context.",
+      },
+      {
+        question: "Do you work with maintenance businesses outside Melbourne?",
+        answer:
+          "Yes. 23Labs is based in Melbourne and delivers remotely for maintenance managers and contractors across Australia and New Zealand.",
+      },
+    ],
+    cta: {
+      title: "Book a property maintenance discovery call",
+      body:
+        "Tell us how requests, contractors and invoicing currently move through your business and we'll show you where automation can save your team time.",
+      label: "Discuss a maintenance workflow",
     },
   },
 ];

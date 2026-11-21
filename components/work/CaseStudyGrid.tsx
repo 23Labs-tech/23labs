@@ -11,7 +11,7 @@ export function CaseStudyGrid() {
         <div className="cs-head reveal in">
           <div className="cs-head-copy">
             <div className="hero-badge">Case studies</div>
-            <h1>Case studies: systems we have connected, automated and built</h1>
+            <h1>Real business problems. Practical systems that work.</h1>
             <p className="hero-sub">Real work. Real results.</p>
             <p className="lead">
               See how we help businesses simplify operations, connect systems, automate workflows and build

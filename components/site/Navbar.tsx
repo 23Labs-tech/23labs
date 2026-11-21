@@ -8,6 +8,7 @@ import { industryLinks } from "@/lib/industries";
 import { serviceLandingPages } from "@/lib/services";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Logo } from "@/components/site/Logo";
+import { trackCtaClick } from "@/lib/analytics";
 
 const linkItems = navItems.filter((item) => item.href !== "/contact");
 
@@ -119,8 +120,12 @@ export function Navbar() {
             })}
           </div>
 
-          <ButtonLink href="/contact" className="nav-cta nav-cta-header">
-            Start a conversation
+          <ButtonLink
+            href="/contact"
+            className="nav-cta nav-cta-header"
+            onClick={() => trackCtaClick("nav-header")}
+          >
+            Let&apos;s Talk
           </ButtonLink>
 
           <button
@@ -157,8 +162,12 @@ export function Navbar() {
               </div>
             );
           })}
-          <ButtonLink href="/contact" className="nav-cta nav-cta-menu">
-            Start a conversation
+          <ButtonLink
+            href="/contact"
+            className="nav-cta nav-cta-menu"
+            onClick={() => trackCtaClick("nav-mobile-menu")}
+          >
+            Let&apos;s Talk
           </ButtonLink>
         </div>
       </div>

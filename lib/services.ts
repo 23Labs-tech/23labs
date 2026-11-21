@@ -1023,7 +1023,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       {
         question: "What oversight does the agent have?",
         answer:
-          "It only reaches the systems and actions agreed up front. Routine replies can be handled directly. Anything that changes a record, makes a commitment, or sits outside the defined task is handed to a person. That line is set in the design.",
+          "It only reaches the systems and actions agreed up front. Routine replies can be handled directly. Anything that changes a record, makes a commitment, or sits outside the defined task is handed to a person. That line is set in the design. See our approach to access, data handling and AI oversight on the security page.",
       },
       {
         question: "Do you publish an AI agent case study?",
@@ -1521,15 +1521,15 @@ export function getServiceLandingPage(slug: string) {
 
 export const servicesHub = {
   path: "/services",
-  metadataTitle: "Software, Automation & Integration Services | 23Labs",
+  metadataTitle: "Business Automation, Integrations & Software Services | 23Labs",
   description:
-    "Business process automation, AI workflows, custom software, AI agents, system integrations and ongoing support for service businesses in Australia and New Zealand.",
+    "Explore business process automation, system integrations, custom software, AI workflows and ongoing support from 23Labs.",
   hero: {
     eyebrow: "Services",
-    title: "Software, automation and integrations for ",
-    highlight: "how the work actually runs",
+    title: "Better business systems, without the unnecessary complexity.",
+    highlight: "",
     lead:
-      "Six services for growing service businesses. We map the process first, then automate a repeatable step, connect the systems you already use, or build software when the current tools cannot hold the work.",
+      "Whether you need a repetitive task automated, two systems connected or a platform built around your team, we start with how your business actually works.",
     lead2:
       "23Labs is based in Melbourne and delivers this work remotely for businesses in Australia and New Zealand.",
   },

@@ -91,6 +91,71 @@ function TextBlock({ paragraphs }: { paragraphs: readonly CopyBlock[] }) {
   );
 }
 
+function IndustryProofSection({ proof }: { proof: NonNullable<IndustryPageData["proof"]> }) {
+  return (
+    <section className="sec">
+      <div className="wrap">
+        <div className="sec-head reveal">
+          <span className="mono">{proof.eyebrow}</span>
+          <h2 className="sec-title">
+            {proof.title}
+            {proof.highlight ? <span className="em">{proof.highlight}</span> : null}
+          </h2>
+        </div>
+        <div className="text-block reveal">
+          {proof.paragraphs.map((paragraph, index) => (
+            <RichParagraph paragraph={paragraph} key={index} />
+          ))}
+        </div>
+        {proof.links?.length ? (
+          <div className="workflow-list reveal">
+            {proof.links.map((link) => (
+              <Link href={link.href} className="workflow-card proof-link" key={link.href}>
+                <h3>{link.label}</h3>
+                <p>{link.body}</p>
+                <span className="work-link">Read the case study</span>
+              </Link>
+            ))}
+          </div>
+        ) : null}
+      </div>
+    </section>
+  );
+}
+
+function IndustryWorkflowSection({ workflows }: { workflows: NonNullable<IndustryPageData["workflows"]> }) {
+  return (
+    <section className="sec">
+      <div className="wrap">
+        <div className="sec-head reveal">
+          <span className="mono">{workflows.eyebrow}</span>
+          <h2 className="sec-title">
+            {workflows.title}
+            {workflows.highlight ? <span className="em">{workflows.highlight}</span> : null}
+          </h2>
+        </div>
+        {workflows.paragraphs?.length ? (
+          <div className="text-block reveal">
+            {workflows.paragraphs.map((paragraph, index) => (
+              <RichParagraph paragraph={paragraph} key={index} />
+            ))}
+          </div>
+        ) : null}
+        <div className="workflow-list reveal">
+          {workflows.items.map((item) => (
+            <div className="workflow-card" key={item.title}>
+              <h3>{item.title}</h3>
+              {item.paragraphs.map((paragraph, index) => (
+                <RichParagraph paragraph={paragraph} key={index} />
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function visibleFaqs(industry: IndustryPageData) {
   const faqs = [...(industry.faq ?? [])];
   const hasCostAnswer = faqs.some((item) => item.answer.includes("typically start from A$2,500"));
@@ -141,6 +206,21 @@ function SomethingElseCta() {
   );
 }
 
+/**
+ * Display-only priority order for the industries hub: the two priority
+ * sectors that have a live page (freight-logistics = "Transport &
+ * Logistics", trades-field-services = "Trades & Field Services") shown
+ * first, everything else in its existing order after. Computed here rather
+ * than reordering the shared industryLinks export itself, since that array
+ * also drives the nav mega-menu and footer link order, which should stay
+ * unchanged.
+ */
+const priorityIndustrySlugs = new Set(["freight-logistics", "trades-field-services"]);
+const industryLinksForHub = [
+  ...industryLinks.filter((industry) => priorityIndustrySlugs.has(industry.slug)),
+  ...industryLinks.filter((industry) => !priorityIndustrySlugs.has(industry.slug)),
+];
+
 export function IndustriesOverviewPage() {
   return (
     <>
@@ -159,7 +239,7 @@ export function IndustriesOverviewPage() {
         <div className="wrap">
           <SectionHeading eyebrow="Who we work with" title="Industries We " highlight="Work With" />
           <div className="industry-grid reveal">
-            {industryLinks.map((industry) => (
+            {industryLinksForHub.map((industry) => (
               <Link href={industry.href} className="industry-card industry-card-link" key={industry.slug}>
                 <IndustryIcon icon={industry.icon} />
                 <h3>{industry.label}</h3>
@@ -255,7 +335,7 @@ export function IndustryDetailPage({ industry }: { industry: IndustryPageData })
         title={`${industry.hero.title}${industry.hero.highlight}`}
         subheading={industry.hero.subheading}
         description={industry.hero.lead}
-        primaryCta={{ label: "Start a conversation", href: "/contact" }}
+        primaryCta={{ label: industry.hero.ctaLabel ?? "Start a conversation", href: "/contact" }}
         secondaryCta={{ label: "See what we can automate", href: "#solutions" }}
       />
 
@@ -273,6 +353,10 @@ export function IndustryDetailPage({ industry }: { industry: IndustryPageData })
         intro={industry.solutions.intro}
         items={industry.solutions.items}
       />
+
+      {industry.workflows ? <IndustryWorkflowSection workflows={industry.workflows} /> : null}
+
+      {industry.proof ? <IndustryProofSection proof={industry.proof} /> : null}
 
       <IndustrySuccessStories stories={successStories} />
 

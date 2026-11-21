@@ -115,11 +115,11 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     cardDescription: "Remove repetitive admin, approvals, follow-ups and manual handoffs from everyday operations.",
     hero: {
       eyebrow: "Services / Business Process Automation",
-      title: "Business process automation for quoting, onboarding and admin",
+      title: "Take repetitive administration out of the way.",
       subheading: "Automation that fits the way work actually happens.",
       lead:
         "Business process automation takes a repeatable process and runs the handoffs without someone retyping the details or remembering the next step. We map how the work actually happens, then automate the parts that follow a rule.",
-      ctaLabel: "Show us what you're doing manually",
+      ctaLabel: "Discuss a workflow to automate",
       image: {
         src: "/site-images/photos/team-dashboard-presentation.png",
         alt: "A team reviewing a performance dashboard presented on a screen during a meeting",
@@ -236,7 +236,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       heading: "How a process automation engagement works",
       intro:
         "There is no fixed package and no published timeline. The sequence is the same each time: see the real process, separate the rules from the judgement, then automate only the rules.",
-      ctaLabel: "Show us what you're doing manually",
+      ctaLabel: "Discuss a workflow to automate",
       steps: [
         {
           title: "Walk one real example",
@@ -340,7 +340,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     cta: {
       title: "Show us the process your team repeats.",
       body: "A walkthrough of quoting, onboarding, reporting or job allocation is enough to start. We will map what should happen on its own, and what should stay with a person.",
-      label: "Show us what you're doing manually",
+      label: "Discuss a workflow to automate",
     },
     relatedSlugs: ["system-integrations", "ai-workflow-automation", "custom-software-development"],
   },
@@ -354,11 +354,11 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     cardDescription: "Use AI to process documents, emails and unstructured information inside real business workflows.",
     hero: {
       eyebrow: "Services / AI Workflow Automation",
-      title: "AI workflow automation for documents, extraction and classification",
+      title: "Use AI where it makes the work easier, not just more complicated.",
       subheading: "AI that reads and sorts the information your team currently handles by hand.",
       lead:
         "AI workflow automation puts a model inside one step of a process you already run: reading a document, extracting fields, or classifying an enquiry. The rest of the workflow stays ordinary, and a person keeps the checks that matter. We suggest it only when that step needs it.",
-      ctaLabel: "Talk to us about that step",
+      ctaLabel: "Explore an AI workflow",
       image: {
         src: "/site-images/photos/ai-analytics-overlay.png",
         alt: "A person reviewing business analytics on a tablet and laptop",
@@ -473,7 +473,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       heading: "How an AI workflow engagement works",
       intro:
         "We start from the step, not from a model. If we cannot point at information a person has to interpret, we will say so and recommend a simpler automation.",
-      ctaLabel: "Talk to us about that step",
+      ctaLabel: "Explore an AI workflow",
       steps: [
         {
           title: "Find the interpretive step",
@@ -574,7 +574,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     cta: {
       title: "Show us the step someone still has to read.",
       body: "Describe the document, email or enquiry that has to be interpreted before the process can move. If that step is already a fixed rule, we will say so and treat it as process automation.",
-      label: "Talk to us about that step",
+      label: "Explore an AI workflow",
     },
     relatedSlugs: ["business-process-automation", "ai-agents"],
   },
@@ -588,11 +588,11 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     cardDescription: "Build internal tools, portals and applications around processes that off-the-shelf software cannot handle.",
     hero: {
       eyebrow: "Services / Custom Software Development",
-      title: "Custom software development for internal systems and portals",
+      title: "Software that fits the way your business actually works.",
       subheading: "Software built around how your business actually operates.",
       lead:
         "We design and build software around the way a business actually operates: internal platforms, client and staff portals, operations tools and dashboards. It is the right path when the current tools cannot represent the work.",
-      ctaLabel: "Talk to us about the process",
+      ctaLabel: "Discuss a software idea",
       image: {
         src: "/site-images/photos/dashboard-laptop-review.png",
         alt: "A person reviewing a software dashboard on a laptop",
@@ -705,7 +705,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       heading: "How a custom software engagement works",
       intro:
         "We do not start from a feature list. We start from the process the software has to support, and we agree the smallest version that would be useful. There is no published timeline or package price.",
-      ctaLabel: "Talk to us about the process",
+      ctaLabel: "Discuss a software idea",
       steps: [
         {
           title: "Map the process the software has to support",
@@ -805,7 +805,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     cta: {
       title: "Tell us where the current system stops fitting.",
       body: "Bring the spreadsheet, the workaround or the process your team has outgrown. We will tell you whether that is custom software, or whether connecting or automating what you already have is the better first step.",
-      label: "Talk to us about the process",
+      label: "Discuss a software idea",
     },
     relatedSlugs: ["system-integrations", "business-process-automation"],
   },
@@ -819,11 +819,11 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     cardDescription: "Build business agents that retrieve information, interact with systems and complete approved tasks.",
     hero: {
       eyebrow: "Services / AI Agents",
-      title: "AI agents for support, sales and internal operations",
+      title: "AI agents designed to work within your business.",
       subheading: "Agents that complete defined tasks inside your systems, with people on the decisions that matter.",
       lead:
         "An AI agent carries out a defined task inside your systems: answering a routine support question, preparing a sales summary, or completing an admin step it is allowed to take. It works within limits you set. It is not a general chatbot, and it is not a fixed workflow with a model attached.",
-      ctaLabel: "Talk to us about the task",
+      ctaLabel: "Discuss a practical agent use case",
       image: {
         src: "/site-images/photos/workers-system-monitors.png",
         alt: "Two people reviewing system data across multiple monitors",
@@ -938,7 +938,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       heading: "How an AI agent engagement works",
       intro:
         "The design is the task and the boundary. We do not start from a demo agent and look for somewhere to put it. There is no published timeline or price.",
-      ctaLabel: "Talk to us about the task",
+      ctaLabel: "Discuss a practical agent use case",
       steps: [
         {
           title: "Name the task, the source of truth and the limits",
@@ -1044,7 +1044,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     cta: {
       title: "Tell us the task, and what the agent must not do.",
       body: "Name the question or the admin task, the system that holds the answer, and the actions that need a person. That is enough to tell whether an agent fits, or whether a simpler workflow does.",
-      label: "Talk to us about the task",
+      label: "Discuss a practical agent use case",
     },
     relatedSlugs: ["ai-workflow-automation", "business-process-automation"],
   },
@@ -1058,11 +1058,11 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     cardDescription: "Connect CRM, accounting, operational and other business tools so information moves automatically.",
     hero: {
       eyebrow: "Services / System Integrations",
-      title: "System integrations and API development",
+      title: "Make the software you already pay for work together.",
       subheading: "Systems that share the same records, automatically.",
       lead:
         "System integration connects the software you already rely on, so customer, job and invoice records move between them instead of being copied by hand. Where a product has no suitable connector, we build the API or the custom connection.",
-      ctaLabel: "Discuss your current systems",
+      ctaLabel: "Discuss your existing systems",
       image: {
         src: "/site-images/photos/office-analytics-overlay.png",
         alt: "Hands reviewing printed charts and a tablet showing analytics",
@@ -1177,7 +1177,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       heading: "How an integration engagement works",
       intro:
         "We check that the systems can actually exchange data before we promise a connection. There is no published price or timeline. Both depend on the systems and on how the record needs to move.",
-      ctaLabel: "Discuss your current systems",
+      ctaLabel: "Discuss your existing systems",
       steps: [
         {
           title: "Name the record that is being re-entered",
@@ -1287,7 +1287,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     cta: {
       title: "Tell us which systems do not share records.",
       body: "You do not need a technical specification. Tell us what gets typed twice and which systems are involved. We will say whether a connection is possible before anyone talks about a rebuild.",
-      label: "Discuss your current systems",
+      label: "Discuss your existing systems",
     },
     relatedSlugs: ["business-process-automation", "custom-software-development"],
   },
@@ -1301,11 +1301,11 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     cardDescription: "Keep the solution reliable after launch with ongoing refinement, support and improvements.",
     hero: {
       eyebrow: "Services / Ongoing Support",
-      title: "Ongoing software development and support",
+      title: "Keep the systems you've built useful as the business grows.",
       subheading: "Keeping what we've built reliable as your business changes.",
       lead:
         "Ongoing support keeps an existing system matched to the business after the first build: maintenance, fixes, further features, and a team that is not dependent on one person to change it.",
-      ctaLabel: "Talk to us about the system you have",
+      ctaLabel: "Discuss support for your systems",
       image: {
         src: "/site-images/photos/dashboard-review-pair.png",
         alt: "Two colleagues reviewing analytics together on a desktop monitor",
@@ -1416,7 +1416,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
       heading: "How a support engagement works",
       intro:
         "We start from the live system and what has changed around it. We do not publish retainers, response times or a rate card. What is covered is agreed from the systems you rely on.",
-      ctaLabel: "Talk to us about the system you have",
+      ctaLabel: "Discuss support for your systems",
       steps: [
         {
           title: "Understand what is already live",
@@ -1509,7 +1509,7 @@ export const serviceLandingPages: ServiceLandingPageData[] = [
     cta: {
       title: "Tell us what is already live.",
       body: "Ongoing support starts from the software, automation or integration you rely on now, and what has changed around it. Bring the system. We will separate a fix from a new piece of work.",
-      label: "Talk to us about the system you have",
+      label: "Discuss support for your systems",
     },
     relatedSlugs: ["business-process-automation", "system-integrations", "custom-software-development"],
   },

@@ -44,7 +44,7 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
         title={service.hero.title}
         subheading={service.hero.subheading}
         description={service.hero.lead}
-        primaryCta={{ label: "Start a conversation", href: "/contact" }}
+        primaryCta={{ label: service.hero.ctaLabel, href: "/contact" }}
         secondaryCta={{ label: "How we approach it", href: "#approach" }}
       />
 

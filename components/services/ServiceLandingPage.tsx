@@ -27,6 +27,7 @@ function RichText({ parts }: { parts: readonly ServiceTextPart[] }) {
 }
 
 export function ServiceLandingPage({ service }: { service: ServiceLandingPageData }) {
+  const contactHref = `/contact?service=${service.slug}#enquiry`;
   const relatedServices = service.relatedSlugs
     .map((slug) => getServiceLandingPage(slug))
     .filter((item): item is ServiceLandingPageData => Boolean(item));
@@ -44,7 +45,7 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
         title={service.hero.title}
         subheading={service.hero.subheading}
         description={service.hero.lead}
-        primaryCta={{ label: service.hero.ctaLabel, href: "/contact" }}
+        primaryCta={{ label: service.hero.ctaLabel, href: contactHref }}
         secondaryCta={{ label: "How we approach it", href: "#approach" }}
       />
 
@@ -111,7 +112,7 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
         eyebrow="How we work"
         heading={service.engagement.heading}
         intro={service.engagement.intro}
-        cta={{ href: "/contact", label: service.engagement.ctaLabel }}
+        cta={{ href: contactHref, label: service.engagement.ctaLabel }}
         steps={service.engagement.steps}
       />
 
@@ -196,7 +197,7 @@ export function ServiceLandingPage({ service }: { service: ServiceLandingPageDat
           <p>{service.cta.body}</p>
           <p>{servicePricingNote}</p>
           <div className="hero-actions">
-            <ButtonLink href="/contact">{service.cta.label}</ButtonLink>
+            <ButtonLink href={contactHref}>{service.cta.label}</ButtonLink>
           </div>
         </div>
       </section>

@@ -10,7 +10,8 @@
     "qa:screenshots": "node scripts/qa-screenshots.mjs",
     "test:lib": "node --experimental-strip-types scripts/test-lib-utils.mjs",
     "test:redirects": "node scripts/test-redirects.mjs",
-    "test:calculator": "node --experimental-strip-types scripts/test-calculator.mjs"
+    "test:calculator": "node --experimental-strip-types scripts/test-calculator.mjs",
+    "test:contact": "node --experimental-strip-types scripts/test-contact.mjs"
   },
   "dependencies": {
     "next": "16.2.9",

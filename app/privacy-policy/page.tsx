@@ -51,9 +51,9 @@ export default function PrivacyPolicyPage() {
             </p>
             <ul>
               <li>your name (required)</li>
+              <li>your business name (required)</li>
               <li>your work email address (required)</li>
-              <li>your company name (optional)</li>
-              <li>your phone number (optional)</li>
+              <li>which service or area you are enquiring about (required)</li>
               <li>
                 what you are trying to improve (required). The message needs to be more than a few words before
                 the form will send.
@@ -113,7 +113,8 @@ export default function PrivacyPolicyPage() {
             </p>
             <p>
               You do not have to contact us. You can browse the site without giving us personal information. The
-              contact form will not send unless it has your name, a work email address and a message. If you
+              contact form will not send unless it has your name, business name, work email address, chosen
+              service and a message. If you
               email us instead, you choose what to include. If we do not have a way to reply, we may not be able
               to help.
             </p>

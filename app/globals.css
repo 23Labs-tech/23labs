@@ -160,7 +160,8 @@ main {
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
-textarea:focus-visible {
+textarea:focus-visible,
+select:focus-visible {
   outline: 2.5px solid var(--accent-dark);
   outline-offset: 3px;
   border-radius: 0;
@@ -3513,7 +3514,8 @@ a.proof-link .work-link {
 }
 
 .contact-form input,
-.contact-form textarea {
+.contact-form textarea,
+.contact-form select {
   border: 0;
   border-bottom: 1.5px solid var(--line);
   border-radius: 0;
@@ -3527,10 +3529,19 @@ a.proof-link .work-link {
   transition: border-color 0.2s;
 }
 
+.contact-form select {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--ink-soft) 50%),
+    linear-gradient(135deg, var(--ink-soft) 50%, transparent 50%);
+  background-position: calc(100% - 9px) 55%, calc(100% - 4px) 55%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
 .contact-form input:focus,
-.contact-form textarea:focus {
+.contact-form textarea:focus,
+.contact-form select:focus {
   border-color: var(--ink);
-  outline: none;
 }
 
 .contact-form input::placeholder,

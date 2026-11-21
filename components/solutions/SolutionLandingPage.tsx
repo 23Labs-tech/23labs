@@ -43,7 +43,7 @@ export function SolutionLandingPage({ solution }: { solution: SolutionPage }) {
             <h1>{solution.hero.title}</h1>
             <p className="lead">{solution.hero.lead}</p>
             <div className="hero-actions">
-              <ButtonLink href="/contact">{solution.cta.label}</ButtonLink>
+              <ButtonLink href="/contact#enquiry">{solution.cta.label}</ButtonLink>
             </div>
           </div>
           <div className="reveal in svc-hero-media">
@@ -98,7 +98,7 @@ export function SolutionLandingPage({ solution }: { solution: SolutionPage }) {
         eyebrow="How we fix it"
         heading={solution.approach.heading}
         intro={solution.approach.intro}
-        cta={{ href: "/contact", label: solution.cta.label }}
+        cta={{ href: "/contact#enquiry", label: solution.cta.label }}
         steps={solution.approach.steps}
       />
 
@@ -201,7 +201,7 @@ export function SolutionLandingPage({ solution }: { solution: SolutionPage }) {
           <p>{solution.cta.body}</p>
           <p>{servicePricingNote}</p>
           <div className="hero-actions">
-            <ButtonLink href="/contact">{solution.cta.label}</ButtonLink>
+            <ButtonLink href="/contact#enquiry">{solution.cta.label}</ButtonLink>
           </div>
         </div>
       </section>

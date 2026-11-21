@@ -13,7 +13,8 @@ export function ContactHero() {
             custom software or something simpler.
           </p>
           <p className="contact-hero-note">
-            See how this worked for a similar business:{" "}
+            Send an enquiry below, or book a time directly if you&apos;d rather talk it through live. See how
+            this worked for a similar business:{" "}
             <Link href="/case-studies/huntress-recruitment">Huntress Recruitment</Link>.
           </p>
         </div>

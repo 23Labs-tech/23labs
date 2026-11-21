@@ -1,8 +1,21 @@
+import { serviceLandingPages } from "@/lib/services";
+
+export const CONTACT_SERVICE_OPTIONS = [
+  ...serviceLandingPages.map((service) => ({ slug: service.slug, label: service.navLabel })),
+  { slug: "other", label: "Not sure / something else" },
+];
+
+const VALID_SERVICE_SLUGS = new Set(CONTACT_SERVICE_OPTIONS.map((option) => option.slug));
+
+export function isValidServiceSlug(slug: string): boolean {
+  return VALID_SERVICE_SLUGS.has(slug);
+}
+
 export type ContactPayload = {
   fullName: string;
-  company?: string;
+  business: string;
   email: string;
-  phone?: string;
+  service: string;
   message: string;
   website?: string;
   startedAt?: number;
@@ -24,9 +37,9 @@ function clean(value: unknown, maxLength: number) {
 export function validateContactPayload(input: unknown): ContactValidationResult {
   const source = input && typeof input === "object" ? (input as Record<string, unknown>) : {};
   const fullName = clean(source.fullName, 120);
-  const company = clean(source.company, 120);
+  const business = clean(source.business, 120);
   const email = clean(source.email, 160).toLowerCase();
-  const phone = clean(source.phone, 60);
+  const service = clean(source.service, 60);
   const message = clean(source.message, 2000);
   const website = clean(source.website, 200);
   const rawStartedAt = source.startedAt;
@@ -40,8 +53,11 @@ export function validateContactPayload(input: unknown): ContactValidationResult 
   const errors: ContactErrors = {};
 
   if (!fullName) errors.fullName = "Please enter your name.";
+  if (!business) errors.business = "Please enter your business name.";
   if (!email) errors.email = "Please enter your email address.";
   else if (!EMAIL_RE.test(email)) errors.email = "Please enter a valid email address.";
+  if (!service) errors.service = "Please choose the service you are enquiring about.";
+  else if (!isValidServiceSlug(service)) errors.service = "Please choose a valid option from the list.";
   if (!message) errors.message = "Please tell us how we can help.";
   else if (message.length < 20) errors.message = "Please share a little more detail.";
 
@@ -56,9 +72,9 @@ export function validateContactPayload(input: unknown): ContactValidationResult 
     spam,
     data: {
       fullName,
-      company,
+      business,
       email,
-      phone,
+      service,
       message,
       website,
       startedAt: Number.isFinite(startedAt) ? startedAt : undefined,

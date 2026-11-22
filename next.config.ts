@@ -10,7 +10,28 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
   },
   async redirects() {
+    // Search Console 404s. The apex rules must come before the catch-all
+    // below and must use the final www URL. A relative destination would
+    // stay on 23labs.co and then hop again via the catch-all; putting these
+    // after the catch-all would preserve the old path on www and hop again.
+    const searchConsoleRedirects = [
+      { source: "/services/ai-agents-5", destination: "/services/ai-agents" },
+      { source: "/services/system-integrations-3", destination: "/services/system-integrations" },
+      { source: "/resources", destination: "/blog" },
+    ];
+
     return [
+      ...searchConsoleRedirects.map(({ source, destination }) => ({
+        source,
+        has: [
+          {
+            type: "host" as const,
+            value: "23labs.co",
+          },
+        ],
+        destination: `https://www.23labs.co${destination}`,
+        permanent: true,
+      })),
       // Apex host to the canonical www origin, preserving the path.
       // Vercel domain settings may already do this at the edge; this is the
       // application-level permanent redirect for host 23labs.co only.
@@ -25,6 +46,11 @@ const nextConfig: NextConfig = {
         destination: "https://www.23labs.co/:path*",
         permanent: true,
       },
+      ...searchConsoleRedirects.map(({ source, destination }) => ({
+        source,
+        destination,
+        permanent: true,
+      })),
       {
         source: "/blog/beyond-call-answering-allied-health-ai-receptionist",
         destination: "/allied-health",

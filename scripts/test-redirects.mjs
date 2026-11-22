@@ -3,9 +3,14 @@
 // real 200 page rather than another redirect or a 404, and (3) preserves
 // query strings. Run against a `next start` server (redirects don't apply
 // under `next build` alone): node scripts/test-redirects.mjs
+import { request as httpRequest } from "node:http";
+
 const BASE = process.env.TEST_BASE_URL ?? "http://localhost:3000";
 
 const redirects = [
+  { source: "/services/ai-agents-5", destination: "/services/ai-agents" },
+  { source: "/services/system-integrations-3", destination: "/services/system-integrations" },
+  { source: "/resources", destination: "/blog" },
   { source: "/services/business-automation", destination: "/services/business-process-automation" },
   { source: "/services/systems-integrations", destination: "/services/system-integrations" },
   { source: "/services/system-integration", destination: "/services/system-integrations" },
@@ -90,6 +95,63 @@ for (const destination of destinations) {
   const res = await fetch(`${BASE}${destination}`, { redirect: "manual" });
   check(`${destination} is not itself a redirect source`, res.status === 200, `got status ${res.status}`);
 }
+
+// Apex host: the same legacy paths must jump straight to the final www URL.
+// If they only rewrote the path, the catch-all would send 23labs.co/old to
+// www.23labs.co/old and then redirect again.
+const apexRedirects = [
+  { source: "/services/ai-agents-5", location: "https://www.23labs.co/services/ai-agents" },
+  { source: "/services/system-integrations-3", location: "https://www.23labs.co/services/system-integrations" },
+  { source: "/resources", location: "https://www.23labs.co/blog" },
+];
+
+function rawGet(path, headers) {
+  const url = new URL(path, BASE);
+  return new Promise((resolve, reject) => {
+    const req = httpRequest(
+      {
+        protocol: url.protocol,
+        hostname: url.hostname,
+        port: url.port,
+        path: `${url.pathname}${url.search}`,
+        method: "GET",
+        headers,
+      },
+      (res) => {
+        res.resume();
+        const locationHeader = res.headers.location;
+        resolve({
+          status: res.statusCode ?? 0,
+          location: Array.isArray(locationHeader) ? locationHeader[0] : (locationHeader ?? null),
+        });
+      },
+    );
+    req.on("error", reject);
+    req.end();
+  });
+}
+
+for (const { source, location } of apexRedirects) {
+  const res = await rawGet(source, { host: "23labs.co" });
+  const locationWithoutQuery = res.location?.split("?")[0] ?? null;
+  check(
+    `${source} on 23labs.co -> permanent redirect`,
+    res.status === 301 || res.status === 308,
+    `got status ${res.status}`,
+  );
+  check(
+    `${source} on 23labs.co -> ${location} in one hop`,
+    locationWithoutQuery === location,
+    `got Location: ${res.location}`,
+  );
+}
+
+const apexQuery = await rawGet("/resources?utm_source=test", { host: "23labs.co" });
+check(
+  "apex legacy redirect preserves the query string",
+  apexQuery.location?.includes("utm_source=test") && apexQuery.location?.startsWith("https://www.23labs.co/blog"),
+  `got Location: ${apexQuery.location}`,
+);
 
 console.log(`\n${failures.length ? "FAILED" : "ALL PASS"}: ${failures.length} failure(s)`);
 process.exit(failures.length ? 1 : 0);

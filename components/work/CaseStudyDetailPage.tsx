@@ -33,7 +33,7 @@ function CopyParagraph({ parts }: { parts: CaseStudyCopyPart[] }) {
     <p>
       {parts.map((part, index) =>
         part.href ? (
-          <Link href={part.href} key={`${part.href}-${index}`}>
+          <Link href={part.href} key={index}>
             {part.text}
           </Link>
         ) : (

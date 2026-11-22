@@ -70,7 +70,7 @@ function RichParagraph({ paragraph }: { paragraph: CopyBlock }) {
     <p>
       {paragraph.map((part, index) =>
         part.href ? (
-          <Link href={part.href} key={`${part.href}-${index}`}>
+          <Link href={part.href} key={index}>
             {part.text}
           </Link>
         ) : (

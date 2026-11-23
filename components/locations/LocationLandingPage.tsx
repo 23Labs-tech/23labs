@@ -8,6 +8,8 @@ import { CheckIcon, IndustryIcon } from "@/components/industries/IndustryIcon";
 import { JsonLd } from "@/components/site/JsonLd";
 import { breadcrumbList, faqPageJsonLd, serviceJsonLd } from "@/lib/schema";
 import { serviceLandingPages } from "@/lib/services";
+import { LocationCitySections } from "@/components/locations/LocationCitySections";
+import { getLocationCityContent } from "@/lib/locationCityContent";
 import {
   buildLocationFaqs,
   getLocationSuccessStories,
@@ -16,6 +18,7 @@ import {
   locationCtaExpect,
   locationPractical,
   locationsHub,
+  type LocationFaq,
   type LocationPage,
 } from "@/lib/locations";
 
@@ -150,19 +153,27 @@ function LocationTrust() {
   return <PracticalByDesign data={locationPractical} />;
 }
 
-function LocationFAQ({ location }: { location: LocationPage }) {
-  const faqs = buildLocationFaqs(location);
-  return (
-    <FaqAccordion items={faqs} idPrefix={`faq-location-${location.slug}`} heading={`Working with 23Labs in ${location.city}`} />
-  );
+function LocationFAQ({
+  location,
+  faqs,
+  heading,
+}: {
+  location: LocationPage;
+  faqs: readonly LocationFaq[];
+  heading: string;
+}) {
+  return <FaqAccordion items={faqs} idPrefix={`faq-location-${location.slug}`} heading={heading} />;
 }
 
-function LocationCTA({ location }: { location: LocationPage }) {
+function LocationCTA({ location, heading, body }: { location: LocationPage; heading?: string; body?: string }) {
   return (
     <section className="sec">
       <div className="wrap cta-band reveal">
-        <h2>Have something worth fixing in {location.city}?</h2>
-        <p>Bring the workflow, system or process that is creating friction. We will help you work out the most practical next step.</p>
+        <h2>{heading ?? `Have something worth fixing in ${location.city}?`}</h2>
+        <p>
+          {body ??
+            "Bring the workflow, system or process that is creating friction. We will help you work out the most practical next step."}
+        </p>
         <div className="hero-actions">
           <ButtonLink href="/contact">
             Start a conversation
@@ -182,6 +193,8 @@ function LocationCTA({ location }: { location: LocationPage }) {
 }
 
 export function LocationLandingPage({ location }: { location: LocationPage }) {
+  const cityContent = getLocationCityContent(location.slug);
+  const faqs = cityContent?.faqs ?? buildLocationFaqs(location);
   const areaServed =
     location.country === "Australia"
       ? [
@@ -198,12 +211,22 @@ export function LocationLandingPage({ location }: { location: LocationPage }) {
     <>
       <LocationHero location={location} />
       <LocationIntro location={location} />
-      <LocationBenefits location={location} />
-      <LocationServices />
-      <LocationSuccessStories location={location} />
-      <LocationTrust />
-      <LocationFAQ location={location} />
-      <LocationCTA location={location} />
+      {cityContent ? (
+        <LocationCitySections content={cityContent} />
+      ) : (
+        <>
+          <LocationBenefits location={location} />
+          <LocationServices />
+          <LocationSuccessStories location={location} />
+          <LocationTrust />
+        </>
+      )}
+      <LocationFAQ
+        location={location}
+        faqs={faqs}
+        heading={cityContent?.faqHeading ?? `Working with 23Labs in ${location.city}`}
+      />
+      <LocationCTA location={location} heading={cityContent?.cta.heading} body={cityContent?.cta.body} />
 
       <JsonLd
         data={{
@@ -215,7 +238,7 @@ export function LocationLandingPage({ location }: { location: LocationPage }) {
               path: location.path,
               areaServed,
             }),
-            faqPageJsonLd(location.path, buildLocationFaqs(location)),
+            faqPageJsonLd(location.path, faqs),
             breadcrumbList([
               { name: "Home", path: "/" },
               { name: "Locations", path: locationsHub.path },

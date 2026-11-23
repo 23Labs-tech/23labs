@@ -153,6 +153,11 @@ export function buildLocationFaqs(location: LocationPage): LocationFaq[] {
   ];
 }
 
+/**
+ * Shared fields for every city. Brisbane and Melbourne also have a bespoke
+ * body in `lib/locationCityContent.ts`. Add an entry there to give another
+ * city the same treatment. Cities without an entry keep the shared template.
+ */
 export const locationPages: LocationPage[] = [
   {
     slug: "melbourne",
